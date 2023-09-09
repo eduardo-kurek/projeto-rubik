@@ -13,7 +13,6 @@ all:
 
 compile:
 	gcc -c "rubik/rubik.c" -o "rubik/rubik.o"
-	gcc -c "rubik/branch.c" -o "rubik/branch.o"
 
 test:
 	make compile
