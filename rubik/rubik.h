@@ -15,7 +15,7 @@
 
     /**************************************************************
      * Objeto referente a cada cor
-     * 
+     *
      * @note char nome: nome da cor
      * @note int cod: código referente a cor, 1 à 6
      * @note char ch[15]: string referente ao codigo de impressão da cor
@@ -28,7 +28,7 @@
 
     /**************************************************************
      * Objeto referente a cada adesivo
-     * 
+     *
      * @note const Cor* cor: objeto 'Cor' que o adesivo está atrelado
     **************************************************************/
     typedef struct adesivo{
@@ -37,26 +37,12 @@
 
     /**************************************************************
      * Objeto referente a cada face
-     * 
+     *
      * @note Adesivo* adesivos[3][3]: matriz contendo os adesivos da face
     **************************************************************/
     typedef struct face{
         Adesivo* adesivos[3][3];
     } Face;
-
-    /**************************************************************
-     * Objeto referente ao cubo mágico
-     *
-     * @note Face* 0: objeto 'Face' referente a face frontal
-     * @note Face* 1: objeto 'Face' referente a face superior
-     * @note Face* 2: objeto 'Face' referente a face lateral dir.
-     * @note Face* 3: objeto 'Face' referente a face inferior
-     * @note Face* 4: objeto 'Face' referente a face lateral esq.
-     * @note Face* 5: objeto 'Face' referente a face posterior
-    **************************************************************/
-    typedef struct rubik{
-        Face* faces[6];
-    } Rubik;
 
     /**************************************************************
      * Objeto referente às camadas de qualquer face
@@ -86,6 +72,7 @@
      *  horário (0) ou anti-horário (1)
      *  short int quantidade: quantidade de vezes que o movimento
      *  repetirá
+     *  short int indice: indice que mapeia o movimento
     **************************************************************/
     typedef struct movimento{
         const short int faces[4];
@@ -93,7 +80,24 @@
         const short int faceFraca;
         const short int sentido;
         short int quantidade;
+        short int indice;
     } Movimento;
+
+    /**************************************************************
+    * Objeto referente ao cubo mágico
+    *
+    * @note Face* 0: objeto 'Face' referente a face frontal
+    * @note Face* 1: objeto 'Face' referente a face superior
+    * @note Face* 2: objeto 'Face' referente a face lateral dir.
+    * @note Face* 3: objeto 'Face' referente a face inferior
+    * @note Face* 4: objeto 'Face' referente a face lateral esq.
+    * @note Face* 5: objeto 'Face' referente a face posterior
+    * @note const Movimento* ultimo: Ultimo movimento realizado no cubo
+    **************************************************************/
+    typedef struct rubik{
+        Face* faces[6];
+        const Movimento* ultimo;
+    } Rubik;
 
 #pragma endregion
 

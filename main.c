@@ -23,22 +23,6 @@ int main(int argc, char* argv[]){
     rubik_movimentar(rubik, LA);
     rubik_movimentar(rubik, BA);
 
-    // PLL T
-//    rubik_movimentar(rubik, R);
-//    rubik_movimentar(rubik, U);
-//    rubik_movimentar(rubik, RA);
-//    rubik_movimentar(rubik, UA);
-//    rubik_movimentar(rubik, RA);
-//    rubik_movimentar(rubik, F);
-//    rubik_movimentar(rubik, R2);
-//    rubik_movimentar(rubik, UA);
-//    rubik_movimentar(rubik, RA);
-//    rubik_movimentar(rubik, UA);
-//    rubik_movimentar(rubik, R);
-//    rubik_movimentar(rubik, U);
-//    rubik_movimentar(rubik, RA);
-//    rubik_movimentar(rubik, FA);
-
     rubik_imprimir(rubik);
 
     printf("\n");
