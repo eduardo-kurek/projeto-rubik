@@ -279,61 +279,61 @@
     }
 
     /**
+     * Transpõe uma matriz 3x3 de adesivos (Face). Ou seja,
+     * transforma as colunas em linhas, e vice-versa
+     * @param face
+     */
+    void face_transpor(Face* face){
+        for(uint8_t i = 0; i < 3; i++){
+            for(uint8_t j = i + 1; j < 3; j++){
+                Adesivo* temp = face->adesivos[i][j];
+                face->adesivos[i][j] = face->adesivos[j][i];
+                face->adesivos[j][i] = temp;
+            }
+        }
+    }
+
+    /**
+     * Troca duas linhas de uma determinada face
+     * @param face: face alvo
+     * @param lin1: número da primeira coluna
+     * @param lin2: número da segunda coluna
+     */
+    void face_trocar_linhas(Face* face, uint8_t lin1, uint8_t lin2){
+        for(uint8_t i = 0; i < 3; i++){
+            Adesivo* temp = face->adesivos[lin1][i];
+            face->adesivos[lin1][i] = face->adesivos[lin2][i];
+            face->adesivos[lin2][i] = temp;
+        }
+    }
+
+    /**
+     * Troca duas colunas de uma determinada face
+     * @param face: face alvo
+     * @param col1: número da primeira coluna
+     * @param col2: número da segunda coluna
+     */
+    void face_trocar_colunas(Face* face, uint8_t col1, uint8_t col2){
+        for(uint8_t i = 0; i < 3; i++){
+            Adesivo* temp = face->adesivos[i][col1];
+            face->adesivos[i][col1] = face->adesivos[i][col2];
+            face->adesivos[i][col2] = temp;
+        }
+    }
+
+    /**
     * Função responsável por girar uma determinada face do cubo
     * @param face: face a ser girada
     * @param sentido: sentido do movimento (0) horário, (1) anti-horário
     */
     bool face_girar(Face* face, short int sentido){
-        short int cantos[4][2] = {
-                {0, 0},
-                {0, 2},
-                {2, 2},
-                {2, 0}
-        };
+        if(sentido != 0  && sentido != 1) return false;
 
-        short int meios[4][2] = {
-                {0, 1},
-                {1, 2},
-                {2, 1},
-                {1, 0}
-        };
+        face_transpor(face);
+        if(sentido) face_trocar_linhas(face, 0, 2);
+        else face_trocar_colunas(face, 0, 2);
 
-        short int ci = sentido ? -2 : 1;
-        short int ti = sentido ? 1 : 4;
-
-        short int first = abs(ci-1);
-        short int x0 = cantos[first][0], y0 = cantos[abs(first)][1];
-        const Cor* aux = face->adesivos[x0][y0]->cor;
-
-        // Cantos
-        for(short int i = ci; i != ti ; i++){
-
-            // Coordenadas atual
-            short int x = cantos[abs(i)][0], y = cantos[abs(i)][1];
-
-            // Fazendo a troca
-            const Cor* temp = face->adesivos[x][y]->cor;
-            face->adesivos[x][y]->cor = aux;
-            aux = temp;
-        }
-        face->adesivos[x0][y0]->cor = aux;
-
-        // Meios
-        x0 = meios[first][0], y0 = meios[first][1];
-        aux = face->adesivos[x0][y0]->cor;
-        for(short int i = ci; i != ti ; i++){
-
-            // Coordenadas atual
-            short int x = meios[abs(i)][0], y = meios[abs(i)][1];
-
-            // Fazendo a troca
-            const Cor* temp = face->adesivos[x][y]->cor;
-            face->adesivos[x][y]->cor = aux;
-            aux = temp;
-        }
-        face->adesivos[x0][y0]->cor = aux;
         return true;
-
     }
 
 
