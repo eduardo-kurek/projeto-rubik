@@ -1,18 +1,24 @@
+ifeq ($(TERM), xterm-256color)
+	OUT=a.out
+	CLEAN=rm
+else
+	OUT=a.exe
+	CLEAN=del
+endif
+
+all:
+	make compile
+	gcc main.c "rubik/rubik.o" -o $(OUT)
+	./$(OUT)
+
 compile:
 	gcc -c "rubik/rubik.c" -o "rubik/rubik.o"
 	gcc -c "rubik/branch.c" -o "rubik/branch.o"
 
-all:
-	make compile
-	gcc main.c "rubik/rubik.o" -o a.bin
-	./a.bin
-
-nc:
-	make compile
-	gcc main.c "rubik/rubik.o"
-	./a.bin
-
 test:
 	make compile
-	gcc testes.c "rubik/rubik.c" "rubik/branch.c" -o a.bin
-	./a.bin
+	gcc testes.c "rubik/rubik.c" -o $(OUT)
+	./$(OUT)
+
+clean:
+	$(CLEAN) *.out *.bin *.exe
