@@ -94,7 +94,7 @@
 
         const Movimento MOV_U2 = {
                 {F_FRENTE, F_ESQUERDA, F_TRAS, F_DIREITA},
-                {&CAMADA_U, &CAMADA_U, &CAMADA_UA, &CAMADA_U},
+                {&CAMADA_U, &CAMADA_U, &CAMADA_U, &CAMADA_U},
                 F_TOPO, HORARIO, 2, 5, "U2"
         };
         const Movimento* U2 = &MOV_U2;
