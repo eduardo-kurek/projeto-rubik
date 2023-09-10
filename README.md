@@ -53,4 +53,7 @@ all:
     gcc main.c "rubik/rubik.o" -o $(OUT)
     $(CLEAR)
     ./$(OUT)
+    
+compile:
+    gcc -c "rubik/rubik.c" -o "rubik/rubik.o"
 ```
