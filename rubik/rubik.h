@@ -81,6 +81,7 @@
         const short int sentido;
         short int quantidade;
         short int indice;
+        char nome[3];
     } Movimento;
 
     /**************************************************************
@@ -257,9 +258,9 @@
     * Embaralha um cubo mágico X vezes
     * @param Rubik* rubik: instância a ser embaralhada
     * @param short int qt: quantidade de movimentos aleatórios
-    * @return Rubik*: Instância do cubo mágico
+    * @return string contendo os embaralhamentos realizados
     **************************************************************/
-    void rubik_embaralhar(Rubik* rubik, short int qt);
+    char* rubik_embaralhar(Rubik* rubik, short int qt);
 
 #pragma endregion
 
