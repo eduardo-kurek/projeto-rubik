@@ -1,5 +1,5 @@
-#ifndef _RUBIK_
-#define _RUBIK_
+#ifndef RUBIK
+#define RUBIK
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,6 +7,7 @@
 #include <stdbool.h>
 #include <ctype.h>
 #include <stdint.h>
+#include <stdarg.h>
 
 /**************************************************************
 * STRUCTS
@@ -205,10 +206,11 @@
      * Função responsável por movimentar o cubo mágico
      * 
      * @param Rubik* rubik: Instância a ser movimentada
-     * @param Movimento* mov: Qual movimento deve ser executado
+     * @param int qt: Quantidade de movimentos que seram executados
+     * @param ...: Movimentos a serem executados
      * @return void
     **************************************************************/
-    void rubik_movimentar(Rubik* rubik, const Movimento* mov);
+    void rubik_movimentar(Rubik* rubik, int qt, ...);
 
     /**************************************************************
      * Define determinada posição de um cubo através da string
@@ -260,7 +262,7 @@
     * @param short int qt: quantidade de movimentos aleatórios
     * @return string contendo os embaralhamentos realizados
     **************************************************************/
-    char* rubik_embaralhar(Rubik* rubik, short int qt);
+    char* rubik_embaralhar(Rubik* rubik, int qt);
 
 #pragma endregion
 

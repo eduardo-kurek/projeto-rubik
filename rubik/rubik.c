@@ -618,35 +618,42 @@
         imprimir_camada(rubik, 3);
     }
 
-    void rubik_movimentar(Rubik* rubik, const Movimento* mov){
-        for(short int qt = 0; qt < mov->quantidade; qt++){
+    void rubik_movimentar(Rubik* rubik, int num_args, ...){
+        va_list list;
+        va_start(list, num_args);
 
-            const Cor* aux[3];
-            for(short int i = 0; i < 4; i++){
-                // Variáveis auxiliares
-                short int f = mov->faces[i];
-                const Camada* camada = mov->camadas[i];
-                const Cor* coresAtuais[3];
+        for(uint8_t args = 0; args < num_args; args++){
+            const Movimento* mov = va_arg(list, const Movimento*);
 
-                // Obter as cores da face e camada atual
-                extrair_cores(rubik, f, camada, coresAtuais);
+            for(uint8_t qt = 0; qt < mov->quantidade; qt++){
 
-                // Setar as novas cores da camada atual
-                if(i > 0) set_camada(rubik, f, camada, aux);
+                const Cor* aux[3];
+                for(uint8_t i = 0; i < 4; i++){
+                    // Variáveis auxiliares
+                    short int f = mov->faces[i];
+                    const Camada* camada = mov->camadas[i];
+                    const Cor* coresAtuais[3];
 
-                // Ajustando os valores auxiliares
-                clonar_cores(coresAtuais, aux);
+                    // Obter as cores da face e camada atual
+                    extrair_cores(rubik, f, camada, coresAtuais);
+
+                    // Setar as novas cores da camada atual
+                    if(i > 0) set_camada(rubik, f, camada, aux);
+
+                    // Ajustando os valores auxiliares
+                    clonar_cores(coresAtuais, aux);
+                }
+
+                // Setando a primeira camada
+                set_camada(rubik, mov->faces[0], mov->camadas[0], aux);
+
+                // Girando a face fraca no sentido recebido
+                face_girar(rubik->faces[mov->faceFraca] , mov->sentido);
             }
 
-            // Setando a primeira camada
-            set_camada(rubik, mov->faces[0], mov->camadas[0], aux);
-
-            // Girando a face fraca no sentido recebido
-            face_girar(rubik->faces[mov->faceFraca] , mov->sentido);
+            // Setando o útilmo movimento realizado no cubo
+            rubik->ultimo = mov;
         }
-
-        // Setando o útilmo movimento realizado no cubo
-        rubik->ultimo = mov;
     }
 
     bool rubik_definir_posicao(Rubik* rubik, char* posicao){
@@ -701,7 +708,7 @@
         return rubik;
     }
 
-    char* rubik_embaralhar(Rubik* rubik, short int qt){
+    char* rubik_embaralhar(Rubik* rubik, int qt){
         set_srand(time(NULL));
 
         char* str = (char*)calloc(sizeof(char), qt * 3 + 2);
@@ -709,7 +716,7 @@
             const Movimento* mov = movimento_aleatorio(rubik);
             strcat(str, mov->nome);
             strcat(str, " ");
-            rubik_movimentar(rubik, mov);
+            rubik_movimentar(rubik, 1, mov);
         }
         return str;
     }

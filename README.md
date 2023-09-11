@@ -17,7 +17,7 @@ Funções disponíveis até o momento podem ser encontradas no arquivo rubik/rub
 int main(){
     Rubik* rubik = rubik_criar();
     char* embaralhamento = rubik_embaralhar(rubik, 20);
-    rubik_movimentar(rubik, F);
+    rubik_movimentar(rubik, 1, F);
     
     rubik_imprimir(rubik);
     char* exportacao = rubik_exportar(rubik);
