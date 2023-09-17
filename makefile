@@ -8,21 +8,24 @@ else
 	CLEAR=cls
 endif
 
-all:
-	make compile
-	gcc main.c "rubik/rubik.o" -o $(OUT)
+RUBIK := $(wildcard rubik/*.c)
+BIBLIOTECAS := $(wildcard bibliotecas/*.c)
+ALL := $(RUBIK) $(BIBLIOTECAS)
+
+all: compile
+	gcc main.c "rubik/*.o" "bibliotecas/*.o" -o $(OUT)
 	$(CLEAR)
+	./$(OUT)
+
+test: compile
+	gcc testes.c $(ALL) -o $(OUT)
 	./$(OUT)
 
 compile:
-	gcc -c "rubik/rubik.c" -o "rubik/rubik.o"
-
-test:
-	make compile
-	gcc testes.c "rubik/rubik.c" -o $(OUT)
-	$(CLEAR)
-	./$(OUT)
+	gcc -c rubik/rubik.c -o rubik/rubik.o
+	gcc -c bibliotecas/variaveis-ambiente.c -o bibliotecas/variaveis-ambiente.o
 
 clean:
+	$(CLEAN) rubik/*.o bibliotecas/*.o
 	$(CLEAN) *.out *.bin *.exe
 	$(CLEAR)
