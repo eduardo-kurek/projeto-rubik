@@ -1,0 +1,7 @@
+Testando performance do histórico;
+    i = 999999
+    Movimento = R
+
+    Tempo sem histórico: 0.190s
+    Tempo com histórico (lendo a variavel máxima no .env a cada movimento): 1.775s (+834.21%)
+    Tempo com histórico otimizado (guardando a quantidade na struct rubik): 0.270s (+42.10%)

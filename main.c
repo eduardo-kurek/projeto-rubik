@@ -12,8 +12,9 @@ int main(int argc, char* argv[]){
     printf("\n");
 
     Rubik* rubik = rubik_criar();
-    char* emb = rubik_embaralhar(rubik, 20);
-    printf("%s\n", emb);
+    char* scramble = rubik_embaralhar(rubik, 20);
+    printf("Scramble: %s\n", scramble);
+ 
     rubik_imprimir(rubik);
 
     printf("\n");
