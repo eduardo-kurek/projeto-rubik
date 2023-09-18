@@ -8,8 +8,8 @@ else
 	CLEAR=cls
 endif
 
-RUBIK := $(wildcard rubik/*.c)
-BIBLIOTECAS := $(wildcard bibliotecas/*.c)
+RUBIK := $(wildcard rubik/*.o)
+BIBLIOTECAS := $(wildcard bibliotecas/*.o)
 ALL := $(RUBIK) $(BIBLIOTECAS)
 
 all: compile

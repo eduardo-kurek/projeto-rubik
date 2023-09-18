@@ -86,6 +86,23 @@
     } Movimento;
 
     /**************************************************************
+     * Objeto referente a um nó do histórico
+     **************************************************************/
+    typedef struct no{
+        const Movimento* dado;
+        struct no *ant;
+        struct no *prox;
+    } No;
+
+    /**************************************************************
+     * Objeto referente a um nó do histórico
+     **************************************************************/
+    typedef struct historico{
+        struct no *sentinela;
+        int qtde;
+    } Historico;
+
+    /**************************************************************
     * Objeto referente ao cubo mágico
     *
     * @note Face* 0: objeto 'Face' referente a face frontal
@@ -98,7 +115,8 @@
     **************************************************************/
     typedef struct rubik{
         Face* faces[6];
-        const Movimento* ultimo;
+        Historico* historico;
+        int qtHistorico;
     } Rubik;
 
 #pragma endregion
@@ -263,6 +281,13 @@
     * @return string contendo os embaralhamentos realizados
     **************************************************************/
     char* rubik_embaralhar(Rubik* rubik, int qt);
+
+    /**************************************************************
+    * Imprime o histórico de movimentos do cubo
+    * @param Rubik* rubik: instância do cubo contendo o histórico
+    * @return void
+    **************************************************************/
+    void rubik_imprimir_historico(Rubik* rubik);
 
 #pragma endregion
 

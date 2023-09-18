@@ -7,9 +7,9 @@
 /**
  * Função que lê um arquivo linha a linha e define todas
  * as variáveis de ambiente encontrado nele.
- * @param arquivo
- * @return
+ * @param nomeArquivo: nome do arquivo a ser lido
+ * @return true caso o arquivo exista, false caso contrário
  */
-bool env_read(char arquivo[256]);
+bool env_read(char* nomeArquivo);
 
 #endif

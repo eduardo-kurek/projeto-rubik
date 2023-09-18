@@ -522,14 +522,6 @@
      * @return bool
      */
     bool movimento_valido(Rubik* rubik, const Movimento* mov){
-        if(rubik->ultimo == NULL) return true;
-
-        // Obtendo min e max proibidos
-        uint8_t linha = rubik->ultimo->indice / 3;
-        uint8_t min = linha * 3;
-        uint8_t max = min + 2;
-
-        if(mov->indice <= max && mov->indice >= min) return false;
         return true;
     }
 
@@ -561,6 +553,89 @@
 
 #pragma endregion
 
+#pragma region HISTORICO
+
+    No* no_criar(No* sentinela, const Movimento* elemento){
+        No* no = (No*)malloc(sizeof(No));
+        no->prox = sentinela;
+        no->ant = sentinela;
+        no->dado = elemento;
+        return no;
+    }
+
+    No* no_endereco(Historico* h, int posicao){
+        No* aux = h->sentinela;
+        for(int i = 0; i < posicao; i++) aux = aux->prox;
+        return aux;
+    }
+
+    Historico* historico_criar(){
+        Historico *h = (Historico*)malloc(sizeof(Historico));
+        No* sentinela = (No*)malloc(sizeof(No));
+        sentinela->prox = sentinela;
+        sentinela->ant = sentinela;
+
+        h->sentinela = sentinela;
+        h->qtde = 0;
+        return h;
+    }
+
+    void historico_destruir(Historico** endHistorico){
+        Historico* l = *endHistorico;
+
+        No* aux = l->sentinela->ant;
+        for(int i = 0; i < l->qtde; i++){
+            No* prox = aux->ant;
+            free(aux);
+            aux = prox;
+        }
+
+        free(*endHistorico);
+        endHistorico = NULL;
+    }
+
+    bool historico_remover_posicao(Historico* h, int posicao){
+        if(posicao < 0 || posicao >= h->qtde) return false;
+
+        No* esquerda = no_endereco(h, posicao);
+        No* direita = esquerda->prox->prox;
+
+        // Removendo o nó da direita
+        free(esquerda->prox);
+        esquerda->prox = direita;
+        direita->ant = esquerda;
+        h->qtde--;
+
+        return true;
+    }
+
+    bool historico_anexar(Rubik* rubik, const Movimento* elemento){
+        Historico* h = rubik->historico;
+        No* novo = no_criar(h->sentinela, elemento);
+
+        if(h->qtde == rubik->qtHistorico)
+            historico_remover_posicao(h, 0);
+
+        novo->ant = h->sentinela->ant;
+        h->sentinela->ant->prox = novo;
+        h->sentinela->ant = novo;
+        h->qtde++;
+        return true;
+    }
+
+
+
+    void historico_imprimir(Historico* h){
+        No* aux = h->sentinela->prox;
+        for(int i = 0; i < h->qtde; i++){
+            printf("%s ", aux->dado->nome);
+            aux = aux->prox;
+        }
+        printf("\b\b\n");
+    }
+
+#pragma endregion
+
 /**************************************************************
 * IMPLEMENTAÇÕES
 **************************************************************/
@@ -581,13 +656,16 @@
         for(int i = 0; i < 6; i++)
             rubik->faces[i] = face_criar(cores[i]);
 
-        rubik->ultimo = NULL;
+        Historico* h = historico_criar();
+        rubik->historico = h;
+        rubik->qtHistorico = atoi(getenv("QT_HISTORICO_MOVIMENTOS"));
 
         return rubik;
     }
 
     void rubik_destruir(Rubik** rubik){
         Rubik* r = *rubik;
+        historico_destruir(&(r->historico));
         for(int i = 0; i < 6; i++)
             face_destruir(&(r->faces[i]));
         *rubik = NULL;
@@ -622,7 +700,7 @@
         va_list list;
         va_start(list, num_args);
 
-        for(uint8_t args = 0; args < num_args; args++){
+        for(int args = 0; args < num_args; args++){
             const Movimento* mov = va_arg(list, const Movimento*);
 
             for(uint8_t qt = 0; qt < mov->quantidade; qt++){
@@ -651,8 +729,8 @@
                 face_girar(rubik->faces[mov->faceFraca] , mov->sentido);
             }
 
-            // Setando o útilmo movimento realizado no cubo
-            rubik->ultimo = mov;
+            // Adicionando movimento ao histórico
+            historico_anexar(rubik, mov);
         }
     }
 
@@ -719,6 +797,10 @@
             rubik_movimentar(rubik, 1, mov);
         }
         return str;
+    }
+
+    void rubik_imprimir_historico(Rubik* rubik){
+        historico_imprimir(rubik->historico);
     }
 
 #pragma endregion
