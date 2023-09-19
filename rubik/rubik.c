@@ -17,9 +17,7 @@
     #define F_ESQUERDA 4
     #define F_TRAS 5
 
-    #define QT_FACES 6
     #define QT_ADESIVOS_POR_LINHA 3
-    #define QT_ADESIVOS_POR_FACE 9
     #define TAM_MAX_STRING_LINHA 100
     #define TAM_MAX_CARACTERES_VAZIOS 6
     #define MARGEM_ESQUERDA 3
@@ -30,10 +28,6 @@
 * OBJETOS CONSTANTES
 **************************************************************/
 #pragma region
-
-    const short int SEQUENCIA_X[4] = {0, 1, 5, 3};
-    const short int SEQUENCIA_Y[4] = {0, 4, 5, 2};
-    const short int SEQUENCIA_Z[4] = {1, 2, 3 ,4};
 
     const Cor AZUL     = {"Azul", 'B', "\x1b[38;2;1;126;255m"};
     const Cor AMARELO  = {"Amarelo", 'Y', "\x1b[38;2;245;255;0m"};
