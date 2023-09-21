@@ -5,7 +5,7 @@
 #include <string.h>
 #include <stdint.h>
 
-bool env_read(char* nomeArquivo){
+bool env_read(const char* nomeArquivo){
     FILE* fp = fopen(nomeArquivo, "r");
     if(fp == NULL) return false;
 

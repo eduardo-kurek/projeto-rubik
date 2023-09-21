@@ -8,22 +8,23 @@ else
 	CLEAR=cls
 endif
 
+CC = g++
 RUBIK := $(wildcard rubik/*.o)
 BIBLIOTECAS := $(wildcard bibliotecas/*.o)
 ALL := $(RUBIK) $(BIBLIOTECAS)
 
 all: compile
-	gcc main.c "rubik/*.o" "bibliotecas/*.o" -o $(OUT)
+	$(CC) main.cpp "rubik/rubik.o" "bibliotecas/variaveis-ambiente.o" -o $(OUT)
 	$(CLEAR)
 	./$(OUT)
 
 test: compile
-	gcc testes.c $(ALL) -o $(OUT)
+	$(CC) testes.c $(ALL) -o $(OUT)
 	./$(OUT)
 
 compile:
-	gcc -c rubik/rubik.c -o rubik/rubik.o
-	gcc -c bibliotecas/variaveis-ambiente.c -o bibliotecas/variaveis-ambiente.o
+	$(CC) -c rubik/rubik.cpp -o rubik/rubik.o
+	$(CC) -c bibliotecas/variaveis-ambiente.cpp -o bibliotecas/variaveis-ambiente.o
 
 clean:
 	$(CLEAN) rubik/*.o bibliotecas/*.o

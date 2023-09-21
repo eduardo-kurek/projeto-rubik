@@ -1,5 +1,5 @@
 #include "../rubik.h"
-#include "constantes.c"
+#include "constantes.cpp"
 
 /**
  * Copia todas as cores de uma face para outra, sempre da

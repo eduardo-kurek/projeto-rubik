@@ -1,5 +1,5 @@
 #include "../rubik.h"
-#include "constantes.c"
+#include "constantes.cpp"
 
 /**
 * Extrai as cores de uma determinada face e camada de uma instância do cubo,

@@ -10,6 +10,6 @@
  * @param nomeArquivo: nome do arquivo a ser lido
  * @return true caso o arquivo exista, false caso contrário
  */
-bool env_read(char* nomeArquivo);
+bool env_read(const char* nomeArquivo);
 
 #endif

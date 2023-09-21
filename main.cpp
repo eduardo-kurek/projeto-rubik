@@ -19,7 +19,4 @@ int main(int argc, char* argv[]){
     printf("Scramble: %s\n", scramble);
  
     rubik_imprimir(rubik);
-
-    printf("\n");
-    scanf("");
 }

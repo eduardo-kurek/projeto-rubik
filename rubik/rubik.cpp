@@ -101,11 +101,11 @@
 **************************************************************/
 #pragma region AUXILIARES
 
-    #include "helpers/constantes.c"
-    #include "structures/historico.c"
-    #include "helpers/criacao-destruicao.c"
-    #include "helpers/operacoes-face.c"
-    #include "helpers/cores.c"
+    #include "helpers/constantes.cpp"
+    #include "structures/historico.cpp"
+    #include "helpers/criacao-destruicao.cpp"
+    #include "helpers/operacoes-face.cpp"
+    #include "helpers/cores.cpp"
 
     /**
      * Imprime uma determinada camada do cubo mágico
@@ -335,7 +335,7 @@
         }
     }
 
-    bool rubik_definir_posicao(Rubik* rubik, char* posicao){
+    bool rubik_definir_posicao(Rubik* rubik, const char* posicao){
         if(strlen(posicao) != 53) return false;
         const Cor* cores[6] = {
                 &AZUL,
@@ -381,7 +381,7 @@
         return str;
     }
 
-    Rubik* rubik_importar(char* pos){
+    Rubik* rubik_importar(const char* pos){
         Rubik* rubik = rubik_criar();
         if(!rubik_definir_posicao(rubik, pos)) return NULL;
         return rubik;

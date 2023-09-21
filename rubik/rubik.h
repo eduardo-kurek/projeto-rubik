@@ -178,7 +178,7 @@
      * @param char* pos: Posição a ser convertida
      * @return Rubik*: Instância do cubo mágico
     **************************************************************/
-    Rubik* rubik_importar(char* pos);
+    Rubik* rubik_importar(const char* pos);
 
     /**************************************************************
     * Embaralha um cubo mágico X vezes
