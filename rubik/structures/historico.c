@@ -1,3 +1,6 @@
+#ifndef HISTORICO_C
+#define HISTORICO_C
+
 #include "../rubik.h"
 
 /**************************************************************
@@ -84,3 +87,5 @@ void historico_imprimir(Historico* h){
     }
     printf("\b\b\n");
 }
+
+#endif

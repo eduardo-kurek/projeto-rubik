@@ -14,110 +14,16 @@
 **************************************************************/
 #pragma region
 
-    /**************************************************************
-     * Objeto referente a cada cor
-     *
-     * @note char nome: nome da cor
-     * @note int cod: código referente a cor, 1 à 6
-     * @note char ch[15]: string referente ao codigo de impressão da cor
-    **************************************************************/
-    typedef struct cor{
-        char nome[10];
-        char cod;
-        char ch[25];
-    } Cor;
+    typedef struct cor Cor;
+    typedef struct adesivo Adesivo;
+    typedef struct face Face;
+    typedef struct camada Camada;
+    typedef struct movimento Movimento;
 
-    /**************************************************************
-     * Objeto referente a cada adesivo
-     *
-     * @note const Cor* cor: objeto 'Cor' que o adesivo está atrelado
-    **************************************************************/
-    typedef struct adesivo{
-        const Cor* cor;
-    } Adesivo;
+    typedef struct no No;
+    typedef struct historico Historico;
 
-    /**************************************************************
-     * Objeto referente a cada face
-     *
-     * @note Adesivo* adesivos[3][3]: matriz contendo os adesivos da face
-    **************************************************************/
-    typedef struct face{
-        Adesivo* adesivos[3][3];
-    } Face;
-
-    /**************************************************************
-     * Objeto referente às camadas de qualquer face
-     * Funciona através de índices para os loops
-     * 
-     * @note const short int ci: começo do índice 'i'
-     * @note const short int ti: término do índice 'i'
-     * @note const short int cj: começo do índice 'j'
-     * @note const short int tj: término do índice 'j'
-    **************************************************************/
-    typedef struct camada{
-        const short int ci;
-        const short int ti;
-        const short int cj;
-        const short int tj;
-    } Camada;
-
-    /**************************************************************
-     * Objeto referente aos movimentos possíveis do cubo
-     * 
-     * @note const short int faces[4]: as quatro faces que serão giradas
-     * @note const Camada* camadas[4]: refere qual a camada de determi-
-     *  nada face deve ser movida
-     * @note const short int faceFraca: qual face deve ser apenas girada
-     *  (-1) para nenhuma face
-     * @note const short int sentido: qual o sentido a face fraca rodará
-     *  horário (0) ou anti-horário (1)
-     *  short int quantidade: quantidade de vezes que o movimento
-     *  repetirá
-     *  short int indice: indice que mapeia o movimento
-    **************************************************************/
-    typedef struct movimento{
-        const short int faces[4];
-        const Camada* camadas[4];
-        const short int faceFraca;
-        const short int sentido;
-        short int quantidade;
-        short int indice;
-        char nome[3];
-    } Movimento;
-
-    /**************************************************************
-     * Objeto referente a um nó do histórico
-     **************************************************************/
-    typedef struct no{
-        const Movimento* dado;
-        struct no *ant;
-        struct no *prox;
-    } No;
-
-    /**************************************************************
-     * Objeto referente a um nó do histórico
-     **************************************************************/
-    typedef struct historico{
-        struct no *sentinela;
-        int qtde;
-    } Historico;
-
-    /**************************************************************
-    * Objeto referente ao cubo mágico
-    *
-    * @note Face* 0: objeto 'Face' referente a face frontal
-    * @note Face* 1: objeto 'Face' referente a face superior
-    * @note Face* 2: objeto 'Face' referente a face lateral dir.
-    * @note Face* 3: objeto 'Face' referente a face inferior
-    * @note Face* 4: objeto 'Face' referente a face lateral esq.
-    * @note Face* 5: objeto 'Face' referente a face posterior
-    * @note const Movimento* ultimo: Ultimo movimento realizado no cubo
-    **************************************************************/
-    typedef struct rubik{
-        Face* faces[6];
-        Historico* historico;
-        int qtHistorico;
-    } Rubik;
+    typedef struct rubik Rubik;
 
 #pragma endregion
 
