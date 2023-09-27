@@ -4,3 +4,4 @@ a.*
 rubik/*.o
 bibliotecas/*.o
 .env
+.vscode
