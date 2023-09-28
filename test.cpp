@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "rubik/classes/Rubik.h"
 #ifdef _WIN32
 #include <windows.h>

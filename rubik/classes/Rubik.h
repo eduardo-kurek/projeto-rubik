@@ -7,6 +7,6 @@ class Rubik{
 
 public:
     Rubik();
-    print();
+    void print();
     ~Rubik();
 };
