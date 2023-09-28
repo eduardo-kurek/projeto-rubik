@@ -1,7 +1,9 @@
 testes.c
-.idea
 a.*
 rubik/*.o
 bibliotecas/*.o
 .env
 .vscode
+.idea
+CMakeLists.txt
+cmake-build-debug
