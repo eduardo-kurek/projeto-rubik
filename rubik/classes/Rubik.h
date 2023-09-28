@@ -7,6 +7,7 @@ class Rubik{
 
 public:
     Rubik();
-    void print();
+    void print(bool clear = false);
     ~Rubik();
+    friend std::ostream& operator<<(std::ostream& os, const Rubik* rubik);
 };

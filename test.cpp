@@ -1,4 +1,5 @@
 #include "rubik/classes/Rubik.h"
+#include <iostream>
 #ifdef _WIN32
 #include <windows.h>
 #endif
@@ -10,6 +11,6 @@ int main(int argc, char* argv[]){
     #endif
 
     Rubik* r = new Rubik();
-    r->print();
+    std::cout << r;
     delete r;
 }
