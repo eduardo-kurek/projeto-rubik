@@ -11,6 +11,7 @@ int main(int argc, char* argv[]){
     #endif
 
     Rubik* r = new Rubik();
-    std::cout << r;
+    std::cout << "Teste";
+    r->print(true);
     delete r;
 }

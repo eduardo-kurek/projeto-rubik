@@ -1,6 +1,5 @@
 #include "Rubik.h"
 #include "auxiliares/constantes.h"
-#include <stdio.h>
 #include <string>
 #include <iostream>
 
@@ -19,7 +18,14 @@ Rubik::Rubik(){
 }
 
 void Rubik::print(bool clear){
-
+    if(clear){
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
+    }
+    std::cout << this;
 }
 
 Rubik::~Rubik(){
