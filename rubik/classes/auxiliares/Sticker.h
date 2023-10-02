@@ -6,6 +6,7 @@ class Sticker{
     const Color* color;
 
 public:
-    Sticker(const Color* color);
+    explicit Sticker(const Color* color);
+    void setColor(const Color* color);
     const Color* getColor();
 };

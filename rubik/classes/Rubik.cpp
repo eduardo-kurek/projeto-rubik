@@ -1,23 +1,46 @@
 #include "Rubik.h"
 #include "auxiliares/constantes.h"
+#include "auxiliares/Color.h"
 #include <string>
 #include <iostream>
+#include <regex>
 
 Rubik::Rubik(){
-    const Color* cores[6] = {
-        &AZUL,
-        &AMARELO,
-        &VERMELHO,
-        &BRANCO,
-        &LARANJA,
-        &VERDE
-    };
-
     for(int i = 0; i < 6; i++)
-        this->faces[i] = new Face(cores[i]);
+        this->faces[i] = new Face(COLORS[i]);
 }
 
-void Rubik::print(bool clear){
+Rubik::Rubik(const std::string& position){
+    for(int i = 0; i < 6; i++)
+        this->faces[i] = new Face(COLORS[i]);
+    this->setPosition(position);
+}
+
+void Rubik::setPosition(const std::string& position){
+    // Padrão que a string deve ser enviada
+    std::regex pattern("[BYRWOG]{8}-[BYRWOG]{8}-[BYRWOG]{8}-[BYRWOG]{8}-[BYRWOG]{8}-[BYRWOG]{8}");
+
+    // Verifica se o padrão é válido
+    if(!regex_match(position, pattern))
+        throw std::runtime_error("O formato da string para inicializar um Rubik deve ser válida");
+
+    // Código para definir a posição
+    int count = 0;
+    for(uint8_t face = 0; face < 6; face++){
+        for(uint8_t i = 0; i < 3; i++){
+            for(uint8_t j = 0; j < 3; j++){
+                if(i != 1 || j != 1){
+                    this->faces[face]->stickers[i][j]->setColor(Color::getColorByCode(position[count]));
+                    count++;
+                }
+                else this->faces[face]->stickers[i][j]->setColor(COLORS[face]);
+            }
+        }
+        count++;
+    }
+}
+
+void Rubik::print(bool clear) const{
     if(clear){
         #ifdef _WIN32
             system("cls");
@@ -40,7 +63,7 @@ std::ostream& operator<<(std::ostream& os, const Rubik* rubik){
         for(uint8_t j = 0; j < TAM_MAX_CARACTERES_VAZIOS + MARGEM_ESQUERDA; j++, os << " ");
 
         // Imprimindo topo
-        os << " " << rubik->faces[F_TOPO]->getLine(i) << "\n";
+        os << " " << rubik->faces[F_TOPO]->getLine(i) << std::endl;
     }
 
     // Imprimindo a segunda camada
@@ -58,7 +81,7 @@ std::ostream& operator<<(std::ostream& os, const Rubik* rubik){
         os << rubik->faces[F_DIREITA]->getLine(i) << " ";
 
         // Face posterior
-        os << rubik->faces[F_TRAS]->getLine(i) << " " << "\n";
+        os << rubik->faces[F_TRAS]->getLine(i) << " " << std::endl;
     }
 
     // Imprimindo a terceira camada
@@ -67,7 +90,7 @@ std::ostream& operator<<(std::ostream& os, const Rubik* rubik){
         for(uint8_t j = 0; j < TAM_MAX_CARACTERES_VAZIOS + MARGEM_ESQUERDA; j++, os << " ");
 
         // Imprimindo baixo
-        os << " " << rubik->faces[F_BAIXO]->getLine(i) << "\n";
+        os << " " << rubik->faces[F_BAIXO]->getLine(i) << std::endl;
     }
     return os;
 }

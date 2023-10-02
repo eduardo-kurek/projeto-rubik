@@ -5,10 +5,12 @@
 #include <stdint.h>
 
 class Face{
-    Sticker* stickers[3][3];
 
 public:
-    Face(const Color* color);
+    Sticker* stickers[3][3];
+
+    explicit Face(const Color* color);
     std::string getLine(uint8_t lineNumber);
     ~Face();
+
 };

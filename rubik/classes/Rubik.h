@@ -1,13 +1,25 @@
 #pragma once
 
 #include "auxiliares/Face.h"
+#include "auxiliares/constantes.h"
+#include <string>
 
 class Rubik{
+
+private:
     Face* faces[6];
 
 public:
     Rubik();
-    void print(bool clear = false);
+
+    explicit Rubik(const std::string& position);
+
+    void print(bool clear = false) const;
+
+    void setPosition(const std::string& position);
+
     ~Rubik();
-    friend std::ostream& operator<<(std::ostream& os, const Rubik* rubik);
+
+    friend std::ostream &operator<<(std::ostream &os, const Rubik* rubik);
+
 };
