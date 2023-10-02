@@ -51,6 +51,10 @@ void Rubik::print(bool clear) const{
     std::cout << this;
 }
 
+void Rubik::reset(){
+    this->setPosition(POS_RESOLVIDO);
+}
+
 Rubik::~Rubik(){
     for(int i = 0; i < 6; i++)
         delete this->faces[i];

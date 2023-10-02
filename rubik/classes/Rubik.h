@@ -16,6 +16,8 @@ public:
 
     void print(bool clear = false) const;
 
+    void reset();
+
     void setPosition(const std::string& position);
 
     ~Rubik();
