@@ -18,6 +18,8 @@ public:
 
     void reset();
 
+    std::string extract() const;
+
     void setPosition(const std::string& position);
 
     ~Rubik();

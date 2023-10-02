@@ -55,6 +55,19 @@ void Rubik::reset(){
     this->setPosition(POS_RESOLVIDO);
 }
 
+std::string Rubik::extract() const{
+    std::string str;
+
+    for(uint8_t face = 0; face < 6; face++){
+        for(uint8_t l = 0; l < 3; l++)
+            for(uint8_t c = 0; c < 3; c++)
+                if(l != 1 || c != 1) str += this->faces[face]->stickers[l][c]->getColor()->cod;
+        if(face < 5) str += '-';
+    }
+    
+    return str;
+}
+
 Rubik::~Rubik(){
     for(int i = 0; i < 6; i++)
         delete this->faces[i];
