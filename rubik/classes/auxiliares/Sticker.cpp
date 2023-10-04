@@ -8,6 +8,6 @@ void Sticker::setColor(const Color* color){
     this->color = color;
 }
 
-const Color* Sticker::getColor(){
+const Color* Sticker::getColor() const{
     return this->color;
 }

@@ -7,7 +7,7 @@
 class Rubik{
 
 private:
-    Face* faces[6];
+    Face faces[6];
 
 public:
     Rubik();
@@ -21,8 +21,6 @@ public:
     std::string extract() const;
 
     void setPosition(const std::string& position);
-
-    ~Rubik();
 
     friend std::ostream &operator<<(std::ostream &os, const Rubik* rubik);
 

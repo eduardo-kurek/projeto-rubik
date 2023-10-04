@@ -7,10 +7,10 @@
 class Face{
 
 public:
-    Sticker* stickers[3][3];
+    Sticker stickers[3][3];
 
+    Face();
     explicit Face(const Color* color);
-    std::string getLine(uint8_t lineNumber);
-    ~Face();
+    std::string getLine(uint8_t lineNumber) const;
 
 };
