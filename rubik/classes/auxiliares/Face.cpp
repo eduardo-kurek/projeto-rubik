@@ -25,6 +25,22 @@ std::string Face::getLine(uint8_t lineNumber) const{
     return line;
 }
 
+void Face::swapLines(uint8_t line1, uint8_t line2){
+    for(uint8_t i = 0; i < 3; i++){
+        Sticker temp = this->stickers[line1][i];
+        this->stickers[line1][i] = this->stickers[line2][i];
+        this->stickers[line2][i] = temp;
+    }
+}
+
+void Face::swapColumns(uint8_t column1, uint8_t column2){
+    for(uint8_t i = 0; i < 3; i++){
+        Sticker temp = this->stickers[i][column1];
+        this->stickers[i][column1] = this->stickers[i][column2];
+        this->stickers[i][column2] = temp;
+    }
+}
+
 void Face::transpose(){
     for(uint8_t i = 0; i < 3; i++){
         for(uint8_t j = i + 1; j < 3; j++){
