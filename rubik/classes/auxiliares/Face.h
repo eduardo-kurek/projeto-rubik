@@ -12,5 +12,6 @@ public:
     Face();
     explicit Face(const Color* color);
     std::string getLine(uint8_t lineNumber) const;
+    void transpose();
 
 };

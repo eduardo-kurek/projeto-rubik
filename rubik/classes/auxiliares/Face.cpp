@@ -24,3 +24,13 @@ std::string Face::getLine(uint8_t lineNumber) const{
     
     return line;
 }
+
+void Face::transpose(){
+    for(uint8_t i = 0; i < 3; i++){
+        for(uint8_t j = i + 1; j < 3; j++){
+            Sticker temp = this->stickers[i][j];
+            this->stickers[i][j] = this->stickers[j][i];
+            this->stickers[j][i] = temp;
+        }
+    }
+}
