@@ -3,10 +3,10 @@
 #include <cstdint>
 
 struct Layer{
-    uint8_t si;
-    uint8_t ei;
-    uint8_t sj;
-    uint8_t ej;
+    const uint8_t si;
+    const uint8_t ei;
+    const uint8_t sj;
+    const uint8_t ej;
 
     Layer(uint8_t si, uint8_t ei, uint8_t sj, uint8_t ej);
 };
