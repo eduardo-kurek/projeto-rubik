@@ -23,6 +23,3 @@
 #define F_ESQUERDA 4
 #define F_TRAS 5
 
-enum Turn{
-    ANTICLOCKWISE, CLOCKWISE
-};

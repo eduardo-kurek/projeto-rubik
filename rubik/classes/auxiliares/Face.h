@@ -1,7 +1,8 @@
 #pragma once
 
 #include "Sticker.h"
-#include "constantes.h"
+#include "enums/Turn.h"
+#include "enums/Coord.h"
 #include <string>
 #include <stdint.h>
 
@@ -13,8 +14,8 @@ public:
     Face();
     explicit Face(const Color* color);
     std::string getLine(uint8_t lineNumber) const;
-    void swapLines(uint8_t line1, uint8_t line2);
-    void swapColumns(uint8_t column1, uint8_t column2);
+    void swapLines(Coord line1, Coord line2);
+    void swapColumns(Coord column1, Coord column2);
     void rotate(Turn turn);
     void transpose();
 
