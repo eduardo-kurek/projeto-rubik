@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Sticker.h"
+#include "constantes.h"
 #include <string>
 #include <stdint.h>
 
@@ -14,6 +15,7 @@ public:
     std::string getLine(uint8_t lineNumber) const;
     void swapLines(uint8_t line1, uint8_t line2);
     void swapColumns(uint8_t column1, uint8_t column2);
+    void rotate(Turn turn);
     void transpose();
 
 };

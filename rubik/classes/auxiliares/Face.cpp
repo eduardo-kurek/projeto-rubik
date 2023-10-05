@@ -41,6 +41,12 @@ void Face::swapColumns(uint8_t column1, uint8_t column2){
     }
 }
 
+void Face::rotate(Turn turn){
+    this->transpose();
+    if(turn == Turn::CLOCKWISE) this->swapColumns(0, 2);
+    else this->swapLines(0, 2);
+}
+
 void Face::transpose(){
     for(uint8_t i = 0; i < 3; i++){
         for(uint8_t j = i + 1; j < 3; j++){
