@@ -2,13 +2,12 @@
 
 #include <cstdint>
 
-class Layer{
+struct Layer{
     uint8_t si;
     uint8_t ei;
     uint8_t sj;
     uint8_t ej;
 
-public:
     Layer(uint8_t si, uint8_t ei, uint8_t sj, uint8_t ej);
 };
 
