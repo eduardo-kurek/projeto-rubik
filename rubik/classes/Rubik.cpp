@@ -1,6 +1,7 @@
 #include "Rubik.h"
 #include "auxiliares/constantes.h"
 #include "auxiliares/Color.h"
+#include "auxiliares/enums/Faces.h"
 #include <string>
 #include <iostream>
 #include <regex>
@@ -75,7 +76,7 @@ std::ostream& operator<<(std::ostream& os, const Rubik* rubik){
         for(uint8_t j = 0; j < TAM_MAX_CARACTERES_VAZIOS + MARGEM_ESQUERDA; j++, os << " ");
 
         // Imprimindo topo
-        os << " " << rubik->faces[F_TOPO].getLine(i) << std::endl;
+        os << " " << rubik->faces[TOP].getLine(i) << std::endl;
     }
 
     // Imprimindo a segunda camada
@@ -84,16 +85,16 @@ std::ostream& operator<<(std::ostream& os, const Rubik* rubik){
         for(uint8_t j = 0; j < MARGEM_ESQUERDA; j++, os << " ");
 
         // Face esquerda
-        os << rubik->faces[F_ESQUERDA].getLine(i) << " ";
+        os << rubik->faces[LEFT].getLine(i) << " ";
 
         // Face frontal
-        os << rubik->faces[F_FRENTE].getLine(i) << " ";
+        os << rubik->faces[FRONT].getLine(i) << " ";
 
         // Face direita
-        os << rubik->faces[F_DIREITA].getLine(i) << " ";
+        os << rubik->faces[RIGHT].getLine(i) << " ";
 
         // Face posterior
-        os << rubik->faces[F_TRAS].getLine(i) << " " << std::endl;
+        os << rubik->faces[BACK].getLine(i) << " " << std::endl;
     }
 
     // Imprimindo a terceira camada
@@ -102,7 +103,7 @@ std::ostream& operator<<(std::ostream& os, const Rubik* rubik){
         for(uint8_t j = 0; j < TAM_MAX_CARACTERES_VAZIOS + MARGEM_ESQUERDA; j++, os << " ");
 
         // Imprimindo baixo
-        os << " " << rubik->faces[F_BAIXO].getLine(i) << std::endl;
+        os << " " << rubik->faces[BOTTOM].getLine(i) << std::endl;
     }
     return os;
 }

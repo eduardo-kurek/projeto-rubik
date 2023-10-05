@@ -14,12 +14,3 @@
 
 // Margem de impressão de um cubo
 #define MARGEM_ESQUERDA 3
-
-// Índices das faces do cubo
-#define F_FRENTE 0
-#define F_TOPO 1
-#define F_DIREITA 2
-#define F_BAIXO 3
-#define F_ESQUERDA 4
-#define F_TRAS 5
-
