@@ -9,7 +9,7 @@ else
 endif
 
 CC = g++
-RUBIK := $(wildcard rubik/*.o)
+RUBIK := rubik/classes/*.cpp rubik/classes/auxiliares/*.cpp
 BIBLIOTECAS := $(wildcard bibliotecas/*.o)
 ALL := $(RUBIK) $(BIBLIOTECAS)
 
@@ -18,9 +18,8 @@ all: compile
 	$(CLEAR)
 	./$(OUT)
 
-test: compile
-	$(CC) testes.c $(ALL) -o $(OUT)
-	./$(OUT)
+test:
+	$(CC) test.cpp rubik/classes/*.cpp rubik/classes/auxiliares/*.cpp -o $(OUT)
 
 compile:
 	$(CC) -c rubik/rubik.cpp -o rubik/rubik.o

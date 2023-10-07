@@ -1,6 +1,5 @@
-#include <stdio.h>
 #include "rubik/classes/Rubik.h"
-#include "bibliotecas/variaveis-ambiente.h"
+#include <iostream>
 #ifdef _WIN32
 #include <windows.h>
 #endif
@@ -11,6 +10,8 @@ int main(int argc, char* argv[]){
         SetConsoleOutputCP(65001);
     #endif
 
-    // LENDO AS VARIÁVEIS DE AMBIENTE
-    env_read(".env");
+    Rubik* r = new Rubik("RWRGYYWY-YYYYYYYY-RRRRRRRR-WWWWWWWW-OOOOOOOO-GGGGGGGG");
+    r->print(true);
+    r->print();
+    delete r;
 }
