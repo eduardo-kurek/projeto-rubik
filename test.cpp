@@ -10,8 +10,8 @@ int main(int argc, char* argv[]){
         SetConsoleOutputCP(65001);
     #endif
 
-    Rubik* r = new Rubik();
-    std::cout << "Teste";
+    Rubik* r = new Rubik("RWRGYYWY-YYYYYYYY-RRRRRRRR-WWWWWWWW-OOOOOOOO-GGGGGGGG");
     r->print(true);
+    r->print();
     delete r;
 }
