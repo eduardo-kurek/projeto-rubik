@@ -2,16 +2,16 @@
 
 const Color* Color::getColorByCode(char code){
     switch(code){
-        case 'B': return &AZUL;
-        case 'Y': return &AMARELO;
-        case 'R': return &VERMELHO;
-        case 'W': return &BRANCO;
-        case 'O': return &LARANJA;
-        case 'G': return &VERDE;
+        case 'B': return &BLUE;
+        case 'Y': return &YELLOW;
+        case 'R': return &RED;
+        case 'W': return &WHITE;
+        case 'O': return &ORANGE;
+        case 'G': return &GREEN;
         default : return &NONE;
     }
 }
 
 const Color* COLORS[6] = {
-        &AZUL, &AMARELO, &VERMELHO, &BRANCO, &LARANJA, &VERDE
+        &BLUE, &YELLOW, &RED, &WHITE, &ORANGE, &GREEN
 };

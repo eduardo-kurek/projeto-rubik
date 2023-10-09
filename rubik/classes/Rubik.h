@@ -2,6 +2,8 @@
 
 #include "auxiliares/Face.h"
 #include "auxiliares/constantes.h"
+#include "auxiliares/Move.h"
+#include <cstdarg>
 #include <string>
 
 class Rubik{
@@ -21,6 +23,8 @@ public:
     std::string extract() const;
 
     void setPosition(const std::string& position);
+
+    void move(int numArgs, ...);
 
     friend std::ostream &operator<<(std::ostream &os, const Rubik* rubik);
 

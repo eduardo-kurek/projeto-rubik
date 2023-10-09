@@ -41,12 +41,6 @@ void Face::swapColumns(Coord column1, Coord column2){
     }
 }
 
-void Face::rotate(Turn turn){
-    this->transpose();
-    if(turn == CLOCKWISE) this->swapColumns(ZERO, TWO);
-    else this->swapLines(ZERO, TWO);
-}
-
 void Face::transpose(){
     for(uint8_t i = 0; i < 3; i++){
         for(uint8_t j = i + 1; j < 3; j++){
@@ -54,5 +48,52 @@ void Face::transpose(){
             this->stickers[i][j] = this->stickers[j][i];
             this->stickers[j][i] = temp;
         }
+    }
+}
+
+void Face::rotate(Turn turn){
+    this->transpose();
+    if(turn == CLOCKWISE) this->swapColumns(ZERO, TWO);
+    else this->swapLines(ZERO, TWO);
+}
+
+const Color** Face::extractLayer(const Layer& layer){
+    // OBTENDO O SENTIDO
+    bool turn = (layer.si > layer.ei) || (layer.sj > layer.ej);
+
+    uint8_t count = 0;
+    const Color** colors = new const Color*[3];
+    if(!turn){
+        // SENTIDO HORÁRIO
+        for (int x = layer.si; x <= layer.ei; x++)
+            for (int y = layer.sj; y <= layer.ej; y++)
+                colors[count++] = this->stickers[x][y].getColor();
+    }
+    else{
+        // SENTIDO ANTI-HORÁRIO
+        for (int x = layer.si; x >= layer.ei; x--)
+            for (int y = layer.sj; y >= layer.ej; y--)
+                colors[count++] = this->stickers[x][y].getColor();
+    }
+
+    return colors;
+}
+
+void Face::setLayer(const Layer& layer, const Color* colors[3]){
+    // OBTENDO O SENTIDO
+    bool turn = (layer.si > layer.ei) || (layer.sj > layer.ej);
+
+    uint8_t count = 0;
+    if(!turn){
+        // SENTIDO HORÁRIO
+        for (int x = layer.si; x <= layer.ei; x++)
+            for (int y = layer.sj; y <= layer.ej; y++)
+                this->stickers[x][y].setColor(colors[count++]);
+    }
+    else{
+        // SENTIDO ANTI-HORÁRIO
+        for (int x = layer.si; x >= layer.ei; x--)
+            for (int y = layer.sj; y >= layer.ej; y--)
+                this->stickers[x][y].setColor(colors[count++]);
     }
 }

@@ -10,8 +10,9 @@ int main(int argc, char* argv[]){
         SetConsoleOutputCP(65001);
     #endif
 
-    Rubik* r = new Rubik("RWRGYYWY-YYYYYYYY-RRRRRRRR-WWWWWWWW-OOOOOOOO-GGGGGGGG");
-    r->print(true);
+    Rubik* r = new Rubik();
+    r->print();
+    r->move(1, R);
     r->print();
     delete r;
 }

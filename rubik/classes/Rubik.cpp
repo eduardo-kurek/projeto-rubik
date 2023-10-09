@@ -1,7 +1,6 @@
 #include "Rubik.h"
 #include "auxiliares/constantes.h"
 #include "auxiliares/Color.h"
-#include "auxiliares/enums/Faces.h"
 #include <string>
 #include <iostream>
 #include <regex>
@@ -67,6 +66,44 @@ std::string Rubik::extract() const{
     }
     
     return str;
+}
+
+void Rubik::move(int numArgs, ...){
+    va_list args;
+    va_start(args, numArgs);
+
+    for(int i = 0; i < numArgs; i++){
+        const Move* mov = va_arg(args, const Move*);
+
+        for(uint8_t qt = 0; qt < mov->quantity; qt++){
+            const Color* oranges[3] = {&ORANGE, &ORANGE, &ORANGE};
+
+            const Color* aux[3] = {&NONE, &NONE, &NONE};
+            for(uint8_t j = 0; j < 4; j++){
+                // VARIÁVEIS AUXILIARES
+                const uint8_t indexFace = mov->faces[j];
+                const Layer* layer = mov->layers[j];
+                const Color** colors = this->faces[indexFace].extractLayer(*layer);
+
+                // SETANDO A CAMADA ATUAL
+                if(j > 0) this->faces[indexFace].setLayer(*layer, aux);
+
+                // AJUSTANDO O AUXILIAR
+                for(int k = 0; k < 3; k++)
+                    aux[k] = colors[k];
+
+                delete[] colors;
+            }
+
+            // SETANDO A PRIMEIRA FACE DA LISTA
+            this->faces[mov->faces[0]].setLayer(*mov->layers[0], oranges);
+
+            // GIRANDO A FACE FRACA NO SENTIDO RECEBIDO
+            this->faces[mov->weakSide].rotate(mov->turn);
+        }
+    }
+
+    va_end(args);
 }
 
 std::ostream& operator<<(std::ostream& os, const Rubik* rubik){
