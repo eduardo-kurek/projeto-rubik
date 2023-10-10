@@ -76,7 +76,6 @@ void Rubik::move(int numArgs, ...){
         const Move* mov = va_arg(args, const Move*);
 
         for(uint8_t qt = 0; qt < mov->quantity; qt++){
-            const Color* oranges[3] = {&ORANGE, &ORANGE, &ORANGE};
 
             const Color* aux[3] = {&NONE, &NONE, &NONE};
             for(uint8_t j = 0; j < 4; j++){
@@ -96,7 +95,7 @@ void Rubik::move(int numArgs, ...){
             }
 
             // SETANDO A PRIMEIRA FACE DA LISTA
-            this->faces[mov->faces[0]].setLayer(*mov->layers[0], oranges);
+            this->faces[mov->faces[0]].setLayer(*mov->layers[0], aux);
 
             // GIRANDO A FACE FRACA NO SENTIDO RECEBIDO
             this->faces[mov->weakSide].rotate(mov->turn);
