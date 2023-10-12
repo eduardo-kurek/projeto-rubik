@@ -12,6 +12,6 @@ int main(int argc, char* argv[]){
 
     Rubik* r = new Rubik();
     r->move(18, R, U, DA, RA, L2, U2, B, D2, F, UA, FA, B2, LA, F2, B, R2, D, L);
-    r->print();
+    r->printHistoric();
     delete r;
 }

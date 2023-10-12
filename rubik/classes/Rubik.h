@@ -5,11 +5,13 @@
 #include "auxiliares/Move.h"
 #include <cstdarg>
 #include <string>
+#include <list>
 
 class Rubik{
 
 private:
     Face faces[6];
+    std::list<const Move*> historic;
 
 public:
     Rubik();
@@ -23,6 +25,8 @@ public:
     std::string extract() const;
 
     void setPosition(const std::string& position);
+
+    void printHistoric();
 
     void move(int numArgs, ...);
 

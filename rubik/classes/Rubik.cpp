@@ -100,9 +100,20 @@ void Rubik::move(int numArgs, ...){
             // GIRANDO A FACE FRACA NO SENTIDO RECEBIDO
             this->faces[mov->weakSide].rotate(mov->turn);
         }
+
+        // ADICIONANDO O MOVIMENTO REALIZADO NA FILA
+        if(this->historic.size() >= 20) this->historic.pop_back();
+        this->historic.push_front(mov);
     }
 
     va_end(args);
+}
+
+void Rubik::printHistoric(){
+    using namespace std;
+    for(auto mov : this->historic)
+        cout << mov->name << " ";
+    cout << endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const Rubik* rubik){
