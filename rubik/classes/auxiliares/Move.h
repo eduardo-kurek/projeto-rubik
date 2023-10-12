@@ -5,6 +5,7 @@
 #include "Layer.h"
 #include "enums/Faces.h"
 #include "enums/Turn.h"
+#include <vector>
 
 struct Move{
     const Faces faces[4];
@@ -13,6 +14,8 @@ struct Move{
     const Turn turn;
     const uint8_t quantity;
     const std::string name;
+    const std::vector<const Move*> supplementaryMoves;
+    const std::vector<const Move*> complementaryMoves;
 };
 
 extern const Move* U;
