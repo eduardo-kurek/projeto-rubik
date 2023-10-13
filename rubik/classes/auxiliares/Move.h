@@ -8,13 +8,29 @@
 #include <vector>
 
 struct Move{
+
+    // As 4 faces que envolvem o movimento
     const Faces faces[4];
+
+    // As camadas respectivas destas 4 faces do movimento
     const Layer* layers[4];
+
+    // A face fraca do movimento, ou seja, que apenas rotacionará
     const Faces weakSide;
+
+    // Sentido de rotação da face fraca
     const Turn turn;
+
+    // Quantidade de vezes do movimento
     const uint8_t quantity;
+
+    // Nome do movimento
     const std::string name;
+
+    // Movimentos suplementares, ou seja, que envolvem o mesmo lado do movimento
     const std::vector<const Move*> supplementaryMoves;
+
+    // Movimentos complementares, ou seja, que envolvem o lado oposto do movimento
     const std::vector<const Move*> complementaryMoves;
 };
 

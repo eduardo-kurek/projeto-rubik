@@ -3,9 +3,17 @@
 #include <cstdint>
 
 struct Layer{
+
+    // Começo do I
     const uint8_t si;
+
+    // Final do I
     const uint8_t ei;
+
+    // Começo do J
     const uint8_t sj;
+
+    // Final do J
     const uint8_t ej;
 };
 

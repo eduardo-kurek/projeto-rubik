@@ -14,15 +14,4 @@ int main(int argc, char* argv[]){
 //    r->move(18, R, U, DA, RA, L2, U2, B, D2, F, UA, FA, B2, LA, F2, B, R2, D, L);
 //    r->printHistoric();
 //    delete r;
-
-    Rubik* r = new Rubik();
-    r->printRestrictedMoves();
-    r->move(1, R);
-    r->printRestrictedMoves();
-    r->forceRestrictedMoves = true;
-    r->move(1, R);
-    r->print();
-    r->printRestrictedMoves();
-    r->clearRestrictedMoves();
-    std::cout << "Fim";
 }
