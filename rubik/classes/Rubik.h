@@ -11,10 +11,16 @@
 
 class Rubik{
 
+    struct MoveStatus{
+        const Move* move;
+        bool isValid;
+    };
+
     using RestrictionFunction = std::function<std::vector<const Move*>(const Move*)>;
 
     Face faces[6];
     std::list<const Move*> historic;
+    std::vector<bool> validMoves;
     std::vector<const Move*> restrictedMoves;
     RestrictionFunction restrictionFunction = Restriction::SUPPLEMENTATION;
 
@@ -95,6 +101,18 @@ public:
      * @param ...
      */
     void move(int numArgs, ...);
+
+    /**
+     * Retorna um array com todos os movimentos válidos na instância atual do cubo
+     * @return
+     */
+    std::vector<const Move*> getValidMoves();
+
+    /**
+     * Embaralha o cubo mágico
+     * @param quantity: quantidade de movimentos no embaralhamento
+     */
+    void scramble(int quantity = 20);
 
     /**
      * Sobrecarga de operador para impressão do cubo

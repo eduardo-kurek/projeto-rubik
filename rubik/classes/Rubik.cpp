@@ -1,6 +1,7 @@
 #include "Rubik.h"
 #include "auxiliares/constantes.h"
 #include "auxiliares/Color.h"
+#include <cstdlib>
 #include <string>
 #include <iostream>
 #include <regex>
@@ -9,12 +10,31 @@
 Rubik::Rubik(){
     for(int i = 0; i < 6; i++)
         this->faces[i] = Face(COLORS[i]);
+
+    this->validMoves = {
+            true, true, true,
+            true, true, true,
+            true, true, true,
+            true, true, true,
+            true, true, true,
+            true, true, true
+    };
+
 }
 
 Rubik::Rubik(const std::string& position){
     for(int i = 0; i < 6; i++)
         this->faces[i] = Face(COLORS[i]);
     this->setPosition(position);
+
+    this->validMoves = {
+            true, true, true,
+            true, true, true,
+            true, true, true,
+            true, true, true,
+            true, true, true,
+            true, true, true
+    };
 }
 
 void Rubik::setRestrictionFunction(const RestrictionFunction& restrictionFunction){
@@ -22,12 +42,21 @@ void Rubik::setRestrictionFunction(const RestrictionFunction& restrictionFunctio
 }
 
 void Rubik::clearRestrictedMoves(){
-    this->restrictedMoves = {};
+    this->validMoves = {
+            true, true, true,
+            true, true, true,
+            true, true, true,
+            true, true, true,
+            true, true, true,
+            true, true, true
+    };
 }
 
 void Rubik::restrict(const Move* lastMove){
     auto restrictedMoves = this->restrictionFunction(lastMove);
-    this->restrictedMoves = restrictedMoves;
+    this->clearRestrictedMoves();
+    for(auto& resMove : restrictedMoves)
+        this->validMoves[resMove->index] = false;
 }
 
 void Rubik::setPosition(const std::string& position){
@@ -74,13 +103,14 @@ void Rubik::printHistoric() const{
 
 void Rubik::printRestrictedMoves() const{
     using namespace std;
-    for(auto mov : this->restrictedMoves)
-        cout << mov->name << " ";
+    for(uint8_t i = 0; i < this->validMoves.size(); i++)
+        if(!this->validMoves[i]) cout << Moves[i]->name << " ";
     cout << endl;
 }
 
 void Rubik::reset(){
     this->setPosition(POS_RESOLVIDO);
+    this->clearRestrictedMoves();
 }
 
 std::string Rubik::extract() const{
@@ -103,14 +133,8 @@ void Rubik::move(int numArgs, ...){
     for(int i = 0; i < numArgs; i++){
         const Move* mov = va_arg(args, const Move*);
 
-        // VERIFICA SE O FORCE DE RESTRIÇÃO ESTÁ DESLIGADO
-        if(!this->forceRestrictedMoves){
-
-            // BUSCA O MOVIMENTO ATUAL NOS MOVIMENTOS RESTRITOS
-            auto iterator = std::find(this->restrictedMoves.begin(), this->restrictedMoves.end(), mov);
-            if(iterator != this->restrictedMoves.end()) continue;
-
-        }
+        // VERIFICA SE O MOVIMENTO PODE SER EXECUTADO
+        if(!this->forceRestrictedMoves && !this->validMoves[mov->index]) continue;
 
         for(uint8_t qt = 0; qt < mov->quantity; qt++){
 
@@ -147,6 +171,46 @@ void Rubik::move(int numArgs, ...){
     }
 
     va_end(args);
+}
+
+std::vector<const Move *> Rubik::getValidMoves(){
+    std::vector<const Move*> validMoves;
+
+    for(uint8_t i = 0; i < this->validMoves.size(); i++)
+        if(this->validMoves[i]) validMoves.push_back(Moves[i]);
+
+    return validMoves;
+}
+
+void Rubik::scramble(int quantity){
+
+    for(int i = 0; i < quantity; i++){
+        auto moves = this->getValidMoves();
+
+        // GERANDO O NÚMERO ALEATÓRIO
+        int rand = std::rand() % (int)moves.size();
+
+        // MOVIMENTA O CUBO MÁGICO
+        this->move(1, moves[rand]);
+    }
+
+//    for(int i = 0; i < quantity; i++){
+//
+//        std::vector<const Move*> validMoves = Moves;
+//        auto restricted = this->restrictedMoves;
+//
+//        validMoves.erase(std::remove_if(validMoves.begin(), validMoves.end(), [&restricted](const Move* move){
+//            return std::find(restricted.begin(), restricted.end(), move) != restricted.end();
+//        }), validMoves.end());
+//
+//
+//        // GERANDO O NÚMERO ALEATÓRIO
+//        int rand = std::rand() % (int)validMoves.size();
+//
+//        // MOVIMENTA O CUBO MÁGICO
+//        this->move(1, validMoves[rand]);
+//
+//    }
 }
 
 std::ostream& operator<<(std::ostream& os, const Rubik* rubik){

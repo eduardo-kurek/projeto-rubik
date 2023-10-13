@@ -27,6 +27,9 @@ struct Move{
     // Nome do movimento
     const std::string name;
 
+    // Índice deste movimento no array de movimentos
+    const uint8_t index;
+
     // Movimentos suplementares, ou seja, que envolvem o mesmo lado do movimento
     const std::vector<const Move*> supplementaryMoves;
 
@@ -57,3 +60,5 @@ extern const Move* F;
 extern const Move* B;
 extern const Move* BA;
 extern const Move* B2;
+
+extern const std::vector<const Move*> Moves;
