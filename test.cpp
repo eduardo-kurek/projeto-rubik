@@ -17,5 +17,7 @@ int main(int argc, char* argv[]){
 
 
     Rubik* r = new Rubik();
-    r->scramble(999999);
+    r->scramble();
+    r->print();
+    r->printHistoric();
 }

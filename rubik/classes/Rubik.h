@@ -20,7 +20,6 @@ class Rubik{
 
     Face faces[6];
     std::list<const Move*> historic;
-    std::vector<bool> validMoves;
     std::vector<const Move*> restrictedMoves;
     RestrictionFunction restrictionFunction = Restriction::SUPPLEMENTATION;
 

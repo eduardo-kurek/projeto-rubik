@@ -10,31 +10,12 @@
 Rubik::Rubik(){
     for(int i = 0; i < 6; i++)
         this->faces[i] = Face(COLORS[i]);
-
-    this->validMoves = {
-            true, true, true,
-            true, true, true,
-            true, true, true,
-            true, true, true,
-            true, true, true,
-            true, true, true
-    };
-
 }
 
 Rubik::Rubik(const std::string& position){
     for(int i = 0; i < 6; i++)
         this->faces[i] = Face(COLORS[i]);
     this->setPosition(position);
-
-    this->validMoves = {
-            true, true, true,
-            true, true, true,
-            true, true, true,
-            true, true, true,
-            true, true, true,
-            true, true, true
-    };
 }
 
 void Rubik::setRestrictionFunction(const RestrictionFunction& restrictionFunction){
@@ -42,21 +23,12 @@ void Rubik::setRestrictionFunction(const RestrictionFunction& restrictionFunctio
 }
 
 void Rubik::clearRestrictedMoves(){
-    this->validMoves = {
-            true, true, true,
-            true, true, true,
-            true, true, true,
-            true, true, true,
-            true, true, true,
-            true, true, true
-    };
+    this->restrictedMoves = {};
 }
 
 void Rubik::restrict(const Move* lastMove){
     auto restrictedMoves = this->restrictionFunction(lastMove);
-    this->clearRestrictedMoves();
-    for(auto& resMove : restrictedMoves)
-        this->validMoves[resMove->index] = false;
+    this->restrictedMoves = restrictedMoves;
 }
 
 void Rubik::setPosition(const std::string& position){
@@ -103,8 +75,8 @@ void Rubik::printHistoric() const{
 
 void Rubik::printRestrictedMoves() const{
     using namespace std;
-    for(uint8_t i = 0; i < this->validMoves.size(); i++)
-        if(!this->validMoves[i]) cout << Moves[i]->name << " ";
+    for(auto& move : this->restrictedMoves)
+        cout << move->name << " ";
     cout << endl;
 }
 
@@ -134,7 +106,12 @@ void Rubik::move(int numArgs, ...){
         const Move* mov = va_arg(args, const Move*);
 
         // VERIFICA SE O MOVIMENTO PODE SER EXECUTADO
-        if(!this->forceRestrictedMoves && !this->validMoves[mov->index]) continue;
+        if(!this->forceRestrictedMoves){
+
+            auto iterador = std::find(this->restrictedMoves.begin(), this->restrictedMoves.end(), mov);
+            if(iterador != this->restrictedMoves.end()) continue;
+
+        }
 
         for(uint8_t qt = 0; qt < mov->quantity; qt++){
 
@@ -176,8 +153,10 @@ void Rubik::move(int numArgs, ...){
 std::vector<const Move *> Rubik::getValidMoves(){
     std::vector<const Move*> validMoves;
 
-    for(uint8_t i = 0; i < this->validMoves.size(); i++)
-        if(this->validMoves[i]) validMoves.push_back(Moves[i]);
+    for(auto& move : Moves){
+        auto iterador = std::find(this->restrictedMoves.begin(), this->restrictedMoves.end(), move);
+        if(iterador == this->restrictedMoves.end()) validMoves.push_back(move);
+    }
 
     return validMoves;
 }
