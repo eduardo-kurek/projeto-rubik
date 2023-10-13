@@ -16,6 +16,15 @@ Rubik::Rubik(const std::string& position){
     this->setPosition(position);
 }
 
+void Rubik::setRestrictionFunction(const RestrictionFunction& restrictionFunction){
+    this->restrictionFunction = restrictionFunction;
+}
+
+void Rubik::restrict(const Move* lastMove){
+    auto restrictedMoves = this->restrictionFunction(lastMove);
+    this->restrictedMoves = restrictedMoves;
+}
+
 void Rubik::setPosition(const std::string& position){
     // Padrão que a string deve ser enviada
     std::regex pattern("[BYRWOG]{8}-[BYRWOG]{8}-[BYRWOG]{8}-[BYRWOG]{8}-[BYRWOG]{8}-[BYRWOG]{8}");
@@ -49,6 +58,20 @@ void Rubik::print(bool clear) const{
         #endif
     }
     std::cout << this;
+}
+
+void Rubik::printHistoric(){
+    using namespace std;
+    for(auto mov : this->historic)
+        cout << mov->name << " ";
+    cout << endl;
+}
+
+void Rubik::printRestrictedMoves() const{
+    using namespace std;
+    for(auto mov : this->restrictedMoves)
+        cout << mov->name << " ";
+    cout << endl;
 }
 
 void Rubik::reset(){
@@ -107,13 +130,6 @@ void Rubik::move(int numArgs, ...){
     }
 
     va_end(args);
-}
-
-void Rubik::printHistoric(){
-    using namespace std;
-    for(auto mov : this->historic)
-        cout << mov->name << " ";
-    cout << endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const Rubik* rubik){

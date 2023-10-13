@@ -1,8 +1,12 @@
-//
-// Created by eduar on 12/10/2023.
-//
+#pragma once
 
-#ifndef PROJETO_RUBIK_RESTRICTION_H
-#define PROJETO_RUBIK_RESTRICTION_H
+#include "Move.h"
+#include <functional>
 
-#endif //PROJETO_RUBIK_RESTRICTION_H
+namespace Restriction{
+
+    std::vector<const Move*> SUPPLEMENTATION(const Move* move);
+    std::vector<const Move*> COMPLEMENTATION(const Move* move);
+    std::vector<const Move*> BOTH(const Move* move);
+    std::vector<const Move*> NOTHING(const Move*);
+}
