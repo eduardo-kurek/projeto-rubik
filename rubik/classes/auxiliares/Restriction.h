@@ -1,0 +1,8 @@
+//
+// Created by eduar on 12/10/2023.
+//
+
+#ifndef PROJETO_RUBIK_RESTRICTION_H
+#define PROJETO_RUBIK_RESTRICTION_H
+
+#endif //PROJETO_RUBIK_RESTRICTION_H
