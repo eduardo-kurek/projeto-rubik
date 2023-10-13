@@ -13,24 +13,27 @@ class Rubik{
 
     using RestrictionFunction = std::function<std::vector<const Move*>(const Move*)>;
 
-private:
     Face faces[6];
     std::list<const Move*> historic;
     std::vector<const Move*> restrictedMoves;
     RestrictionFunction restrictionFunction = Restriction::SUPPLEMENTATION;
 
+    void restrict(const Move* lastMove);
+
 public:
+    bool forceRestrictedMoves = false;
+
     Rubik();
 
     explicit Rubik(const std::string& position);
 
     void setRestrictionFunction(const RestrictionFunction& restrictionFunction);
 
-    void restrict(const Move* lastMove);
+    void clearRestrictedMoves();
 
     void print(bool clear = false) const;
 
-    void printHistoric();
+    void printHistoric() const;
 
     void printRestrictedMoves() const;
 

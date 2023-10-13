@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <regex>
+#include <algorithm>
 
 Rubik::Rubik(){
     for(int i = 0; i < 6; i++)
@@ -18,6 +19,10 @@ Rubik::Rubik(const std::string& position){
 
 void Rubik::setRestrictionFunction(const RestrictionFunction& restrictionFunction){
     this->restrictionFunction = restrictionFunction;
+}
+
+void Rubik::clearRestrictedMoves(){
+    this->restrictedMoves = {};
 }
 
 void Rubik::restrict(const Move* lastMove){
@@ -60,7 +65,7 @@ void Rubik::print(bool clear) const{
     std::cout << this;
 }
 
-void Rubik::printHistoric(){
+void Rubik::printHistoric() const{
     using namespace std;
     for(auto mov : this->historic)
         cout << mov->name << " ";
@@ -98,6 +103,15 @@ void Rubik::move(int numArgs, ...){
     for(int i = 0; i < numArgs; i++){
         const Move* mov = va_arg(args, const Move*);
 
+        // VERIFICA SE O FORCE DE RESTRIÇÃO ESTÁ DESLIGADO
+        if(!this->forceRestrictedMoves){
+
+            // BUSCA O MOVIMENTO ATUAL NOS MOVIMENTOS RESTRITOS
+            auto iterator = std::find(this->restrictedMoves.begin(), this->restrictedMoves.end(), mov);
+            if(iterator != this->restrictedMoves.end()) continue;
+
+        }
+
         for(uint8_t qt = 0; qt < mov->quantity; qt++){
 
             const Color* aux[3] = {&NONE, &NONE, &NONE};
@@ -127,6 +141,9 @@ void Rubik::move(int numArgs, ...){
         // ADICIONANDO O MOVIMENTO REALIZADO NA FILA
         if(this->historic.size() >= 20) this->historic.pop_back();
         this->historic.push_front(mov);
+
+        // RECALCULANDO OS NOVOS MOVIMENTOS RESTRITOS DO CUBO
+        this->restrict(mov);
     }
 
     va_end(args);

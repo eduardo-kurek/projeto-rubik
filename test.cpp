@@ -16,7 +16,13 @@ int main(int argc, char* argv[]){
 //    delete r;
 
     Rubik* r = new Rubik();
-    r->setRestrictionFunction(Restriction::NOTHING);
-    r->restrict(R);
     r->printRestrictedMoves();
+    r->move(1, R);
+    r->printRestrictedMoves();
+    r->forceRestrictedMoves = true;
+    r->move(1, R);
+    r->print();
+    r->printRestrictedMoves();
+    r->clearRestrictedMoves();
+    std::cout << "Fim";
 }
