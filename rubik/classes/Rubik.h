@@ -11,24 +11,21 @@
 
 class Rubik{
 
-    struct MoveStatus{
-        const Move* move;
-        bool isValid;
-    };
-
-    using RestrictionFunction = std::function<std::vector<const Move*>(const Move*)>;
+    using RestrictionFunction = std::function<std::vector<const Move*>(const Move*, const Move*)>;
 
     Face faces[6];
+    const Move* lastMove = nullptr;
     std::list<const Move*> historic;
     std::vector<const Move*> restrictedMoves;
-    RestrictionFunction restrictionFunction = Restriction::SUPPLEMENTATION;
+    RestrictionFunction restrictionFunction = Restriction::SUPPLEMENTATION_ORACLE;
 
     /**
      * Aplica a restrição ao cubo mágico de acordo com o retorno da função
      * this->restrictionFunction
+     * @param move
      * @param lastMove
      */
-    void restrict(const Move* lastMove);
+    void restrict(const Move* move, const Move* lastMove);
 
 public:
     bool forceRestrictedMoves = false;

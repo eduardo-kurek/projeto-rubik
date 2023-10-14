@@ -17,6 +17,7 @@ int main(int argc, char* argv[]){
 
 
     Rubik* r = new Rubik();
+    r->setRestrictionFunction(Restriction::SUPPLEMENTATION_ORACLE);
     r->scramble();
     r->print();
     r->printHistoric();

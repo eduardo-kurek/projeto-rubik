@@ -26,8 +26,8 @@ void Rubik::clearRestrictedMoves(){
     this->restrictedMoves = {};
 }
 
-void Rubik::restrict(const Move* lastMove){
-    auto restrictedMoves = this->restrictionFunction(lastMove);
+void Rubik::restrict(const Move* move, const Move* lastMove){
+    auto restrictedMoves = this->restrictionFunction(move, lastMove);
     this->restrictedMoves = restrictedMoves;
 }
 
@@ -108,8 +108,8 @@ void Rubik::move(int numArgs, ...){
         // VERIFICA SE O MOVIMENTO PODE SER EXECUTADO
         if(!this->forceRestrictedMoves){
 
-            auto iterador = std::find(this->restrictedMoves.begin(), this->restrictedMoves.end(), mov);
-            if(iterador != this->restrictedMoves.end()) continue;
+            auto iterator = std::find(this->restrictedMoves.begin(), this->restrictedMoves.end(), mov);
+            if(iterator != this->restrictedMoves.end()) continue;
 
         }
 
@@ -144,7 +144,10 @@ void Rubik::move(int numArgs, ...){
         this->historic.push_front(mov);
 
         // RECALCULANDO OS NOVOS MOVIMENTOS RESTRITOS DO CUBO
-        this->restrict(mov);
+        this->restrict(mov, this->lastMove);
+
+        // ATUALIZANDO O ÚTILMO MOVIMENTO REALIZADO
+        this->lastMove = mov;
     }
 
     va_end(args);
@@ -154,15 +157,14 @@ std::vector<const Move *> Rubik::getValidMoves(){
     std::vector<const Move*> validMoves;
 
     for(auto& move : Moves){
-        auto iterador = std::find(this->restrictedMoves.begin(), this->restrictedMoves.end(), move);
-        if(iterador == this->restrictedMoves.end()) validMoves.push_back(move);
+        auto iterator = std::find(this->restrictedMoves.begin(), this->restrictedMoves.end(), move);
+        if(iterator == this->restrictedMoves.end()) validMoves.push_back(move);
     }
 
     return validMoves;
 }
 
 void Rubik::scramble(int quantity){
-
     for(int i = 0; i < quantity; i++){
         auto moves = this->getValidMoves();
 
@@ -172,24 +174,6 @@ void Rubik::scramble(int quantity){
         // MOVIMENTA O CUBO MÁGICO
         this->move(1, moves[rand]);
     }
-
-//    for(int i = 0; i < quantity; i++){
-//
-//        std::vector<const Move*> validMoves = Moves;
-//        auto restricted = this->restrictedMoves;
-//
-//        validMoves.erase(std::remove_if(validMoves.begin(), validMoves.end(), [&restricted](const Move* move){
-//            return std::find(restricted.begin(), restricted.end(), move) != restricted.end();
-//        }), validMoves.end());
-//
-//
-//        // GERANDO O NÚMERO ALEATÓRIO
-//        int rand = std::rand() % (int)validMoves.size();
-//
-//        // MOVIMENTA O CUBO MÁGICO
-//        this->move(1, validMoves[rand]);
-//
-//    }
 }
 
 std::ostream& operator<<(std::ostream& os, const Rubik* rubik){
