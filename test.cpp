@@ -1,4 +1,4 @@
-#include "rubik/classes/Rubik.h"
+#include "rubik/Rubik.h"
 #include <iostream>
 #ifdef _WIN32
 #include <windows.h>

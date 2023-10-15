@@ -19,7 +19,7 @@ all: compile
 	./$(OUT)
 
 test:
-	$(CC) test.cpp rubik/classes/*.cpp rubik/classes/auxiliares/*.cpp -o $(OUT)
+	$(CC) test.cpp rubik/*.cpp rubik/auxiliares/*.cpp -o $(OUT)
 
 compile:
 	$(CC) -c rubik/rubik.cpp -o rubik/rubik.o
