@@ -1,10 +1,11 @@
 #include "Rubik.h"
 #include "auxiliares/constantes.h"
 #include "auxiliares/Color.h"
-#include "auxiliares/enums/Faces.h"
+#include <cstdlib>
 #include <string>
 #include <iostream>
 #include <regex>
+#include <algorithm>
 
 Rubik::Rubik(){
     for(int i = 0; i < 6; i++)
@@ -15,6 +16,19 @@ Rubik::Rubik(const std::string& position){
     for(int i = 0; i < 6; i++)
         this->faces[i] = Face(COLORS[i]);
     this->setPosition(position);
+}
+
+void Rubik::setRestrictionFunction(const RestrictionFunction& restrictionFunction){
+    this->restrictionFunction = restrictionFunction;
+}
+
+void Rubik::clearRestrictedMoves(){
+    this->restrictedMoves = {};
+}
+
+void Rubik::restrict(const Move* move, const Move* lastMove){
+    auto restrictedMoves = this->restrictionFunction(move, lastMove);
+    this->restrictedMoves = restrictedMoves;
 }
 
 void Rubik::setPosition(const std::string& position){
@@ -52,8 +66,23 @@ void Rubik::print(bool clear) const{
     std::cout << this;
 }
 
+void Rubik::printHistoric() const{
+    using namespace std;
+    for(auto mov : this->historic)
+        cout << mov->name << " ";
+    cout << endl;
+}
+
+void Rubik::printRestrictedMoves() const{
+    using namespace std;
+    for(auto& move : this->restrictedMoves)
+        cout << move->name << " ";
+    cout << endl;
+}
+
 void Rubik::reset(){
     this->setPosition(POS_RESOLVIDO);
+    this->clearRestrictedMoves();
 }
 
 std::string Rubik::extract() const{
@@ -67,6 +96,84 @@ std::string Rubik::extract() const{
     }
     
     return str;
+}
+
+void Rubik::move(int numArgs, ...){
+    va_list args;
+    va_start(args, numArgs);
+
+    for(int i = 0; i < numArgs; i++){
+        const Move* mov = va_arg(args, const Move*);
+
+        // VERIFICA SE O MOVIMENTO PODE SER EXECUTADO
+        if(!this->forceRestrictedMoves){
+
+            auto iterator = std::find(this->restrictedMoves.begin(), this->restrictedMoves.end(), mov);
+            if(iterator != this->restrictedMoves.end()) continue;
+
+        }
+
+        for(uint8_t qt = 0; qt < mov->quantity; qt++){
+
+            const Color* aux[3] = {&NONE, &NONE, &NONE};
+            for(uint8_t j = 0; j < 4; j++){
+                // VARIÁVEIS AUXILIARES
+                const uint8_t indexFace = mov->faces[j];
+                const Layer* layer = mov->layers[j];
+                const Color** colors = this->faces[indexFace].extractLayer(*layer);
+
+                // SETANDO A CAMADA ATUAL
+                if(j > 0) this->faces[indexFace].setLayer(*layer, aux);
+
+                // AJUSTANDO O AUXILIAR
+                for(int k = 0; k < 3; k++)
+                    aux[k] = colors[k];
+
+                delete[] colors;
+            }
+
+            // SETANDO A PRIMEIRA FACE DA LISTA
+            this->faces[mov->faces[0]].setLayer(*mov->layers[0], aux);
+
+            // GIRANDO A FACE FRACA NO SENTIDO RECEBIDO
+            this->faces[mov->weakSide].rotate(mov->turn);
+        }
+
+        // ADICIONANDO O MOVIMENTO REALIZADO NA FILA
+        if(this->historic.size() >= 20) this->historic.pop_back();
+        this->historic.push_front(mov);
+
+        // RECALCULANDO OS NOVOS MOVIMENTOS RESTRITOS DO CUBO
+        this->restrict(mov, this->lastMove);
+
+        // ATUALIZANDO O ÚTILMO MOVIMENTO REALIZADO
+        this->lastMove = mov;
+    }
+
+    va_end(args);
+}
+
+std::vector<const Move *> Rubik::getValidMoves(){
+    std::vector<const Move*> validMoves;
+
+    for(auto& move : Moves){
+        auto iterator = std::find(this->restrictedMoves.begin(), this->restrictedMoves.end(), move);
+        if(iterator == this->restrictedMoves.end()) validMoves.push_back(move);
+    }
+
+    return validMoves;
+}
+
+void Rubik::scramble(int quantity){
+    for(int i = 0; i < quantity; i++){
+        auto moves = this->getValidMoves();
+
+        // GERANDO O NÚMERO ALEATÓRIO
+        int rand = std::rand() % (int)moves.size();
+
+        // MOVIMENTA O CUBO MÁGICO
+        this->move(1, moves[rand]);
+    }
 }
 
 std::ostream& operator<<(std::ostream& os, const Rubik* rubik){

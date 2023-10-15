@@ -10,8 +10,15 @@ int main(int argc, char* argv[]){
         SetConsoleOutputCP(65001);
     #endif
 
-    Rubik* r = new Rubik("RWRGYYWY-YYYYYYYY-RRRRRRRR-WWWWWWWW-OOOOOOOO-GGGGGGGG");
-    r->print(true);
+//    Rubik* r = new Rubik();
+//    r->move(18, R, U, DA, RA, L2, U2, B, D2, F, UA, FA, B2, LA, F2, B, R2, D, L);
+//    r->printHistoric();
+//    delete r;
+
+
+    Rubik* r = new Rubik();
+    r->setRestrictionFunction(Restriction::SUPPLEMENTATION_ORACLE);
+    r->scramble();
     r->print();
-    delete r;
+    r->printHistoric();
 }
