@@ -17,8 +17,13 @@ int main(int argc, char* argv[]){
 
 
     Rubik* r = new Rubik();
-    r->setRestrictionFunction(Restriction::SUPPLEMENTATION_ORACLE);
-    r->scramble();
-    r->print();
-    r->printHistoric();
+    r->move(1, L);
+
+    Rubik* r2 = new Rubik();
+
+    if(*r == *r2){
+        std::cout << "Os cubos são iguais";
+    }else{
+        std::cout << "Os cubos são diferentes";
+    }
 }

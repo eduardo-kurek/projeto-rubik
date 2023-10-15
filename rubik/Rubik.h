@@ -118,4 +118,9 @@ public:
      */
     friend std::ostream &operator<<(std::ostream &os, const Rubik* rubik);
 
+    /**
+     * Comparação de 2 cubos
+     */
+    bool operator==(Rubik rubik);
+
 };

@@ -10,4 +10,6 @@ public:
     explicit Sticker(const Color* color);
     void setColor(const Color* color);
     const Color* getColor() const;
+
+    bool operator==(Sticker* sticker);
 };

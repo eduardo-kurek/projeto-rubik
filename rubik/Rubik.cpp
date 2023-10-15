@@ -214,3 +214,10 @@ std::ostream& operator<<(std::ostream& os, const Rubik* rubik){
     }
     return os;
 }
+
+bool Rubik::operator==(Rubik rubik){
+    for(int i = 0; i < 6; ++i)
+        if(!(this->faces[i] == &rubik.faces[i]))
+            return false;
+    return true;
+}
