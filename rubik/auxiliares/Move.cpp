@@ -34,7 +34,7 @@ const Move* U = &MOV_U;
 const Move MOV_UA = {
         {FRONT, RIGHT, BACK, LEFT},
         {&LAYER_UA, &LAYER_UA, &LAYER_UA, &LAYER_UA},
-        TOP, ANTICLOCKWISE, 1, "U", 4, {U, U2}, {D, DA, D2}
+        TOP, ANTICLOCKWISE, 1, "U'", 4, {U, U2}, {D, DA, D2}
 };
 const Move* UA = &MOV_UA;
 

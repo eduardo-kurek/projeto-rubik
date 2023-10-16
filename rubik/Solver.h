@@ -17,6 +17,8 @@ class Solver{
     // Soluções encontradas no cubo
     MovementsArray foundedSolves = {{}};
 
+    void solve(Rubik rubik, uint8_t depth);
+
 public:
     Solver();
     explicit Solver(Rubik source);
@@ -26,5 +28,6 @@ public:
     void setTarget(Rubik target);
 
     void solve(uint8_t depth = 2);
+    MovementsArray getFoundedSolves();
 
 };

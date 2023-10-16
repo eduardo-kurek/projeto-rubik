@@ -1,4 +1,5 @@
 #include "rubik/Rubik.h"
+#include "rubik/Solver.h"
 #include <iostream>
 #ifdef _WIN32
 #include <windows.h>
@@ -16,14 +17,23 @@ int main(int argc, char* argv[]){
 //    delete r;
 
 
-    Rubik* r = new Rubik();
-    r->move(1, L);
+    Rubik r;
+    r.move(8, R, U2, L, B2, D, R2, F2, UA);
 
-    Rubik* r2 = new Rubik();
+    Rubik r2;
 
-    if(*r == *r2){
-        std::cout << "Os cubos são iguais";
-    }else{
-        std::cout << "Os cubos são diferentes";
+    Solver solver;
+    solver.setSource(r);
+    solver.setTarget(r2);
+
+    solver.solve(8);
+
+    auto solves = solver.getFoundedSolves();
+
+    std::cout << "Soluções encontradas: " << std::endl;
+    for(auto& line : solves){
+        for(auto& move : line)
+            std::cout << move->name << " ";
+        std::cout << std::endl;
     }
 }

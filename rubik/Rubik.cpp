@@ -26,6 +26,11 @@ void Rubik::clearRestrictedMoves(){
     this->restrictedMoves = {};
 }
 
+void Rubik::clearHistoric(){
+    std::queue<const Move*> empty;
+    this->historic = empty;
+}
+
 void Rubik::restrict(const Move* move, const Move* lastMove){
     auto restrictedMoves = this->restrictionFunction(move, lastMove);
     this->restrictedMoves = restrictedMoves;
@@ -67,10 +72,26 @@ void Rubik::print(bool clear) const{
 }
 
 void Rubik::printHistoric() const{
-    using namespace std;
-    for(auto mov : this->historic)
-        cout << mov->name << " ";
-    cout << endl;
+    auto temp = this->historic;
+
+    while(!temp.empty()){
+        std::cout << temp.front()->name << " ";
+        temp.pop();
+    }
+
+    std::cout << std::endl;
+}
+
+std::vector<const Move *> Rubik::getHistoric(){
+    auto temp = this->historic;
+    std::vector<const Move*> moves;
+
+    while(!temp.empty()){
+        moves.push_back(temp.front());
+        temp.pop();
+    }
+
+    return moves;
 }
 
 void Rubik::printRestrictedMoves() const{
@@ -140,8 +161,8 @@ void Rubik::move(int numArgs, ...){
         }
 
         // ADICIONANDO O MOVIMENTO REALIZADO NA FILA
-        if(this->historic.size() >= 20) this->historic.pop_back();
-        this->historic.push_front(mov);
+        if(this->historic.size() >= 20) this->historic.pop();
+        this->historic.push(mov);
 
         // RECALCULANDO OS NOVOS MOVIMENTOS RESTRITOS DO CUBO
         this->restrict(mov, this->lastMove);
