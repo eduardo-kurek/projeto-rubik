@@ -7,7 +7,7 @@
 #include <functional>
 #include <cstdarg>
 #include <string>
-#include <list>
+#include <queue>
 
 class Rubik{
 
@@ -15,7 +15,7 @@ class Rubik{
 
     Face faces[6];
     const Move* lastMove = nullptr;
-    std::list<const Move*> historic;
+    std::queue<const Move*> historic;
     std::vector<const Move*> restrictedMoves;
     RestrictionFunction restrictionFunction = Restriction::SUPPLEMENTATION_ORACLE;
 
@@ -55,6 +55,11 @@ public:
     void clearRestrictedMoves();
 
     /**
+     * Limpa o histórico de movimentos
+     */
+    void clearHistoric();
+
+    /**
      * Imprime o cubo mágico
      * @param clear: limpar o terminal antes da impressão?
      */
@@ -64,6 +69,12 @@ public:
      * Imprime o histórico dos últimos 20 movimentos do cubo
      */
     void printHistoric() const;
+
+    /**
+     * Obtém o histórico de movimentos do cubo
+     * @return
+     */
+    std::vector<const Move*> getHistoric();
 
     /**
      * Imprime a lista com os movimentos restritos
@@ -117,5 +128,10 @@ public:
      * @return
      */
     friend std::ostream &operator<<(std::ostream &os, const Rubik* rubik);
+
+    /**
+     * Comparação de 2 cubos
+     */
+    bool operator==(Rubik rubik);
 
 };

@@ -22,4 +22,6 @@ public:
     const Color** extractLayer(const Layer& layer);
     void setLayer(const Layer& layer, const Color* colors[3]);
 
+    bool operator==(Face* face);
+
 };
