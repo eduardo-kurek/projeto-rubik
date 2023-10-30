@@ -11,5 +11,5 @@ protected:
 
 public:
     Score(const Rubik* target);
-    virtual uint32_t calculate() = 0;
+    virtual uint32_t calculate(const Rubik* source) = 0;
 };
