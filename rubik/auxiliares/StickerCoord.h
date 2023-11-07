@@ -13,6 +13,8 @@ public:
     const Faces& getFace() const ;
     const Coord& getLine() const ;
     const Coord& getColumn() const ;
+
+    bool operator==(StickerCoord* sticker);
 };
 
 namespace Stickers{

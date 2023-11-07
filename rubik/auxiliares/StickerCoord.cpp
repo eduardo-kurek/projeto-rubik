@@ -7,6 +7,13 @@ const Faces& StickerCoord::getFace() const { return this->face; }
 const Coord& StickerCoord::getLine() const { return this->line; }
 const Coord& StickerCoord::getColumn() const { return this->column; }
 
+bool StickerCoord::operator==(StickerCoord* sticker){
+    if(this->getFace() == sticker->getFace() &&
+       this->getLine() == sticker->getLine() &&
+       this->getColumn() == sticker->getColumn())return true;
+    return false;
+}
+
 namespace Stickers{
 
     const StickerCoord *S1 = new StickerCoord(Faces::TOP, Coord::ZERO, Coord::ZERO);
