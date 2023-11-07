@@ -1,6 +1,7 @@
 #include "rubik/Rubik.h"
 #include "rubik/Solver.h"
 #include "rubik/auxiliares/StickerCoord.h"
+#include "rubik/auxiliares/Corners.h"
 #include <iostream>
 #include "rubik/scores/BasicScore.h"
 #ifdef _WIN32
@@ -44,6 +45,11 @@ int main(int argc, char* argv[]){
 //
 //    bs->calculate();
     auto f = Stickers::S1->getFace();
+    auto t = Corners::C1->getIdle();
+    auto g= Corners::C1->getClockwise();
+    auto d = Corners::C1->getAntiClockwise();
 
-    std::cout << f;
+    std::cout << t[0]->getFace() << t[1]->getFace() << t[2]->getFace() << std::endl;
+    std::cout << g[0]->getFace() << g[1]->getFace() << g[2]->getFace() << std::endl;
+    std::cout << d[0]->getFace() << d[1]->getFace() << d[2]->getFace() << std::endl;
 }
