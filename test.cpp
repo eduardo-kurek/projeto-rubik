@@ -40,14 +40,9 @@ int main(int argc, char* argv[]){
 //        std::cout << std::endl;
 //    }
 
-//    Rubik* r = new Rubik();
-//    BasicScore* bs = new BasicScore(r);
-//
-//    bs->calculate();
-    auto f = Stickers::S1;
-    auto f2 = Stickers::S1;
+    Rubik* r = new Rubik();
+    BasicScore* bs = new BasicScore(r);
 
-    if(f == f2) std::cout << "São iguais";
-    else std::cout << "Não são iguais";
+    bs->calculate();
 
 }

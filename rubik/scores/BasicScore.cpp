@@ -6,5 +6,8 @@
 BasicScore::BasicScore(const Rubik* target) : Score(target) {}
 
 uint32_t BasicScore::calculate(const Rubik* source){
-    return 0;
+    // COMPARANDO AS CORNERS
+    for(auto& corner : Corners::CORNERS){
+
+    }
 }
