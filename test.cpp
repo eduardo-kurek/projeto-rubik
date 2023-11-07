@@ -1,5 +1,6 @@
 #include "rubik/Rubik.h"
 #include "rubik/Solver.h"
+#include "rubik/auxiliares/StickerCoord.h"
 #include <iostream>
 #include "rubik/scores/BasicScore.h"
 #ifdef _WIN32
@@ -38,8 +39,11 @@ int main(int argc, char* argv[]){
 //        std::cout << std::endl;
 //    }
 
-    Rubik* r = new Rubik();
-    BasicScore* bs = new BasicScore(r);
+//    Rubik* r = new Rubik();
+//    BasicScore* bs = new BasicScore(r);
+//
+//    bs->calculate();
+    auto f = Stickers::S1->getFace();
 
-    bs->calculate();
+    std::cout << f;
 }
