@@ -7,15 +7,11 @@
 #include "enums/Coord.h"
 
 class Corner{
-    const StickerCoord* coordIdle[3];
-    const StickerCoord* coordClockwise[3];
-    const StickerCoord* coordAnticlockwise[3];
+    const StickerCoord* coords[3];
 
 public:
-    Corner(const StickerCoord* coordIdle[3]);
-    const StickerCoord*const* getIdle() const;
-    const StickerCoord*const* getClockwise() const;
-    const StickerCoord*const* getAntiClockwise() const;
+    Corner(const StickerCoord* coords[3]);
+    const StickerCoord*const* getCoords() const;
 };
 
 namespace Corners{

@@ -1,14 +1,10 @@
 #include "Corners.h"
 #include <vector>
 
-Corner::Corner(const StickerCoord* coordIdle[3])
-    : coordIdle{coordIdle[0], coordIdle[1], coordIdle[2]},
-      coordClockwise{coordIdle[2], coordIdle[0], coordIdle[1]},
-      coordAnticlockwise{coordIdle[1], coordIdle[2], coordIdle[0]} {}
+Corner::Corner(const StickerCoord* coords[3])
+    : coords{coords[0], coords[1], coords[2]} {}
 
-const StickerCoord*const* Corner::getIdle() const{ return this->coordIdle; }
-const StickerCoord*const* Corner::getClockwise() const{ return this->coordClockwise; }
-const StickerCoord*const* Corner::getAntiClockwise() const{ return this->coordAnticlockwise; }
+const StickerCoord*const* Corner::getCoords() const{ return this->coords; }
 
 namespace Corners{
 

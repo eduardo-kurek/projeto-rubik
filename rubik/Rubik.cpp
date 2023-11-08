@@ -203,10 +203,10 @@ void Rubik::scramble(int quantity){
 
 CornerState Rubik::compareCorner(const Rubik& rubik, const Corner& corner) const{
     // VERIFICANDO A ORIENTAÇÃO DA PEÇA
-    auto idle = corner.getIdle();
+    auto coords = corner.getCoords();
     uint8_t count = 0;
     for(uint8_t i = 0; i < 3; i++){
-        auto current = idle[i];
+        auto current = coords[i];
         auto mySticker = this->getFaces()[current->getFace()].stickers[current->getLine()][current->getColumn()];
         auto anotherSticker = rubik.getFaces()[current->getFace()].stickers[current->getLine()][current->getColumn()];
 
@@ -218,8 +218,8 @@ CornerState Rubik::compareCorner(const Rubik& rubik, const Corner& corner) const
     // VERIFICANDO A PERMUTAÇÃO DA PEÇA
     count = 0;
     for(uint8_t i = 0; i < 3; i++){
-        auto current = idle[i];
-        auto next = idle[(i+1) % 3];
+        auto current = coords[i];
+        auto next = coords[(i+1) % 3];
         auto mySticker = this->getFaces()[current->getFace()].stickers[current->getLine()][current->getColumn()];
         auto anotherSticker = rubik.getFaces()[next->getFace()].stickers[next->getLine()][next->getColumn()];
 
@@ -229,8 +229,8 @@ CornerState Rubik::compareCorner(const Rubik& rubik, const Corner& corner) const
 
     count = 0;
     for(uint8_t i = 0; i < 3; i++){
-        auto current = idle[i];
-        auto prev = idle[(i+2) % 3];
+        auto current = coords[i];
+        auto prev = coords[(i+2) % 3];
         auto mySticker = this->getFaces()[current->getFace()].stickers[current->getLine()][current->getColumn()];
         auto anotherSticker = rubik.getFaces()[prev->getFace()].stickers[prev->getLine()][prev->getColumn()];
 
