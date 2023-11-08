@@ -6,7 +6,6 @@
 class Score{
 
 protected:
-    uint32_t maxScore;
     const Rubik* target;
 
 public:

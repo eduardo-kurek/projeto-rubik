@@ -98,9 +98,9 @@ void Face::setLayer(const Layer& layer, const Color* colors[3]){
     }
 }
 
-bool Face::operator==(Face* face){
+bool Face::operator==(const Face& face){
     for(uint8_t i = 0; i < 3; i++)
         for(uint8_t j = 0; j < 3; j++)
-            if(!(this->stickers[i][j] == &face->stickers[i][j])) return false;
+            if(!(this->stickers[i][j] == face.stickers[i][j])) return false;
     return true;
 }

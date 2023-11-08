@@ -2,12 +2,13 @@
 
 #include "Score.h"
 
-/**
- * - Caso a corner esteja no lugar correto e orientação correta: +2;
- * - Caso a corner esteja no lugar correto e orientação errada: +1;
- * - Caso a corner esteja no lugar errado e orientação errada: 0;
- */
 class BasicScore : public Score{
+
+    uint16_t correct = 3;
+    uint16_t oriented = 2;
+    uint16_t permuted_clockwise = 1;
+    uint16_t permuted_anticlockwise = 1;
+    uint16_t incorrect = 0;
 
 public:
     BasicScore(const Rubik* target = new Rubik());

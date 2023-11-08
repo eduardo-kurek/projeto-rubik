@@ -4,6 +4,8 @@
 #include "auxiliares/constantes.h"
 #include "auxiliares/Move.h"
 #include "auxiliares/Restriction.h"
+#include "auxiliares/enums/CornerState.h"
+#include "auxiliares/Corners.h"
 #include <functional>
 #include <cstdarg>
 #include <string>
@@ -40,6 +42,12 @@ public:
      * @param position: string contendo a posição a ser iniciada
      */
     explicit Rubik(const std::string& position);
+
+    /**
+     * Getter das faces
+     * @return
+     */
+    const Face* getFaces() const;
 
     /**
      * Define a função de restrição usada para calcular o vetor
@@ -122,6 +130,15 @@ public:
     void scramble(int quantity = 20);
 
     /**
+     * Compara um determinado canto com o mesmo canto de outra instância,
+     * devolve o estado desta comparação, se está permutado, orientado, etc...
+     * @param rubik: outra instância a receber a comparação
+     * @param corner: qual corner deve ser comparada
+     * @return: estado da comparação
+     */
+    CornerState compareCorner(const Rubik& rubik, const Corner& corner) const;
+
+    /**
      * Sobrecarga de operador para impressão do cubo
      * @param os
      * @param rubik
@@ -132,6 +149,6 @@ public:
     /**
      * Comparação de 2 cubos
      */
-    bool operator==(Rubik rubik);
+    bool operator==(const Rubik& other);
 
 };

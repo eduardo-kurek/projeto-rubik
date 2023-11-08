@@ -18,6 +18,10 @@ Rubik::Rubik(const std::string& position){
     this->setPosition(position);
 }
 
+const Face* Rubik::getFaces() const{
+    return this->faces;
+}
+
 void Rubik::setRestrictionFunction(const RestrictionFunction& restrictionFunction){
     this->restrictionFunction = restrictionFunction;
 }
@@ -197,6 +201,88 @@ void Rubik::scramble(int quantity){
     }
 }
 
+CornerState Rubik::compareCorner(const Rubik& rubik, const Corner& corner) const{
+
+    // VERIFCANDO A ORIENTAÇÃO DA PEÇA
+    auto idle = corner.getIdle();
+    uint8_t count = 0;
+    for(uint8_t i = 0; i < 3; i++){
+        auto current = idle[i];
+        auto mySticker = this->getFaces()[current->getFace()].stickers[current->getLine()][current->getColumn()];
+        auto anotherSticker = rubik.getFaces()[current->getFace()].stickers[current->getLine()][current->getColumn()];
+
+        std::cout << "Comparando os adesivos: " << current->getFace() <<
+            ", [" << current->getLine() << "][" << current->getColumn() << "] (" << mySticker.getColor()->name
+            << ", " << anotherSticker.getColor()->name << ")";
+
+        if(mySticker == anotherSticker){
+            std::cout << " true" << std::endl;
+            count++;
+        }else{
+            std::cout << " false" << std::endl;
+        }
+
+    }
+
+    if(count == 1) return CornerState::ORIENTED;
+    if(count == 3) return CornerState::CORRECT;
+
+    std::cout << std::endl;
+
+    // VERIFICANDO A PERMUTAÇÃO DA PEÇA
+    count = 0;
+    for(uint8_t i = 0; i < 3; i++){
+        auto current = idle[i];
+        auto next = idle[(i+1) % 3];
+        auto mySticker = this->getFaces()[current->getFace()].stickers[current->getLine()][current->getColumn()];
+        auto anotherSticker = rubik.getFaces()[next->getFace()].stickers[next->getLine()][next->getColumn()];
+
+        std::cout << "Comparando os adesivos: " << current->getFace() <<
+                  ", [" << current->getLine() << "][" << current->getColumn() << "] "<< "("
+                  << mySticker.getColor()->name << ") " << "com: "
+                  << next->getFace() << ", [" << next->getLine() << "][" << next->getColumn() << "] " << "(" <<
+                  anotherSticker.getColor()->name << ")";
+
+
+        if(mySticker == anotherSticker){
+            std::cout << " true" << std::endl;
+            count++;
+        }else{
+            std::cout << " false" << std::endl;
+        }
+    }
+    std::cout << count << std::endl;
+    if(count == 3) return CornerState::PERMUTED_CLOCKWISE;
+
+    count = 0;
+
+    for(uint8_t i = 0; i < 3; i++){
+        auto current = idle[i];
+        auto prev = idle[(i+2) % 3];
+        auto mySticker = this->getFaces()[current->getFace()].stickers[current->getLine()][current->getColumn()];
+        auto anotherSticker = rubik.getFaces()[prev->getFace()].stickers[prev->getLine()][prev->getColumn()];
+
+        std::cout << "Comparando os adesivos: " << current->getFace() <<
+                  ", [" << current->getLine() << "][" << current->getColumn() << "] "<< "("
+                  << mySticker.getColor()->name << ") " << "com: "
+                  << prev->getFace() << ", [" << prev->getLine() << "][" << prev->getColumn() << "] " << "(" <<
+                  anotherSticker.getColor()->name << ")";
+
+
+        if(mySticker == anotherSticker){
+            std::cout << " true" << std::endl;
+            count++;
+        }else{
+            std::cout << " false" << std::endl;
+        }
+    }
+    std::cout << count << std::endl;
+    if(count == 3) return CornerState::PERMUTED_ANTICLOCKWISE;
+
+    // PEÇA COMPLETAMENTE INCORRETA
+    return CornerState::INCORRECT;
+}
+
 std::ostream& operator<<(std::ostream& os, const Rubik* rubik){
     // Imprimindo a primeira camada
     for(uint8_t i = 0; i < 3; i++){
@@ -236,9 +322,9 @@ std::ostream& operator<<(std::ostream& os, const Rubik* rubik){
     return os;
 }
 
-bool Rubik::operator==(Rubik rubik){
+bool Rubik::operator==(const Rubik& other){
     for(int i = 0; i < 6; ++i)
-        if(!(this->faces[i] == &rubik.faces[i]))
+        if(!(this->faces[i] == other.faces[i]))
             return false;
     return true;
 }
