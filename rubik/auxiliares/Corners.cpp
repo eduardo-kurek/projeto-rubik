@@ -1,10 +1,10 @@
 #include "Corners.h"
 #include <vector>
 
-Corner::Corner(const StickerCoord* coords[3])
-    : coords{coords[0], coords[1], coords[2]} {}
+Corner::Corner(const StickerCoord* stickers[3])
+    : stickers{stickers[0], stickers[1], stickers[2]} {}
 
-const StickerCoord*const* Corner::getCoords() const{ return this->coords; }
+const StickerCoord*const* Corner::getStickers() const{ return this->stickers; }
 
 namespace Corners{
 

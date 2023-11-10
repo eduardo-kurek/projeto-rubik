@@ -201,45 +201,70 @@ void Rubik::scramble(int quantity){
     }
 }
 
-CornerState Rubik::compareCorner(const Rubik& rubik, const Corner& corner) const{
-    // VERIFICANDO A ORIENTAÇÃO DA PEÇA
-    auto coords = corner.getCoords();
+uint8_t Rubik::countEqualStickers(const Rubik& other, const Edge& edge, const uint8_t offset) const{
     uint8_t count = 0;
-    for(uint8_t i = 0; i < 3; i++){
-        auto current = coords[i];
+
+    auto stickers = edge.getStickers();
+    for(uint8_t i = 0; i < 2; i++){
+        auto current = stickers[i];
+        auto next = stickers[(i + offset) % 2];
+
         auto mySticker = this->getFaces()[current->getFace()].stickers[current->getLine()][current->getColumn()];
-        auto anotherSticker = rubik.getFaces()[current->getFace()].stickers[current->getLine()][current->getColumn()];
+        auto otherSticker = other.getFaces()[next->getFace()].stickers[next->getLine()][next->getColumn()];
 
-        if(mySticker == anotherSticker) count++;
+        if(mySticker == otherSticker) count++;
     }
-    if(count == 1) return CornerState::ORIENTED;
-    if(count == 3) return CornerState::CORRECT;
 
-    // VERIFICANDO A PERMUTAÇÃO DA PEÇA
-    count = 0;
+    return count;
+}
+
+uint8_t Rubik::countEqualStickers(const Rubik& other, const Corner& corner, const uint8_t offset) const{
+    uint8_t count = 0;
+
+    auto stickers = corner.getStickers();
     for(uint8_t i = 0; i < 3; i++){
-        auto current = coords[i];
-        auto next = coords[(i+1) % 3];
+        auto current = stickers[i];
+        auto next = stickers[(i + offset) % 3];
+
         auto mySticker = this->getFaces()[current->getFace()].stickers[current->getLine()][current->getColumn()];
-        auto anotherSticker = rubik.getFaces()[next->getFace()].stickers[next->getLine()][next->getColumn()];
+        auto otherSticker = other.getFaces()[next->getFace()].stickers[next->getLine()][next->getColumn()];
 
-        if(mySticker == anotherSticker) count++;
+        if(mySticker == otherSticker) count++;
     }
-    if(count == 3) return CornerState::PERMUTED_CLOCKWISE;
 
-    count = 0;
-    for(uint8_t i = 0; i < 3; i++){
-        auto current = coords[i];
-        auto prev = coords[(i+2) % 3];
-        auto mySticker = this->getFaces()[current->getFace()].stickers[current->getLine()][current->getColumn()];
-        auto anotherSticker = rubik.getFaces()[prev->getFace()].stickers[prev->getLine()][prev->getColumn()];
+    return count;
+}
 
-        if(mySticker == anotherSticker) count++;
-    }
-    if(count == 3) return CornerState::PERMUTED_ANTICLOCKWISE;
+Corners::State Rubik::compareCorner(const Rubik& rubik, const Corner& corner) const{
+    // VERIFICANDO A ORIENTAÇÃO DA PEÇA
+    uint8_t corrects = this->countEqualStickers(rubik, corner);
+    if(corrects == 1) return Corners::State::ORIENTED;
+    if(corrects == 3) return Corners::State::CORRECT;
+
+    // VERIFICANDO A PERMUTAÇÃO DA PEÇA NO SENTIDO HORÁRIO
+    corrects = this->countEqualStickers(rubik, corner, 1);
+    if(corrects == 3) return Corners::State::PERMUTED_CLOCKWISE;
+
+    // VERIFICANDO A PERMUTAÇÃO DA PEÇA NO SENTIDO ANTI-HORÁRIO
+    corrects = this->countEqualStickers(rubik, corner, 2);
+    if(corrects == 3) return Corners::State::PERMUTED_ANTICLOCKWISE;
 
     // PEÇA COMPLETAMENTE INCORRETA
-    return CornerState::INCORRECT;
+    return Corners::State::INCORRECT;
+}
+
+Edges::State Rubik::compareEdge(const Rubik& rubik, const Edge& edge) const{
+    // VERIFICA QUANTOS ADESIVOS BATEM NA PEÇA ORIGINAL
+    uint8_t corrects = countEqualStickers(rubik, edge);
+    if(corrects == 1) return Edges::State::ORIENTED;
+    if(corrects == 2) return Edges::State::CORRECT;
+
+    // VERIFICAR SE A PEÇA ESTA PERMUTADA
+    corrects = countEqualStickers(rubik, edge, 1);
+    if(corrects == 2) return Edges::State::PERMUTED;
+
+    // PEÇA INCORRETA
+    return Edges::State::INCORRET;
 }
 
 std::ostream& operator<<(std::ostream& os, const Rubik* rubik){

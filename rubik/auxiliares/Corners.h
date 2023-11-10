@@ -10,8 +10,8 @@ class Corner{
     const StickerCoord* coords[3];
 
 public:
-    Corner(const StickerCoord* coords[3]);
-    const StickerCoord*const* getCoords() const;
+    Corner(const StickerCoord* stickers[3]);
+    const StickerCoord*const* getStickers() const;
 };
 
 namespace Corners{
@@ -25,6 +25,14 @@ namespace Corners{
     extern const Corner* C7;
     extern const Corner* C8;
 
-    extern const std::vector<const Corner *> CORNERS;
+    extern const std::vector<const Corner*> CORNERS;
+
+    enum State{
+        CORRECT = 0,
+        ORIENTED = 1,
+        PERMUTED_CLOCKWISE = 2,
+        PERMUTED_ANTICLOCKWISE = 3,
+        INCORRECT = 4
+    };
 
 }

@@ -43,7 +43,7 @@ int main(int argc, char* argv[]){
     Rubik* r = new Rubik();
     Rubik* r2 = new Rubik();
 
-    r2->scramble();
+    r2->scramble(50);
     r2->printHistoric();
 
     BasicScore* bs = new BasicScore(r);
