@@ -1,6 +1,6 @@
 #include "BasicScore.h"
 #include "../auxiliares/Corners.h"
-
+#include "../auxiliares/Edges.h"
 #include <iostream>
 
 BasicScore::BasicScore(const Rubik* target) : Score(target) {}
@@ -12,21 +12,21 @@ uint32_t BasicScore::calculate(const Rubik* source){
     // COMPARANDO AS CORNERS
     int count = 0;
     for(auto& corner : Corners::CORNERS){
-        CornerState state = this->target->compareCorner(*source, *corner);
+        Corners::State state = this->target->compareCorner(*source, *corner);
         switch(state){
-            case CornerState::CORRECT:
+            case Corners::State::CORRECT:
                 score += this->correct;
                 break;
-            case CornerState::ORIENTED:
+            case Corners::State::ORIENTED:
                 score += this->oriented;
                 break;
-            case CornerState::PERMUTED_CLOCKWISE:
+            case Corners::State::PERMUTED_CLOCKWISE:
                 score += this->permuted_clockwise;
                 break;
-            case CornerState::PERMUTED_ANTICLOCKWISE:
+            case Corners::State::PERMUTED_ANTICLOCKWISE:
                 score += this->permuted_anticlockwise;
                 break;
-            case CornerState::INCORRECT:
+            case Corners::State::INCORRECT:
                 score += this->incorrect;
                 break;
             default: ;

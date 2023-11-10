@@ -7,7 +7,7 @@
 #include "enums/Coord.h"
 
 class Corner{
-    const StickerCoord* coords[3];
+    const StickerCoord* stickers[3];
 
 public:
     Corner(const StickerCoord* stickers[3]);
