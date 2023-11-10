@@ -1,17 +1,18 @@
 #pragma once
 
 #include "Score.h"
+#include <vector>
 
-class BasicScore : public Score{
+class BasicScore : public virtual Score{
 
-    uint16_t correct = 3;
-    uint16_t oriented = 2;
-    uint16_t permuted_clockwise = 1;
-    uint16_t permuted_anticlockwise = 1;
-    uint16_t incorrect = 0;
+    float cornerPontuations[5] = {3, 2, 1, 1, 0};
+    float edgePontuations[4] = {3, 2, 1, 0};
+
+    float getScoreByState(Corners::State state) override;
+    float getScoreByState(Edges::State state) override;
 
 public:
     BasicScore(const Rubik* target = new Rubik());
-    uint32_t calculate(const Rubik* source) override;
+    float calculate(const Rubik* source) override;
 
 };

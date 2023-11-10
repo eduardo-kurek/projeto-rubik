@@ -5,33 +5,28 @@
 
 BasicScore::BasicScore(const Rubik* target) : Score(target) {}
 
-uint32_t BasicScore::calculate(const Rubik* source){
-    if(source == nullptr) return 0;
-    uint32_t score = 0;
+float BasicScore::getScoreByState(Edges::State state){
+    return this->edgePontuations[state];
+}
 
-    // COMPARANDO AS CORNERS
-    int count = 0;
+float BasicScore::getScoreByState(Corners::State state){
+    return this->cornerPontuations[state];
+}
+
+float BasicScore::calculate(const Rubik* source){
+    if(source == nullptr) return 0;
+    float score = 0;
+
+    // CALCULANDO VALORES DAS CORNERS
     for(auto& corner : Corners::CORNERS){
         Corners::State state = this->target->compareCorner(*source, *corner);
-        switch(state){
-            case Corners::State::CORRECT:
-                score += this->correct;
-                break;
-            case Corners::State::ORIENTED:
-                score += this->oriented;
-                break;
-            case Corners::State::PERMUTED_CLOCKWISE:
-                score += this->permuted_clockwise;
-                break;
-            case Corners::State::PERMUTED_ANTICLOCKWISE:
-                score += this->permuted_anticlockwise;
-                break;
-            case Corners::State::INCORRECT:
-                score += this->incorrect;
-                break;
-            default: ;
-        }
+        score += this->getScoreByState(state);
+    }
 
+    // CALCULANDO VALORES DAS EDGES
+    for(auto& edge : Edges::EDGES){
+        Edges::State state = this->target->compareEdge(*source, *edge);
+        score += this->getScoreByState(state);
     }
 
     return score;
