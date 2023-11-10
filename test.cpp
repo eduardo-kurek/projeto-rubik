@@ -49,5 +49,5 @@ int main(int argc, char* argv[]){
     BasicScore* bs = new BasicScore(r);
 
     auto value = bs->calculate(*r2);
-    std::cout << "score: " << value << std::endl;
+    std::cout << "score: " << value << ", max score: " << bs->getMaxScore() << std::endl;
 }

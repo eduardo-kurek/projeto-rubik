@@ -9,6 +9,9 @@ class Score{
 
 protected:
 
+    /* Score máximo possível */
+    int maxScore = 0;
+
     /* Alvo da pontuação, em relação a qual objeto a pontuação será aplicada */
     const Rubik* target;
 
@@ -25,5 +28,8 @@ public:
 
     /* Calcula a pontuação do source em relação ao target da classe */
     virtual float calculate(const Rubik& source) = 0;
+
+    /* Obtém o score máximo possível */
+    int getMaxScore() const;
 
 };
