@@ -24,6 +24,6 @@ public:
     Score(const Rubik* target);
 
     /* Calcula a pontuação do source em relação ao target da classe */
-    virtual float calculate(const Rubik* source) = 0;
+    virtual float calculate(const Rubik& source) = 0;
 
 };

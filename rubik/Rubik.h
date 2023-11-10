@@ -4,8 +4,6 @@
 #include "auxiliares/constantes.h"
 #include "auxiliares/Move.h"
 #include "auxiliares/Restriction.h"
-#include "auxiliares/Corners.h"
-#include "auxiliares/Edges.h"
 #include <functional>
 #include <cstdarg>
 #include <string>
@@ -37,17 +35,8 @@ class Rubik{
      * @param offset: caso necessário comparar com o adesivo da "frente"
      * @return
      */
-    uint8_t countEqualStickers(const Rubik& other, const Corner& corner, const uint8_t offset = 0) const;
+    //uint8_t countEqualStickers(const Rubik& other, const Corner& corner, const uint8_t offset = 0) const;
 
-    /**
-     * Conta quantos adesivos esão iguais em relação a outra
-     * peça de outro cubo mágico
-     * @param other: outra instância a ser comparada
-     * @param corner: edge a ser comparada
-     * @param offset: caso necessário comparar com o adesivo da "frente"
-     * @return
-     */
-    uint8_t countEqualStickers(const Rubik& other, const Edge& edge, const uint8_t offset = 0) const;
 
 public:
     bool forceRestrictedMoves = false;
@@ -148,25 +137,6 @@ public:
      * @param quantity: quantidade de movimentos no embaralhamento
      */
     void scramble(int quantity = 20);
-
-    /**
-     * Compara um determinado canto com o mesmo canto de outra instância,
-     * devolve o estado desta comparação, se está permutado, orientado, etc...
-     * @param rubik: outra instância a receber a comparação
-     * @param corner: qual corner deve ser comparada
-     * @return: estado da comparação
-     */
-    Corners::State compareCorner(const Rubik& rubik, const Corner& corner) const;
-
-
-    /**
-     * Compara uma determinada edge com a mesma edge de outra instância,
-     * devolve o estado desta comparação, se está permutado, orientado, etc...
-     * @param rubik: outra instância a receber a comparação
-     * @param corner: qual edge deve ser comparada
-     * @return: estado da comparação
-     */
-    Edges::State compareEdge(const Rubik& rubik, const Edge& edge) const;
 
     /**
      * Sobrecarga de operador para impressão do cubo

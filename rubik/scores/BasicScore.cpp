@@ -13,19 +13,18 @@ float BasicScore::getScoreByState(Corners::State state){
     return this->cornerPontuations[state];
 }
 
-float BasicScore::calculate(const Rubik* source){
-    if(source == nullptr) return 0;
+float BasicScore::calculate(const Rubik& source){
     float score = 0;
 
     // CALCULANDO VALORES DAS CORNERS
     for(auto& corner : Corners::CORNERS){
-        Corners::State state = this->target->compareCorner(*source, *corner);
+        Corners::State state = corner->compare(*this->target, source);
         score += this->getScoreByState(state);
     }
 
     // CALCULANDO VALORES DAS EDGES
     for(auto& edge : Edges::EDGES){
-        Edges::State state = this->target->compareEdge(*source, *edge);
+        Edges::State state = edge->compare(*this->target, source);
         score += this->getScoreByState(state);
     }
 

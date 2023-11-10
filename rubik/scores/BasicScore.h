@@ -13,6 +13,6 @@ class BasicScore : public virtual Score{
 
 public:
     BasicScore(const Rubik* target = new Rubik());
-    float calculate(const Rubik* source) override;
+    float calculate(const Rubik& source) override;
 
 };

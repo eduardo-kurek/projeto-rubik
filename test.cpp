@@ -43,11 +43,11 @@ int main(int argc, char* argv[]){
     Rubik* r = new Rubik();
     Rubik* r2 = new Rubik();
 
-    r2->scramble(0);
+    r2->scramble(50);
     r2->printHistoric();
 
     BasicScore* bs = new BasicScore(r);
 
-    auto value = bs->calculate(r2);
+    auto value = bs->calculate(*r2);
     std::cout << "score: " << value << std::endl;
 }
