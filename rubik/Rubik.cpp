@@ -18,6 +18,10 @@ Rubik::Rubik(const std::string& position){
     this->setPosition(position);
 }
 
+const Face* Rubik::getFaces() const{
+    return this->faces;
+}
+
 void Rubik::setRestrictionFunction(const RestrictionFunction& restrictionFunction){
     this->restrictionFunction = restrictionFunction;
 }
@@ -236,9 +240,9 @@ std::ostream& operator<<(std::ostream& os, const Rubik* rubik){
     return os;
 }
 
-bool Rubik::operator==(Rubik rubik){
+bool Rubik::operator==(const Rubik& other){
     for(int i = 0; i < 6; ++i)
-        if(!(this->faces[i] == &rubik.faces[i]))
+        if(!(this->faces[i] == other.faces[i]))
             return false;
     return true;
 }

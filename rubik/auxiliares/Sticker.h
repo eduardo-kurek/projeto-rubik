@@ -11,5 +11,5 @@ public:
     void setColor(const Color* color);
     const Color* getColor() const;
 
-    bool operator==(Sticker* sticker);
+    bool operator==(const Sticker& other);
 };

@@ -27,6 +27,17 @@ class Rubik{
      */
     void restrict(const Move* move, const Move* lastMove);
 
+    /**
+     * Conta quantos adesivos esão iguais em relação a outra
+     * peça de outro cubo mágico
+     * @param other: outra instância a ser comparada
+     * @param corner: corner a ser comparada
+     * @param offset: caso necessário comparar com o adesivo da "frente"
+     * @return
+     */
+    //uint8_t countEqualStickers(const Rubik& other, const Corner& corner, const uint8_t offset = 0) const;
+
+
 public:
     bool forceRestrictedMoves = false;
 
@@ -40,6 +51,12 @@ public:
      * @param position: string contendo a posição a ser iniciada
      */
     explicit Rubik(const std::string& position);
+
+    /**
+     * Getter das faces
+     * @return
+     */
+    const Face* getFaces() const;
 
     /**
      * Define a função de restrição usada para calcular o vetor
@@ -132,6 +149,6 @@ public:
     /**
      * Comparação de 2 cubos
      */
-    bool operator==(Rubik rubik);
+    bool operator==(const Rubik& other);
 
 };
