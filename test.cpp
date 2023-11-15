@@ -42,9 +42,9 @@ int main(int argc, char* argv[]){
 //    }
 
     Rubik* r = new Rubik();
-    Rubik* r2 = new Rubik();
+    Rubik* r2 = new Rubik("RGOGGRGO-WWWWWWWW-GOBOOGOB-YYYYYYYY-BRGRRBRG-OBRBBOBR");
+    r2->print();
 
-    r2->scramble(50);
     r2->printHistoric();
 
     PontuationTable* pt = new PontuationTable({3,2,2,1,0}, {3,2,1,0});
