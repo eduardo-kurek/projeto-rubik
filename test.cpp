@@ -50,6 +50,6 @@ int main(int argc, char* argv[]){
     PontuationTable* pt = new PontuationTable({3,2,2,1,0}, {3,2,1,0});
     BasicScore* bs = new BasicScore(pt, r);
 
-    auto value = bs->calculate(*r2);
+    auto value = bs->calculateNormalized(*r2);
     std::cout << "score: " << value << ", max score: " << bs->getMaxScore() << std::endl;
 }
