@@ -4,6 +4,6 @@ Score::Score(const Rubik* target){
     this->target = target;
 }
 
-int Score::getMaxScore() const{
+float Score::getMaxScore() const{
     return this->maxScore;
 }
