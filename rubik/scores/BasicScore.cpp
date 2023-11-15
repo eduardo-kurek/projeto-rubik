@@ -3,20 +3,22 @@
 #include "../auxiliares/Edges.h"
 #include <iostream>
 
-BasicScore::BasicScore(const Rubik* target) : Score(target) {
+BasicScore::BasicScore(PontuationTable* pt, const Rubik* target) : Score(target) {
+    this->pontuationTable = pt;
+
     // ADICIONANDO O TOTAL DAS CORNERS
-    this->maxScore += 8 * this->cornerPontuations[0];
+    this->maxScore += 8 * pt->getCornerPontuations()[0];
 
     // ADICIONANDO O TOTAL DAS EDGES
-    this->maxScore += 12 * this->edgePontuations[0];
+    this->maxScore += 12 * pt->getEdgePontuations()[0];
 }
 
 float BasicScore::getScoreByState(Edges::State state){
-    return this->edgePontuations[state];
+    return this->pontuationTable->getEdgePontuations()[state];
 }
 
 float BasicScore::getScoreByState(Corners::State state){
-    return this->cornerPontuations[state];
+    return this->pontuationTable->getCornerPontuations()[state];
 }
 
 float BasicScore::calculate(const Rubik& source){

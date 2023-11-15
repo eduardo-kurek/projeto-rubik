@@ -1,8 +1,13 @@
-//
-// Created by eduar on 15/11/2023.
-//
+#pragma once
 
-#ifndef PROJETO_RUBIK_PONTUATIONTABLE_H
-#define PROJETO_RUBIK_PONTUATIONTABLE_H
+#include <vector>
 
-#endif //PROJETO_RUBIK_PONTUATIONTABLE_H
+class PontuationTable{
+    std::vector<float> cornerPontuation = {3, 2, 2, 1, 0};
+    std::vector<float> edgePontuations = {3, 2, 1, 0};
+
+public:
+    PontuationTable(std::vector<float> cornerPontuation, std::vector<float> edgePontuations);
+    std::vector<float> getCornerPontuations() const;
+    std::vector<float> getEdgePontuations() const;
+};

@@ -4,6 +4,7 @@
 #include "rubik/auxiliares/Corners.h"
 #include <iostream>
 #include "rubik/scores/BasicScore.h"
+#include "rubik/scores/PontuationTable.h"
 #ifdef _WIN32
 #include <windows.h>
 #endif
@@ -46,7 +47,8 @@ int main(int argc, char* argv[]){
     r2->scramble(50);
     r2->printHistoric();
 
-    BasicScore* bs = new BasicScore(r);
+    PontuationTable* pt = new PontuationTable({3,2,2,1,0}, {3,2,1,0});
+    BasicScore* bs = new BasicScore(pt, r);
 
     auto value = bs->calculate(*r2);
     std::cout << "score: " << value << ", max score: " << bs->getMaxScore() << std::endl;
