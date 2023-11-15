@@ -46,19 +46,19 @@ int main(int argc, char* argv[]){
 //    Rubik* r = new Rubik();
 //    Rubik* r2 = new Rubik("RGOGGRGO-WWWWWWWW-GOBOOGOB-YYYYYYYY-BRGRRBRG-OBRBBOBR");
 //    r2->print();
-//
+
 //    r2->printHistoric();
-//
+
 //    PontuationTable* pt = new PontuationTable({3,2,2,1,0}, {3,2,1,0});
 //    BasicScore* bs = new BasicScore(pt, r);
-//
+
 //    auto value = bs->calculateNormalized(*r2);
 //    std::cout << "score: " << value << ", max score: " << bs->getMaxScore() << std::endl;
 
     Rubik r;
     
-    std::vector<const Move*> myMoves = {R, U2, LA};
+    auto moves = Move::stringToMoves("sasd");
+    
+    auto move = Move::codToMove("R's");
 
-    r.move(myMoves);
-    r.print();
 }

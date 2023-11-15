@@ -2,6 +2,10 @@
 #include "Layer.h"
 #include "enums/Faces.h"
 #include "enums/Turn.h"
+#include <iostream>
+#include <sstream>
+#include <iostream>
+#include <stdexcept>
 
 const Move MOV_F = {
         {TOP, RIGHT, BOTTOM, LEFT},
@@ -137,3 +141,24 @@ const std::vector<const Move*> Moves = {
         L, LA, L2,
         B, BA, B2
 };
+
+const Move* Move::codToMove(const std::string str){
+    for(auto move : Moves) if(move->name == str) return move;
+    std::string msg = "Não é possível reconhecer o movimento: " + str;
+    throw std::runtime_error(msg);
+}
+
+const std::vector<const Move*> Move::stringToMoves(const std::string str){
+    std::vector<const Move*> s;
+
+    std::istringstream stream(str);
+    std::vector<std::string> tokens;
+    std::string token;
+
+    while (stream >> token)
+    {
+        tokens.push_back(token);
+    }
+
+    return s;
+}
