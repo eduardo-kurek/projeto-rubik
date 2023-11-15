@@ -57,8 +57,10 @@ int main(int argc, char* argv[]){
 
     Rubik r;
     
-    auto moves = Move::stringToMoves("sasd");
-    
-    auto move = Move::codToMove("R's");
+    auto moves = Move::stringToMoves("R R' R2 U D2 L' D");
+
+    for(auto mov : moves){
+        std::cout << mov->name << ", ";
+    }
 
 }

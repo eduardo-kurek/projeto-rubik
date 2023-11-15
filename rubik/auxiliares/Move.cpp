@@ -149,16 +149,13 @@ const Move* Move::codToMove(const std::string str){
 }
 
 const std::vector<const Move*> Move::stringToMoves(const std::string str){
-    std::vector<const Move*> s;
+    std::vector<const Move*> moves;
 
     std::istringstream stream(str);
-    std::vector<std::string> tokens;
     std::string token;
 
     while (stream >> token)
-    {
-        tokens.push_back(token);
-    }
+        moves.push_back(Move::codToMove(token));
 
-    return s;
+    return moves;
 }
