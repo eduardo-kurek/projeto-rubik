@@ -178,6 +178,12 @@ void Rubik::move(int numArgs, ...){
     va_end(args);
 }
 
+void Rubik::move(std::vector<const Move*> moves){
+    for(auto& move : moves){
+        this->move(1, move);
+    }
+}
+
 std::vector<const Move *> Rubik::getValidMoves(){
     std::vector<const Move*> validMoves;
 

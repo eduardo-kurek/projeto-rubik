@@ -8,6 +8,7 @@
 #include <cstdarg>
 #include <string>
 #include <queue>
+#include <vector>
 
 class Rubik{
 
@@ -125,6 +126,12 @@ public:
      * @param ...
      */
     void move(int numArgs, ...);
+
+    /**
+     * Realiza o movimento do cubo mágico e adiciona ao histórico
+     * @param std::vector<const Move*> vetor contendo os movimentos
+     */
+    void move(std::vector<const Move*> moves);
 
     /**
      * Retorna um array com todos os movimentos válidos na instância atual do cubo

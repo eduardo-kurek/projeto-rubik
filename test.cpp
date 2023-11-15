@@ -2,9 +2,11 @@
 #include "rubik/Solver.h"
 #include "rubik/auxiliares/StickerCoord.h"
 #include "rubik/auxiliares/Corners.h"
-#include <iostream>
 #include "rubik/scores/BasicScore.h"
 #include "rubik/scores/PontuationTable.h"
+#include "rubik/auxiliares/Move.h"
+#include <iostream>
+#include <vector>
 #ifdef _WIN32
 #include <windows.h>
 #endif
@@ -41,15 +43,22 @@ int main(int argc, char* argv[]){
 //        std::cout << std::endl;
 //    }
 
-    Rubik* r = new Rubik();
-    Rubik* r2 = new Rubik("RGOGGRGO-WWWWWWWW-GOBOOGOB-YYYYYYYY-BRGRRBRG-OBRBBOBR");
-    r2->print();
+//    Rubik* r = new Rubik();
+//    Rubik* r2 = new Rubik("RGOGGRGO-WWWWWWWW-GOBOOGOB-YYYYYYYY-BRGRRBRG-OBRBBOBR");
+//    r2->print();
+//
+//    r2->printHistoric();
+//
+//    PontuationTable* pt = new PontuationTable({3,2,2,1,0}, {3,2,1,0});
+//    BasicScore* bs = new BasicScore(pt, r);
+//
+//    auto value = bs->calculateNormalized(*r2);
+//    std::cout << "score: " << value << ", max score: " << bs->getMaxScore() << std::endl;
 
-    r2->printHistoric();
+    Rubik r;
+    
+    std::vector<const Move*> myMoves = {R, U2, LA};
 
-    PontuationTable* pt = new PontuationTable({3,2,2,1,0}, {3,2,1,0});
-    BasicScore* bs = new BasicScore(pt, r);
-
-    auto value = bs->calculateNormalized(*r2);
-    std::cout << "score: " << value << ", max score: " << bs->getMaxScore() << std::endl;
+    r.move(myMoves);
+    r.print();
 }
