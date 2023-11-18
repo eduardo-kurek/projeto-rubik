@@ -92,7 +92,7 @@ public:
      * Obtém o histórico de movimentos do cubo
      * @return
      */
-    std::vector<const Move*> getHistoric();
+    std::vector<const Move*> getHistoric() const;
 
     /**
      * Imprime a lista com os movimentos restritos

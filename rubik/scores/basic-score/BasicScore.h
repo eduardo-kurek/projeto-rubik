@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Score.h"
-#include "PontuationTable.h"
+#include "../Score.h"
+#include "../PontuationTable.h"
 #include <vector>
 
 class BasicScore : public virtual Score{

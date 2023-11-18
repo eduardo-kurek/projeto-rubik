@@ -30,6 +30,9 @@ testO2:
 testO3:
 	$(CC) test.cpp rubik/*.cpp rubik/auxiliares/*.cpp rubik/scores/*.cpp  -o $(OUT) -O3
 
+scramble:
+	$(CC) scrambles/populate_scrambles.cpp rubik/*.cpp rubik/auxiliares/*.cpp rubik/scores/*.cpp -o populate.out
+
 compile:
 	$(CC) -c rubik/rubik.cpp -o rubik/rubik.o
 	$(CC) -c bibliotecas/variaveis-ambiente.cpp -o bibliotecas/variaveis-ambiente.o

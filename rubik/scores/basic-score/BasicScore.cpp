@@ -1,6 +1,6 @@
 #include "BasicScore.h"
-#include "../auxiliares/Corners.h"
-#include "../auxiliares/Edges.h"
+#include "../../auxiliares/Corners.h"
+#include "../../auxiliares/Edges.h"
 #include <iostream>
 
 BasicScore::BasicScore(PontuationTable* pt, const Rubik* target) : Score(target) {
