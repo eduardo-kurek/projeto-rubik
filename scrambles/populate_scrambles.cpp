@@ -78,13 +78,13 @@ int main(int argc, char* argv[]){
     int max = atoi(argv[2]);
 
     // POPULANDO 1 E 2 MOVIMENTOS
-    populate_all_possibilities(1, max, "scrambles/1move.txt");
-    populate_all_possibilities(2, max, "scrambles/2moves.txt");
-    populate_all_possibilities(3, max, "scrambles/3moves.txt");
+    populate_all_possibilities(1, max, "scrambles/1move.scr");
+    populate_all_possibilities(2, max, "scrambles/2moves.scr");
+    populate_all_possibilities(3, max, "scrambles/3moves.scr");
 
     // POPULANDO RESTANTES
     for(int i = 4; i <= 20; i++){
-        std::string fname = "scrambles/" + std::to_string(i) + "moves.txt";
+        std::string fname = "scrambles/" + std::to_string(i) + "moves.scr";
         populate_scrambled(i, max, fname);
     }
     

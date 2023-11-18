@@ -32,6 +32,7 @@ testO3:
 
 scramble:
 	$(CC) scrambles/populate_scrambles.cpp rubik/*.cpp rubik/auxiliares/*.cpp rubik/scores/*.cpp -o populate.out
+	./populate.out $(SEED) $(QUANTITY)
 
 compile:
 	$(CC) -c rubik/rubik.cpp -o rubik/rubik.o
