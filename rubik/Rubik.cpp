@@ -27,7 +27,7 @@ void Rubik::setRestrictionFunction(const RestrictionFunction& restrictionFunctio
 }
 
 void Rubik::clearRestrictedMoves(){
-    this->restrictedMoves = {};
+    this->restrictedMoves.clear();
 }
 
 void Rubik::clearHistoric(){
@@ -86,7 +86,7 @@ void Rubik::printHistoric() const{
     std::cout << std::endl;
 }
 
-std::vector<const Move *> Rubik::getHistoric(){
+std::vector<const Move *> Rubik::getHistoric() const{
     auto temp = this->historic;
     std::vector<const Move*> moves;
 
@@ -107,6 +107,7 @@ void Rubik::printRestrictedMoves() const{
 
 void Rubik::reset(){
     this->setPosition(POS_RESOLVIDO);
+    this->clearHistoric();
     this->clearRestrictedMoves();
 }
 
@@ -171,11 +172,17 @@ void Rubik::move(int numArgs, ...){
         // RECALCULANDO OS NOVOS MOVIMENTOS RESTRITOS DO CUBO
         this->restrict(mov, this->lastMove);
 
-        // ATUALIZANDO O ÚTILMO MOVIMENTO REALIZADO
+        // ATUALIZANDO O ÚLTIMO MOVIMENTO REALIZADO
         this->lastMove = mov;
     }
 
     va_end(args);
+}
+
+void Rubik::move(std::vector<const Move*> moves){
+    for(auto& move : moves){
+        this->move(1, move);
+    }
 }
 
 std::vector<const Move *> Rubik::getValidMoves(){

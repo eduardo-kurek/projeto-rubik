@@ -35,6 +35,16 @@ struct Move{
 
     // Movimentos complementares, ou seja, que envolvem o lado oposto do movimento
     const std::vector<const Move*> complementaryMoves;
+
+public:
+
+    // Converte um código de um movimento, para o objeto Move
+    // Dispara uma exceção caso o código fornecido seja invalido
+    static const Move* codToMove(const std::string str);
+
+    // Converte uma string para um vetor de movimentos
+    static const std::vector<const Move*> stringToMoves(const std::string str);
+
 };
 
 extern const Move* U;
