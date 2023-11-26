@@ -3,6 +3,7 @@
 #include <filesystem>
 #include <utility>
 #include <cmath>
+#include <omp.h>
 #include "../BasicScore.h"
 #include "../../PontuationTable.h"
 #ifdef _WIN32
@@ -62,11 +63,12 @@ float average_pontuation_file(std::filesystem::path filePath, BasicScore* score)
 }
 
 std::vector<float> files_to_pontuation(std::vector<std::string> fileNames, std::filesystem::path rootPath, BasicScore* score){
-    std::vector<float> pontuations;
-    pontuations.reserve(fileNames.size());
+    std::vector<float> pontuations(fileNames.size());
 
-    for(const auto fileName : fileNames)
-        pontuations.push_back(average_pontuation_file(rootPath / fileName, score));
+    #pragma omp parallel for num_threads(6)
+    for(int i = 0; i < fileNames.size(); i++){
+        pontuations[i] = average_pontuation_file(rootPath / fileNames[i], score);
+    }
 
     return pontuations;
 }
@@ -74,8 +76,8 @@ std::vector<float> files_to_pontuation(std::vector<std::string> fileNames, std::
 float analize_pontuations(std::vector<float> pontuations, std::vector<float> expectedPontuations, float maxDiff, int lowerTreshold){
     
     if(pontuations.size() != 20){
-        std::cerr << "Tamanho do vetor de pontuações inválido.";
-        throw new std::invalid_argument("Tamanho do vetor de pontuações inválido.");
+        std::cerr << "Tamanho do vetor de pontuações inválido (" << pontuations.size() << ").\n";
+        throw new std::invalid_argument("Tamanho do vetor de pontuações inválido");
     }
 
     if(expectedPontuations.size() != 20){
@@ -91,6 +93,7 @@ float analize_pontuations(std::vector<float> pontuations, std::vector<float> exp
     float sum = 0;
 
     // LOOP ATÉ OS 16 PRIMEIROS VALORES
+    #pragma omp parallel for reduction(+:sum)
     for(int i = 0; i < lowerTreshold-1; i++){
         float diff = std::abs(pontuations[i] - expectedPontuations[i]);
 
@@ -100,14 +103,17 @@ float analize_pontuations(std::vector<float> pontuations, std::vector<float> exp
         #endif
         
         // SE A DIFERENÇA FOR MAIOR QUE O PERMITIDO, CONFIGURAÇÃO INVÁLIDA
-        if(diff > maxDiff) return 0;
-        sum += 100 - diff;
+        if(diff > maxDiff){
+            #ifdef DEBUG
+                std::cout << "Diferença do " << i+1 << "º arquivo é maior que o permitido. (" << diff << " > " << maxDiff << ")\n";
+            #endif
+        }
+        else sum += 100 - diff;
     }
 
     // LOOP PARA O RESTANTE DOS VALORES
+    #pragma omp parallel for reduction(+:sum)
     for(int i = lowerTreshold-1; i < 20; i++){
-
-
         float diff = std::abs(pontuations[i] - expectedPontuations[i]);
 
         #ifdef DEBUG
@@ -120,11 +126,7 @@ float analize_pontuations(std::vector<float> pontuations, std::vector<float> exp
                 std::cout << "Pontuação do " << i+1 << "º arquivo é maior que a do " << lowerTreshold << "º arquivo. (" <<
                 pontuations[i] << " <= " << pontuations[lowerTreshold-1] << ")\n";
             #endif
-            
-            return 0;
-        }
-
-        sum += 100 - diff;
+        }else sum += 100 - diff;
     }
 
     return sum;
