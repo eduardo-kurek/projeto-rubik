@@ -65,7 +65,7 @@ float average_pontuation_file(std::filesystem::path filePath, BasicScore* score)
 std::vector<float> files_to_pontuation(std::vector<std::string> fileNames, std::filesystem::path rootPath, BasicScore* score){
     std::vector<float> pontuations(fileNames.size());
 
-    #pragma omp parallel for num_threads(6)
+    #pragma omp parallel for
     for(int i = 0; i < fileNames.size(); i++){
         pontuations[i] = average_pontuation_file(rootPath / fileNames[i], score);
     }
@@ -74,7 +74,7 @@ std::vector<float> files_to_pontuation(std::vector<std::string> fileNames, std::
 }
 
 float analize_pontuations(std::vector<float> pontuations, std::vector<float> expectedPontuations, const float maxDiff, int lowerTreshold){
-    
+
     if(pontuations.size() != 20){
         std::cerr << "Tamanho do vetor de pontuações inválido (" << pontuations.size() << ").\n";
         throw new std::invalid_argument("Tamanho do vetor de pontuações inválido");
@@ -89,7 +89,7 @@ float analize_pontuations(std::vector<float> pontuations, std::vector<float> exp
         std::cerr << "Limite inferior deve estar entre 1 e 20\n";
         throw new std::invalid_argument("Limite inferior deve estar entre 1 e 20.");
     }
-    
+
     float sum = 0;
 
     // LOOP ATÉ OS 16 PRIMEIROS VALORES
@@ -104,7 +104,7 @@ float analize_pontuations(std::vector<float> pontuations, std::vector<float> exp
                 expectedPontuations[i] << " = " << diff << ", portanto, soma " << 100 - diff << ".\n";
             }
         #endif
-        
+
         // SE A DIFERENÇA FOR MAIOR QUE O PERMITIDO, CONFIGURAÇÃO INVÁLIDA
         if(diff > maxDiff){
             #ifdef DEBUG
@@ -148,7 +148,7 @@ float analize_pontuations(std::vector<float> pontuations, std::vector<float> exp
 
 void print_pontuations(std::vector<float> pontuations){
     std::cout << "{\n";
-    
+
     for(int i = 0; i < pontuations.size(); i++){
         std::cout << "\t\"" << i+1 << "\": ";
         std::cout << std::fixed << std::setprecision(2) << pontuations[i];
@@ -171,8 +171,8 @@ int main(int argc, char* argv[]){
 
     std::filesystem::path path = "../../../../scrambles/";
     std::vector<std::string> fileNames = {
-        "1move.scr", "2moves.scr", "3moves.scr", "4moves.scr", "5moves.scr", 
-        "6moves.scr", "7moves.scr", "8moves.scr", "9moves.scr", "10moves.scr", 
+        "1move.scr", "2moves.scr", "3moves.scr", "4moves.scr", "5moves.scr",
+        "6moves.scr", "7moves.scr", "8moves.scr", "9moves.scr", "10moves.scr",
         "11moves.scr", "12moves.scr", "13moves.scr", "14moves.scr", "15moves.scr",
         "16moves.scr", "17moves.scr", "18moves.scr", "19moves.scr", "20moves.scr"
     };
@@ -200,7 +200,7 @@ int main(int argc, char* argv[]){
 
     // ANALISANDO PONTUAÇÕES OBTIDAS
     std::vector<float> expectedPontuations = {
-        95, 90, 85, 80, 75, 70, 65, 60, 55, 50, 
+        95, 90, 85, 80, 75, 70, 65, 60, 55, 50,
         45, 40, 35, 30, 27, 25 ,20, 15, 10, 8
     };
     float result = analize_pontuations(pontuations, expectedPontuations, 10, 14);
