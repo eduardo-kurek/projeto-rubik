@@ -73,7 +73,7 @@ std::vector<float> files_to_pontuation(std::vector<std::string> fileNames, std::
     return pontuations;
 }
 
-float analize_pontuations(std::vector<float> pontuations, std::vector<float> expectedPontuations, float maxDiff, int lowerTreshold){
+float analize_pontuations(std::vector<float> pontuations, std::vector<float> expectedPontuations, const float maxDiff, int lowerTreshold){
     
     if(pontuations.size() != 20){
         std::cerr << "Tamanho do vetor de pontuações inválido (" << pontuations.size() << ").\n";
@@ -98,15 +98,22 @@ float analize_pontuations(std::vector<float> pontuations, std::vector<float> exp
         float diff = std::abs(pontuations[i] - expectedPontuations[i]);
 
         #ifdef DEBUG
-            std::cout << "Diferença do " << i+1 << "º arquivo: " << pontuations[i] << " - " <<
-            expectedPontuations[i] << " = " << diff << ", portanto, soma " << 100 - diff << ".\n";
+            #pragma omp critical
+            {
+                std::cout << "Diferença do " << i+1 << "º arquivo: " << pontuations[i] << " - " <<
+                expectedPontuations[i] << " = " << diff << ", portanto, soma " << 100 - diff << ".\n";
+            }
         #endif
         
         // SE A DIFERENÇA FOR MAIOR QUE O PERMITIDO, CONFIGURAÇÃO INVÁLIDA
         if(diff > maxDiff){
             #ifdef DEBUG
-                std::cout << "Diferença do " << i+1 << "º arquivo é maior que o permitido. (" << diff << " > " << maxDiff << ")\n";
+                #pragma omp critical
+                {
+                    std::cout << "Diferença do " << i+1 << "º arquivo é maior que o permitido. (" << diff << " > " << maxDiff << ")\n";
+                }
             #endif
+            sum += 50 - diff;
         }
         else sum += 100 - diff;
     }
@@ -117,15 +124,22 @@ float analize_pontuations(std::vector<float> pontuations, std::vector<float> exp
         float diff = std::abs(pontuations[i] - expectedPontuations[i]);
 
         #ifdef DEBUG
-            std::cout << "Diferença do " << i+1 << "º arquivo: " << pontuations[i] << " - " <<
-            expectedPontuations[i] << " = " << diff << ", portanto, soma " << 100 - diff << ".\n";
+            #pragma omp critical
+            {
+                std::cout << "Diferença do " << i+1 << "º arquivo: " << pontuations[i] << " - " <<
+                expectedPontuations[i] << " = " << diff << ", portanto, soma " << 100 - diff << ".\n";
+            }
         #endif
 
         if(pontuations[i] > expectedPontuations[lowerTreshold-1] + maxDiff){
             #ifdef DEBUG
-                std::cout << "Pontuação do " << i+1 << "º arquivo é maior que a do " << lowerTreshold << "º arquivo. (" <<
-                pontuations[i] << " <= " << pontuations[lowerTreshold-1] << ")\n";
+                #pragma omp critical
+                {
+                    std::cout << "Pontuação do " << i+1 << "º arquivo é maior que a do " << lowerTreshold << "º arquivo. (" <<
+                    pontuations[i] << " <= " << pontuations[lowerTreshold-1] << ")\n";
+                }
             #endif
+            sum += 50 - diff;
         }else sum += 100 - diff;
     }
 
@@ -170,7 +184,7 @@ int main(int argc, char* argv[]){
     // INSTÂNCIA DO SCORE
     PontuationTable* pontuationTable = mount_pontuation_table(argv);
     if(pontuationTable == nullptr){
-        std::cerr << "O primeiro valor de cada vetor deve ser o maior.\n";
+        //std::cerr << "O primeiro valor de cada vetor deve ser o maior.\n";
         return 3;
     }
 
@@ -189,7 +203,7 @@ int main(int argc, char* argv[]){
         95, 90, 85, 80, 75, 70, 65, 60, 55, 50, 
         45, 40, 35, 30, 27, 25 ,20, 15, 10, 8
     };
-    float result = analize_pontuations(pontuations, expectedPontuations, 40, 14);
+    float result = analize_pontuations(pontuations, expectedPontuations, 10, 14);
 
     std::cout << result << "\n";
 
