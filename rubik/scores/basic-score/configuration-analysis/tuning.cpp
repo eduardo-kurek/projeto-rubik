@@ -187,15 +187,15 @@ int main(int argc, char* argv[]){
 
     Tunner tunner("analysis.out");
 
-    tunner.addParameter({0, 3});
-    tunner.addParameter({0, 3});
-    tunner.addParameter({0, 3});
-    tunner.addParameter({0, 3});
-    tunner.addParameter({0, 3});
-    tunner.addParameter({0, 3});
-    tunner.addParameter({0, 3});
-    tunner.addParameter({0, 3});
-    tunner.addParameter({0, 3}); 
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
 
     tunner.run();
 
