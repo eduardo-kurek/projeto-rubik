@@ -1,4 +1,4 @@
-#include "StickerCoord.h"
+#include "1StickerCoord.h"
 
 StickerCoord::StickerCoord(Faces face, Coord line, Coord column)
     : face(face), line(line), column(column) {}
