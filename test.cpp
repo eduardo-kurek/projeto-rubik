@@ -1,6 +1,6 @@
 #include "rubik/Rubik.h"
 #include "rubik/Solver.h"
-#include "rubik/auxiliares/StickerCoord.h"
+#include "rubik/auxiliares/1StickerCoord.h"
 #include "rubik/auxiliares/Corners.h"
 #include "rubik/scores/PontuationTable.h"
 #include "rubik/auxiliares/Move.h"
