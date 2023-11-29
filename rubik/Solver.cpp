@@ -1,5 +1,6 @@
 #include "Solver.h"
 #include <iostream>
+#include <omp.h>
 
 //#define DEBUG 1;
 
@@ -75,7 +76,16 @@ void Solver::solve(uint8_t depth){
     this->foundedSolves = {{}};
     this->source.clearRestrictedMoves();
     this->source.clearHistoric();
-    this->solve(this->source, depth);
+    
+    if(depth == 0) return;
+    uint8_t newDepth = depth - 1;
+
+    #pragma omp parallel for num_threads(18)
+    for(auto& move : this->source.getValidMoves()){
+        Rubik model = this->source;
+        model.move(1, move);
+        this->solve(model, newDepth);
+    }
 }
 
 std::vector<std::vector<const Move*>> Solver::getFoundedSolves(){

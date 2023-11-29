@@ -27,4 +27,20 @@ int main(int argc, char* argv[]){
     #ifdef _WIN32
         SetConsoleOutputCP(65001);
     #endif
+
+    Rubik r;
+    Rubik r2;
+    r2.move({R, F, U2, D2, B2, L});
+
+    Solver s(r2, r);
+    s.solve(6);
+
+    auto res = s.getFoundedSolves();
+    
+    std::cout << "Soluções encontradas: ";
+    for(auto& x : res){
+        for(auto& y : x)
+            std::cout << y->name << " ";
+        std::cout << "\n";
+    }
 }
