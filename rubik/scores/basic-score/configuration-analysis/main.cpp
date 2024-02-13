@@ -2,6 +2,7 @@
 #include <fstream>
 #include <filesystem>
 #include <utility>
+#include <type_traits>
 #include <cmath>
 #include <omp.h>
 #include "../BasicScore.h"
@@ -10,20 +11,55 @@
 #include <windows.h>
 #endif
 
-#define DEBUG
+// #define DEBUG
 
 using namespace std;
 
+template <typename TScore, typename = enable_if_t<is_base_of<Score, TScore>::value>>
 class Analyzer{
 
     private:
 
     filesystem::path scramblePath = "../../../../scrambles/";
     vector<string> fileNames;
+
     vector<string> config;
-    vector<float> expectedPontuations = {95,90,85,80,75,70,65,60,55,50,45,40,35,30,25,20,15,10,5,0};
     PontuationTable* table = nullptr;
-    vector<float> result;
+    TScore* score = nullptr;
+
+    vector<float> expectedPontuations = {95,90,85,80,75,70,65,60,55,50,45,40,35,30,25,20,15,10,5,0};
+    vector<float> pontuations;
+
+    float result;
+
+    public:
+
+    float calculate_file(filesystem::path fileName){
+        ifstream file(this->scramblePath / fileName);
+        string scramble;
+        float sum = 0;
+        int count = 0;
+
+        while(getline(file, scramble)){
+            vector<const Move*> moves = Move::stringToMoves(scramble);
+            Rubik rubik;
+            rubik.move(moves);
+        
+            sum += this->score->calculateNormalized(rubik);
+            count++;
+        }
+        
+        return sum / count;
+    }
+
+    void calculate_pontuations(){
+        this->pontuations = vector<float>();
+        this->pontuations.resize(this->fileNames.size());
+
+        #pragma omp parallel for
+        for(int i = 0; i < this->fileNames.size(); i++)
+            this->pontuations[i] = this->calculate_file(this->fileNames[i]);
+    }
 
     public:
 
@@ -46,32 +82,33 @@ class Analyzer{
 
     bool mount_table(){
         // MONTANDO TABELA DE PONTUAÇÃO ATRAVÉS DOS VALORES INFORMADOS
-        std::vector<float> cornerPontuation;
-        std::vector<float> edgePontuations;
+        vector<float> cornerPontuation;
+        vector<float> edgePontuations;
 
-        for(int i = 1; i < 10; i++){
-            if(i < 6) cornerPontuation.push_back(stof(this->config[i]));
+        for(int i = 0; i < 9; i++){
+            if(i < 5) cornerPontuation.push_back(stof(this->config[i]));
             else edgePontuations.push_back(stof(this->config[i]));
         }
 
         // VERIFICANDO SE O PRIMEIRO VALOR DE CADA VETOR É O MAIOR DO VETOR INTEIRO
-        if(*std::max_element(cornerPontuation.begin(), cornerPontuation.end()) != cornerPontuation[0])
+        if(*max_element(cornerPontuation.begin(), cornerPontuation.end()) != cornerPontuation[0])
             return false;
-        if(*std::max_element(edgePontuations.begin(), edgePontuations.end()) != edgePontuations[0])
+        if(*max_element(edgePontuations.begin(), edgePontuations.end()) != edgePontuations[0])
             return false;
 
         this->table = new PontuationTable(cornerPontuation, edgePontuations);
+        this->score = new TScore(this->table);
         return true;
     }
 
     void print_pontuations(){
-        if(this->result.size() != 20) return;
+        if(this->pontuations.size() != 20) return;
 
         cout << "{\n";
 
-        for(int i = 0; i < this->result.size(); i++){
+        for(int i = 0; i < this->pontuations.size(); i++){
             cout << "\t\"" << i+1 << "\": ";
-            cout << fixed << setprecision(2) << this->result[i];
+            cout << fixed << setprecision(2) << this->pontuations[i];
             cout << ",\n";
         }
 
@@ -82,8 +119,22 @@ class Analyzer{
         if(this->table == nullptr) 
             throw runtime_error("É preciso validar a tabela de pontuação antes de analisar.");
 
-        
+        this->calculate_pontuations();
+
+        float sum = 0;
+
+        // CALCULANDO O ERRO MÉDIO QUADRÁTICO (MSE)
+        #pragma omp parallel for reduction(+:sum)
+        for(int i = 0; i < this->pontuations.size(); i ++){
+            float diff = abs(this->pontuations[i] - this->expectedPontuations[i]);
+            sum += diff * diff;
+        }
+
+        this->result = sum;
+        return sum;
     }
+
+    float getResult(){ return this->result; }
 
 };
 
@@ -105,23 +156,19 @@ int main(int argc, char* argv[]){
         "11moves.scr", "12moves.scr", "13moves.scr", "14moves.scr", "15moves.scr",
         "16moves.scr", "17moves.scr", "18moves.scr", "19moves.scr", "20moves.scr"
     };
-
     vector<string> args;
-    for(int i = 1; i < argc; i++)
-        args.push_back(argv[i]);
-    
+    for(int i = 1; i < argc; i++) args.push_back(argv[i]);
 
-    Analyzer* analyzer = new Analyzer(path, fileNames, args);
+    Analyzer<BasicScore> analyzer(path, fileNames, args);
 
-    if(!analyzer->validate_files()) return 2;
-    if(!analyzer->mount_table()) return 3;
+    if(!analyzer.validate_files()) return 2;
+    if(!analyzer.mount_table()) return 3;
 
+    std::cout << analyzer.analyse();
 
     #ifdef DEBUG
-    analyzer->print_pontuations();
+        analyzer.print_pontuations();
     #endif
-
-    analyzer->analyse();
 
     return 0;
 }
