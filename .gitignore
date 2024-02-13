@@ -7,4 +7,5 @@ bibliotecas/*.o
 .idea
 CMakeLists.txt
 cmake-build-debug
-scrambles/*.scr
+*.db
+*.log
