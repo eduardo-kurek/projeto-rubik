@@ -1,6 +1,6 @@
 #pragma once
 
-#include "1StickerCoord.h"
+#include "StickerCoord.h"
 
 #include <vector>
 #include "enums/Faces.h"

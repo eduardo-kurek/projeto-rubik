@@ -1,4 +1,5 @@
 #include "Corners.h"
+#include <iostream>
 #include <vector>
 
 namespace Corners{

@@ -3,7 +3,7 @@
 #include <vector>
 #include "enums/Faces.h"
 #include "enums/Coord.h"
-#include "1StickerCoord.h"
+#include "StickerCoord.h"
 #include "../Rubik.h"
 #include <cstdint>
 
