@@ -25,11 +25,11 @@ class Log{
 class DatabaseManager{
 
     string dbPath;
+    sqlite3* db;
     Log* log = nullptr;
 
     inline string encapsulateVector(vector<string> columns);
     inline void endSql(string& sql);
-    inline sqlite3* create_sqlite();
 
     static int select_callback(void* data, int argc, char** argv, char** colNames);
     string join_strings(const vector<string>& vec, const string& delimiter);
@@ -37,6 +37,7 @@ class DatabaseManager{
     public:
     DatabaseManager(string dbPath = "rubik.db");
     DatabaseManager(Log* log, string dbPath = "rubik.db");
+    ~DatabaseManager();
     void createTable(const string& tableName, vector<string> columns, vector<string> types);
     void dropTable(const string& tableName);
     void insert(const string& tableName, vector<string> columns, vector<string> values, bool log = false);

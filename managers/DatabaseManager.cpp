@@ -57,13 +57,6 @@ inline void DatabaseManager::endSql(string& sql){
     sql += ";";
 }
 
-inline sqlite3* DatabaseManager::create_sqlite(){
-    sqlite3* db;
-    if(sqlite3_open(this->dbPath.c_str(), &db) != SQLITE_OK)
-        std::cerr << "Erro ao abrir o banco de dados" << std::endl;
-    return db;
-}
-
 void DatabaseManager::dropTable(const string &tableName){
     string sql = "DROP TABLE IF EXISTS " + tableName;
     this->endSql(sql);
@@ -73,25 +66,28 @@ void DatabaseManager::dropTable(const string &tableName){
     
     if(log) this->log->info(sql);
 
-    sqlite3* db = create_sqlite();
-
     char* err;
-    if(sqlite3_exec(db, sql.c_str(), NULL, 0, &err) != SQLITE_OK){
+    if(sqlite3_exec(this->db, sql.c_str(), NULL, 0, &err) != SQLITE_OK){
         if(log) this->log->error(err);
         std::cerr << "Erro ao deletar tabela: " << err << std::endl;
     }
+}
 
-    sqlite3_close(db);
+DatabaseManager::~DatabaseManager(){
+    sqlite3_close(this->db);
+    if(this->log != nullptr) delete this->log;
 }
 
 DatabaseManager::DatabaseManager(string dbPath){
     this->dbPath = dbPath + "rubik.db";
+    sqlite3_open(this->dbPath.c_str(), &this->db);
 }
 
 DatabaseManager::DatabaseManager(Log* log, string dbPath){
     this->dbPath = dbPath + "rubik.db";
     this->log = log;
     this->log->clear();
+    sqlite3_open(this->dbPath.c_str(), &this->db);
 }
 
 void DatabaseManager::createTable(const string& tableName, vector<string> columns, vector<string> types){
@@ -110,15 +106,11 @@ void DatabaseManager::createTable(const string& tableName, vector<string> column
 
     if(log) this->log->info(sql);
 
-    sqlite3* db = create_sqlite();
-
     char* err;
-    if(sqlite3_exec(db, sql.c_str(), NULL, 0, &err) != SQLITE_OK){
+    if(sqlite3_exec(this->db, sql.c_str(), NULL, 0, &err) != SQLITE_OK){
         if(log) this->log->error(err);
         std::cerr << "Erro ao criar tabela: " << err << std::endl;
     }
-
-    sqlite3_close(db);
 }
 
 void DatabaseManager::insert(const string& tableName, vector<string> columns, vector<string> values, bool log){
@@ -134,15 +126,11 @@ void DatabaseManager::insert(const string& tableName, vector<string> columns, ve
 
     if(log) this->log->info(sql);
 
-    sqlite3* db = create_sqlite();
-    
     char* err;
-    if(sqlite3_exec(db, sql.c_str(), NULL, 0, &err) != SQLITE_OK){
+    if(sqlite3_exec(this->db, sql.c_str(), NULL, 0, &err) != SQLITE_OK){
         if(this->log != nullptr) this->log->error(err);
         std::cerr << "Erro ao inserir: " << err << std::endl;
     }
-
-    sqlite3_close(db);
 }
 
 int DatabaseManager::select_callback(void* data, int argc, char** argv, char** colNames){
@@ -173,10 +161,8 @@ vector<vector<string>> DatabaseManager::select(const string& tableName, const ve
 
     if(log) this->log->info(sql);
 
-    sqlite3* db = create_sqlite();
-
     char* err = nullptr;
-    if (sqlite3_exec(db, sql.c_str(), select_callback, &results, &err) != SQLITE_OK) {
+    if (sqlite3_exec(this->db, sql.c_str(), select_callback, &results, &err) != SQLITE_OK) {
         std::cerr << "Erro ao executar consulta: " << err << "\n";
         if(this->log != nullptr) this->log->error(err);
     }
