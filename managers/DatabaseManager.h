@@ -29,7 +29,7 @@ class DatabaseManager{
     inline void endSql(string& sql);
     inline sqlite3* create_sqlite();
 
-    static int insert_callback(void* data, int argc, char** argv, char** colNames);
+    static int select_callback(void* data, int argc, char** argv, char** colNames);
     string join_strings(const vector<string>& vec, const string& delimiter);
 
     public:

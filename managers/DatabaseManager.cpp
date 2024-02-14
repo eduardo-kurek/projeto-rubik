@@ -129,7 +129,7 @@ void DatabaseManager::insert(const string& tableName, vector<string> columns, ve
     sqlite3_close(db);
 }
 
-int DatabaseManager::insert_callback(void* data, int argc, char** argv, char** colNames){
+int DatabaseManager::select_callback(void* data, int argc, char** argv, char** colNames){
     vector<vector<string>>* results = (vector<vector<string>>*)data;
     vector<string> row;
 
@@ -160,7 +160,7 @@ vector<vector<string>> DatabaseManager::select(const string& tableName, const ve
     sqlite3* db = create_sqlite();
 
     char* err = nullptr;
-    if (sqlite3_exec(db, sql.c_str(), insert_callback, &results, &err) != SQLITE_OK) {
+    if (sqlite3_exec(db, sql.c_str(), select_callback, &results, &err) != SQLITE_OK) {
         std::cerr << "Erro ao executar consulta: " << err << "\n";
         Log::error(err);
     }
