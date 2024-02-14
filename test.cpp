@@ -23,7 +23,7 @@ int main(int argc, char* argv[]){
     DatabaseManager* database = new DatabaseManager();
 
     database->createTable("teste", {"id", "nome"}, {"INTEGER", "TEXT"});
-    database->insert("teste", {"id", "nome"}, {"1", "teste"}, true);
+    database->insert_one("teste", {"id", "nome"}, {"1", "teste"}, true);
     std::vector<std::vector<std::string>> results = database->select("teste", {"id", "nome"}, true);
 
     for (const auto& result : results) {

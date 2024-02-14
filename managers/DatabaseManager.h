@@ -12,18 +12,20 @@ using vector = std::vector<T>;
 
 class Log{
 
-    static const string logPath;
+    string relativePath;
 
     public:
-    static void clear();
-    static void info(string message);
-    static void error(string message);
+    Log(string relativePath);
+    void clear();
+    void info(string message);
+    void error(string message);
 
 };
 
 class DatabaseManager{
 
-    const char* dbPath = "rubik.db";
+    string dbPath;
+    Log* log = nullptr;
 
     inline string encapsulateVector(vector<string> columns);
     inline void endSql(string& sql);
@@ -33,7 +35,8 @@ class DatabaseManager{
     string join_strings(const vector<string>& vec, const string& delimiter);
 
     public:
-    DatabaseManager();
+    DatabaseManager(string dbPath = "rubik.db");
+    DatabaseManager(Log* log, string dbPath = "rubik.db");
     void createTable(const string& tableName, vector<string> columns, vector<string> types);
     void dropTable(const string& tableName);
     void insert(const string& tableName, vector<string> columns, vector<string> values, bool log = false);

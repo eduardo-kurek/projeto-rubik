@@ -3,16 +3,19 @@
 #include <fstream>
 #include <ctime>
 
-const std::string Log::logPath = "db.log";
-
 void Log::clear(){
-    std::ofstream file(Log::logPath, std::ios::out | std::ios::trunc);
+    string path = this->relativePath + "db.log";
+    std::ofstream file(path, std::ios::out | std::ios::trunc);
     if (!file.is_open()) return;
     file.close();
 }
 
-void Log::info(std::string message){
-    std::ofstream file(Log::logPath, std::ios::out | std::ios::app);
+Log::Log(string relativePath){ this->relativePath = relativePath; }
+
+void Log::info(std::string message)
+{
+    string path = this->relativePath + "db.log";
+    std::ofstream file(path, std::ios::out | std::ios::app);
     if (!file.is_open()) return;
 
     time_t currentTime = time(nullptr);
@@ -26,7 +29,8 @@ void Log::info(std::string message){
 }
 
 void Log::error(string message){
-    std::ofstream file(Log::logPath, std::ios::out | std::ios::app);
+    string path = this->relativePath + "db.log";
+    std::ofstream file(path, std::ios::out | std::ios::app);
     if (!file.is_open()) return;
 
     time_t currentTime = time(nullptr);
@@ -55,8 +59,8 @@ inline void DatabaseManager::endSql(string& sql){
 
 inline sqlite3* DatabaseManager::create_sqlite(){
     sqlite3* db;
-    if(sqlite3_open(this->dbPath, &db) != SQLITE_OK)
-        throw "Erro ao abrir o banco de dados";
+    if(sqlite3_open(this->dbPath.c_str(), &db) != SQLITE_OK)
+        std::cerr << "Erro ao abrir o banco de dados" << std::endl;
     return db;
 }
 
@@ -64,21 +68,30 @@ void DatabaseManager::dropTable(const string &tableName){
     string sql = "DROP TABLE IF EXISTS " + tableName;
     this->endSql(sql);
 
-    Log::info(sql);
+    bool log = true;
+    if(this->log == nullptr) log = false;
+    
+    if(log) this->log->info(sql);
 
     sqlite3* db = create_sqlite();
 
     char* err;
     if(sqlite3_exec(db, sql.c_str(), NULL, 0, &err) != SQLITE_OK){
-        Log::error(err);
+        if(log) this->log->error(err);
         std::cerr << "Erro ao deletar tabela: " << err << std::endl;
     }
 
     sqlite3_close(db);
 }
 
-DatabaseManager::DatabaseManager(){
-    Log::clear();
+DatabaseManager::DatabaseManager(string dbPath){
+    this->dbPath = dbPath + "rubik.db";
+}
+
+DatabaseManager::DatabaseManager(Log* log, string dbPath){
+    this->dbPath = dbPath + "rubik.db";
+    this->log = log;
+    this->log->clear();
 }
 
 void DatabaseManager::createTable(const string& tableName, vector<string> columns, vector<string> types){
@@ -92,13 +105,16 @@ void DatabaseManager::createTable(const string& tableName, vector<string> column
     string sql = "CREATE TABLE IF NOT EXISTS " + tableName + encapsulateVector(columnsTypes);
     this->endSql(sql);
 
-    Log::info(sql);
+    bool log = true;
+    if(this->log == nullptr) log = false;
+
+    if(log) this->log->info(sql);
 
     sqlite3* db = create_sqlite();
 
     char* err;
     if(sqlite3_exec(db, sql.c_str(), NULL, 0, &err) != SQLITE_OK){
-        Log::error(err);
+        if(log) this->log->error(err);
         std::cerr << "Erro ao criar tabela: " << err << std::endl;
     }
 
@@ -116,13 +132,13 @@ void DatabaseManager::insert(const string& tableName, vector<string> columns, ve
     sql += " VALUES" + this->encapsulateVector(values);
     this->endSql(sql);
 
-    if(log) Log::info(sql);
+    if(log) this->log->info(sql);
 
     sqlite3* db = create_sqlite();
     
     char* err;
     if(sqlite3_exec(db, sql.c_str(), NULL, 0, &err) != SQLITE_OK){
-        Log::error(err);
+        if(this->log != nullptr) this->log->error(err);
         std::cerr << "Erro ao inserir: " << err << std::endl;
     }
 
@@ -155,14 +171,14 @@ vector<vector<string>> DatabaseManager::select(const string& tableName, const ve
 
     string sql = "SELECT " + join_strings(columns, ",") + " FROM " + tableName + ";";
 
-    if(log) Log::info(sql);
+    if(log) this->log->info(sql);
 
     sqlite3* db = create_sqlite();
 
     char* err = nullptr;
     if (sqlite3_exec(db, sql.c_str(), select_callback, &results, &err) != SQLITE_OK) {
         std::cerr << "Erro ao executar consulta: " << err << "\n";
-        Log::error(err);
+        if(this->log != nullptr) this->log->error(err);
     }
 
     return results;
