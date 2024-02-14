@@ -78,13 +78,24 @@ DatabaseManager::~DatabaseManager(){
     if(this->log != nullptr) delete this->log;
 }
 
-DatabaseManager::DatabaseManager(string dbPath){
-    this->dbPath = dbPath + "rubik.db";
+int DatabaseManager::table_exists_callback(void* data, int argc, char** argv, char** colNames){
+    return 0;
+}
+
+bool DatabaseManager::tableExists(const string &tableName){
+    string sql = "SELECT * FROM " + tableName + ";";
+    if (sqlite3_exec(this->db, sql.c_str(), table_exists_callback, nullptr, nullptr) != SQLITE_OK)
+        return false;
+    return true;
+}
+
+DatabaseManager::DatabaseManager(string rootPath){
+    this->dbPath = rootPath + "rubik.db";
     sqlite3_open(this->dbPath.c_str(), &this->db);
 }
 
-DatabaseManager::DatabaseManager(Log* log, string dbPath){
-    this->dbPath = dbPath + "rubik.db";
+DatabaseManager::DatabaseManager(Log* log, string rootPath){
+    this->dbPath = rootPath + "rubik.db";
     this->log = log;
     this->log->clear();
     sqlite3_open(this->dbPath.c_str(), &this->db);

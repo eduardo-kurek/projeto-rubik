@@ -10,8 +10,7 @@ endif
 
 CC=g++
 ROOT=
-SQLITE=sqlite/*.o
-INCLUDES=$(ROOT)rubik/*.cpp $(ROOT)rubik/auxiliares/*.cpp $(ROOT)rubik/scores/*.cpp $(ROOT)managers/*.cpp $(ROOT)$(SQLITE)
+INCLUDES=$(ROOT)rubik/*.cpp $(ROOT)rubik/auxiliares/*.cpp $(ROOT)rubik/scores/*.cpp $(ROOT)managers/*.cpp $(ROOT)sqlite/*.o
 LIBS=
 
 all:

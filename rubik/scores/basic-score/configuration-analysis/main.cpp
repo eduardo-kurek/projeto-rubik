@@ -5,23 +5,26 @@
 #include <type_traits>
 #include <cmath>
 #include <omp.h>
+#include <string>
 #include "../BasicScore.h"
 #include "../../PontuationTable.h"
+#include "../../../../managers/DatabaseManager.h"
 #ifdef _WIN32
 #include <windows.h>
 #endif
 
-// #define DEBUG
+//#define DEBUG
 
-using namespace std;
+using string = std::string;
 
-template <typename TScore, typename = enable_if_t<is_base_of<Score, TScore>::value>>
+template<typename T>
+using vector = std::vector<T>;
+
+template <typename TScore, typename = std::enable_if_t<std::is_base_of<Score, TScore>::value>>
 class Analyzer{
 
     private:
-
-    filesystem::path scramblePath = "../../../../scrambles/";
-    vector<string> fileNames;
+    DatabaseManager* database;
 
     vector<string> config;
     PontuationTable* table = nullptr;
@@ -34,48 +37,43 @@ class Analyzer{
 
     public:
 
-    float calculate_file(filesystem::path fileName){
-        ifstream file(this->scramblePath / fileName);
-        string scramble;
+    float calculate_table(string tableName){
+        vector<vector<string>> result = this->database->select(tableName, {"scramble"});
+
         float sum = 0;
         int count = 0;
-
-        while(getline(file, scramble)){
-            vector<const Move*> moves = Move::stringToMoves(scramble);
-            Rubik rubik;
-            rubik.move(moves);
         
+        for(vector<string> row : result){
+            Rubik rubik;
+            rubik.move(Move::stringToMoves(row[0]));
+
             sum += this->score->calculateNormalized(rubik);
             count++;
         }
-        
+
         return sum / count;
     }
 
     void calculate_pontuations(){
         this->pontuations = vector<float>();
-        this->pontuations.resize(this->fileNames.size());
+        this->pontuations.resize(20);
 
         #pragma omp parallel for
-        for(int i = 0; i < this->fileNames.size(); i++)
-            this->pontuations[i] = this->calculate_file(this->fileNames[i]);
+        for(int i = 0; i < 20; i++)
+            this->pontuations[i] = this->calculate_table("scramble_" + std::to_string(i+1));
     }
 
     public:
 
-    Analyzer(filesystem::path scramblePath, vector<string> fileNames, vector<string> config){
-        this->scramblePath = scramblePath;
-        this->fileNames = fileNames;
+    Analyzer(DatabaseManager* database, vector<string> config){
+        this->database = database;
         this->config = config;
     }
 
-    bool validate_files(){
-        for (const auto& fileName : this->fileNames) {
-            filesystem::path filePath = this->scramblePath / fileName;
-            if (!filesystem::exists(filePath)){
-                cerr << fileName << " não existe dentro do caminho fornecido.\n";
+    bool validate_tables(){
+        for(int i = 1; i <= 20; i++){
+            if(!this->database->tableExists("scramble_" + std::to_string(i)))
                 return false;
-            }
         }
         return true;
     }
@@ -91,9 +89,9 @@ class Analyzer{
         }
 
         // VERIFICANDO SE O PRIMEIRO VALOR DE CADA VETOR É O MAIOR DO VETOR INTEIRO
-        if(*max_element(cornerPontuation.begin(), cornerPontuation.end()) != cornerPontuation[0])
+        if(*std::max_element(cornerPontuation.begin(), cornerPontuation.end()) != cornerPontuation[0])
             return false;
-        if(*max_element(edgePontuations.begin(), edgePontuations.end()) != edgePontuations[0])
+        if(*std::max_element(edgePontuations.begin(), edgePontuations.end()) != edgePontuations[0])
             return false;
 
         this->table = new PontuationTable(cornerPontuation, edgePontuations);
@@ -104,20 +102,20 @@ class Analyzer{
     void print_pontuations(){
         if(this->pontuations.size() != 20) return;
 
-        cout << "{\n";
+        std::cout << "{\n";
 
         for(int i = 0; i < this->pontuations.size(); i++){
-            cout << "\t\"" << i+1 << "\": ";
-            cout << fixed << setprecision(2) << this->pontuations[i];
-            cout << ",\n";
+            std::cout << "\t\"" << i+1 << "\": ";
+            std::cout << std::fixed << std::setprecision(2) << this->pontuations[i];
+            std::cout << ",\n";
         }
 
-        cout << "\b}\n";
+        std::cout << "\b}\n";
     }
 
     float analyse(){
         if(this->table == nullptr) 
-            throw runtime_error("É preciso validar a tabela de pontuação antes de analisar.");
+            throw std::runtime_error("É preciso validar a tabela de pontuação antes de analisar.");
 
         this->calculate_pontuations();
 
@@ -149,19 +147,13 @@ int main(int argc, char* argv[]){
         return 1;
     }
 
-    filesystem::path path = "../../../../scrambles/";
-    vector<string> fileNames = {
-        "1move.scr", "2moves.scr", "3moves.scr", "4moves.scr", "5moves.scr",
-        "6moves.scr", "7moves.scr", "8moves.scr", "9moves.scr", "10moves.scr",
-        "11moves.scr", "12moves.scr", "13moves.scr", "14moves.scr", "15moves.scr",
-        "16moves.scr", "17moves.scr", "18moves.scr", "19moves.scr", "20moves.scr"
-    };
     vector<string> args;
     for(int i = 1; i < argc; i++) args.push_back(argv[i]);
 
-    Analyzer<BasicScore> analyzer(path, fileNames, args);
+    DatabaseManager* database = new DatabaseManager("../../../../");
+    Analyzer<BasicScore> analyzer(database, args);
 
-    if(!analyzer.validate_files()) return 2;
+    if(!analyzer.validate_tables()) return 2;
     if(!analyzer.mount_table()) return 3;
 
     std::cout << analyzer.analyse();
