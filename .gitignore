@@ -9,4 +9,4 @@ CMakeLists.txt
 cmake-build-debug
 **/*.db
 **/*.log
-rubik/scores/tuner/*.tun
+**/*.tun
