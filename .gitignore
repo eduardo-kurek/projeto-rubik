@@ -7,5 +7,6 @@ bibliotecas/*.o
 .idea
 CMakeLists.txt
 cmake-build-debug
-*.db
-*.log
+**/*.db
+**/*.log
+rubik/scores/tuner/*.tun

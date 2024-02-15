@@ -6,6 +6,8 @@
 #include <fstream>
 #include <algorithm>
 #include <limits>
+#include <omp.h>
+#include <unordered_set>
 #ifdef _WIN32
 #include <windows.h>
 #endif
@@ -40,6 +42,8 @@ class Tunner {
 
     std::filesystem::path filePath;
     std::vector<Parameter> parameters;
+    // DETERMINA TODOS OS VALORES QUE SE SÓ EXISTIREM ELES NA CONFIGURAÇÃO, A CONFIGURAÇÃO NÃO SERÁ TESTADA
+    std::unordered_set<int> excludes;
     std::vector<Result> results;
     uint64_t count = 0;
     uint64_t maxCount = 0;
@@ -67,7 +71,6 @@ class Tunner {
     Result execute(std::vector<int> values){
         std::string cmd = this->mountCmd(values);
         std::ostringstream output;
-        this->increaseCount();
 
         FILE* pipe = popen(cmd.c_str(), "r");
         if(pipe){
@@ -90,29 +93,24 @@ class Tunner {
 
     void insertResult(Result result){
         // VERIFICANDO SE O RESULTADO JÁ EXISTE NO VETOR
-        // if(std::binary_search(this->results.begin(), this->results.end(), result, __compare)){
-        //     std::cout << "[INFO] [  REPETIDO ]" << std::endl;
-        //     return;
-        // }else{
-        //     std::cout << "[INFO] [  NOVO ]" << std::endl;
-        // }
+        if(std::binary_search(this->results.begin(), this->results.end(), result, std::greater<Result>()))
+            return;
 
-        //std::cout << "INICIANDO FOR" << std::endl;
         for(uint32_t i = 0; i < this->results.size() - 1; i++){
-            //std::cout << "Verificando se o valor" << result.value << " é menor que " << this->results[i+1].value << std::endl;
             if(result.value < this->results[i].value){
 
-                if(result.value < this->results[i+1].value){
-                    //std::cout << "aaa" << std::endl;
+                if(result.value < this->results[i+1].value)
                     this->results[i] = this->results[i + 1];
-                }
                 else{
-                    //std::cout << "VALOR "<< result.value << "É MENOR QUE I-1 E MAIOR QUE I+1, INSERE" << std::endl;
                     // VALOR É MENOR QUE I-1 E MAIOR QUE I+1, INSERE
                     auto last = this->results[i].value;
                     this->results[i] = result; 
+
                     #ifdef INFO
-                        std::cout << "[INFO] [> " << std::right << std::setw(7) << last << "] Configuração [";
+                        std::cout << "[INFO] [< " << std::right ;
+                        if(last == std::numeric_limits<float>::max()) std::cout << std::setw(10) << "∞";
+                        else std::cout << std::setw(8) << last;
+                        std::cout << "] Configuração [";
                         for(auto& v : result.parameters) std::cout << v << ", ";
                         std::cout << "\b\b] : " << std::right << std::setw(7) << result.value << " inserida.\n";
                     #endif
@@ -126,10 +124,9 @@ class Tunner {
         }
 
         // INSERÇÃO NO FINAL, O VALOR É MENOR QUE TODOS
-        std::cout << "INSERINDO NO FIM" << std::endl;
         this->results[this->results.size() - 1] = result;
         #ifdef INFO
-            std::cout << "[INFO] [  MELHOR ] Configuração [";
+            std::cout << "[INFO] [  MELHOR  ] Configuração [";
             for(auto& v : result.parameters) std::cout << v << ", ";
             std::cout << "\b\b] : " << std::right << std::setw(7) << result.value << " inserida.\n";
         #endif
@@ -138,6 +135,17 @@ class Tunner {
     void tune(std::vector<int>& values, int index){
         // CASO BASE
         if(index == this->parameters.size()){
+            this->increaseCount();
+
+            bool flag = false;
+            for(int i = values.size()-1; i >= 0 ; i--){
+                if(this->excludes.find(values[i]) == this->excludes.end()){
+                    flag = true;
+                    break;
+                }
+            }
+            if(!flag) return;
+
             Result result = this->execute(values);
             if(!(result == NULL_RESULT)) this->insertResult(result);
             return;
@@ -171,6 +179,10 @@ public:
         this->adjustMaxCount();
     }
 
+    void addExcludes(int value){
+        this->excludes.insert(value);
+    }
+
     void run(){
         std::vector<int> vec;
         this->tune(vec, 0);
@@ -194,6 +206,7 @@ public:
             }
             file << "] : " << std::right << std::setw(7) << r.value << "\n";
         }
+        file << std::endl;
     }
 
     std::vector<Result> getResults(){ return this->results; }
@@ -230,6 +243,9 @@ int main(int argc, char* argv[]){
     tunner.addParameter({0, 1});
     tunner.addParameter({0, 1});
     tunner.addParameter({0, 1});
+
+    // tunner.addExcludes(0);
+    // tunner.addExcludes(1);
 
     tunner.run();
 
