@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <fstream>
 #include <algorithm>
+#include <limits>
 #ifdef _WIN32
 #include <windows.h>
 #endif
@@ -24,6 +25,10 @@ class Tunner {
 
         bool operator<(const Result& other) const{
             return this->value < other.value;
+        }
+
+        bool operator>(const Result& other) const{
+            return this->value > other.value;
         }
 
         bool operator==(const Result& other) const{
@@ -79,17 +84,31 @@ class Tunner {
         return NULL_RESULT;
     }
 
+    static bool __compare(Result a, Result b){
+        return a.value > b.value;
+    }
+
     void insertResult(Result result){
         // VERIFICANDO SE O RESULTADO JÁ EXISTE NO VETOR
-        if(std::binary_search(this->results.begin(), this->results.end(), result)) return;
+        // if(std::binary_search(this->results.begin(), this->results.end(), result, __compare)){
+        //     std::cout << "[INFO] [  REPETIDO ]" << std::endl;
+        //     return;
+        // }else{
+        //     std::cout << "[INFO] [  NOVO ]" << std::endl;
+        // }
 
+        //std::cout << "INICIANDO FOR" << std::endl;
         for(uint32_t i = 0; i < this->results.size() - 1; i++){
-            if(result.value > this->results[i].value){
+            //std::cout << "Verificando se o valor" << result.value << " é menor que " << this->results[i+1].value << std::endl;
+            if(result.value < this->results[i].value){
 
-                if(result.value > this->results[i+1].value)
+                if(result.value < this->results[i+1].value){
+                    //std::cout << "aaa" << std::endl;
                     this->results[i] = this->results[i + 1];
+                }
                 else{
-                    // VALOR É MAIOR QUE I-1 E MENOR QUE I+1, INSERE
+                    //std::cout << "VALOR "<< result.value << "É MENOR QUE I-1 E MAIOR QUE I+1, INSERE" << std::endl;
+                    // VALOR É MENOR QUE I-1 E MAIOR QUE I+1, INSERE
                     auto last = this->results[i].value;
                     this->results[i] = result; 
                     #ifdef INFO
@@ -102,11 +121,12 @@ class Tunner {
                 }
 
             }
-            // VALOR É MENOR QUE TODOS, NÃO INSERE
+            // VALOR É MAIOR QUE TODOS, NÃO INSERE
             else return; 
         }
 
-        // INSERÇÃO NO FINAL, O VALOR É MAIOR QUE TODOS
+        // INSERÇÃO NO FINAL, O VALOR É MENOR QUE TODOS
+        std::cout << "INSERINDO NO FIM" << std::endl;
         this->results[this->results.size() - 1] = result;
         #ifdef INFO
             std::cout << "[INFO] [  MELHOR ] Configuração [";
@@ -119,7 +139,7 @@ class Tunner {
         // CASO BASE
         if(index == this->parameters.size()){
             Result result = this->execute(values);
-            this->insertResult(result);
+            if(!(result == NULL_RESULT)) this->insertResult(result);
             return;
         }
 
@@ -140,6 +160,9 @@ public:
     Tunner(std::filesystem::path filePath, int resultsSize = 5){
         this->filePath = filePath;
         this->results.resize(resultsSize);
+        Result maxResult = {{}, std::numeric_limits<float>::max()};
+        for(auto& r : this->results) r = maxResult;
+
         std::cout << std::fixed << std::setprecision(2);
     }
 
@@ -157,6 +180,12 @@ public:
         std::ofstream file(path, std::ios::app);
         file << std::fixed << std::setprecision(2);
 
+        file << "COMBINAÇÕES: ";
+        for(auto& p : this->parameters)
+            file << "[" << p.min << ", " << p.max << "] ";
+        file << std::endl;
+
+        file << "QUANTIDADES TESTADAS: " << this->count << std::endl;
         for(auto& r : this->results){
             file << "[RESULTADO] [";
             for(int i = 0; i < r.parameters.size(); i++){
@@ -185,17 +214,22 @@ int main(int argc, char* argv[]){
 
     std::filesystem::path output = argv[1];
 
-    Tunner tunner("analysis.out");
+    std::string separator = "/";
+    #ifdef _WIN32
+        separator = "\\";
+    #endif
 
-    tunner.addParameter({0, 2});
-    tunner.addParameter({0, 2});
-    tunner.addParameter({0, 2});
-    tunner.addParameter({0, 2});
-    tunner.addParameter({0, 2});
-    tunner.addParameter({0, 2});
-    tunner.addParameter({0, 2});
-    tunner.addParameter({0, 2});
-    tunner.addParameter({0, 2});
+    Tunner tunner(".."+separator+"analyzer"+separator+"analysis.out");
+
+    tunner.addParameter({0, 1});
+    tunner.addParameter({0, 1});
+    tunner.addParameter({0, 1});
+    tunner.addParameter({0, 1});
+    tunner.addParameter({0, 1});
+    tunner.addParameter({0, 1});
+    tunner.addParameter({0, 1});
+    tunner.addParameter({0, 1});
+    tunner.addParameter({0, 1});
 
     tunner.run();
 

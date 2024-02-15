@@ -146,6 +146,9 @@ int main(int argc, char* argv[]){
         std::cerr << "É preciso informar os 9 valores da tabela de pontuação, primeiro as corners, depois as edges.\n";
         return 1;
     }
+    
+    bool debug = false;
+    if(argc > 10) debug = true;
 
     vector<string> args;
     for(int i = 1; i < argc; i++) args.push_back(argv[i]);
@@ -160,6 +163,8 @@ int main(int argc, char* argv[]){
 
     #ifdef DEBUG
         analyzer.print_pontuations();
+    #else
+        if(debug) analyzer.print_pontuations();
     #endif
 
     return 0;

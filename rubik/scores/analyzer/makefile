@@ -12,7 +12,7 @@ CC=g++
 ROOT=../../../
 INCLUDES=$(ROOT)rubik/*.cpp $(ROOT)rubik/auxiliares/*.cpp $(ROOT)rubik/scores/*.cpp $(ROOT)rubik/scores/basic-score/*.cpp $(ROOT)managers/*.cpp $(ROOT)sqlite/*.o
 LIBS=-fopenmp
-O=
+O=-O3
 
 all:
 	g++ main.cpp $(INCLUDES) $(LIBS) -o analysis.out $(O)
