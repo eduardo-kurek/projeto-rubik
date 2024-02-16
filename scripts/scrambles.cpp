@@ -1,5 +1,4 @@
 #include "../rubik/Rubik.h"
-#include "../managers/DatabaseManager.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,74 +16,74 @@ using vector = std::vector<T>;
 
 class Populater{
 
-    const string tablePrefix = "scramble_";
     int maxLines;
-    DatabaseManager* database;
+    string folderPath;
 
-    string historic_to_string(Rubik rubik){
-        string result = "";
-        for(auto& h : rubik.getHistoric())
-            result += h->name.back() == '\'' ? h->name + "' " : h->name + " ";
-        return result;
+    string get_file_name(int moves_quantity){
+        return folderPath + "scramble_"+std::to_string(moves_quantity) + ".scr";
     }
 
-    string get_table_name(int moves_quantity){
-        return tablePrefix + std::to_string(moves_quantity);
+    void print_historic(const Rubik& r, std::ofstream& file){
+        std::ostream& output = file.is_open() ? file : std::cout;
+
+        for(auto& h : r.getHistoric()){
+            output << h->name << " ";
+        }
+        output << '\n';
     }
 
-    void create_table(int moves_quantity){
-        string tableName = this->get_table_name(moves_quantity);
-        this->database->dropTable(tableName);
-        this->database->createTable(tableName, {"scramble"}, {"VARCHAR(65)"});
-    }
-
-    void insert(int moves_quantity, Rubik rubik){
-        string tableName = this->get_table_name(moves_quantity);
-        this->database->insert(tableName, {"scramble"}, {this->historic_to_string(rubik)});
-    }
-
-    void __populate_all_possibilities(Rubik last, int depth, int& count, int moves_quantity){
+    void __populate_all_possibilities(Rubik last, int depth, std::ofstream& file, int& count){
         for(auto& move : last.getValidMoves()){
 
             // VERIFICANDO SE AINDA É NECESSÁRIO IMPRIMIR MAIS MOVIMENTOS
             if(count == this->maxLines) return;
 
-            Rubik model = last;
-            model.move(1, move);
-
-            if(depth == 0){ // INSERINDO NO BANCO DE DADOS
+            if(depth == 0){
+                // MOVIMENTANDO MODELO ATUAL
                 count++;
-                this->insert(moves_quantity, model);
+                Rubik model = last;
+                model.move(1, move);
+
+                // IMPRESSÃO DO HISTÓRICO
+                print_historic(model, file);
             }
-            else{ // INDO MAIS UM MOVIMENTO A FUNDO
-                __populate_all_possibilities(model, depth-1, count, moves_quantity);
+            else{
+                // INDO MAIS UM MOVIMENTO A FUNDO
+                Rubik model = last;
+                model.move(1, move);
+                __populate_all_possibilities(model, depth-1, file, count);
             }
+
         }
     }
-
+    
     void populate_all_possibilities(int moves_quantity){
+        // LIMPANDO O ARQUIVO DE TEXTO
+        std::ofstream file(this->get_file_name(moves_quantity));
+        file.clear();
+
+        // POPULANDO O ARQUIVO DE TEXTO
         int count = 0;
         Rubik r;
-        string tableName = this->get_table_name(moves_quantity);
-        this->create_table(moves_quantity);
-        this->__populate_all_possibilities(r, moves_quantity-1, count, moves_quantity);
+        __populate_all_possibilities(r, moves_quantity-1, file, count);
+        file.close();
     }
 
     void populate_scrambled(int moves_quantity){
-        this->create_table(moves_quantity);
-
+        std::ofstream file(this->get_file_name(moves_quantity));
         for(int i = 0; i < this->maxLines; i++){
             Rubik r;
             r.scramble(moves_quantity);
-            this->insert(moves_quantity, r);
+            print_historic(r, file);
         }
+        file.close();
     }
 
 
     public:
-    Populater(DatabaseManager* database, int maxLines){
-        this->database = database;
+    Populater(int maxLines, string folderPath){
         this->maxLines = maxLines;
+        this->folderPath = folderPath;
     }
 
     void populate(){
@@ -93,12 +92,8 @@ class Populater{
         this->populate_all_possibilities(3);
         
         #pragma omp parallel for
-        for(int i = 4; i <= 20; i++){
-            #pragma omp critical
-            {
-                this->populate_scrambled(i);
-            }
-        }
+        for(int i = 4; i <= 20; i++)
+            this->populate_scrambled(i);
     }
 
 };
@@ -119,8 +114,13 @@ int main(int argc, char* argv[]){
 
     srand(seed);
 
-    DatabaseManager* database = new DatabaseManager("../");
-    Populater populater(database, maxLines);
+    string separator = "/";
+    #ifdef _WIN32
+        separator = "\\";
+    #endif
+
+    Populater populater(maxLines, ".."+separator +"database"+separator+"scrambles"+separator);
+    populater.populate();
 
     populater.populate();
 }
