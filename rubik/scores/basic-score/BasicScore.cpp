@@ -6,11 +6,8 @@
 BasicScore::BasicScore(PontuationTable* pt, const Rubik* target) : Score(target) {
     this->pontuationTable = pt;
 
-    // ADICIONANDO O TOTAL DAS CORNERS
-    this->maxScore += 8 * pt->getCornerPontuations()[0];
-
-    // ADICIONANDO O TOTAL DAS EDGES
-    this->maxScore += 12 * pt->getEdgePontuations()[0];
+    Rubik rubik = *target;
+    this->maxScore = this->calculate(rubik);
 }
 
 float BasicScore::getScoreByState(Edges::State state){
