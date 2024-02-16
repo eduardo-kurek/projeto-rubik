@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <limits>
 #include <omp.h>
+#include <chrono>
 #include <unordered_set>
 #ifdef _WIN32
 #include <windows.h>
@@ -16,9 +17,16 @@
 
 class Tunner {
 
-    struct Parameter {
+    struct Parameter{
         int min;
         int max;
+        std::unordered_set<int> excludes;
+
+        Parameter(int min, int max, std::unordered_set<int> excludes = {}){
+            this->min = min;
+            this->max = max;
+            this->excludes = excludes;
+        }
     };
 
     struct Result{
@@ -38,16 +46,21 @@ class Tunner {
         }
     };
 
+    struct AnalysisSet{
+        std::vector<int> values;
+        std::vector<Parameter> params;
+    };
+
     Result NULL_RESULT = {{}, 0.0};
 
     std::filesystem::path filePath;
     std::vector<Parameter> parameters;
-    // DETERMINA TODOS OS VALORES QUE SE SÓ EXISTIREM ELES NA CONFIGURAÇÃO, A CONFIGURAÇÃO NÃO SERÁ TESTADA
-    std::unordered_set<int> excludes;
     std::vector<Result> results;
     uint64_t count = 0;
     uint64_t maxCount = 0;
     uint16_t printProgressStep = 20; // 1/20 = 5%
+    std::chrono::seconds elapsed;
+    int s;
 
     void increaseCount(){
         this->count++;
@@ -85,10 +98,6 @@ class Tunner {
         }
 
         return NULL_RESULT;
-    }
-
-    static bool __compare(Result a, Result b){
-        return a.value > b.value;
     }
 
     void insertResult(Result result){
@@ -132,36 +141,71 @@ class Tunner {
         #endif
     }
 
-    void tune(std::vector<int>& values, int index){
+    void tune(AnalysisSet set, int index){
         // CASO BASE
-        if(index == this->parameters.size()){
+        if(index == set.params.size()){
             this->increaseCount();
 
-            bool flag = false;
-            for(int i = values.size()-1; i >= 0 ; i--){
-                if(this->excludes.find(values[i]) == this->excludes.end()){
-                    flag = true;
-                    break;
-                }
-            }
-            if(!flag) return;
+            for(int i = set.values.size()-1; i >= 0 ; i--)
+                if(set.values[i] < set.params[i].min || set.values[i] > set.params[i].max)
+                    return;
 
-            Result result = this->execute(values);
+            Result result = this->execute(set.values);
             if(!(result == NULL_RESULT)) this->insertResult(result);
             return;
         }
 
         // CASO RECURSIVO
         for(int i = this->parameters[index].min; i <= this->parameters[index].max; i++){
-            values.push_back(i);
-            this->tune(values, index + 1);
-            values.pop_back();
+            set.values.push_back(i);
+            this->tune(set, index + 1);
+            set.values.pop_back();
         }
     }
 
     void adjustMaxCount(){
         this->maxCount = 1;
         for(auto& p : this->parameters) this->maxCount *= (p.max - p.min + 1);
+    }
+
+    std::vector<AnalysisSet> prepare_analysis_set(){
+        // Obtendo o Parametro com mair range
+        int maxRange = 0;
+        int maxI = 0;
+        for(int i = 0; i < this->parameters.size(); i++){
+            auto& p = this->parameters[i];
+            int range = p.max - p.min + 1;
+            if(range > maxRange){
+                maxRange = range;
+                maxI = i;
+            }
+        }
+
+        // Preparando os parametros para a execução
+        std::vector<AnalysisSet> analysisSets;
+        for(int i = 0; i < maxRange; i++){
+            AnalysisSet set;
+
+            // Adiciona cada paramentro existente na classe ao set
+            for(auto& param : this->parameters){
+                int min = param.min, max = param.min + i, k = max;
+
+                // Se max for maior param.max, significa que o range do parametro foi extrapolado
+                if(max > param.max){
+                    max = param.max; // Portanto, max será o valor máximo do parametro
+                    k++; // E k incrementa, para agora incluir o ultimo parametro no loop a seguir
+                }
+
+                std::unordered_set<int> excludes;
+                for(int j = min; j < k; j++) excludes.insert(j);
+                
+                set.params.push_back({min, max, excludes});
+            }
+
+            analysisSets.push_back(set);
+        }
+
+        return analysisSets;
     }
 
 public:
@@ -179,13 +223,18 @@ public:
         this->adjustMaxCount();
     }
 
-    void addExcludes(int value){
-        this->excludes.insert(value);
-    }
-
     void run(){
-        std::vector<int> vec;
-        this->tune(vec, 0);
+        std::chrono::_V2::high_resolution_clock::time_point start;
+        start = std::chrono::high_resolution_clock::now();
+
+        AnalysisSet set;
+        set.params = this->parameters;
+        set.values = std::vector<int>();
+        this->tune(set, 0);
+
+        std::chrono::_V2::high_resolution_clock::time_point end;
+        end =std::chrono::high_resolution_clock::now();
+        this->elapsed = std::chrono::duration_cast<std::chrono::seconds>(end - start);
     }
 
     void writeResults(std::filesystem::path path){
@@ -206,6 +255,8 @@ public:
             }
             file << "] : " << std::right << std::setw(7) << r.value << "\n";
         }
+        file << "TEMPO DECORRIDO: " << this->elapsed.count() << "s" << std::endl;
+
         file << std::endl;
     }
 
@@ -232,21 +283,18 @@ int main(int argc, char* argv[]){
         separator = "\\";
     #endif
 
-    Tunner tunner(".."+separator+"analyzer"+separator+"analysis.out");
+    Tunner tunner("analysis.out");
 
-    tunner.addParameter({0, 1});
-    tunner.addParameter({0, 1});
-    tunner.addParameter({0, 1});
-    tunner.addParameter({0, 1});
-    tunner.addParameter({0, 1});
-    tunner.addParameter({0, 1});
-    tunner.addParameter({0, 1});
-    tunner.addParameter({0, 1});
-    tunner.addParameter({0, 1});
-
-    // tunner.addExcludes(0);
-    // tunner.addExcludes(1);
-
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    
     tunner.run();
 
     tunner.writeResults(output);
