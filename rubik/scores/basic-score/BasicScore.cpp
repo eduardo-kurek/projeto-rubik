@@ -18,6 +18,10 @@ float BasicScore::getScoreByState(Corners::State state){
     return this->pontuationTable->getCornerPontuations()[state];
 }
 
+float BasicScore::calculate_synergy(const Face& face){
+    return 0;
+}
+
 float BasicScore::calculate(const Rubik& source){
     float score = 0;
 
@@ -31,6 +35,12 @@ float BasicScore::calculate(const Rubik& source){
     for(auto& edge : Edges::EDGES){
         Edges::State state = edge->compare(*this->target, source);
         score += this->getScoreByState(state);
+    }
+
+    // CALCULANDO VALORES SINERGICOS DAS FACES
+    const Face* faces = source.getFaces();
+    for(int i = 0; i < 5; i++){
+        score += this->calculate_synergy(faces[i]);
     }
 
     return score;
