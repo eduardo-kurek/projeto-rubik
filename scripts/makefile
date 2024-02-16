@@ -14,6 +14,4 @@ INCLUDES=$(ROOT)rubik/*.cpp $(ROOT)rubik/auxiliares/*.cpp $(ROOT)rubik/scores/*.
 LIBS=-fopenmp
 
 populate-scrambles:
-	$(CC) scrambles.cpp $(INCLUDES) $(LIBS) -o $(OUT)
-	./$(OUT) $(SEED) $(QUANT)
-	$(CLEAN) $(OUT)
+	$(CC) scrambles.cpp $(INCLUDES) $(LIBS) -o scrambles.out
