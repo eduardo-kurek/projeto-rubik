@@ -3,7 +3,7 @@
 #include <vector>
 
 class PontuationTable{
-    std::vector<float> cornerPontuation = {3, 2, 2, 1, 0};
+    std::vector<float> cornerPontuation = {3, 2, 1, 0};
     std::vector<float> edgePontuations = {3, 2, 1, 0};
 
 public:

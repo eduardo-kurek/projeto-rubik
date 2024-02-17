@@ -15,7 +15,7 @@ LIBS=-fopenmp
 O=-O3
 
 all:
-	g++ main.cpp $(INCLUDES) $(LIBS) -o analysis.out $(O)
+	$(CC) main.cpp $(INCLUDES) $(LIBS) -o analysis.out $(O)
 
 make tun:
 	g++ tuning.cpp $(O) -o tuning.out

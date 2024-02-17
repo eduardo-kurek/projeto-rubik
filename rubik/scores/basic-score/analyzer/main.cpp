@@ -90,8 +90,8 @@ class Analyzer{
         vector<float> cornerPontuation;
         vector<float> edgePontuations;
 
-        for(int i = 0; i < 9; i++){
-            if(i < 5) cornerPontuation.push_back(stof(this->config[i]));
+        for(int i = 0; i < 8; i++){
+            if(i < 4) cornerPontuation.push_back(stof(this->config[i]));
             else edgePontuations.push_back(stof(this->config[i]));
         }
 
@@ -149,13 +149,13 @@ int main(int argc, char* argv[]){
     #endif
 
     // VALIDANDO PARAMETROS
-    if(argc < 10){
-        std::cerr << "É preciso informar os 9 valores da tabela de pontuação, primeiro as corners, depois as edges.\n";
+    if(argc < 9){
+        std::cerr << "É preciso informar os 8 valores da tabela de pontuação, primeiro as corners, depois as edges.\n";
         return 1;
     }
     
     bool debug = false;
-    if(argc > 10) debug = true;
+    if(argc > 9) debug = true;
 
     vector<string> args;
     for(int i = 1; i < argc; i++) args.push_back(argv[i]);

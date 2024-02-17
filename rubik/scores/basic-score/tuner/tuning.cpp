@@ -67,8 +67,8 @@ class AnalyzerMultiple{
         vector<float> cornerPontuation;
         vector<float> edgePontuations;
 
-        for(int i = 0; i < 9; i++){
-            if(i < 5) cornerPontuation.push_back(config[i]);
+        for(int i = 0; i < 8; i++){
+            if(i < 4) cornerPontuation.push_back(config[i]);
             else edgePontuations.push_back(config[i]);
         }
 
@@ -103,7 +103,7 @@ class AnalyzerMultiple{
     }
 
     float analyse(vector<int> config){
-        if(config.size() != 9) return 0;
+        if(config.size() != 8) return 0;
         if(!this->mount_table(config)) return 0;
         this->calculate_pontuations();
 
@@ -380,15 +380,14 @@ int main(int argc, char* argv[]){
     AnalyzerMultiple<BasicScore> analyzer(scramblePath);
     Tunner tunner(analyzer);
 
-    tunner.addParameter({-5, 0, -2, 0});
-    tunner.addParameter({-5, 0, -2, 0});
-    tunner.addParameter({-5, 0, -2, 0});
-    tunner.addParameter({-5, 0, -2, 0});
-    tunner.addParameter({-5, 0, -2, 0});
-    tunner.addParameter({1, 30, 1, 20});
-    tunner.addParameter({1, 30, 1, 20});
-    tunner.addParameter({-5, 0, -2, 0});
-    tunner.addParameter({-5, 0, -2, 0});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
     
     tunner.run();
 
