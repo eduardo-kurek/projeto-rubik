@@ -34,11 +34,11 @@ namespace Corners{
 
         // VERIFICANDO A PERMUTAÇÃO DA PEÇA NO SENTIDO HORÁRIO
         corrects = this->countEqualStickers(reference, source, 1);
-        if(corrects == 3) return Corners::State::PERMUTED_CLOCKWISE;
+        if(corrects == 3) return Corners::State::PERMUTED;
 
         // VERIFICANDO A PERMUTAÇÃO DA PEÇA NO SENTIDO ANTI-HORÁRIO
         corrects = this->countEqualStickers(reference, source, 2);
-        if(corrects == 3) return Corners::State::PERMUTED_ANTICLOCKWISE;
+        if(corrects == 3) return Corners::State::PERMUTED;
 
         // PEÇA COMPLETAMENTE INCORRETA
         return Corners::State::INCORRECT;

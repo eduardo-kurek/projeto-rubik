@@ -12,8 +12,7 @@ namespace Corners{
     enum State{
         CORRECT = 0,
         ORIENTED = 1,
-        PERMUTED_CLOCKWISE = 2,
-        PERMUTED_ANTICLOCKWISE = 3,
+        PERMUTED = 3,
         INCORRECT = 4
     };
 

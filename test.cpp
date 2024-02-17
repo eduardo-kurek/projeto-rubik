@@ -24,7 +24,7 @@ int main(int argc, char* argv[]){
     Rubik* rubik = new Rubik();
     rubik->move({U});
 
-    BasicScore* bs = new BasicScore(new PontuationTable({3,2,2,1,0}, {3,2,1,0}));
+    BasicScore* bs = new BasicScore(new PontuationTable({3,2,1,0}, {3,2,1,0}, 1));
 
     float res = bs->calculateNormalized(*rubik);
 

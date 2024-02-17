@@ -22,6 +22,7 @@ float BasicScore::getScoreByState(Corners::State state){
 
 float BasicScore::calculate_synergy(const Face& target, const Face& source){
     float result = 0;
+    float buff = this->pontuationTable->getBuffSynergy();
 
     // PONTUANDO LINHA A LINHA
     for(int i = 0; i < 3; i++){
@@ -33,7 +34,7 @@ float BasicScore::calculate_synergy(const Face& target, const Face& source){
                 seq++;
             }
             else if(seq){
-                acc += pow(3, seq);
+                acc += pow(buff, seq);
                 seq = 0;
             }
         }
@@ -54,7 +55,7 @@ float BasicScore::calculate_synergy(const Face& target, const Face& source){
         for(int j = 0; j < 3; j++){
             if(target.stickers[j][i].getColor() == source.stickers[j][i].getColor()) seq++;
             else if(seq){
-                acc += pow(3, seq);
+                acc += pow(buff, seq);
                 seq = 0;
             }
         }
