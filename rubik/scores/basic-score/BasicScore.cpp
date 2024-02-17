@@ -1,6 +1,8 @@
 #include "BasicScore.h"
 #include "../../auxiliares/Corners.h"
 #include "../../auxiliares/Edges.h"
+#include <iomanip>
+#include <math.h>
 #include <iostream>
 
 BasicScore::BasicScore(PontuationTable* pt, const Rubik* target) : Score(target) {
@@ -18,8 +20,54 @@ float BasicScore::getScoreByState(Corners::State state){
     return this->pontuationTable->getCornerPontuations()[state];
 }
 
-float BasicScore::calculate_synergy(const Face& face){
-    return 0;
+float BasicScore::calculate_synergy(const Face& target, const Face& source){
+    float result = 0;
+
+    // PONTUANDO LINHA A LINHA
+    for(int i = 0; i < 3; i++){
+        float acc = 0;
+        int seq = 0;
+
+        for(int j = 0; j < 3; j++){
+            if(target.stickers[i][j].getColor() == source.stickers[i][j].getColor()){
+                seq++;
+            }
+            else if(seq){
+                acc += pow(3, seq);
+                seq = 0;
+            }
+        }
+
+        if(seq){
+            acc += pow(3, seq);
+            seq = 0;
+        }
+
+        result += acc;
+    }
+
+    // PONTUANDO COLUNA A COLUNA
+    for(int i = 0; i < 3; i++){
+        float acc = 0;
+        int seq = 0;
+
+        for(int j = 0; j < 3; j++){
+            if(target.stickers[j][i].getColor() == source.stickers[j][i].getColor()) seq++;
+            else if(seq){
+                acc += pow(3, seq);
+                seq = 0;
+            }
+        }
+
+        if(seq){
+            acc += pow(3, seq);
+            seq = 0;
+        }
+
+        result += acc;
+    }
+
+    return result;
 }
 
 float BasicScore::calculate(const Rubik& source){
@@ -38,10 +86,10 @@ float BasicScore::calculate(const Rubik& source){
     }
 
     // CALCULANDO VALORES SINERGICOS DAS FACES
-    const Face* faces = source.getFaces();
-    for(int i = 0; i < 5; i++){
-        score += this->calculate_synergy(faces[i]);
-    }
+    const Face* sourceFaces = source.getFaces();
+    const Face* targetFaces = this->target->getFaces();
+    for(int i = 0; i < 6; i++)
+        score += this->calculate_synergy(targetFaces[i], sourceFaces[i]);
 
     return score;
 }

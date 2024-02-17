@@ -10,7 +10,7 @@ endif
 
 CC=g++
 ROOT=
-INCLUDES=$(ROOT)rubik/*.cpp $(ROOT)rubik/auxiliares/*.cpp $(ROOT)rubik/scores/*.cpp $(ROOT)managers/*.cpp $(ROOT)sqlite/*.o
+INCLUDES=$(ROOT)rubik/*.cpp $(ROOT)rubik/auxiliares/*.cpp $(ROOT)rubik/scores/*.cpp $(ROOT)rubik/scores/basic-score/*.cpp
 LIBS=
 
 all:
