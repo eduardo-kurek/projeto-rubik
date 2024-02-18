@@ -101,7 +101,7 @@ class Analyzer{
         if(*std::max_element(edgePontuations.begin(), edgePontuations.end()) != edgePontuations[0])
             return false;
 
-        this->table = new PontuationTable(cornerPontuation, edgePontuations);
+        this->table = new PontuationTable(cornerPontuation, edgePontuations, stof(this->config[8]));
         this->score = new TScore(this->table);
         return true;
     }
@@ -149,13 +149,13 @@ int main(int argc, char* argv[]){
     #endif
 
     // VALIDANDO PARAMETROS
-    if(argc < 9){
-        std::cerr << "É preciso informar os 8 valores da tabela de pontuação, primeiro as corners, depois as edges.\n";
+    if(argc < 10){
+        std::cerr << "É preciso informar os 8 valores da tabela de pontuação, primeiro as corners, depois as edges e depois o buff.\n";
         return 1;
     }
     
     bool debug = false;
-    if(argc > 9) debug = true;
+    if(argc > 10) debug = true;
 
     vector<string> args;
     for(int i = 1; i < argc; i++) args.push_back(argv[i]);

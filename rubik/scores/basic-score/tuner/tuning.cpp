@@ -78,7 +78,7 @@ class AnalyzerMultiple{
         if(*std::max_element(edgePontuations.begin(), edgePontuations.end()) != edgePontuations[0])
             return false;
 
-        this->table = new PontuationTable(cornerPontuation, edgePontuations);
+        this->table = new PontuationTable(cornerPontuation, edgePontuations, config[8]);
         this->score = new TScore(this->table);
         return true;
     }
@@ -103,7 +103,7 @@ class AnalyzerMultiple{
     }
 
     float analyse(vector<int> config){
-        if(config.size() != 8) return 0;
+        if(config.size() != 9) return 0;
         if(!this->mount_table(config)) return 0;
         this->calculate_pontuations();
 
@@ -257,44 +257,6 @@ class Tunner {
         for(auto& p : this->parameters) this->maxCount *= (p.max - p.min + 1);
     }
 
-    // ABSOLETO
-    std::vector<AnalysisSet> prepare_analysis_set(){
-        // Obtendo o Parametro com maior range
-        int maxRange = 0;
-        int maxI = 0;
-        for(int i = 0; i < this->parameters.size(); i++){
-            auto& p = this->parameters[i];
-            int range = p.max - p.min + 1;
-            if(range > maxRange){
-                maxRange = range;
-                maxI = i;
-            }
-        }
-
-        // Preparando os parametros para a execução
-        std::vector<AnalysisSet> analysisSets;
-        for(int i = 0; i < maxRange; i++){
-            AnalysisSet set;
-
-            // Adiciona cada paramentro existente na classe ao set
-            for(auto& param : this->parameters){
-                int min = param.min, max = param.min + i, k = max;
-
-                // Se max for maior param.max, significa que o range do parametro foi extrapolado
-                if(max > param.max){
-                    max = param.max; // Portanto, max será o valor máximo do parametro
-                    k++; // E k incrementa, para agora incluir o ultimo parametro no loop a seguir
-                }
-                
-                set.params.push_back({min, max, min, k-1});
-            }
-
-            analysisSets.push_back(set);
-        }
-
-        return analysisSets;
-    }
-
 public:
     Tunner() = default;
 
@@ -315,8 +277,6 @@ public:
     void run(){
         std::chrono::_V2::high_resolution_clock::time_point start;
         start = std::chrono::high_resolution_clock::now();
-
-        vector<AnalysisSet> analysisSets = this->prepare_analysis_set();
 
         AnalysisSet set;
         set.params = this->parameters;
@@ -388,7 +348,8 @@ int main(int argc, char* argv[]){
     tunner.addParameter({0, 2});
     tunner.addParameter({0, 2});
     tunner.addParameter({0, 2});
-    
+    tunner.addParameter({0, 2});
+
     tunner.run();
 
     tunner.writeResults(output);
