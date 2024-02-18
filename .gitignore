@@ -1,5 +1,4 @@
 testes.c
-a.*
 rubik/*.o
 bibliotecas/*.o
 .env
@@ -7,6 +6,7 @@ bibliotecas/*.o
 .idea
 CMakeLists.txt
 cmake-build-debug
+**/*.out
 **/*.db
 **/*.log
 **/*.tun

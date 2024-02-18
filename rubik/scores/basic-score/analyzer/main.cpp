@@ -150,7 +150,7 @@ int main(int argc, char* argv[]){
 
     // VALIDANDO PARAMETROS
     if(argc < 10){
-        std::cerr << "É preciso informar os 8 valores da tabela de pontuação, primeiro as corners, depois as edges e depois o buff.\n";
+        std::cerr << "É preciso informar os 9 valores da tabela de pontuação, primeiro as corners, depois as edges e depois o buff.\n";
         return 1;
     }
     
