@@ -26,7 +26,7 @@ namespace Stickers{
     extern const StickerCoord* S7;
     extern const StickerCoord* S8;
     extern const StickerCoord* S9;
-    
+
     extern const StickerCoord* S10;
     extern const StickerCoord* S11;
     extern const StickerCoord* S12;
@@ -36,7 +36,7 @@ namespace Stickers{
     extern const StickerCoord* S16;
     extern const StickerCoord* S17;
     extern const StickerCoord* S18;
-    
+
     extern const StickerCoord* S19;
     extern const StickerCoord* S20;
     extern const StickerCoord* S21;
@@ -46,7 +46,7 @@ namespace Stickers{
     extern const StickerCoord* S25;
     extern const StickerCoord* S26;
     extern const StickerCoord* S27;
-    
+
     extern const StickerCoord* S28;
     extern const StickerCoord* S29;
     extern const StickerCoord* S30;
@@ -56,7 +56,7 @@ namespace Stickers{
     extern const StickerCoord* S34;
     extern const StickerCoord* S35;
     extern const StickerCoord* S36;
-    
+
     extern const StickerCoord* S37;
     extern const StickerCoord* S38;
     extern const StickerCoord* S39;
@@ -66,7 +66,7 @@ namespace Stickers{
     extern const StickerCoord* S43;
     extern const StickerCoord* S44;
     extern const StickerCoord* S45;
-    
+
     extern const StickerCoord* S46;
     extern const StickerCoord* S47;
     extern const StickerCoord* S48;

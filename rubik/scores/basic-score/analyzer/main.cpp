@@ -3,6 +3,8 @@
 #include <filesystem>
 #include <utility>
 #include <type_traits>
+#include <iomanip>
+#include <algorithm>
 #include <cmath>
 #include <omp.h>
 #include <string>
