@@ -12,7 +12,7 @@
 #include <windows.h>
 #endif
 
-//#define DEBUG
+#define DEBUG
 
 using string = std::string;
 

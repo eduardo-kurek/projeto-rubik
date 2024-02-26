@@ -10,6 +10,7 @@ class BasicScore : public virtual Score{
 
     float getScoreByState(Corners::State state) override;
     float getScoreByState(Edges::State state) override;
+    float calculate_face_synergy(const Face& target, const Face& source);
 
 public:
     BasicScore(PontuationTable* pt, const Rubik* target = new Rubik());

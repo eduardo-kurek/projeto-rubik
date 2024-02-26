@@ -5,7 +5,7 @@
 #include "rubik/scores/PontuationTable.h"
 #include "rubik/auxiliares/Move.h"
 #include "RUBIK/auxiliares/Restriction.h"
-#include "managers/DatabaseManager.h"
+#include "rubik/scores/basic-score/BasicScore.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -20,18 +20,19 @@ int main(int argc, char* argv[]){
         SetConsoleOutputCP(65001);
     #endif
 
-    DatabaseManager* database = new DatabaseManager();
+    // Rubik r1;
+    // r1.move({U, FA, D});
 
-    database->createTable("teste", {"id", "nome"}, {"INTEGER", "TEXT"});
-    database->insert_one("teste", {"id", "nome"}, {"1", "teste"}, true);
-    std::vector<std::vector<std::string>> results = database->select("teste", {"id", "nome"}, true);
+    // Rubik r2;
+    // r2.move({U, FA, D, F});
 
-    for (const auto& result : results) {
-        for(const auto& column : result)
-            std::cout << column << " ";
-        std::cout << std::endl;
-    }
+    // BasicScore scorer = BasicScore(new PontuationTable({0,0,0,0}, {1,1,-2,0}, 0));
+    // std::cout << "PONTUAÇÃO DO PRIMEIRO: " << scorer.calculateNormalized(r1) << std::endl;
+    // std::cout << "PONTUAÇÃO DO SEGUNDO: " << scorer.calculateNormalized(r2) << std::endl;
 
-    database->dropTable("teste");
+    Rubik r = Rubik();
+    r.move(Move::stringToMoves("F R' F2 B R' F' U' F' U L' B2 R U' F' U2 F2 L2 U L2 D"));
+    r.move(Move::stringToMoves("U F L' F' L B L D' B L' F' B U' R' F' R' L B L U"));
+    r.print();
 
 }
