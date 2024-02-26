@@ -3,12 +3,18 @@
 #include "rubik/auxiliares/StickerCoord.h"
 #include "rubik/auxiliares/Corners.h"
 #include "rubik/scores/PontuationTable.h"
+#include "rubik/scores/basic-score/BasicScore.h"
 #include "rubik/auxiliares/Move.h"
+<<<<<<< HEAD
 #include "RUBIK/auxiliares/Restriction.h"
 #include "rubik/scores/basic-score/BasicScore.h"
+=======
+#include "rubik/auxiliares/Restriction.h"
+>>>>>>> 446e3ec18681b2ef209e4b7e533907c6a07cbf1c
 #include <iostream>
 #include <string>
 #include <vector>
+#include <math.h>
 #include <fstream>
 #ifdef _WIN32
 #include <windows.h>
@@ -19,6 +25,9 @@ int main(int argc, char* argv[]){
     #ifdef _WIN32
         SetConsoleOutputCP(65001);
     #endif
+    
+    Rubik* rubik = new Rubik();
+    rubik->move({U});
 
     // Rubik r1;
     // r1.move({U, FA, D});
