@@ -340,15 +340,15 @@ int main(int argc, char* argv[]){
     AnalyzerMultiple<BasicScore> analyzer(scramblePath);
     Tunner tunner(analyzer);
 
-    tunner.addParameter({0, 2});
-    tunner.addParameter({0, 2});
-    tunner.addParameter({0, 2});
-    tunner.addParameter({0, 2});
-    tunner.addParameter({0, 2});
-    tunner.addParameter({0, 2});
-    tunner.addParameter({0, 2});
-    tunner.addParameter({0, 2});
-    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 1});
+    tunner.addParameter({0, 1});
+    tunner.addParameter({0, 1});
+    tunner.addParameter({0, 1});
+    tunner.addParameter({0, 1});
+    tunner.addParameter({0, 1});
+    tunner.addParameter({0, 1});
+    tunner.addParameter({0, 1});
+    tunner.addParameter({1, 20});
 
     tunner.run();
 

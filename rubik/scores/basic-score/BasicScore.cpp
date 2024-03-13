@@ -18,9 +18,30 @@ float BasicScore::getScoreByState(Corners::State state){
     return this->pontuationTable->getCornerPontuations()[state];
 }
 
-float BasicScore::calculate_face_synergy(const Face& target, const Face& source){
-    float result = 0.0;
-    return result;
+float BasicScore::calculate_face_synergy(const Rubik& source){
+    int res[6] = {0};
+    const Face* faces = source.getFaces();
+
+    for(uint8_t i = 0; i < 6; i++){
+        uint8_t equals[6] = {0};
+
+        for(uint8_t j = 0; j < 3; j++){
+            for(uint8_t k = 0; k < 3; k++){
+                const Color* cor = faces[i].stickers[j][k].getColor();
+                equals[cor->index]++;
+            }
+        }
+
+        // Adicionando os resultados da face
+        for(uint8_t j = 0; j < 6; j++)
+            res[i] += equals[j] * equals[j] / this->pontuationTable->getBuff();
+        
+    }
+
+    int sum = 0;
+    for(uint8_t i = 0; i < 6; i++) sum += res[i];
+
+    return (float)sum;
 }
 
 float BasicScore::calculate(const Rubik& source){
@@ -38,10 +59,6 @@ float BasicScore::calculate(const Rubik& source){
         score += this->getScoreByState(state);
     }
 
-    const Face* targetFaces = this->target->getFaces();
-    const Face* sourceFaces = source.getFaces();
-    for(int i = 0; i < 6; i++)
-        score += this->calculate_face_synergy(targetFaces[i], sourceFaces[i]);
-
+    score += this->calculate_face_synergy(source);
     return score;
 }
