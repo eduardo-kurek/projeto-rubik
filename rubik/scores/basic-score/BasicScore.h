@@ -7,6 +7,7 @@
 class BasicScore : public virtual Score{
 
     PontuationTable* pontuationTable;
+    int minSynergyScore = 15;
 
     float getScoreByState(Corners::State state) override;
     float getScoreByState(Edges::State state) override;

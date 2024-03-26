@@ -33,8 +33,11 @@ float BasicScore::calculate_face_synergy(const Rubik& source){
         }
 
         // Adicionando os resultados da face
-        for(uint8_t j = 0; j < 6; j++)
-            res[i] += equals[j] * equals[j] / this->pontuationTable->getBuff();
+        for(uint8_t j = 0; j < 6; j++){
+            int val = equals[j] * equals[j] - this->minSynergyScore;
+            val < 0 ? val = 0 : val = val;
+            res[i] += val;
+        }
         
     }
 

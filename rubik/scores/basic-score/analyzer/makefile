@@ -8,10 +8,10 @@ else
 	CLEAR=cls
 endif
 
-CC=g++ -std=c++17 -g
+CC=g++ -std=c++17
 ROOT=../../../../
 AUXILIARES = $(filter-out $(ROOT)rubik/auxiliares/StickerCoord.cpp, $(wildcard $(ROOT)rubik/auxiliares/*.cpp))
-INCLUDES=$(ROOT)rubik/*.cpp $(ROOT)rubik/auxiliares/StickerCoord.cpp $(AUXILIARES) $(ROOT)rubik/scores/*.cpp $(ROOT)rubik/scores/basic-score/*.cpp
+INCLUDES=$(ROOT)rubik/** $(ROOT)rubik/auxiliares/*.cpp $(ROOT)rubik/scores/*.cpp $(ROOT)rubik/scores/basic-score/*.cpp
 LIBS=-fopenmp
 O=-O3
 

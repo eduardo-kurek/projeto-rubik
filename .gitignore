@@ -11,3 +11,5 @@ cmake-build-debug
 **/*.log
 **/*.tun
 database/scrambles/*.scr
+obj/
+bin/

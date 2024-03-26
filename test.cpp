@@ -23,10 +23,4 @@ int main(int argc, char* argv[]){
     
     Rubik r;
     r.move({U, FA, D});
-
-    BasicScore scorer = BasicScore(new PontuationTable({0,0,0,0}, {1,1,-2,0}, 0));
-    std::cout << "PONTUAÇÃO DO PRIMEIRO: " << scorer.calculateNormalized(r) << std::endl;
-    
 }
-
-//25 + 17 + 23 + 21 + 41 + 41 = 
