@@ -39,6 +39,6 @@ void Solver::printFoundedSolves() const{
         for(auto move : solve){
             std::cout << move->name << ", ";
         }
-        std::cout << "]" << std::endl;
+        std::cout << "\b\b" << "]" << std::endl;
     }
 }
