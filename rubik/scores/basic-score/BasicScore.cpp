@@ -44,7 +44,7 @@ float BasicScore::calculate_face_synergy(const Rubik& source){
     int sum = 0;
     for(uint8_t i = 0; i < 6; i++) sum += res[i];
 
-    return (float)sum;
+    return 0;
 }
 
 float BasicScore::calculate(const Rubik& source){

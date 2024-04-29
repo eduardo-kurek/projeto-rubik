@@ -11,8 +11,8 @@ endif
 CC=g++
 ROOT=
 AUXILIARES = $(filter-out $(ROOT)rubik/auxiliares/StickerCoord.cpp, $(wildcard $(ROOT)rubik/auxiliares/*.cpp))
-INCLUDES=$(ROOT)rubik/*.cpp $(ROOT)rubik/auxiliares/StickerCoord.cpp $(AUXILIARES) $(ROOT)rubik/scores/*.cpp $(ROOT)rubik/scores/basic-score/*.cpp
-LIBS=
+INCLUDES=$(ROOT)rubik/*.cpp $(ROOT)rubik/solvers/*.cpp $(ROOT)rubik/auxiliares/StickerCoord.cpp $(AUXILIARES) $(ROOT)rubik/scores/*.cpp $(ROOT)rubik/scores/basic-score/*.cpp
+LIBS=-fopenmp
 
 CC=g++
 ROOT=
