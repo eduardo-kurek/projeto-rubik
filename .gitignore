@@ -7,9 +7,6 @@ bibliotecas/*.o
 CMakeLists.txt
 cmake-build-debug
 **/*.out
-**/*.db
-**/*.log
-**/*.tun
-database/scrambles/*.scr
 obj/
 bin/
+tuning/scrambles/*

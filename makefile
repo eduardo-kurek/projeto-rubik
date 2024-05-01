@@ -7,7 +7,7 @@ else
 endif
 
 CXX := g++
-CXXFLAGS := -O3 -Wall -std=c++17 -fopenmp
+CXXFLAGS := -O3 -std=c++17 -fopenmp
 
 RUBIK_CPP := $(wildcard rubik/*.cpp)
 AUX_CPP := $(wildcard rubik/auxiliares/*.cpp)
@@ -30,6 +30,8 @@ dir:
 	mkdir -p obj/rubik/scores
 	mkdir -p obj/rubik/scores/basic-score
 	mkdir -p bin
+	mkdir -p bin/tuning
+	mkdir -p bin/tuning/basic-score
 
 # make obj/test.o := g++ -c test.cpp -o obj/test.o
 obj/%.o: %.cpp
