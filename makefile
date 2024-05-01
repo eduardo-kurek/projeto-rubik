@@ -19,7 +19,7 @@ CPP_FILES := $(RUBIK_CPP) $(AUX_CPP) $(SCORES_CPP) $(BASIC_SCORE_CPP)
 # Adicionando prefixo obj/ e trocando .cpp por .o
 OBJ_FILES := $(addprefix obj/, $(CPP_FILES:.cpp=.o)) 
 
-all: dir $(OBJ_FILES)
+all: dir $(OBJ_FILES) bin/tuning/basic-score/analyzer
 
 bin/%: %.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $< $(OBJ_FILES)
