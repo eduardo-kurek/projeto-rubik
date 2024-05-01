@@ -1,64 +1,41 @@
 ifeq ($(TERM), xterm-256color)
-	OUT=a.out
 	CLEAN=rm
 	CLEAR=clear
 else
-	OUT=a.exe
 	CLEAN=del
 	CLEAR=cls
 endif
 
-CC=g++
-ROOT=
-AUXILIARES = $(filter-out $(ROOT)rubik/auxiliares/StickerCoord.cpp, $(wildcard $(ROOT)rubik/auxiliares/*.cpp))
-INCLUDES=$(ROOT)rubik/*.cpp $(ROOT)rubik/auxiliares/StickerCoord.cpp $(AUXILIARES) $(ROOT)rubik/scores/*.cpp $(ROOT)rubik/scores/basic-score/*.cpp
-LIBS=
 
-CC=g++
-ROOT=
-TARGET=app
-CPP_FILES := $(wildcard $(ROOT)rubik/*.cpp) $(wildcard $(ROOT)rubik/auxiliares/*.cpp) $(wildcard $(ROOT)rubik/scores/**.cpp)
-OBJ_FILES := $(addprefix obj/,$(CPP_FILES:$(ROOT)rubik/%.cpp=%.o))
-CFLAGS		:= -O3 -Wall -std=c++17 	-fopenmp $(AFLAGS)
-LFLAGS = -lm $(AFLAGS)
-EXE = bin/$(TARGET)
+CXX := g++
+CXXFLAGS := -O3 -Wall -std=c++17 -fopenmp
 
-all: DIR $(EXE)
+RUBIK_CPP := $(wildcard rubik/*.cpp)
+AUX_CPP := $(wildcard rubik/auxiliares/*.cpp)
+SCORES_CPP := $(wildcard rubik/scores/*.cpp)
+BASIC_SCORE_CPP := $(wildcard rubik/scores/basic-score/*.cpp)
 
-print:
-	@echo "CPP_FILES: $(CPP_FILES)"
-	@echo " "
-	@echo "OBJ_FILES: $(OBJ_FILES)"
+# Lista de arquivos .cpp
+CPP_FILES := $(RUBIK_CPP) $(AUX_CPP) $(SCORES_CPP) $(BASIC_SCORE_CPP)
+# Adicionando prefixo obj/ e trocando .cpp por .o
+OBJ_FILES := $(addprefix obj/, $(CPP_FILES:.cpp=.o)) 
 
-DIR:
+all: dir $(OBJ_FILES)
+
+bin/%: %.cpp
+	$(CXX) $(CXXFLAGS) -o $@ $< $(OBJ_FILES)
+dir:
 	mkdir -p obj
-	mkdir -p obj/auxiliares
-	mkdir -p obj/scores
-	mkdir -p obj/scores/basic-score
+	mkdir -p obj/rubik
+	mkdir -p obj/rubik/auxiliares
+	mkdir -p obj/rubik/scores
+	mkdir -p obj/rubik/scores/basic-score
 	mkdir -p bin
 
-$(EXE): $(OBJ_FILES)
-	$(CC) $(CFLAGS) -o $@ $^  $(LFLAGS) 
-
-obj/%.o: rubik/%.cpp
-	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+# make obj/test.o := g++ -c test.cpp -o obj/test.o
+obj/%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -rf bin
 	rm -rf obj
-
-test:
-	$(CC) test.cpp $(INCLUDES) $(LIBS) -o $(OUT)
-
-testO1:
-	$(CC) test.cpp $(INCLUDES) -o $(OUT) -O1
-
-testO2:
-	$(CC) test.cpp $(INCLUDES) -o $(OUT) -O2
-
-testO3:
-	$(CC) test.cpp $(INCLUDES) -o $(OUT) -O3
-
-scramble:
-	$(CC) scrambles/populate_scrambles.cpp rubik/*.cpp rubik/auxiliares/*.cpp -o populate.out
-	./populate.out $(SEED) $(QUANTITY)
+	rm -rf bin
