@@ -1,5 +1,5 @@
 #include "rubik/Rubik.h"
-#include "rubik/Solver.h"
+#include "rubik/solvers/Greedy.h"
 #include "rubik/auxiliares/StickerCoord.h"
 #include "rubik/auxiliares/Corners.h"
 #include "rubik/scores/PontuationTable.h"
@@ -11,6 +11,8 @@
 #include <vector>
 #include <math.h>
 #include <fstream>
+#include <omp.h>
+#include <stdlib.h>
 #ifdef _WIN32
 #include <windows.h>
 #endif
@@ -22,5 +24,13 @@ int main(int argc, char* argv[]){
     #endif
     
     Rubik r;
-    r.move({U, FA, D});
+    r.move({FA, UA, B, DA});
+    
+    PontuationTable* pt = new PontuationTable({0,0,0,0}, {1,1,-1,0}, 0);
+    BasicScore* bs = new BasicScore(pt);
+
+    Greedy g(2, *bs, r);
+    g.solve();
+    g.printFoundedSolves();
+    
 }

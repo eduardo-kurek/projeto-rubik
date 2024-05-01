@@ -6,7 +6,6 @@ else
 	CLEAR=cls
 endif
 
-
 CXX := g++
 CXXFLAGS := -O3 -Wall -std=c++17 -fopenmp
 

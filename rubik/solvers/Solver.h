@@ -1,11 +1,12 @@
 #pragma once
 
-#include "Rubik.h"
+#include "../Rubik.h"
 #include <cstdint>
 #include <vector>
 
 class Solver{
 
+protected:
     using MovementsArray = std::vector<std::vector<const Move*>>;
 
     // Representa o ponto de partida da solução
@@ -15,9 +16,9 @@ class Solver{
     Rubik target = Rubik();
 
     // Soluções encontradas no cubo
-    MovementsArray foundedSolves = {{}};
+    MovementsArray foundedSolves = {};
 
-    void solve(Rubik rubik, uint8_t depth);
+    void clear();
 
 public:
     Solver();
@@ -27,7 +28,8 @@ public:
     void setSource(Rubik source);
     void setTarget(Rubik target);
 
-    void solve(uint8_t depth = 2);
-    MovementsArray getFoundedSolves();
+    virtual void solve() = 0;
+    MovementsArray getFoundedSolves() const;
+    void printFoundedSolves() const;
 
 };
