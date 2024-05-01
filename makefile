@@ -14,12 +14,16 @@ AUX_CPP := $(wildcard rubik/auxiliares/*.cpp)
 SCORES_CPP := $(wildcard rubik/scores/*.cpp)
 BASIC_SCORE_CPP := $(wildcard rubik/scores/basic-score/*.cpp)
 
+# Arquivos de tuning do BasicScore
+BS_TUNING := $(wildcard tuning/basic-score/*.cpp)
+BS_TUNING_BIN := $(addprefix bin/, $(BS_TUNING:.cpp=)) 
+
 # Lista de arquivos .cpp
 CPP_FILES := $(RUBIK_CPP) $(AUX_CPP) $(SCORES_CPP) $(BASIC_SCORE_CPP)
 # Adicionando prefixo obj/ e trocando .cpp por .o
 OBJ_FILES := $(addprefix obj/, $(CPP_FILES:.cpp=.o)) 
 
-all: dir $(OBJ_FILES) bin/tuning/basic-score/analyzer
+all: dir $(OBJ_FILES) $(BS_TUNING_BIN)
 
 bin/%: %.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $< $(OBJ_FILES)

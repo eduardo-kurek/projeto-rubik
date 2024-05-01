@@ -2,8 +2,8 @@
 #include <filesystem>
 #include <vector>
 #include <string>
-#include "../BasicScore.h"
-#include "../../PontuationTable.h"
+#include "../../rubik/scores/basic-score/BasicScore.h"
+#include "../../rubik/scores/PontuationTable.h"
 #include <type_traits>
 #include <iomanip>
 #include <fstream>
@@ -334,8 +334,7 @@ int main(int argc, char* argv[]){
         separator = "\\";
     #endif
 
-    string scramblePath = ".."+separator+".."+separator+".."+separator+".."+separator;
-    scramblePath += "database"+separator+"scrambles"+separator;
+    string scramblePath = ".."+separator+".."+separator+".."+separator+"tuning"+separator+"scrambles"+separator;
 
     AnalyzerMultiple<BasicScore> analyzer(scramblePath);
     Tunner tunner(analyzer);
@@ -348,7 +347,7 @@ int main(int argc, char* argv[]){
     tunner.addParameter({0, 1});
     tunner.addParameter({0, 1});
     tunner.addParameter({0, 1});
-    tunner.addParameter({1, 20});
+    tunner.addParameter({0, 1});
 
     tunner.run();
 
