@@ -45,3 +45,4 @@ obj/%.o: %.cpp
 clean:
 	rm -rf obj
 	rm -rf bin
+	rm -f tuning/scrambles/*.scr
