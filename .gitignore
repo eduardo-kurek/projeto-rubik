@@ -9,4 +9,4 @@ cmake-build-debug
 **/*.out
 obj/
 bin/
-tuning/scrambles/*
+tuning/scrambles/*.scr
