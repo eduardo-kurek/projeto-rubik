@@ -1,4 +1,4 @@
-#include "../rubik/Rubik.h"
+#include "../../rubik/Rubik.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -119,7 +119,7 @@ int main(int argc, char* argv[]){
         separator = "\\";
     #endif
 
-    Populater populater(maxLines, ".."+separator +"database"+separator+"scrambles"+separator);
+    Populater populater(maxLines, ".."+separator+".."+separator+"tuning"+separator+"scrambles"+separator);
     populater.populate();
 
     populater.populate();

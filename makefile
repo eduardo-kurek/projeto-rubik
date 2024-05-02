@@ -15,7 +15,7 @@ SCORES_CPP := $(wildcard rubik/scores/*.cpp)
 BASIC_SCORE_CPP := $(wildcard rubik/scores/basic-score/*.cpp)
 
 # Arquivos de tuning do BasicScore
-BS_TUNING := $(wildcard tuning/basic-score/*.cpp)
+BS_TUNING := $(wildcard tuning/basic-score/*.cpp) $(wildcard tuning/scrambles/*.cpp)
 BS_TUNING_BIN := $(addprefix bin/, $(BS_TUNING:.cpp=)) 
 
 # Lista de arquivos .cpp
@@ -36,6 +36,7 @@ dir:
 	mkdir -p bin
 	mkdir -p bin/tuning
 	mkdir -p bin/tuning/basic-score
+	mkdir -p bin/tuning/scrambles
 
 # make obj/test.o := g++ -c test.cpp -o obj/test.o
 obj/%.o: %.cpp
