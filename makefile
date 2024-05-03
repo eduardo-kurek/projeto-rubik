@@ -24,6 +24,7 @@ CPP_FILES := $(RUBIK_CPP) $(AUX_CPP) $(SCORES_CPP) $(BASIC_SCORE_CPP)
 OBJ_FILES := $(addprefix obj/, $(CPP_FILES:.cpp=.o)) 
 
 all: dir $(OBJ_FILES) $(BS_TUNING_BIN)
+	./bin/tuning/scrambles/generator 37 100
 
 bin/%: %.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $< $(OBJ_FILES)

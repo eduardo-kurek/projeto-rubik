@@ -24,7 +24,8 @@ class Populater{
     }
 
     void print_historic(const Rubik& r, std::ofstream& file){
-        std::ostream& output = file.is_open() ? file : std::cout;
+        if(!file.is_open()) std::cerr << "ERRO: ARQUIVO NÃO ENCONTRADO\n";
+        std::ostream& output = file;
 
         for(auto& h : r.getHistoric()){
             output << h->name << " ";
@@ -114,13 +115,11 @@ int main(int argc, char* argv[]){
 
     srand(seed);
 
-    string separator = "/";
+    string s = "/";
     #ifdef _WIN32
-        separator = "\\";
+        s = "\\";
     #endif
 
-    Populater populater(maxLines, ".."+separator+".."+separator+"tuning"+separator+"scrambles"+separator);
-    populater.populate();
-
+    Populater populater(maxLines, "tuning"+s+"scrambles"+s);
     populater.populate();
 }
