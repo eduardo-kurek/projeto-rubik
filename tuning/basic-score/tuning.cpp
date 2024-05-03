@@ -334,7 +334,7 @@ int main(int argc, char* argv[]){
         separator = "\\";
     #endif
 
-    string scramblePath = ".."+separator+".."+separator+".."+separator+"tuning"+separator+"scrambles"+separator;
+    string scramblePath = "tuning"+separator+"scrambles"+separator;
 
     AnalyzerMultiple<BasicScore> analyzer(scramblePath);
     Tunner tunner(analyzer);

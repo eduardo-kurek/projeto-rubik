@@ -167,7 +167,7 @@ int main(int argc, char* argv[]){
         separator = "\\";
     #endif
 
-    string path = ".."+separator+".."+separator+".."+separator+"tuning"+separator+"scrambles"+separator;
+    string path = "tuning"+separator+"scrambles"+separator;
     
     Analyzer<BasicScore> analyzer(path, args);
 
