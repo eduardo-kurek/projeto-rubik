@@ -6,6 +6,7 @@
 #include <iostream>
 #include <regex>
 #include <algorithm>
+#include "../services/Random.h"
 
 Rubik::Rubik(){
     for(int i = 0; i < 6; i++)
@@ -201,7 +202,8 @@ void Rubik::scramble(int quantity){
         auto moves = this->getValidMoves();
 
         // GERANDO O NÚMERO ALEATÓRIO
-        int rand = std::rand() % (int)moves.size();
+        std::uniform_int_distribution<int> dist(0, moves.size() - 1);
+        int rand = dist(svc::Random::MT);
 
         // MOVIMENTA O CUBO MÁGICO
         this->move(1, moves[rand]);
