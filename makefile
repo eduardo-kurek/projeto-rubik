@@ -14,13 +14,14 @@ AUX_CPP := $(wildcard rubik/auxiliares/*.cpp)
 SCORES_CPP := $(wildcard rubik/scores/*.cpp)
 BASIC_SCORE_CPP := $(wildcard rubik/scores/basic-score/*.cpp)
 SOLVERS_CPP := $(wildcard rubik/solvers/*.cpp)
+SERVICES_CPP := $(wildcard services/*.cpp)
 
 # Arquivos de tuning do BasicScore
 BS_TUNING := $(wildcard tuning/basic-score/*.cpp) $(wildcard tuning/scrambles/*.cpp)
 BS_TUNING_BIN := $(addprefix bin/, $(BS_TUNING:.cpp=)) 
 
 # Lista de arquivos .cpp
-CPP_FILES := $(RUBIK_CPP) $(AUX_CPP) $(SCORES_CPP) $(BASIC_SCORE_CPP) $(SOLVERS_CPP)
+CPP_FILES := $(RUBIK_CPP) $(AUX_CPP) $(SCORES_CPP) $(BASIC_SCORE_CPP) $(SOLVERS_CPP) $(SERVICES_CPP)
 # Adicionando prefixo obj/ e trocando .cpp por .o
 OBJ_FILES := $(addprefix obj/, $(CPP_FILES:.cpp=.o)) 
 
@@ -36,6 +37,7 @@ dir:
 	mkdir -p obj/rubik/scores
 	mkdir -p obj/rubik/solvers
 	mkdir -p obj/rubik/scores/basic-score
+	mkdir -p obj/services
 	mkdir -p bin
 	mkdir -p bin/tuning
 	mkdir -p bin/tuning/basic-score
