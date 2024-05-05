@@ -167,7 +167,7 @@ void Rubik::move(int numArgs, ...){
         }
 
         // ADICIONANDO O MOVIMENTO REALIZADO NA FILA
-        if(this->historic.size() >= 20) this->historic.pop();
+        if(this->historic.size() >= 50) this->historic.pop();
         this->historic.push(mov);
 
         // RECALCULANDO OS NOVOS MOVIMENTOS RESTRITOS DO CUBO
