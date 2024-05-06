@@ -202,7 +202,7 @@ void Rubik::scramble(int quantity){
         auto moves = this->getValidMoves();
 
         // GERANDO O NÚMERO ALEATÓRIO
-        int rand =  svc::Random::uniform_int_distribution(0, moves.size() - 1);
+        int rand =  svc::Random::Int(0, moves.size() - 1);
 
         // MOVIMENTA O CUBO MÁGICO
         this->move(1, moves[rand]);
