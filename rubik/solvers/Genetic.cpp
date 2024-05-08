@@ -16,8 +16,7 @@ Genetic::Genetic(Score& score, Rubik source) : Solver(source){
     this->score = &score;
 }
 
-void Genetic::solve()
-{
+void Genetic::solve(){
     initialize();
     print_status();
 
@@ -26,9 +25,9 @@ void Genetic::solve()
         print_status();
     }
 
-    std::vector<const Move*> best = population[0].rubik.getHistoric();
-    std::reverse(best.begin(), best.end());
-    foundedSolves.push_back(best);
+    for(uint16_t i = 0; i < 5; i++){
+        foundedSolves.push_back(population[i].rubik.getHistoric());
+    }
 }
 
 void Genetic::print_status(){
