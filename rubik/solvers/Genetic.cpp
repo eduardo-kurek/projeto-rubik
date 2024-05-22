@@ -59,6 +59,9 @@ void Genetic::combine_children(std::vector<Chromosome>& children){
 }
 
 void Genetic::initialize(){
+    this->source.clearHistoric();
+    this->source.clearRestrictedMoves();
+
     for(auto move : Moves){
         Rubik rubik = this->source;
         rubik.move(1, move);

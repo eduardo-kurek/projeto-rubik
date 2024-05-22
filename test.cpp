@@ -40,4 +40,5 @@ int main(int argc, char* argv[]){
     
     r.move(g.getFoundedSolves()[0]);
     r.print();
+    std::cout << "Score: " << bs.calculateNormalized(r) << std::endl;
 }
