@@ -10,6 +10,8 @@ bool Genetic::Chromosome::greater(const Chromosome& a, const Chromosome & b){
 
 Genetic::Genetic(Score& score) : Solver(){
     this->score = &score;
+    this->source.clearHistoric();
+    this->source.clearRestrictedMoves();
 }
 
 Genetic::Genetic(Score& score, Rubik source) : Solver(source){
@@ -59,9 +61,6 @@ void Genetic::combine_children(std::vector<Chromosome>& children){
 }
 
 void Genetic::initialize(){
-    this->source.clearHistoric();
-    this->source.clearRestrictedMoves();
-
     for(auto move : Moves){
         Rubik rubik = this->source;
         rubik.move(1, move);
