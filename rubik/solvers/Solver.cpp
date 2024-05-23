@@ -6,14 +6,22 @@ Solver::Solver() {}
 
 Solver::Solver(Rubik source){
     this->source = source;
+    this->source.clearHistoric();
+    this->source.clearRestrictedMoves();
 }
 
 Solver::Solver(Rubik source, Rubik target){
     this->source = source;
+    this->source.clearHistoric();
+    this->source.clearRestrictedMoves();
     this->target = target;
 }
 
-void Solver::setSource(Rubik source){ this->source = source; }
+void Solver::setSource(Rubik source){
+    this->source = source;
+    this->source.clearHistoric();
+    this->source.clearRestrictedMoves();
+}
 void Solver::setTarget(Rubik target){ this->target = target; }
 
 void Solver::clear(){
