@@ -95,6 +95,12 @@ public:
     std::vector<const Move*> getHistoric() const;
 
     /**
+     * Obtém o histórico de movimentos do cubo em string
+     * @return
+     */
+    std::string getHistoricString() const;
+
+    /**
      * Imprime a lista com os movimentos restritos
      */
     void printRestrictedMoves() const;

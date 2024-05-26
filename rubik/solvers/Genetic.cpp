@@ -20,7 +20,7 @@ void Genetic::solve(){
     initialize();
     print_status();
 
-    for(uint32_t i = 0; i < 50; i++){
+    for(uint32_t i = 0; i < 20; i++){
         next_generation();
         print_status();
     }
@@ -46,6 +46,18 @@ void Genetic::print_status(){
 
 void Genetic::sort_population(){
     std::sort(population.begin(), population.end(), Chromosome::greater);
+}
+
+void Genetic::remove_duplicates(){
+    std::unordered_map<std::string, Chromosome> unique;
+    for(auto& c : population)
+        unique.insert(std::make_pair(c.rubik.getHistoricString(), c));
+    
+    population.clear();
+    for(auto& [_, c] : unique)
+        population.push_back(c);
+
+    sort_population();
 }
 
 void Genetic::combine_children(std::vector<Chromosome>& children){
@@ -168,5 +180,6 @@ void Genetic::next_generation(){
 
     std::sort(children.begin(), children.end(), Chromosome::greater);
     combine_children(children);
+    remove_duplicates();
     gen_count++;
 }

@@ -2,6 +2,7 @@
 #include "../scores/Score.h"
 #include "Solver.h"
 #include <vector>
+#include <unordered_set>
 
 class Genetic : public Solver {
 
@@ -14,8 +15,8 @@ class Genetic : public Solver {
 
 protected:
     Score* score;
-    std::vector<Chromosome> population;
-    uint32_t population_size = 5000;
+    std::vector<Genetic::Chromosome> population;
+    uint32_t population_size = 2000;
     uint32_t gen_count = 0;
     uint32_t mutation_count = 0;
     uint32_t mutation_rate = 10; // 15%
@@ -23,6 +24,7 @@ protected:
 
     virtual void print_status();
     void sort_population();
+    virtual void remove_duplicates();
     virtual void combine_children(std::vector<Chromosome>& children);
     virtual void initialize();
     virtual void fitness(Chromosome& c);

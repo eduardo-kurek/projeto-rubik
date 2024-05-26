@@ -99,7 +99,17 @@ std::vector<const Move *> Rubik::getHistoric() const{
     return moves;
 }
 
-void Rubik::printRestrictedMoves() const{
+std::string Rubik::getHistoricString() const{
+    std::string s;
+    auto historic = this->getHistoric();
+    for(auto& move : historic)
+        s += move->name + " ";
+    s += "\b";
+    return s;
+}
+
+void Rubik::printRestrictedMoves() const
+{
     using namespace std;
     for(auto& move : this->restrictedMoves)
         cout << move->name << " ";
