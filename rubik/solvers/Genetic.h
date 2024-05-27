@@ -16,11 +16,12 @@ class Genetic : public Solver {
 protected:
     Score* score;
     std::vector<Genetic::Chromosome> population;
-    uint32_t population_size = 2000;
+    uint32_t population_size = 1000;
     uint32_t gen_count = 0;
     uint32_t mutation_count = 0;
-    uint32_t mutation_rate = 10; // 15%
-    uint32_t mutation_gene_rate = 1; // 1%
+    uint32_t mutation_rate = 10; // 1%
+    float best_fitness = 0;
+    uint32_t stagnation = 0;
 
     virtual void print_status();
     void sort_population();

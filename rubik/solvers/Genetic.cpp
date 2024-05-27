@@ -18,13 +18,24 @@ Genetic::Genetic(Score& score, Rubik source) : Solver(source){
 
 void Genetic::solve(){
     initialize();
-    print_status();
-
-    for(uint32_t i = 0; i < 20; i++){
+    
+    for(uint16_t i = 0; i < 300; i++){
+        if(population[0].fitness == 100.0f) break;
         next_generation();
+
+        std::cout << "Best fitness: " << population[0].fitness << std::endl;
+        if(best_fitness == population[0].fitness) stagnation++;
+        else stagnation = 0;
+        best_fitness = population[0].fitness;
         print_status();
     }
 
+    // while(true){
+    //     if(population[0].fitness == 100.0f) break;
+    //     next_generation();
+    // }
+
+    print_status();
     for(uint16_t i = 0; i < 5; i++){
         foundedSolves.push_back(population[i].rubik.getHistoric());
     }
@@ -35,6 +46,7 @@ void Genetic::print_status(){
     std::cout << "Geração: " << gen_count << std::endl;
     std::cout << "Tamanho da população: " << population.size() << std::endl;
     std::cout << "Quantidade de mutações: " << mutation_count << std::endl;
+    std::cout << "Estagnação: " << stagnation << std::endl;
     std::cout << "5 melhores indivíduos: " << std::endl;
     for(uint16_t i = 0; i < 5; i++){
         std::cout << "\t" << i+1 << "° -> (f: " << population[i].fitness << ", s: " << 
@@ -67,27 +79,23 @@ void Genetic::combine_children(std::vector<Chromosome>& children){
          children.end(), merged.begin(), Chromosome::greater);
     
     population = std::move(merged);
+
+    if(svc::Random::Int(1, 1000) <= this->mutation_rate + stagnation * 5){
+        apply_mutation();
+    }
+
     population.resize(population_size);
 }
 
 void Genetic::initialize(){
-    for(auto move : Moves){
+    for(uint32_t i = 0; i < population_size; i++){
         Rubik rubik = this->source;
-        rubik.move(1, move);
+        std::uniform_int_distribution<int> dist(1, 20);
+        int n = dist(svc::Random::MT);
+        rubik.scramble(n);
         Chromosome c{rubik, 0};
         fitness(c);
         population.push_back(c);
-    }
-
-    uint32_t qtPerGroup = population_size / 19;
-    for(uint32_t i = 2; i < 20; i++){
-        for(uint32_t j = 0; j < qtPerGroup; j++){
-            Rubik rubik = this->source;
-            rubik.scramble(i);
-            Chromosome c{rubik, 0};
-            fitness(c);
-            population.push_back(c);
-        }
     }
 
     sort_population();
@@ -140,12 +148,9 @@ void Genetic::apply_mutation(Chromosome &r){
 }
 
 void Genetic::mutate(Chromosome& r){
-    int will_mutate = svc::Random::Int(1, 100);
-    if(will_mutate > this->mutation_rate) return;
-
     Rubik mutated = this->source;
     for(auto& move : r.rubik.getHistoric()){
-        if(svc::Random::Int(1, 100) <= this->mutation_gene_rate){
+        if(svc::Random::Int(1, 1000) <= this->mutation_rate + stagnation * 5){
             if(svc::Random::Int(0, 1)) apply_mutation(r);
         }
         else mutated.move(1, move);
@@ -165,9 +170,8 @@ void Genetic::next_generation(){
         #pragma omp for
         for(uint32_t i = 0; i < population.size(); i++){
             Chromosome parent1 = select();
-            Chromosome parent2 = select();
+            Chromosome parent2 = select(); // Pode ser o mesmo pai (Arrumar)
             Chromosome child = crossover(parent1, parent2);
-            mutate(child);
             
             private_children.push_back(child);
         }

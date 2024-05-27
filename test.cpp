@@ -29,16 +29,21 @@ int main(int argc, char* argv[]){
     #endif
     
     Rubik r;
-    r.move({R, U, L, B2, D2, R2, L2, U, FA});
+    r.scramble(6);
 
-    PontuationTable pt({0, 0, 0, 0}, {1, 1, -2, 0}, 0);
+    PontuationTable pt({0, 0, 0, 0}, {2, 1, -2, 0}, 0);
     BasicScore bs(&pt);
 
     Genetic g(bs, r);
     g.solve();
+    std::cout << "Embaralhamento realizado: " << r.getHistoricString() << std::endl;
+    std::cout << "Soluções encontradas:" << std::endl;
     g.printFoundedSolves();
-    
+
+    r.clearHistoric();
+    r.clearRestrictedMoves();
     r.move(g.getFoundedSolves()[0]);
     r.print();
-    std::cout << "Score: " << bs.calculateNormalized(r) << std::endl;
+    
+    
 }

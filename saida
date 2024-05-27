@@ -1,0 +1,3928 @@
+Best fitness: 62.5
+===================================
+Geração: 1
+Tamanho da população: 938
+Quantidade de mutações: 35
+Estagnação: 0
+5 melhores indivíduos: 
+	1° -> (f: 62.5, s: 62.5); F D2 U2 B F2 R 
+	2° -> (f: 62.5, s: 62.5); B F' L' 
+	3° -> (f: 62.5, s: 41.6667); F' L' 
+	4° -> (f: 58.3333, s: 58.3333); R' F' U2 R L' 
+	5° -> (f: 58.3333, s: 58.3333); B F' L' B 
+
+Best fitness: 62.5
+===================================
+Geração: 2
+Tamanho da população: 977
+Quantidade de mutações: 63
+Estagnação: 1
+5 melhores indivíduos: 
+	1° -> (f: 62.5, s: 41.6667); F' L' 
+	2° -> (f: 62.5, s: 62.5); F D2 U2 B F2 R 
+	3° -> (f: 62.5, s: 62.5); B F' L' 
+	4° -> (f: 62.5, s: 62.5); F' U2 D2 B R2 L' F 
+	5° -> (f: 62.5, s: 62.5); F' D2 B2 R L' B2 F2 
+
+Best fitness: 62.5
+===================================
+Geração: 3
+Tamanho da população: 959
+Quantidade de mutações: 110
+Estagnação: 2
+5 melhores indivíduos: 
+	1° -> (f: 62.5, s: 62.5); F' D2 B2 R L' B2 F2 
+	2° -> (f: 62.5, s: 62.5); F' U2 L' B R 
+	3° -> (f: 62.5, s: 62.5); F D2 U2 B F2 R 
+	4° -> (f: 62.5, s: 41.6667); F' L' 
+	5° -> (f: 62.5, s: 62.5); F' U2 D2 B R2 L' F 
+
+Best fitness: 66.6667
+===================================
+Geração: 4
+Tamanho da população: 932
+Quantidade de mutações: 155
+Estagnação: 0
+5 melhores indivíduos: 
+	1° -> (f: 66.6667, s: 66.6667); B F' R2 L' 
+	2° -> (f: 62.5, s: 62.5); F' D2 B2 R L' B2 F2 
+	3° -> (f: 62.5, s: 41.6667); F' L' 
+	4° -> (f: 62.5, s: 62.5); F' L' B R 
+	5° -> (f: 62.5, s: 62.5); F' U2 D2 B R2 L' F 
+
+Best fitness: 79.1667
+===================================
+Geração: 5
+Tamanho da população: 901
+Quantidade de mutações: 171
+Estagnação: 0
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	2° -> (f: 66.6667, s: 66.6667); B F' R2 L' 
+	3° -> (f: 62.5, s: 41.6667); F' L' 
+	4° -> (f: 62.5, s: 62.5); F' U2 L' B R 
+	5° -> (f: 62.5, s: 62.5); F' L' B R 
+
+Best fitness: 79.1667
+===================================
+Geração: 6
+Tamanho da população: 850
+Quantidade de mutações: 192
+Estagnação: 1
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	2° -> (f: 75, s: 75); B F' R L' 
+	3° -> (f: 75, s: 75); U2 B F' R L' 
+	4° -> (f: 75, s: 75); B F' L' R 
+	5° -> (f: 66.6667, s: 66.6667); B F' L' R2 
+
+Best fitness: 79.1667
+===================================
+Geração: 7
+Tamanho da população: 790
+Quantidade de mutações: 218
+Estagnação: 2
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	2° -> (f: 75, s: 75); U2 B F' R L' 
+	3° -> (f: 75, s: 75); B F' R L' 
+	4° -> (f: 75, s: 75); B F' L' R 
+	5° -> (f: 66.6667, s: 66.6667); B F' U2 L' 
+
+Best fitness: 79.1667
+===================================
+Geração: 8
+Tamanho da população: 763
+Quantidade de mutações: 244
+Estagnação: 3
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	2° -> (f: 75, s: 58.3333); B F' R 
+	3° -> (f: 75, s: 75); U2 B F' R L' 
+	4° -> (f: 75, s: 75); B F' R L' 
+	5° -> (f: 75, s: 75); B F' L' R 
+
+Best fitness: 79.1667
+===================================
+Geração: 9
+Tamanho da população: 786
+Quantidade de mutações: 292
+Estagnação: 4
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	2° -> (f: 75, s: 75); U2 F' B L' R 
+	3° -> (f: 75, s: 75); U2 B F' R L' 
+	4° -> (f: 75, s: 75); B F' R L' 
+	5° -> (f: 75, s: 58.3333); B F' R 
+
+Best fitness: 79.1667
+===================================
+Geração: 10
+Tamanho da população: 748
+Quantidade de mutações: 339
+Estagnação: 5
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	2° -> (f: 75, s: 75); B F' L' R 
+	3° -> (f: 75, s: 75); U2 B F' R L' 
+	4° -> (f: 75, s: 75); B F' R L' 
+	5° -> (f: 75, s: 75); U2 F' B L' R 
+
+Best fitness: 79.1667
+===================================
+Geração: 11
+Tamanho da população: 777
+Quantidade de mutações: 394
+Estagnação: 6
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	2° -> (f: 75, s: 54.1667); B L' R 
+	3° -> (f: 75, s: 58.3333); B F' R 
+	4° -> (f: 75, s: 50); F' L' R 
+	5° -> (f: 75, s: 75); B F' L' R 
+
+Best fitness: 79.1667
+===================================
+Geração: 12
+Tamanho da população: 713
+Quantidade de mutações: 459
+Estagnação: 7
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	2° -> (f: 75, s: 50); F' L' R 
+	3° -> (f: 75, s: 75); B F' L' R 
+	4° -> (f: 75, s: 75); U2 F' B L' R 
+	5° -> (f: 75, s: 58.3333); B F' R 
+
+Best fitness: 79.1667
+===================================
+Geração: 13
+Tamanho da população: 749
+Quantidade de mutações: 525
+Estagnação: 8
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	2° -> (f: 75, s: 50); F' L' R 
+	3° -> (f: 75, s: 54.1667); B L' R 
+	4° -> (f: 75, s: 75); U2 F' B L' R 
+	5° -> (f: 75, s: 75); B F' R L' 
+
+Best fitness: 79.1667
+===================================
+Geração: 14
+Tamanho da população: 784
+Quantidade de mutações: 595
+Estagnação: 9
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	2° -> (f: 75, s: 54.1667); B L' R 
+	3° -> (f: 75, s: 50); F' L' R 
+	4° -> (f: 75, s: 75); U2 B F' R L' 
+	5° -> (f: 75, s: 58.3333); B F' R 
+
+Best fitness: 79.1667
+===================================
+Geração: 15
+Tamanho da população: 810
+Quantidade de mutações: 663
+Estagnação: 10
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	3° -> (f: 75, s: 45.8333); B L' 
+	4° -> (f: 75, s: 75); U2 B F' R L' 
+	5° -> (f: 75, s: 62.5); B F' L' 
+
+Best fitness: 79.1667
+===================================
+Geração: 16
+Tamanho da população: 807
+Quantidade de mutações: 733
+Estagnação: 11
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	2° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	3° -> (f: 75, s: 75); U2 B F' R L' 
+	4° -> (f: 75, s: 50); F' L' R 
+	5° -> (f: 75, s: 75); U2 F' B L' R 
+
+Best fitness: 79.1667
+===================================
+Geração: 17
+Tamanho da população: 782
+Quantidade de mutações: 816
+Estagnação: 12
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	2° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	3° -> (f: 75, s: 54.1667); B L' R 
+	4° -> (f: 75, s: 75); B F' R L' 
+	5° -> (f: 75, s: 45.8333); B L' 
+
+Best fitness: 79.1667
+===================================
+Geração: 18
+Tamanho da população: 803
+Quantidade de mutações: 921
+Estagnação: 13
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	2° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	3° -> (f: 75, s: 75); U2 F' B R L' 
+	4° -> (f: 75, s: 75); U2 F' B R L 
+	5° -> (f: 75, s: 50); F' R L' 
+
+Best fitness: 79.1667
+===================================
+Geração: 19
+Tamanho da população: 796
+Quantidade de mutações: 1010
+Estagnação: 14
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	3° -> (f: 75, s: 58.3333); B F' R 
+	4° -> (f: 75, s: 75); U2 F' B L' R 
+	5° -> (f: 75, s: 62.5); B F' L' 
+
+Best fitness: 79.1667
+===================================
+Geração: 20
+Tamanho da população: 766
+Quantidade de mutações: 1107
+Estagnação: 15
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	2° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	3° -> (f: 75, s: 75); U2 B F' R L' 
+	4° -> (f: 75, s: 50); F' R L' 
+	5° -> (f: 75, s: 75); B F' L' R 
+
+Best fitness: 79.1667
+===================================
+Geração: 21
+Tamanho da população: 793
+Quantidade de mutações: 1215
+Estagnação: 16
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	2° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	3° -> (f: 75, s: 29.1667); L' R 
+	4° -> (f: 75, s: 75); U2 F' B R L 
+	5° -> (f: 75, s: 75); U2 F' B R L' 
+
+Best fitness: 79.1667
+===================================
+Geração: 22
+Tamanho da população: 793
+Quantidade de mutações: 1329
+Estagnação: 17
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	3° -> (f: 75, s: 45.8333); B L' 
+	4° -> (f: 75, s: 75); U2 F' B R L' 
+	5° -> (f: 75, s: 75); U2 F' B R L 
+
+Best fitness: 79.1667
+===================================
+Geração: 23
+Tamanho da população: 771
+Quantidade de mutações: 1470
+Estagnação: 18
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	3° -> (f: 75, s: 58.3333); B F' R 
+	4° -> (f: 75, s: 29.1667); L' R 
+	5° -> (f: 75, s: 75); U2 F' B R L 
+
+Best fitness: 79.1667
+===================================
+Geração: 24
+Tamanho da população: 787
+Quantidade de mutações: 1611
+Estagnação: 19
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 50); B F' U2 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 75, s: 62.5); B F' L' 
+	5° -> (f: 75, s: 50); F' R L' 
+
+Best fitness: 79.1667
+===================================
+Geração: 25
+Tamanho da população: 796
+Quantidade de mutações: 1748
+Estagnação: 20
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	4° -> (f: 75, s: 62.5); B F' L' 
+	5° -> (f: 75, s: 66.6667); U2 F' B R 
+
+Best fitness: 79.1667
+===================================
+Geração: 26
+Tamanho da população: 786
+Quantidade de mutações: 1887
+Estagnação: 21
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	2° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	3° -> (f: 79.1667, s: 50); B F' U2 
+	4° -> (f: 75, s: 45.8333); B R 
+	5° -> (f: 75, s: 45.8333); B L' 
+
+Best fitness: 79.1667
+===================================
+Geração: 27
+Tamanho da população: 798
+Quantidade de mutações: 2030
+Estagnação: 22
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	4° -> (f: 75, s: 66.6667); U2 F' B R 
+	5° -> (f: 75, s: 75); B F' R L' 
+
+Best fitness: 79.1667
+===================================
+Geração: 28
+Tamanho da população: 794
+Quantidade de mutações: 2213
+Estagnação: 23
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	3° -> (f: 79.1667, s: 50); B F' U2 
+	4° -> (f: 75, s: 75); U2 F' B R L 
+	5° -> (f: 75, s: 66.6667); U2 F' B R 
+
+Best fitness: 79.1667
+===================================
+Geração: 29
+Tamanho da população: 808
+Quantidade de mutações: 2394
+Estagnação: 24
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 50); B F' U2 
+	2° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 75, s: 45.8333); B F' 
+
+Best fitness: 79.1667
+===================================
+Geração: 30
+Tamanho da população: 822
+Quantidade de mutações: 2572
+Estagnação: 25
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 50); B' R B2 
+	2° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 75, s: 62.5); B F' L' 
+
+Best fitness: 79.1667
+===================================
+Geração: 31
+Tamanho da população: 830
+Quantidade de mutações: 2755
+Estagnação: 26
+5 melhores indivíduos: 
+	1° -> (f: 79.1667, s: 50); B' R B2 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	3° -> (f: 79.1667, s: 50); B F' U2 
+	4° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	5° -> (f: 75, s: 62.5); U2 F' B L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 32
+Tamanho da população: 840
+Quantidade de mutações: 2977
+Estagnação: 0
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 79.1667, s: 50); B' R B2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 33
+Tamanho da população: 848
+Quantidade de mutações: 2987
+Estagnação: 1
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 34
+Tamanho da população: 846
+Quantidade de mutações: 3012
+Estagnação: 2
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	4° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	5° -> (f: 79.1667, s: 50); B F' U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 35
+Tamanho da população: 854
+Quantidade de mutações: 3041
+Estagnação: 3
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	4° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	5° -> (f: 79.1667, s: 50); B F' U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 36
+Tamanho da população: 857
+Quantidade de mutações: 3076
+Estagnação: 4
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 79.1667, s: 50); B' R B2 
+	5° -> (f: 79.1667, s: 50); B F' U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 37
+Tamanho da população: 847
+Quantidade de mutações: 3114
+Estagnação: 5
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 38
+Tamanho da população: 850
+Quantidade de mutações: 3154
+Estagnação: 6
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 50); B F' U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 39
+Tamanho da população: 851
+Quantidade de mutações: 3213
+Estagnação: 7
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 50); B F' U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 40
+Tamanho da população: 849
+Quantidade de mutações: 3272
+Estagnação: 8
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 41
+Tamanho da população: 851
+Quantidade de mutações: 3345
+Estagnação: 9
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 50); B' R B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 42
+Tamanho da população: 856
+Quantidade de mutações: 3403
+Estagnação: 10
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 50); B' R B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 43
+Tamanho da população: 856
+Quantidade de mutações: 3486
+Estagnação: 11
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 44
+Tamanho da população: 830
+Quantidade de mutações: 3579
+Estagnação: 12
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 45
+Tamanho da população: 838
+Quantidade de mutações: 3664
+Estagnação: 13
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	5° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 46
+Tamanho da população: 850
+Quantidade de mutações: 3766
+Estagnação: 14
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	5° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 47
+Tamanho da população: 848
+Quantidade de mutações: 3875
+Estagnação: 15
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 48
+Tamanho da população: 839
+Quantidade de mutações: 3985
+Estagnação: 16
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	3° -> (f: 79.1667, s: 50); B F' U2 
+	4° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 49
+Tamanho da população: 841
+Quantidade de mutações: 4125
+Estagnação: 17
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 50
+Tamanho da população: 850
+Quantidade de mutações: 4260
+Estagnação: 18
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 51
+Tamanho da população: 855
+Quantidade de mutações: 4397
+Estagnação: 19
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 52
+Tamanho da população: 858
+Quantidade de mutações: 4565
+Estagnação: 20
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	3° -> (f: 79.1667, s: 50); B F' U2 
+	4° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 53
+Tamanho da população: 849
+Quantidade de mutações: 4716
+Estagnação: 21
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	4° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	5° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 54
+Tamanho da população: 856
+Quantidade de mutações: 4877
+Estagnação: 22
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 55
+Tamanho da população: 847
+Quantidade de mutações: 5044
+Estagnação: 23
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	3° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 50); B F' U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 56
+Tamanho da população: 860
+Quantidade de mutações: 5208
+Estagnação: 24
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	3° -> (f: 79.1667, s: 50); B F' U2 
+	4° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	5° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 57
+Tamanho da população: 863
+Quantidade de mutações: 5411
+Estagnação: 25
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	3° -> (f: 79.1667, s: 50); B F' U2 
+	4° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 58
+Tamanho da população: 849
+Quantidade de mutações: 5612
+Estagnação: 26
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	5° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 59
+Tamanho da população: 850
+Quantidade de mutações: 5801
+Estagnação: 27
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	3° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 60
+Tamanho da população: 858
+Quantidade de mutações: 6009
+Estagnação: 28
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 61
+Tamanho da população: 845
+Quantidade de mutações: 6233
+Estagnação: 29
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 62
+Tamanho da população: 856
+Quantidade de mutações: 6436
+Estagnação: 30
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	3° -> (f: 79.1667, s: 50); B F' U2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	5° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 63
+Tamanho da população: 857
+Quantidade de mutações: 6643
+Estagnação: 31
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	3° -> (f: 79.1667, s: 50); B F' U2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	5° -> (f: 79.1667, s: 50); B' R B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 64
+Tamanho da população: 854
+Quantidade de mutações: 6851
+Estagnação: 32
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	3° -> (f: 79.1667, s: 50); B F' U2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	5° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 65
+Tamanho da população: 853
+Quantidade de mutações: 7099
+Estagnação: 33
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	3° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 50); B' R B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 66
+Tamanho da população: 861
+Quantidade de mutações: 7371
+Estagnação: 34
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 62.5); B' F' R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 67
+Tamanho da população: 848
+Quantidade de mutações: 7588
+Estagnação: 35
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 68
+Tamanho da população: 857
+Quantidade de mutações: 7841
+Estagnação: 36
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 50); B' R B2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 69
+Tamanho da população: 862
+Quantidade de mutações: 8117
+Estagnação: 37
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	5° -> (f: 79.1667, s: 50); B F' U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 70
+Tamanho da população: 852
+Quantidade de mutações: 8389
+Estagnação: 38
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	4° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	5° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 71
+Tamanho da população: 860
+Quantidade de mutações: 8650
+Estagnação: 39
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	4° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	5° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 72
+Tamanho da população: 864
+Quantidade de mutações: 8956
+Estagnação: 40
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 50); B F' U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 73
+Tamanho da população: 854
+Quantidade de mutações: 9242
+Estagnação: 41
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	5° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 74
+Tamanho da população: 859
+Quantidade de mutações: 9545
+Estagnação: 42
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	3° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	4° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	5° -> (f: 79.1667, s: 62.5); B' F' R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 75
+Tamanho da população: 865
+Quantidade de mutações: 9822
+Estagnação: 43
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	3° -> (f: 79.1667, s: 50); B F' U2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 45.8333); B' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 76
+Tamanho da população: 864
+Quantidade de mutações: 10147
+Estagnação: 44
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	4° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 77
+Tamanho da população: 857
+Quantidade de mutações: 10450
+Estagnação: 45
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 78
+Tamanho da população: 862
+Quantidade de mutações: 10734
+Estagnação: 46
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	4° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 79
+Tamanho da população: 868
+Quantidade de mutações: 11067
+Estagnação: 47
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	4° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	5° -> (f: 79.1667, s: 50); B' R B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 80
+Tamanho da população: 868
+Quantidade de mutações: 11397
+Estagnação: 48
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	3° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 50); B' R B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 81
+Tamanho da população: 870
+Quantidade de mutações: 11741
+Estagnação: 49
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	3° -> (f: 79.1667, s: 50); B F' U2 
+	4° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 82
+Tamanho da população: 875
+Quantidade de mutações: 12098
+Estagnação: 50
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 45.8333); B' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 83
+Tamanho da população: 883
+Quantidade de mutações: 12427
+Estagnação: 51
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	4° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	5° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 84
+Tamanho da população: 886
+Quantidade de mutações: 12778
+Estagnação: 52
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	4° -> (f: 79.1667, s: 50); B' R B2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 85
+Tamanho da população: 893
+Quantidade de mutações: 13130
+Estagnação: 53
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 86
+Tamanho da população: 897
+Quantidade de mutações: 13519
+Estagnação: 54
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 45.8333); B' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 87
+Tamanho da população: 899
+Quantidade de mutações: 13934
+Estagnação: 55
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	3° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	4° -> (f: 79.1667, s: 50); B' R B2 
+	5° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 88
+Tamanho da população: 902
+Quantidade de mutações: 14314
+Estagnação: 56
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 45.8333); B' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 89
+Tamanho da população: 904
+Quantidade de mutações: 14715
+Estagnação: 57
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	5° -> (f: 79.1667, s: 50); B F' U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 90
+Tamanho da população: 908
+Quantidade de mutações: 15142
+Estagnação: 58
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 29.1667); B' L' 
+	4° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 91
+Tamanho da população: 908
+Quantidade de mutações: 15573
+Estagnação: 59
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	3° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	4° -> (f: 79.1667, s: 29.1667); B' L' 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 92
+Tamanho da população: 910
+Quantidade de mutações: 16040
+Estagnação: 60
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 29.1667); B' L' 
+	3° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 50); B F' U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 93
+Tamanho da população: 914
+Quantidade de mutações: 16487
+Estagnação: 61
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 29.1667); B' L' 
+	3° -> (f: 79.1667, s: 50); B F' U2 
+	4° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	5° -> (f: 79.1667, s: 45.8333); B' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 94
+Tamanho da população: 909
+Quantidade de mutações: 16938
+Estagnação: 62
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	3° -> (f: 79.1667, s: 50); F' U2 R 
+	4° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	5° -> (f: 79.1667, s: 62.5); B' F' R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 95
+Tamanho da população: 912
+Quantidade de mutações: 17420
+Estagnação: 63
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	5° -> (f: 79.1667, s: 50); F' U2 R 
+
+Best fitness: 83.3333
+===================================
+Geração: 96
+Tamanho da população: 908
+Quantidade de mutações: 17896
+Estagnação: 64
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	3° -> (f: 79.1667, s: 50); F' U2 R 
+	4° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	5° -> (f: 79.1667, s: 29.1667); B' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 97
+Tamanho da população: 910
+Quantidade de mutações: 18349
+Estagnação: 65
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 29.1667); B' L' 
+	3° -> (f: 79.1667, s: 50); F' U2 R 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 98
+Tamanho da população: 914
+Quantidade de mutações: 18799
+Estagnação: 66
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	3° -> (f: 79.1667, s: 41.6667); B U2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 45.8333); B' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 99
+Tamanho da população: 916
+Quantidade de mutações: 19253
+Estagnação: 67
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 29.1667); B' L' 
+	3° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	4° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 100
+Tamanho da população: 918
+Quantidade de mutações: 19757
+Estagnação: 68
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 54.1667); U2 B R 
+	4° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	5° -> (f: 79.1667, s: 41.6667); B U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 101
+Tamanho da população: 916
+Quantidade de mutações: 20276
+Estagnação: 69
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 29.1667); B' L' 
+	3° -> (f: 79.1667, s: 41.6667); B U2 
+	4° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	5° -> (f: 79.1667, s: 45.8333); B' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 102
+Tamanho da população: 917
+Quantidade de mutações: 20791
+Estagnação: 70
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	3° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 50); F' U2 R 
+
+Best fitness: 83.3333
+===================================
+Geração: 103
+Tamanho da população: 917
+Quantidade de mutações: 21333
+Estagnação: 71
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	5° -> (f: 79.1667, s: 41.6667); B U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 104
+Tamanho da população: 913
+Quantidade de mutações: 21869
+Estagnação: 72
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	4° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	5° -> (f: 79.1667, s: 62.5); B' F' R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 105
+Tamanho da população: 916
+Quantidade de mutações: 22382
+Estagnação: 73
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	5° -> (f: 79.1667, s: 29.1667); B' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 106
+Tamanho da população: 917
+Quantidade de mutações: 22899
+Estagnação: 74
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 107
+Tamanho da população: 920
+Quantidade de mutações: 23453
+Estagnação: 75
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	3° -> (f: 79.1667, s: 41.6667); F' L' 
+	4° -> (f: 79.1667, s: 50); B' R B2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 108
+Tamanho da população: 919
+Quantidade de mutações: 23976
+Estagnação: 76
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 29.1667); B' L' 
+	3° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	5° -> (f: 79.1667, s: 41.6667); F' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 109
+Tamanho da população: 920
+Quantidade de mutações: 24514
+Estagnação: 77
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	4° -> (f: 79.1667, s: 29.1667); B' L' 
+	5° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 110
+Tamanho da população: 921
+Quantidade de mutações: 25097
+Estagnação: 78
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 111
+Tamanho da população: 922
+Quantidade de mutações: 25664
+Estagnação: 79
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 41.6667); F' L' 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 50); F' U2 R 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 112
+Tamanho da população: 911
+Quantidade de mutações: 26218
+Estagnação: 80
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 29.1667); B' L' 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	5° -> (f: 79.1667, s: 41.6667); F' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 113
+Tamanho da população: 913
+Quantidade de mutações: 26784
+Estagnação: 81
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 41.6667); F' L' 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 29.1667); B' L' 
+	5° -> (f: 79.1667, s: 41.6667); F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 114
+Tamanho da população: 914
+Quantidade de mutações: 27413
+Estagnação: 82
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	3° -> (f: 79.1667, s: 54.1667); U2 B R 
+	4° -> (f: 79.1667, s: 41.6667); B U2 
+	5° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 115
+Tamanho da população: 915
+Quantidade de mutações: 28001
+Estagnação: 83
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	4° -> (f: 79.1667, s: 41.6667); F' L' 
+	5° -> (f: 79.1667, s: 41.6667); B U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 116
+Tamanho da população: 916
+Quantidade de mutações: 28544
+Estagnação: 84
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 54.1667); U2 B R 
+	3° -> (f: 79.1667, s: 41.6667); F' L' 
+	4° -> (f: 79.1667, s: 50); B' R B2 
+	5° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 117
+Tamanho da população: 916
+Quantidade de mutações: 29154
+Estagnação: 85
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	5° -> (f: 79.1667, s: 54.1667); U2 B R 
+
+Best fitness: 83.3333
+===================================
+Geração: 118
+Tamanho da população: 912
+Quantidade de mutações: 29762
+Estagnação: 86
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	4° -> (f: 79.1667, s: 41.6667); F' R 
+	5° -> (f: 79.1667, s: 50); F' U2 R 
+
+Best fitness: 83.3333
+===================================
+Geração: 119
+Tamanho da população: 912
+Quantidade de mutações: 30376
+Estagnação: 87
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' F' R 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 79.1667, s: 41.6667); F' R 
+	5° -> (f: 79.1667, s: 50); B F' U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 120
+Tamanho da população: 913
+Quantidade de mutações: 30953
+Estagnação: 88
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	3° -> (f: 79.1667, s: 41.6667); B U2 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 41.6667); F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 121
+Tamanho da população: 916
+Quantidade de mutações: 31556
+Estagnação: 89
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 29.1667); B' L' 
+	4° -> (f: 79.1667, s: 50); B' F' R 
+	5° -> (f: 79.1667, s: 50); B' R B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 122
+Tamanho da população: 918
+Quantidade de mutações: 32151
+Estagnação: 90
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' F' R 
+	3° -> (f: 79.1667, s: 41.6667); F' L' 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 123
+Tamanho da população: 918
+Quantidade de mutações: 32813
+Estagnação: 91
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 29.1667); B' L' 
+	3° -> (f: 79.1667, s: 37.5); B 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 41.6667); B U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 124
+Tamanho da população: 910
+Quantidade de mutações: 33476
+Estagnação: 92
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 41.6667); F' L' 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 41.6667); B U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 125
+Tamanho da população: 911
+Quantidade de mutações: 34126
+Estagnação: 93
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	3° -> (f: 79.1667, s: 25); B' 
+	4° -> (f: 79.1667, s: 41.6667); F' L' 
+	5° -> (f: 79.1667, s: 41.6667); B U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 126
+Tamanho da população: 914
+Quantidade de mutações: 34797
+Estagnação: 94
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 54.1667); U2 B R 
+	4° -> (f: 79.1667, s: 37.5); B 
+	5° -> (f: 79.1667, s: 41.6667); B U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 127
+Tamanho da população: 916
+Quantidade de mutações: 35478
+Estagnação: 95
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	4° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	5° -> (f: 79.1667, s: 45.8333); B' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 128
+Tamanho da população: 918
+Quantidade de mutações: 36144
+Estagnação: 96
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 41.6667); B U2 
+	3° -> (f: 79.1667, s: 25); B' 
+	4° -> (f: 79.1667, s: 50); B' R B2 
+	5° -> (f: 79.1667, s: 29.1667); B' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 129
+Tamanho da população: 918
+Quantidade de mutações: 36827
+Estagnação: 97
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 41.6667); B U2 
+	3° -> (f: 79.1667, s: 62.5); F' R L' B2 
+	4° -> (f: 79.1667, s: 37.5); B 
+	5° -> (f: 79.1667, s: 50); B' R B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 130
+Tamanho da população: 918
+Quantidade de mutações: 37518
+Estagnação: 98
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	3° -> (f: 79.1667, s: 50); B' F' R 
+	4° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	5° -> (f: 79.1667, s: 54.1667); U2 B R 
+
+Best fitness: 83.3333
+===================================
+Geração: 131
+Tamanho da população: 919
+Quantidade de mutações: 38237
+Estagnação: 99
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); F' R L' B2 
+	3° -> (f: 79.1667, s: 58.3333); B F' R 
+	4° -> (f: 79.1667, s: 37.5); B 
+	5° -> (f: 79.1667, s: 50); B F' U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 132
+Tamanho da população: 913
+Quantidade de mutações: 38911
+Estagnação: 100
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 41.6667); B U2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	4° -> (f: 79.1667, s: 25); B' 
+	5° -> (f: 79.1667, s: 37.5); B 
+
+Best fitness: 83.3333
+===================================
+Geração: 133
+Tamanho da população: 913
+Quantidade de mutações: 39552
+Estagnação: 101
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 41.6667); F' R 
+	3° -> (f: 79.1667, s: 50); B' F' R 
+	4° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	5° -> (f: 79.1667, s: 41.6667); F' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 134
+Tamanho da população: 915
+Quantidade de mutações: 40325
+Estagnação: 102
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 25); B' 
+	3° -> (f: 79.1667, s: 37.5); B 
+	4° -> (f: 79.1667, s: 62.5); F' R L' B2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 135
+Tamanho da população: 915
+Quantidade de mutações: 41042
+Estagnação: 103
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 29.1667); B' L' 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 62.5); F' R L' B2 
+	5° -> (f: 79.1667, s: 41.6667); B U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 136
+Tamanho da população: 917
+Quantidade de mutações: 41804
+Estagnação: 104
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	3° -> (f: 79.1667, s: 50); B F' U2 
+	4° -> (f: 79.1667, s: 41.6667); B U2 
+	5° -> (f: 79.1667, s: 25); B' 
+
+Best fitness: 83.3333
+===================================
+Geração: 137
+Tamanho da população: 916
+Quantidade de mutações: 42549
+Estagnação: 105
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); F' R L' B2 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 41.6667); F' L' 
+	5° -> (f: 79.1667, s: 25); B' 
+
+Best fitness: 83.3333
+===================================
+Geração: 138
+Tamanho da população: 916
+Quantidade de mutações: 43271
+Estagnação: 106
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); F' R L' B2 
+	3° -> (f: 79.1667, s: 50); B' F' R 
+	4° -> (f: 79.1667, s: 50); B' R B2 
+	5° -> (f: 79.1667, s: 25); B' 
+
+Best fitness: 83.3333
+===================================
+Geração: 139
+Tamanho da população: 918
+Quantidade de mutações: 43993
+Estagnação: 107
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 58.3333); B F' R 
+	3° -> (f: 79.1667, s: 29.1667); B' L' 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	5° -> (f: 79.1667, s: 50); B F' U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 140
+Tamanho da população: 920
+Quantidade de mutações: 44766
+Estagnação: 108
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 54.1667); U2 B R 
+	3° -> (f: 79.1667, s: 41.6667); F' L' 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 41.6667); B U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 141
+Tamanho da população: 923
+Quantidade de mutações: 45486
+Estagnação: 109
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	3° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 50); F' U2 R 
+
+Best fitness: 83.3333
+===================================
+Geração: 142
+Tamanho da população: 924
+Quantidade de mutações: 46288
+Estagnação: 110
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 58.3333); B F' R 
+	3° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	4° -> (f: 79.1667, s: 50); B' F' R 
+	5° -> (f: 79.1667, s: 41.6667); F' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 143
+Tamanho da população: 919
+Quantidade de mutações: 47048
+Estagnação: 111
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 79.1667, s: 41.6667); F' L' 
+	5° -> (f: 79.1667, s: 58.3333); B F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 144
+Tamanho da população: 918
+Quantidade de mutações: 47804
+Estagnação: 112
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' F' R 
+	3° -> (f: 79.1667, s: 25); B' 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 145
+Tamanho da população: 910
+Quantidade de mutações: 48574
+Estagnação: 113
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 29.1667); B' L' 
+	3° -> (f: 79.1667, s: 58.3333); B F' R 
+	4° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	5° -> (f: 79.1667, s: 37.5); B 
+
+Best fitness: 83.3333
+===================================
+Geração: 146
+Tamanho da população: 912
+Quantidade de mutações: 49367
+Estagnação: 114
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	3° -> (f: 79.1667, s: 50); F' U2 R 
+	4° -> (f: 79.1667, s: 25); B' 
+	5° -> (f: 79.1667, s: 41.6667); F' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 147
+Tamanho da população: 912
+Quantidade de mutações: 50164
+Estagnação: 115
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 58.3333); B F' R 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 41.6667); F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 148
+Tamanho da população: 912
+Quantidade de mutações: 50971
+Estagnação: 116
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 29.1667); B' L' 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 41.6667); F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 149
+Tamanho da população: 913
+Quantidade de mutações: 51761
+Estagnação: 117
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	4° -> (f: 79.1667, s: 50); F' U2 R 
+	5° -> (f: 79.1667, s: 37.5); B 
+
+Best fitness: 83.3333
+===================================
+Geração: 150
+Tamanho da população: 915
+Quantidade de mutações: 52558
+Estagnação: 118
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	5° -> (f: 79.1667, s: 29.1667); B' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 151
+Tamanho da população: 916
+Quantidade de mutações: 53342
+Estagnação: 119
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 25); B' 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 79.1667, s: 50); B' F' R 
+	5° -> (f: 79.1667, s: 50); B F' U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 152
+Tamanho da população: 917
+Quantidade de mutações: 54204
+Estagnação: 120
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 25); B' 
+	3° -> (f: 79.1667, s: 41.6667); F' L' 
+	4° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	5° -> (f: 79.1667, s: 29.1667); R 
+
+Best fitness: 83.3333
+===================================
+Geração: 153
+Tamanho da população: 917
+Quantidade de mutações: 55013
+Estagnação: 121
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 25); B' 
+	3° -> (f: 79.1667, s: 41.6667); B U2 
+	4° -> (f: 79.1667, s: 54.1667); U2 B R 
+	5° -> (f: 79.1667, s: 50); B F' U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 154
+Tamanho da população: 903
+Quantidade de mutações: 55883
+Estagnação: 122
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 41.6667); B U2 
+	3° -> (f: 79.1667, s: 37.5); B 
+	4° -> (f: 79.1667, s: 29.1667); B' L' 
+	5° -> (f: 79.1667, s: 75); B F' L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 155
+Tamanho da população: 903
+Quantidade de mutações: 56704
+Estagnação: 123
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 54.1667); U2 B R 
+	3° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	4° -> (f: 79.1667, s: 50); B' R B2 
+	5° -> (f: 79.1667, s: 37.5); B 
+
+Best fitness: 83.3333
+===================================
+Geração: 156
+Tamanho da população: 903
+Quantidade de mutações: 57527
+Estagnação: 124
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 58.3333); B F' R 
+	3° -> (f: 79.1667, s: 50); B F' U2 
+	4° -> (f: 79.1667, s: 37.5); B 
+	5° -> (f: 79.1667, s: 62.5); F' R L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 157
+Tamanho da população: 903
+Quantidade de mutações: 58363
+Estagnação: 125
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	3° -> (f: 79.1667, s: 41.6667); F' L' 
+	4° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 158
+Tamanho da população: 903
+Quantidade de mutações: 59207
+Estagnação: 126
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 33.3333); F' 
+	3° -> (f: 79.1667, s: 25); B' 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 75); B F' L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 159
+Tamanho da população: 903
+Quantidade de mutações: 60044
+Estagnação: 127
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 54.1667); B R L' 
+	3° -> (f: 79.1667, s: 25); 
+	4° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	5° -> (f: 79.1667, s: 41.6667); F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 160
+Tamanho da população: 903
+Quantidade de mutações: 60910
+Estagnação: 128
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' F' R 
+	3° -> (f: 79.1667, s: 29.1667); R 
+	4° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	5° -> (f: 79.1667, s: 41.6667); F' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 161
+Tamanho da população: 904
+Quantidade de mutações: 61789
+Estagnação: 129
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 37.5); B 
+	3° -> (f: 79.1667, s: 58.3333); B F' R 
+	4° -> (f: 79.1667, s: 33.3333); F' 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 162
+Tamanho da população: 904
+Quantidade de mutações: 62693
+Estagnação: 130
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 37.5); U2 R 
+	3° -> (f: 79.1667, s: 58.3333); B F' R 
+	4° -> (f: 79.1667, s: 50); B' F' R 
+	5° -> (f: 79.1667, s: 29.1667); R 
+
+Best fitness: 83.3333
+===================================
+Geração: 163
+Tamanho da população: 904
+Quantidade de mutações: 63576
+Estagnação: 131
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	3° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	4° -> (f: 79.1667, s: 58.3333); B F' R 
+	5° -> (f: 79.1667, s: 25); B' 
+
+Best fitness: 83.3333
+===================================
+Geração: 164
+Tamanho da população: 904
+Quantidade de mutações: 64501
+Estagnação: 132
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 58.3333); B F' R 
+	3° -> (f: 79.1667, s: 41.6667); F' L' 
+	4° -> (f: 79.1667, s: 25); 
+	5° -> (f: 79.1667, s: 37.5); U2 R 
+
+Best fitness: 83.3333
+===================================
+Geração: 165
+Tamanho da população: 904
+Quantidade de mutações: 65395
+Estagnação: 133
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 54.1667); U2 B R 
+	3° -> (f: 79.1667, s: 54.1667); B R L' 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 29.1667); R 
+
+Best fitness: 83.3333
+===================================
+Geração: 166
+Tamanho da população: 906
+Quantidade de mutações: 66305
+Estagnação: 134
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	3° -> (f: 79.1667, s: 62.5); F' R L' B2 
+	4° -> (f: 79.1667, s: 25); 
+	5° -> (f: 79.1667, s: 50); F' U2 R 
+
+Best fitness: 83.3333
+===================================
+Geração: 167
+Tamanho da população: 906
+Quantidade de mutações: 67198
+Estagnação: 135
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 25); 
+	3° -> (f: 79.1667, s: 54.1667); U2 B R 
+	4° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	5° -> (f: 79.1667, s: 58.3333); B F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 168
+Tamanho da população: 907
+Quantidade de mutações: 68120
+Estagnação: 136
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 58.3333); B F' R 
+	3° -> (f: 79.1667, s: 50); F' U2 R 
+	4° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	5° -> (f: 79.1667, s: 75); B F' L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 169
+Tamanho da população: 907
+Quantidade de mutações: 69080
+Estagnação: 137
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 41.6667); F' R 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 25); 
+	5° -> (f: 79.1667, s: 62.5); B' F' R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 170
+Tamanho da população: 907
+Quantidade de mutações: 70000
+Estagnação: 138
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 41.6667); F' L' 
+	3° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	4° -> (f: 79.1667, s: 41.6667); F' R 
+	5° -> (f: 79.1667, s: 75); B F' L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 171
+Tamanho da população: 907
+Quantidade de mutações: 70937
+Estagnação: 139
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 37.5); B 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 37.5); U2 R 
+	5° -> (f: 79.1667, s: 41.6667); F' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 172
+Tamanho da população: 907
+Quantidade de mutações: 71896
+Estagnação: 140
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 25); B' 
+	3° -> (f: 79.1667, s: 50); F' U2 R 
+	4° -> (f: 79.1667, s: 50); B' R B2 
+	5° -> (f: 79.1667, s: 33.3333); F' 
+
+Best fitness: 83.3333
+===================================
+Geração: 173
+Tamanho da população: 907
+Quantidade de mutações: 72824
+Estagnação: 141
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 41.6667); F' R 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 29.1667); R 
+	5° -> (f: 79.1667, s: 45.8333); B' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 174
+Tamanho da população: 907
+Quantidade de mutações: 73743
+Estagnação: 142
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 54.1667); U2 B R 
+	3° -> (f: 79.1667, s: 50); B F' U2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	5° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 175
+Tamanho da população: 907
+Quantidade de mutações: 74739
+Estagnação: 143
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 41.6667); F' R 
+	3° -> (f: 79.1667, s: 75); B F' L' R 
+	4° -> (f: 79.1667, s: 58.3333); B F' R 
+	5° -> (f: 79.1667, s: 41.6667); B U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 176
+Tamanho da população: 907
+Quantidade de mutações: 75714
+Estagnação: 144
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); F' U2 R 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 29.1667); B' L' 
+	5° -> (f: 79.1667, s: 25); 
+
+Best fitness: 83.3333
+===================================
+Geração: 177
+Tamanho da população: 907
+Quantidade de mutações: 76715
+Estagnação: 145
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	3° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 54.1667); B R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 178
+Tamanho da população: 908
+Quantidade de mutações: 77655
+Estagnação: 146
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	3° -> (f: 79.1667, s: 75); B F' L' R 
+	4° -> (f: 79.1667, s: 45.8333); B F' 
+	5° -> (f: 79.1667, s: 41.6667); B U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 179
+Tamanho da população: 910
+Quantidade de mutações: 78634
+Estagnação: 147
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 41.6667); F' R 
+	3° -> (f: 79.1667, s: 33.3333); F' 
+	4° -> (f: 79.1667, s: 25); 
+	5° -> (f: 79.1667, s: 29.1667); B' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 180
+Tamanho da população: 910
+Quantidade de mutações: 79662
+Estagnação: 148
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 25); B' 
+	4° -> (f: 79.1667, s: 29.1667); R 
+	5° -> (f: 79.1667, s: 50); F' U2 R 
+
+Best fitness: 83.3333
+===================================
+Geração: 181
+Tamanho da população: 910
+Quantidade de mutações: 80711
+Estagnação: 149
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 25); 
+	3° -> (f: 79.1667, s: 29.1667); R L' 
+	4° -> (f: 79.1667, s: 41.6667); F' R 
+	5° -> (f: 79.1667, s: 50); B' R B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 182
+Tamanho da população: 910
+Quantidade de mutações: 81735
+Estagnação: 150
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	3° -> (f: 79.1667, s: 41.6667); B U2 
+	4° -> (f: 79.1667, s: 45.8333); B F' 
+	5° -> (f: 79.1667, s: 41.6667); F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 183
+Tamanho da população: 910
+Quantidade de mutações: 82731
+Estagnação: 151
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 25); 
+	3° -> (f: 79.1667, s: 25); B' 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	5° -> (f: 79.1667, s: 29.1667); R 
+
+Best fitness: 83.3333
+===================================
+Geração: 184
+Tamanho da população: 910
+Quantidade de mutações: 83780
+Estagnação: 152
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); F' R L' B2 
+	3° -> (f: 79.1667, s: 54.1667); U2 B R 
+	4° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	5° -> (f: 79.1667, s: 58.3333); B F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 185
+Tamanho da população: 911
+Quantidade de mutações: 84830
+Estagnação: 153
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 50); F' U2 R 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	5° -> (f: 79.1667, s: 45.8333); B F' 
+
+Best fitness: 83.3333
+===================================
+Geração: 186
+Tamanho da população: 912
+Quantidade de mutações: 85905
+Estagnação: 154
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 54.1667); U2 B R 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 54.1667); B R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 187
+Tamanho da população: 912
+Quantidade de mutações: 86918
+Estagnação: 155
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 33.3333); F' 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 54.1667); B R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 188
+Tamanho da população: 912
+Quantidade de mutações: 87994
+Estagnação: 156
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	3° -> (f: 79.1667, s: 54.1667); B R L' 
+	4° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	5° -> (f: 79.1667, s: 29.1667); B' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 189
+Tamanho da população: 912
+Quantidade de mutações: 89047
+Estagnação: 157
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 25); L' 
+	3° -> (f: 79.1667, s: 41.6667); F' L' 
+	4° -> (f: 79.1667, s: 58.3333); B F' R 
+	5° -> (f: 79.1667, s: 54.1667); U2 B R 
+
+Best fitness: 83.3333
+===================================
+Geração: 190
+Tamanho da população: 913
+Quantidade de mutações: 90143
+Estagnação: 158
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 29.1667); B' L' 
+	3° -> (f: 79.1667, s: 25); B' 
+	4° -> (f: 79.1667, s: 41.6667); F' L' 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 191
+Tamanho da população: 913
+Quantidade de mutações: 91219
+Estagnação: 159
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 50); F' U2 R 
+	4° -> (f: 79.1667, s: 41.6667); B U2 
+	5° -> (f: 79.1667, s: 25); L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 192
+Tamanho da população: 914
+Quantidade de mutações: 92322
+Estagnação: 160
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	3° -> (f: 79.1667, s: 75); B F' L' R 
+	4° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	5° -> (f: 79.1667, s: 33.3333); F' 
+
+Best fitness: 83.3333
+===================================
+Geração: 193
+Tamanho da população: 914
+Quantidade de mutações: 93330
+Estagnação: 161
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	3° -> (f: 79.1667, s: 29.1667); R L' 
+	4° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	5° -> (f: 79.1667, s: 50); F' U2 R 
+
+Best fitness: 83.3333
+===================================
+Geração: 194
+Tamanho da população: 914
+Quantidade de mutações: 94458
+Estagnação: 162
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	3° -> (f: 79.1667, s: 41.6667); F' L' 
+	4° -> (f: 79.1667, s: 50); B' R B2 
+	5° -> (f: 79.1667, s: 41.6667); B U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 195
+Tamanho da população: 914
+Quantidade de mutações: 95568
+Estagnação: 163
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 29.1667); R 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 37.5); U2 R 
+	5° -> (f: 79.1667, s: 29.1667); R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 196
+Tamanho da população: 913
+Quantidade de mutações: 96664
+Estagnação: 164
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	3° -> (f: 79.1667, s: 29.1667); B' L' 
+	4° -> (f: 79.1667, s: 58.3333); B F' R 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 197
+Tamanho da população: 913
+Quantidade de mutações: 97799
+Estagnação: 165
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	3° -> (f: 79.1667, s: 50); B F' U2 
+	4° -> (f: 79.1667, s: 29.1667); B' L' 
+	5° -> (f: 79.1667, s: 37.5); U2 R 
+
+Best fitness: 83.3333
+===================================
+Geração: 198
+Tamanho da população: 913
+Quantidade de mutações: 98902
+Estagnação: 166
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 29.1667); R L' 
+	3° -> (f: 79.1667, s: 25); 
+	4° -> (f: 79.1667, s: 75); B F' L' R 
+	5° -> (f: 79.1667, s: 62.5); B' F' R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 199
+Tamanho da população: 913
+Quantidade de mutações: 100061
+Estagnação: 167
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 29.1667); B' L' 
+	3° -> (f: 79.1667, s: 33.3333); F' 
+	4° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	5° -> (f: 79.1667, s: 50); B F' U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 200
+Tamanho da população: 913
+Quantidade de mutações: 101208
+Estagnação: 168
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); F' R L' B2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 29.1667); R L' 
+	5° -> (f: 79.1667, s: 33.3333); F' 
+
+Best fitness: 83.3333
+===================================
+Geração: 201
+Tamanho da população: 913
+Quantidade de mutações: 102403
+Estagnação: 169
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	3° -> (f: 79.1667, s: 25); L' 
+	4° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	5° -> (f: 79.1667, s: 41.6667); B U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 202
+Tamanho da população: 913
+Quantidade de mutações: 103570
+Estagnação: 170
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 37.5); U2 R 
+	3° -> (f: 79.1667, s: 25); 
+	4° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 203
+Tamanho da população: 913
+Quantidade de mutações: 104719
+Estagnação: 171
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 33.3333); F' 
+	3° -> (f: 79.1667, s: 37.5); U2 R 
+	4° -> (f: 79.1667, s: 29.1667); R 
+	5° -> (f: 79.1667, s: 45.8333); B' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 204
+Tamanho da população: 905
+Quantidade de mutações: 105882
+Estagnação: 172
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 41.6667); B U2 
+	3° -> (f: 79.1667, s: 29.1667); R L' 
+	4° -> (f: 79.1667, s: 62.5); F' R L' B2 
+	5° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 205
+Tamanho da população: 905
+Quantidade de mutações: 107018
+Estagnação: 173
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	3° -> (f: 79.1667, s: 25); 
+	4° -> (f: 79.1667, s: 33.3333); F' 
+	5° -> (f: 79.1667, s: 29.1667); B' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 206
+Tamanho da população: 905
+Quantidade de mutações: 108180
+Estagnação: 174
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 37.5); B 
+	3° -> (f: 79.1667, s: 54.1667); U2 B R 
+	4° -> (f: 79.1667, s: 41.6667); F' R 
+	5° -> (f: 79.1667, s: 37.5); U2 R 
+
+Best fitness: 83.3333
+===================================
+Geração: 207
+Tamanho da população: 905
+Quantidade de mutações: 109374
+Estagnação: 175
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' F' R 
+	3° -> (f: 79.1667, s: 41.6667); F' L' 
+	4° -> (f: 79.1667, s: 25); L' 
+	5° -> (f: 79.1667, s: 29.1667); B' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 208
+Tamanho da população: 905
+Quantidade de mutações: 110564
+Estagnação: 176
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	3° -> (f: 79.1667, s: 50); F' U2 R 
+	4° -> (f: 79.1667, s: 41.6667); B U2 
+	5° -> (f: 79.1667, s: 45.8333); B F' 
+
+Best fitness: 83.3333
+===================================
+Geração: 209
+Tamanho da população: 905
+Quantidade de mutações: 111771
+Estagnação: 177
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 58.3333); B F' R 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 54.1667); U2 B R 
+	5° -> (f: 79.1667, s: 41.6667); F' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 210
+Tamanho da população: 905
+Quantidade de mutações: 112981
+Estagnação: 178
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' F' R 
+	3° -> (f: 79.1667, s: 37.5); B 
+	4° -> (f: 79.1667, s: 62.5); F' R L' B2 
+	5° -> (f: 79.1667, s: 62.5); B' F' R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 211
+Tamanho da população: 905
+Quantidade de mutações: 114156
+Estagnação: 179
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 54.1667); B R L' 
+	3° -> (f: 79.1667, s: 25); L' 
+	4° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 212
+Tamanho da população: 905
+Quantidade de mutações: 115333
+Estagnação: 180
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	3° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	4° -> (f: 79.1667, s: 50); F' U2 R 
+	5° -> (f: 79.1667, s: 58.3333); B F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 213
+Tamanho da população: 905
+Quantidade de mutações: 116560
+Estagnação: 181
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 33.3333); F' 
+	3° -> (f: 79.1667, s: 29.1667); B' L' 
+	4° -> (f: 79.1667, s: 25); 
+	5° -> (f: 79.1667, s: 58.3333); B F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 214
+Tamanho da população: 905
+Quantidade de mutações: 117768
+Estagnação: 182
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 25); 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 62.5); F' R L' B2 
+	5° -> (f: 79.1667, s: 54.1667); U2 B R 
+
+Best fitness: 83.3333
+===================================
+Geração: 215
+Tamanho da população: 905
+Quantidade de mutações: 118983
+Estagnação: 183
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	3° -> (f: 79.1667, s: 75); B F' L' R 
+	4° -> (f: 79.1667, s: 25); 
+	5° -> (f: 79.1667, s: 58.3333); B F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 216
+Tamanho da população: 905
+Quantidade de mutações: 120199
+Estagnação: 184
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	4° -> (f: 79.1667, s: 37.5); B 
+	5° -> (f: 79.1667, s: 50); F' U2 R 
+
+Best fitness: 83.3333
+===================================
+Geração: 217
+Tamanho da população: 905
+Quantidade de mutações: 121439
+Estagnação: 185
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 41.6667); B U2 
+	3° -> (f: 79.1667, s: 29.1667); B' L' 
+	4° -> (f: 79.1667, s: 50); B' R B2 
+	5° -> (f: 79.1667, s: 58.3333); B F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 218
+Tamanho da população: 905
+Quantidade de mutações: 122721
+Estagnação: 186
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 41.6667); B U2 
+	3° -> (f: 79.1667, s: 50); B' F' R 
+	4° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	5° -> (f: 79.1667, s: 29.1667); B' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 219
+Tamanho da população: 905
+Quantidade de mutações: 123982
+Estagnação: 187
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 29.1667); B' L' 
+	3° -> (f: 79.1667, s: 25); B' 
+	4° -> (f: 79.1667, s: 50); B' F' R 
+	5° -> (f: 79.1667, s: 29.1667); R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 220
+Tamanho da população: 905
+Quantidade de mutações: 125228
+Estagnação: 188
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' F' R 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	5° -> (f: 79.1667, s: 37.5); U2 R 
+
+Best fitness: 83.3333
+===================================
+Geração: 221
+Tamanho da população: 905
+Quantidade de mutações: 126459
+Estagnação: 189
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); F' R L' B2 
+	3° -> (f: 79.1667, s: 25); B' 
+	4° -> (f: 79.1667, s: 75); B F' L' R 
+	5° -> (f: 79.1667, s: 54.1667); B R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 222
+Tamanho da população: 905
+Quantidade de mutações: 127727
+Estagnação: 190
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' F' R 
+	3° -> (f: 79.1667, s: 41.6667); B U2 
+	4° -> (f: 79.1667, s: 45.8333); B F' 
+	5° -> (f: 79.1667, s: 33.3333); F' 
+
+Best fitness: 83.3333
+===================================
+Geração: 223
+Tamanho da população: 904
+Quantidade de mutações: 128995
+Estagnação: 191
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 37.5); U2 R 
+	3° -> (f: 79.1667, s: 25); 
+	4° -> (f: 79.1667, s: 54.1667); U2 B R 
+	5° -> (f: 79.1667, s: 50); F' U2 R 
+
+Best fitness: 83.3333
+===================================
+Geração: 224
+Tamanho da população: 904
+Quantidade de mutações: 130290
+Estagnação: 192
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 37.5); B 
+	3° -> (f: 79.1667, s: 50); B F' U2 
+	4° -> (f: 79.1667, s: 54.1667); U2 B R 
+	5° -> (f: 79.1667, s: 33.3333); F' 
+
+Best fitness: 83.3333
+===================================
+Geração: 225
+Tamanho da população: 904
+Quantidade de mutações: 131651
+Estagnação: 193
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 29.1667); R 
+	3° -> (f: 79.1667, s: 33.3333); F' 
+	4° -> (f: 79.1667, s: 41.6667); F' L' 
+	5° -> (f: 79.1667, s: 29.1667); B' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 226
+Tamanho da população: 904
+Quantidade de mutações: 132948
+Estagnação: 194
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 41.6667); F' L' 
+	5° -> (f: 79.1667, s: 25); L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 227
+Tamanho da população: 904
+Quantidade de mutações: 134277
+Estagnação: 195
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	3° -> (f: 79.1667, s: 75); B F' L' R 
+	4° -> (f: 79.1667, s: 25); B' 
+	5° -> (f: 79.1667, s: 45.8333); B F' 
+
+Best fitness: 83.3333
+===================================
+Geração: 228
+Tamanho da população: 904
+Quantidade de mutações: 135603
+Estagnação: 196
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 58.3333); B F' R 
+	3° -> (f: 79.1667, s: 75); B F' L' R 
+	4° -> (f: 79.1667, s: 25); 
+	5° -> (f: 79.1667, s: 25); B' 
+
+Best fitness: 83.3333
+===================================
+Geração: 229
+Tamanho da população: 904
+Quantidade de mutações: 136907
+Estagnação: 197
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 41.6667); F' R 
+	3° -> (f: 79.1667, s: 29.1667); R 
+	4° -> (f: 79.1667, s: 58.3333); B F' R 
+	5° -> (f: 79.1667, s: 25); B' 
+
+Best fitness: 83.3333
+===================================
+Geração: 230
+Tamanho da população: 904
+Quantidade de mutações: 138311
+Estagnação: 198
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); F' R L' B2 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	4° -> (f: 79.1667, s: 54.1667); U2 B R 
+	5° -> (f: 79.1667, s: 25); L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 231
+Tamanho da população: 904
+Quantidade de mutações: 139643
+Estagnação: 199
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 37.5); B 
+	4° -> (f: 79.1667, s: 41.6667); B U2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 232
+Tamanho da população: 904
+Quantidade de mutações: 141019
+Estagnação: 200
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 29.1667); R L' 
+	3° -> (f: 79.1667, s: 29.1667); B' L' 
+	4° -> (f: 79.1667, s: 75); B F' L' R 
+	5° -> (f: 79.1667, s: 25); 
+
+Best fitness: 83.3333
+===================================
+Geração: 233
+Tamanho da população: 904
+Quantidade de mutações: 142339
+Estagnação: 201
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	3° -> (f: 79.1667, s: 62.5); F' R L' B2 
+	4° -> (f: 79.1667, s: 75); B F' L' R 
+	5° -> (f: 79.1667, s: 41.6667); F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 234
+Tamanho da população: 904
+Quantidade de mutações: 143704
+Estagnação: 202
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	4° -> (f: 79.1667, s: 54.1667); B R L' 
+	5° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 235
+Tamanho da população: 904
+Quantidade de mutações: 145021
+Estagnação: 203
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 25); B' 
+	3° -> (f: 79.1667, s: 41.6667); F' R 
+	4° -> (f: 79.1667, s: 54.1667); B R L' 
+	5° -> (f: 79.1667, s: 45.8333); B' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 236
+Tamanho da população: 904
+Quantidade de mutações: 146309
+Estagnação: 204
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 41.6667); F' L' 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	5° -> (f: 79.1667, s: 50); F' U2 R 
+
+Best fitness: 83.3333
+===================================
+Geração: 237
+Tamanho da população: 904
+Quantidade de mutações: 147650
+Estagnação: 205
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	3° -> (f: 79.1667, s: 37.5); B 
+	4° -> (f: 79.1667, s: 29.1667); R L' 
+	5° -> (f: 79.1667, s: 50); B' R B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 238
+Tamanho da população: 904
+Quantidade de mutações: 148962
+Estagnação: 206
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 25); B' 
+	3° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	4° -> (f: 79.1667, s: 29.1667); R 
+	5° -> (f: 79.1667, s: 75); B F' L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 239
+Tamanho da população: 904
+Quantidade de mutações: 150343
+Estagnação: 207
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 41.6667); F' R 
+	3° -> (f: 79.1667, s: 54.1667); U2 B R 
+	4° -> (f: 79.1667, s: 45.8333); B F' 
+	5° -> (f: 79.1667, s: 29.1667); R 
+
+Best fitness: 83.3333
+===================================
+Geração: 240
+Tamanho da população: 904
+Quantidade de mutações: 151644
+Estagnação: 208
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B F' U2 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+	5° -> (f: 79.1667, s: 25); L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 241
+Tamanho da população: 904
+Quantidade de mutações: 152936
+Estagnação: 209
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 58.3333); B F' R 
+	5° -> (f: 79.1667, s: 41.6667); F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 242
+Tamanho da população: 904
+Quantidade de mutações: 154213
+Estagnação: 210
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	3° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	4° -> (f: 79.1667, s: 29.1667); R 
+	5° -> (f: 79.1667, s: 54.1667); U2 B R 
+
+Best fitness: 83.3333
+===================================
+Geração: 243
+Tamanho da população: 904
+Quantidade de mutações: 155528
+Estagnação: 211
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 29.1667); B' L' 
+	3° -> (f: 79.1667, s: 50); B F' U2 
+	4° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	5° -> (f: 79.1667, s: 50); B' R B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 244
+Tamanho da população: 904
+Quantidade de mutações: 156847
+Estagnação: 212
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 45.8333); B F' 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	4° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	5° -> (f: 79.1667, s: 29.1667); B' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 245
+Tamanho da população: 904
+Quantidade de mutações: 158149
+Estagnação: 213
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 50); B' R B2 
+	3° -> (f: 79.1667, s: 25); B' 
+	4° -> (f: 79.1667, s: 41.6667); F' R 
+	5° -> (f: 79.1667, s: 50); F' U2 R 
+
+Best fitness: 83.3333
+===================================
+Geração: 246
+Tamanho da população: 904
+Quantidade de mutações: 159512
+Estagnação: 214
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 29.1667); R L' 
+	3° -> (f: 79.1667, s: 29.1667); B' L' 
+	4° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	5° -> (f: 79.1667, s: 54.1667); B R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 247
+Tamanho da população: 904
+Quantidade de mutações: 160829
+Estagnação: 215
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 79.1667, s: 54.1667); B R L' 
+	3° -> (f: 79.1667, s: 41.6667); B U2 
+	4° -> (f: 79.1667, s: 45.8333); B F' 
+	5° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 248
+Tamanho da população: 904
+Quantidade de mutações: 162097
+Estagnação: 216
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 25); 
+	2° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	3° -> (f: 79.1667, s: 62.5); F' R L' B2 
+	4° -> (f: 79.1667, s: 33.3333); F' 
+	5° -> (f: 79.1667, s: 45.8333); B' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 249
+Tamanho da população: 904
+Quantidade de mutações: 163416
+Estagnação: 217
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 37.5); B 
+	4° -> (f: 79.1667, s: 29.1667); R L' 
+	5° -> (f: 79.1667, s: 58.3333); B F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 250
+Tamanho da população: 904
+Quantidade de mutações: 164794
+Estagnação: 218
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 79.1667, s: 41.6667); F' L' 
+	5° -> (f: 79.1667, s: 29.1667); R 
+
+Best fitness: 83.3333
+===================================
+Geração: 251
+Tamanho da população: 904
+Quantidade de mutações: 166132
+Estagnação: 219
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 37.5); U2 R 
+	4° -> (f: 79.1667, s: 45.8333); B F' 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 252
+Tamanho da população: 904
+Quantidade de mutações: 167420
+Estagnação: 220
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 50); B' F' R 
+	4° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	5° -> (f: 79.1667, s: 58.3333); B F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 253
+Tamanho da população: 904
+Quantidade de mutações: 168746
+Estagnação: 221
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 54.1667); U2 B R 
+	4° -> (f: 79.1667, s: 62.5); F' R L' B2 
+	5° -> (f: 79.1667, s: 25); B' 
+
+Best fitness: 83.3333
+===================================
+Geração: 254
+Tamanho da população: 904
+Quantidade de mutações: 170067
+Estagnação: 222
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 75); B F' L' R 
+	4° -> (f: 79.1667, s: 41.6667); F' R 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 255
+Tamanho da população: 904
+Quantidade de mutações: 171347
+Estagnação: 223
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 29.1667); B' L' 
+	4° -> (f: 79.1667, s: 33.3333); F' 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 256
+Tamanho da população: 904
+Quantidade de mutações: 172670
+Estagnação: 224
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 25); 
+	2° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	3° -> (f: 79.1667, s: 50); F' U2 R 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	5° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 257
+Tamanho da população: 904
+Quantidade de mutações: 173998
+Estagnação: 225
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 50); F' U2 R 
+	4° -> (f: 79.1667, s: 29.1667); R 
+	5° -> (f: 79.1667, s: 75); B F' L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 258
+Tamanho da população: 904
+Quantidade de mutações: 175331
+Estagnação: 226
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 50); B' F' R 
+	4° -> (f: 79.1667, s: 50); B' R B2 
+	5° -> (f: 79.1667, s: 25); L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 259
+Tamanho da população: 904
+Quantidade de mutações: 176640
+Estagnação: 227
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 25); B' 
+	4° -> (f: 79.1667, s: 37.5); B 
+	5° -> (f: 79.1667, s: 50); B F' U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 260
+Tamanho da população: 904
+Quantidade de mutações: 177972
+Estagnação: 228
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 25); 
+	2° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	3° -> (f: 79.1667, s: 45.8333); B F' 
+	4° -> (f: 79.1667, s: 37.5); U2 R 
+	5° -> (f: 79.1667, s: 62.5); F' R L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 261
+Tamanho da população: 904
+Quantidade de mutações: 179320
+Estagnação: 229
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 25); 
+	2° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	3° -> (f: 79.1667, s: 50); F' U2 R 
+	4° -> (f: 79.1667, s: 54.1667); U2 B R 
+	5° -> (f: 79.1667, s: 58.3333); B F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 262
+Tamanho da população: 904
+Quantidade de mutações: 180580
+Estagnação: 230
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	4° -> (f: 79.1667, s: 41.6667); F' R 
+	5° -> (f: 79.1667, s: 29.1667); R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 263
+Tamanho da população: 904
+Quantidade de mutações: 181947
+Estagnação: 231
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 41.6667); B U2 
+	4° -> (f: 79.1667, s: 29.1667); B' L' 
+	5° -> (f: 79.1667, s: 45.8333); B F' 
+
+Best fitness: 83.3333
+===================================
+Geração: 264
+Tamanho da população: 904
+Quantidade de mutações: 183252
+Estagnação: 232
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 41.6667); B U2 
+	4° -> (f: 79.1667, s: 45.8333); B F' 
+	5° -> (f: 79.1667, s: 29.1667); R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 265
+Tamanho da população: 904
+Quantidade de mutações: 184548
+Estagnação: 233
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 25); 
+	2° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	3° -> (f: 79.1667, s: 41.6667); F' L' 
+	4° -> (f: 79.1667, s: 33.3333); F' 
+	5° -> (f: 79.1667, s: 25); L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 266
+Tamanho da população: 904
+Quantidade de mutações: 185860
+Estagnação: 234
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	4° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	5° -> (f: 79.1667, s: 50); B' F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 267
+Tamanho da população: 904
+Quantidade de mutações: 187208
+Estagnação: 235
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 41.6667); F' L' 
+	4° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	5° -> (f: 79.1667, s: 54.1667); B R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 268
+Tamanho da população: 904
+Quantidade de mutações: 188546
+Estagnação: 236
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 58.3333); B F' R 
+	4° -> (f: 79.1667, s: 25); L' 
+	5° -> (f: 79.1667, s: 50); B' F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 269
+Tamanho da população: 904
+Quantidade de mutações: 189857
+Estagnação: 237
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 25); 
+	2° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	3° -> (f: 79.1667, s: 29.1667); R 
+	4° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	5° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 270
+Tamanho da população: 904
+Quantidade de mutações: 191227
+Estagnação: 238
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 50); F' U2 R 
+	4° -> (f: 79.1667, s: 37.5); B 
+	5° -> (f: 79.1667, s: 62.5); B' F' R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 271
+Tamanho da população: 904
+Quantidade de mutações: 192557
+Estagnação: 239
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 25); 
+	2° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	3° -> (f: 79.1667, s: 29.1667); B' L' 
+	4° -> (f: 79.1667, s: 62.5); F' R L' B2 
+	5° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 272
+Tamanho da população: 904
+Quantidade de mutações: 193882
+Estagnação: 240
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	4° -> (f: 79.1667, s: 37.5); U2 R 
+	5° -> (f: 79.1667, s: 29.1667); R 
+
+Best fitness: 83.3333
+===================================
+Geração: 273
+Tamanho da população: 904
+Quantidade de mutações: 195179
+Estagnação: 241
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 25); B' 
+	4° -> (f: 79.1667, s: 58.3333); B F' R 
+	5° -> (f: 79.1667, s: 75); B F' L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 274
+Tamanho da população: 904
+Quantidade de mutações: 196510
+Estagnação: 242
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 25); 
+	2° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	3° -> (f: 79.1667, s: 33.3333); F' 
+	4° -> (f: 79.1667, s: 37.5); U2 R 
+	5° -> (f: 79.1667, s: 41.6667); B U2 
+
+Best fitness: 83.3333
+===================================
+Geração: 275
+Tamanho da população: 904
+Quantidade de mutações: 197859
+Estagnação: 243
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 25); 
+	2° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 79.1667, s: 58.3333); B F' R 
+	5° -> (f: 79.1667, s: 54.1667); U2 B R 
+
+Best fitness: 83.3333
+===================================
+Geração: 276
+Tamanho da população: 904
+Quantidade de mutações: 199122
+Estagnação: 244
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 41.6667); B U2 
+	4° -> (f: 79.1667, s: 37.5); B 
+	5° -> (f: 79.1667, s: 45.8333); B F' 
+
+Best fitness: 83.3333
+===================================
+Geração: 277
+Tamanho da população: 904
+Quantidade de mutações: 200415
+Estagnação: 245
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 25); 
+	2° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	3° -> (f: 79.1667, s: 50); B' F' R 
+	4° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	5° -> (f: 79.1667, s: 29.1667); R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 278
+Tamanho da população: 904
+Quantidade de mutações: 201726
+Estagnação: 246
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 25); 
+	2° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	3° -> (f: 79.1667, s: 54.1667); U2 B R 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 29.1667); R 
+
+Best fitness: 83.3333
+===================================
+Geração: 279
+Tamanho da população: 904
+Quantidade de mutações: 203038
+Estagnação: 247
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	4° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 280
+Tamanho da população: 904
+Quantidade de mutações: 204342
+Estagnação: 248
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 25); 
+	2° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	3° -> (f: 79.1667, s: 29.1667); B' L' 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 R L' 
+	5° -> (f: 79.1667, s: 37.5); B 
+
+Best fitness: 83.3333
+===================================
+Geração: 281
+Tamanho da população: 904
+Quantidade de mutações: 205670
+Estagnação: 249
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+	4° -> (f: 79.1667, s: 50); B F' U2 
+	5° -> (f: 79.1667, s: 41.6667); F' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 282
+Tamanho da população: 904
+Quantidade de mutações: 206969
+Estagnação: 250
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	4° -> (f: 79.1667, s: 41.6667); B U2 
+	5° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 283
+Tamanho da população: 904
+Quantidade de mutações: 208357
+Estagnação: 251
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 25); 
+	2° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	3° -> (f: 79.1667, s: 50); B' R B2 
+	4° -> (f: 79.1667, s: 37.5); U2 R 
+	5° -> (f: 79.1667, s: 25); B' 
+
+Best fitness: 83.3333
+===================================
+Geração: 284
+Tamanho da população: 904
+Quantidade de mutações: 209649
+Estagnação: 252
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 25); 
+	2° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	3° -> (f: 79.1667, s: 29.1667); R 
+	4° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	5° -> (f: 79.1667, s: 29.1667); R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 285
+Tamanho da população: 904
+Quantidade de mutações: 210967
+Estagnação: 253
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 75); B F' L' R 
+	4° -> (f: 79.1667, s: 62.5); F' R L' B2 
+	5° -> (f: 79.1667, s: 37.5); U2 R 
+
+Best fitness: 83.3333
+===================================
+Geração: 286
+Tamanho da população: 904
+Quantidade de mutações: 212286
+Estagnação: 254
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 75); B F' L' R 
+	4° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	5° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 287
+Tamanho da população: 904
+Quantidade de mutações: 213641
+Estagnação: 255
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 25); B' 
+	4° -> (f: 79.1667, s: 29.1667); R L' 
+	5° -> (f: 79.1667, s: 25); L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 288
+Tamanho da população: 904
+Quantidade de mutações: 214904
+Estagnação: 256
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 25); 
+	2° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	3° -> (f: 79.1667, s: 50); B F' U2 
+	4° -> (f: 79.1667, s: 29.1667); B' L' 
+	5° -> (f: 79.1667, s: 41.6667); F' L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 289
+Tamanho da população: 904
+Quantidade de mutações: 216220
+Estagnação: 257
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 25); 
+	2° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	3° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	4° -> (f: 79.1667, s: 54.1667); B R L' 
+	5° -> (f: 79.1667, s: 62.5); B' F' L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 290
+Tamanho da população: 904
+Quantidade de mutações: 217539
+Estagnação: 258
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 54.1667); U2 B R 
+	4° -> (f: 79.1667, s: 50); F' U2 R 
+	5° -> (f: 79.1667, s: 25); L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 291
+Tamanho da população: 904
+Quantidade de mutações: 218897
+Estagnação: 259
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 25); L' 
+	4° -> (f: 79.1667, s: 29.1667); B' L' 
+	5° -> (f: 79.1667, s: 62.5); F' R L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 292
+Tamanho da população: 904
+Quantidade de mutações: 220251
+Estagnação: 260
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 25); 
+	2° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	3° -> (f: 79.1667, s: 54.1667); B R L' 
+	4° -> (f: 79.1667, s: 37.5); B 
+	5° -> (f: 79.1667, s: 33.3333); F' 
+
+Best fitness: 83.3333
+===================================
+Geração: 293
+Tamanho da população: 904
+Quantidade de mutações: 221556
+Estagnação: 261
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 37.5); B 
+	4° -> (f: 79.1667, s: 45.8333); B F' 
+	5° -> (f: 79.1667, s: 29.1667); R L' 
+
+Best fitness: 83.3333
+===================================
+Geração: 294
+Tamanho da população: 904
+Quantidade de mutações: 222914
+Estagnação: 262
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 25); B' 
+	4° -> (f: 79.1667, s: 62.5); B' F' R L' 
+	5° -> (f: 79.1667, s: 75); B F' L' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 295
+Tamanho da população: 904
+Quantidade de mutações: 224268
+Estagnação: 263
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 37.5); U2 R 
+	4° -> (f: 79.1667, s: 54.1667); U2 B R 
+	5° -> (f: 79.1667, s: 58.3333); B F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 296
+Tamanho da população: 904
+Quantidade de mutações: 225571
+Estagnação: 264
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 25); 
+	2° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	3° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	4° -> (f: 79.1667, s: 29.1667); B' L' 
+	5° -> (f: 79.1667, s: 79.1667); B' F' R L' B2 
+
+Best fitness: 83.3333
+===================================
+Geração: 297
+Tamanho da população: 904
+Quantidade de mutações: 226861
+Estagnação: 265
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 25); L' 
+	4° -> (f: 79.1667, s: 50); B' R B2 
+	5° -> (f: 79.1667, s: 25); B' 
+
+Best fitness: 83.3333
+===================================
+Geração: 298
+Tamanho da população: 904
+Quantidade de mutações: 228195
+Estagnação: 266
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 45.8333); B' L' B2 
+	4° -> (f: 79.1667, s: 25); L' 
+	5° -> (f: 79.1667, s: 41.6667); F' R 
+
+Best fitness: 83.3333
+===================================
+Geração: 299
+Tamanho da população: 904
+Quantidade de mutações: 229507
+Estagnação: 267
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	2° -> (f: 83.3333, s: 25); 
+	3° -> (f: 79.1667, s: 41.6667); B U2 
+	4° -> (f: 79.1667, s: 29.1667); R 
+	5° -> (f: 79.1667, s: 25); B' 
+
+Best fitness: 83.3333
+===================================
+Geração: 300
+Tamanho da população: 904
+Quantidade de mutações: 230809
+Estagnação: 268
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 25); 
+	2° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	3° -> (f: 79.1667, s: 58.3333); B F' R 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 41.6667); F' L' 
+
+===================================
+Geração: 300
+Tamanho da população: 904
+Quantidade de mutações: 230809
+Estagnação: 268
+5 melhores indivíduos: 
+	1° -> (f: 83.3333, s: 25); 
+	2° -> (f: 83.3333, s: 58.3333); B2 F' U2 L' 
+	3° -> (f: 79.1667, s: 58.3333); B F' R 
+	4° -> (f: 79.1667, s: 79.1667); B F' U2 L' R 
+	5° -> (f: 79.1667, s: 41.6667); F' L' 
+
+Embaralhamento realizado: R' L B U2 F B2 
+Soluções encontradas:
+[]
+[B2, F', U2, L', ]
+[B, F', R, ]
+[B, F', U2, L', R, ]
+[F', L', ]
+          [38;2;255;138;25m■ [0m[38;2;255;138;25m■ [0m[38;2;255;138;25m■ [0m
+          [38;2;0;225;1m■ [0m[38;2;245;255;0m■ [0m[38;2;0;225;1m■ [0m
+          [38;2;255;138;25m■ [0m[38;2;255;138;25m■ [0m[38;2;1;126;255m■ [0m
+   [38;2;1;126;255m■ [0m[38;2;220;0;0m■ [0m[38;2;1;126;255m■ [0m [38;2;245;255;0m■ [0m[38;2;245;255;0m■ [0m[1;37m■ [0m [38;2;220;0;0m■ [0m[38;2;255;138;25m■ [0m[38;2;0;225;1m■ [0m [1;37m■ [0m[1;37m■ [0m[1;37m■ [0m 
+   [1;37m■ [0m[38;2;255;138;25m■ [0m[1;37m■ [0m [38;2;1;126;255m■ [0m[38;2;1;126;255m■ [0m[1;37m■ [0m [38;2;220;0;0m■ [0m[38;2;220;0;0m■ [0m[38;2;245;255;0m■ [0m [38;2;0;225;1m■ [0m[38;2;0;225;1m■ [0m[38;2;0;225;1m■ [0m 
+   [38;2;255;138;25m■ [0m[38;2;255;138;25m■ [0m[38;2;1;126;255m■ [0m [38;2;245;255;0m■ [0m[38;2;245;255;0m■ [0m[1;37m■ [0m [38;2;220;0;0m■ [0m[38;2;220;0;0m■ [0m[38;2;220;0;0m■ [0m [38;2;245;255;0m■ [0m[38;2;1;126;255m■ [0m[38;2;245;255;0m■ [0m 
+          [38;2;220;0;0m■ [0m[38;2;220;0;0m■ [0m[38;2;0;225;1m■ [0m
+          [38;2;1;126;255m■ [0m[1;37m■ [0m[38;2;1;126;255m■ [0m
+          [38;2;0;225;1m■ [0m[38;2;245;255;0m■ [0m[38;2;0;225;1m■ [0m
