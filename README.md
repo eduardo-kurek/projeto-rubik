@@ -3,7 +3,7 @@ Funções disponíveis até o momento podem ser encontradas no arquivo rubik/rub
 <br><br>
 
 ### Dependências
-* GCC versão 8, para utilização da bilioteca *filesystem*.
+* GCC versão 8 ou superior, para utilização da bilioteca *filesystem*.
 * Makefile, para construção do projeto.
 
 #### Compilação
