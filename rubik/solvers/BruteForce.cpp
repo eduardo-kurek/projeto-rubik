@@ -48,10 +48,11 @@ void BruteForce::solve(){
     if(this->depth == 0) return;
     uint8_t newDepth = this->depth - 1;
 
+    auto moves = this->source.getValidMoves();
     #pragma omp parallel for num_threads(18)
-    for(auto& move : this->source.getValidMoves()){
+    for(uint32_t i = 0; i < moves.size(); i++){
         Rubik model = this->source;
-        model.move(1, move);
+        model.move(1, moves[i]);
         this->solve(model, newDepth);
     }
 }
