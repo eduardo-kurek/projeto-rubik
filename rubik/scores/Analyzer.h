@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include <type_traits>
 #include <iomanip>
@@ -8,9 +10,6 @@
 #include <vector>
 #include "Score.h"
 #include "PontuationTable.h"
-#ifdef _WIN32
-#include <windows.h>
-#endif
 
 template <typename TScore, typename = std::enable_if_t<std::is_base_of<Score, TScore>::value>>
 class Analyzer{
