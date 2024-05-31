@@ -26,7 +26,7 @@ class AnalyzerMultiple{
     std::vector<float> expectedPontuations = {95,90,85,80,75,70,65,60,55,50,45,40,35,30,25,20,15,10,5,0};
     std::vector<float> pontuations;
 
-    float calculate_file(int i){
+    float calculate_file(int i, int expectedPontuation){
         float sum = 0;
         int count = 0;
 
@@ -36,7 +36,9 @@ class AnalyzerMultiple{
             Rubik rubik;
             rubik.move(moves);
 
-            sum += this->score->calculateNormalized(rubik);
+            // CALCULANDO O ERRO MÉDIO QUADRÁTICO (MSE)
+            float diff = abs(score->calculateNormalized(rubik) - expectedPontuation);
+            sum += diff * diff;
             count++;
         }
 
@@ -99,12 +101,10 @@ class AnalyzerMultiple{
 
         float sum = 0;
 
-        // CALCULANDO O ERRO MÉDIO QUADRÁTICO (MSE)
+        // SOMANDO TODOS OS RESULTADOS
         #pragma omp parallel for reduction(+:sum)
-        for(int i = 0; i < this->pontuations.size(); i ++){
-            float diff = abs(this->pontuations[i] - this->expectedPontuations[i]);
-            sum += diff * diff;
-        }
+        for(int i = 0; i < this->pontuations.size(); i++)
+            sum += this->pontuations[i];
 
         return sum;
     }
