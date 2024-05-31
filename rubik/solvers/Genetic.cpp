@@ -80,11 +80,6 @@ void Genetic::combine_children(std::vector<Chromosome>& children){
          children.end(), merged.begin(), Chromosome::greater);
     
     population = std::move(merged);
-
-    if(svc::Random::Int(1, 1000) <= this->mutation_rate + stagnation * 5){
-        apply_mutation();
-    }
-
     population.resize(population_size);
 }
 
@@ -173,6 +168,7 @@ void Genetic::next_generation(){
             Chromosome parent1 = select();
             Chromosome parent2 = select(); // Pode ser o mesmo pai (Arrumar)
             Chromosome child = crossover(parent1, parent2);
+            mutate(child);
             
             private_children.push_back(child);
         }
