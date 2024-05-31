@@ -2,7 +2,6 @@
 #include "../scores/Score.h"
 #include "Solver.h"
 #include <vector>
-#include <unordered_set>
 
 class Genetic : public Solver {
 

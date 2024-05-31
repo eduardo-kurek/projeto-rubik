@@ -2,6 +2,7 @@
 #include "../../services/Random.h"
 #include "BruteForce.h"
 #include <algorithm>
+#include <unordered_map>
 #include <iostream>
 
 bool Genetic::Chromosome::greater(const Chromosome& a, const Chromosome & b){
@@ -66,8 +67,8 @@ void Genetic::remove_duplicates(){
         unique.insert(std::make_pair(c.rubik.getHistoricString(), c));
     
     population.clear();
-    for(auto& [_, c] : unique)
-        population.push_back(c);
+    for(auto& pair : unique)
+        population.push_back(pair.second);
 
     sort_population();
 }
