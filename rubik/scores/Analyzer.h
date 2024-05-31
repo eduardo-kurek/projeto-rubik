@@ -28,7 +28,7 @@ class Analyzer{
 
     public:
 
-    float calculate_file(std::string filePath){
+    float calculate_file(std::string filePath, int expectedPontuation){
         std::ifstream file(filePath);
         std::string scramble;
         float sum = 0;
@@ -39,7 +39,9 @@ class Analyzer{
             Rubik rubik;
             rubik.move(moves);
 
-            sum += score->calculateNormalized(rubik);
+            // CALCULANDO O ERRO MÉDIO QUADRÁTICO (MSE)
+            float diff = abs(score->calculateNormalized(rubik) - expectedPontuation);
+            sum += diff * diff;
             count++;
         }
 
@@ -52,7 +54,7 @@ class Analyzer{
 
         #pragma omp parallel for
         for(int i = 0; i < 20; i++)
-            this->pontuations[i] = this->calculate_file(this->get_scramble_path(i+1));
+            this->pontuations[i] = this->calculate_file(this->get_scramble_path(i+1), this->expectedPontuations[i]);
     }
 
     std::string get_scramble_path(int i){
@@ -120,12 +122,10 @@ class Analyzer{
 
         float sum = 0;
 
-        // CALCULANDO O ERRO MÉDIO QUADRÁTICO (MSE)
+        // SOMANDO TODOS OS RESULTADOS
         #pragma omp parallel for reduction(+:sum)
-        for(int i = 0; i < this->pontuations.size(); i ++){
-            float diff = abs(this->pontuations[i] - this->expectedPontuations[i]);
-            sum += diff * diff;
-        }
+        for(int i = 0; i < this->pontuations.size(); i++)
+            sum += this->pontuations[i];
 
         this->result = sum;
         return sum;
