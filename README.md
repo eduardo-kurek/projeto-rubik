@@ -4,6 +4,7 @@ Funções disponíveis até o momento podem ser encontradas no arquivo rubik/rub
 
 ### Dependências
 * GCC versão 8 ou superior, para utilização da bilioteca *filesystem*.
+* libgomp instalada no G++.
 * Makefile, para construção do projeto.
 
 #### Compilação
