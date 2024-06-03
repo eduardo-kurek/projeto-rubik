@@ -89,12 +89,6 @@ class Analyzer{
             else edgePontuations.push_back(stof(this->config[i]));
         }
 
-        // VERIFICANDO SE O PRIMEIRO VALOR DE CADA VETOR É O MAIOR DO VETOR INTEIRO
-        if(*std::max_element(cornerPontuation.begin(), cornerPontuation.end()) != cornerPontuation[0])
-            return false;
-        if(*std::max_element(edgePontuations.begin(), edgePontuations.end()) != edgePontuations[0])
-            return false;
-
         this->table = new PontuationTable(cornerPontuation, edgePontuations, stof(this->config[8]));
         this->score = new TScore(this->table);
         return true;
