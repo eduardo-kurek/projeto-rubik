@@ -89,6 +89,9 @@ class Analyzer{
             else edgePontuations.push_back(stof(this->config[i]));
         }
 
+        delete this->table;
+        delete this->score;
+
         this->table = new PontuationTable(cornerPontuation, edgePontuations, stof(this->config[8]));
         this->score = new TScore(this->table);
         return true;

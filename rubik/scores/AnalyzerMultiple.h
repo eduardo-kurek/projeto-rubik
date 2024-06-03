@@ -51,7 +51,7 @@ class AnalyzerMultiple{
 
         #pragma omp parallel for
         for(int i = 0; i < 20; i++)
-            this->pontuations[i] = this->calculate_file(i);
+            this->pontuations[i] = this->calculate_file(i, expectedPontuations[i]);
     }
 
     bool mount_table(std::vector<int> config){
@@ -63,6 +63,9 @@ class AnalyzerMultiple{
             if(i < 4) cornerPontuation.push_back(config[i]);
             else edgePontuations.push_back(config[i]);
         }
+
+        delete this->table;
+        delete this->score;
 
         this->table = new PontuationTable(cornerPontuation, edgePontuations, config[8]);
         this->score = new TScore(this->table);
