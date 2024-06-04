@@ -258,7 +258,7 @@ std::ostream& operator<<(std::ostream& os, const Rubik* rubik){
     return os;
 }
 
-bool Rubik::operator==(const Rubik& other){
+bool Rubik::operator==(const Rubik& other) const{
     for(int i = 0; i < 6; ++i)
         if(!(this->faces[i] == other.faces[i]))
             return false;

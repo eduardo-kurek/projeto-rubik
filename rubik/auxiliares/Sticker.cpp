@@ -4,7 +4,7 @@ Sticker::Sticker(const Color* cor){
     this->color = cor;
 }
 
-bool Sticker::operator==(const Sticker& other){
+bool Sticker::operator==(const Sticker& other) const{
     return other.getColor()->cod == this->getColor()->cod;
 }
 

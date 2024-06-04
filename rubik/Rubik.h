@@ -162,6 +162,6 @@ public:
     /**
      * Comparação de 2 cubos
      */
-    bool operator==(const Rubik& other);
+    bool operator==(const Rubik& other) const;
 
 };
