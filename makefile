@@ -7,7 +7,7 @@ else
 endif
 
 CXX := g++
-CXXFLAGS := -std=c++17 -fopenmp
+CXXFLAGS := -O3 -std=c++20 -fopenmp
 
 RUBIK_CPP := $(wildcard rubik/*.cpp)
 AUX_CPP := $(wildcard rubik/auxiliares/*.cpp)
