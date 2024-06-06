@@ -3,7 +3,7 @@ Funções disponíveis até o momento podem ser encontradas no arquivo rubik/rub
 <br><br>
 
 ### Dependências
-* GCC versão 8 ou superior, para utilização da bilioteca *filesystem*.
+* GCC versão 11 ou superior, para utilização de concepts (-std=c++20)
 * libgomp instalada no G++.
 * Makefile, para construção do projeto.
 
