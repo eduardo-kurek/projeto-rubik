@@ -1,58 +1,34 @@
 #include <iostream>
-#include <filesystem>
-#include <vector>
-#include <string>
-#include "../../rubik/scores/AnalyzerMultiple.h"
-#include "../../rubik/scores/Tunner.h"
-#include "../../rubik/scores/basic-score/BasicScore.h"
-#include <type_traits>
-#include <iomanip>
-#include <fstream>
-#include <algorithm>
-#include <limits>
-#include <omp.h>
-#include <chrono>
-#include <unordered_set>
+#include "../../rubik/Utils.h"
+#include "../../rubik/scores/basic-score/BasicAnalyzer.h"
+#include "../../rubik/scores/basic-score/BasicTunner.h"
 #ifdef _WIN32
 #include <windows.h>
 #endif
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 int main(int argc, char* argv[]){
     #ifdef _WIN32
         SetConsoleOutputCP(65001);
     #endif
 
-    if(argc < 2){
-        std::cout << "[ERRO] [ARGUMENTOS] Nenhum arquivo de saída foi especificado.\n";
-        return 1;
-    }
+    std::string scramble_path = "tuning/scrambles/";
+    auto scrambles = Utils::read_scrambles(scramble_path);
 
-    std::filesystem::path output = argv[1];
+    BasicAnalyzer analyzer(scrambles);
+    BasicTunner tunner(analyzer);
 
-    std::string separator = "/";
-    #ifdef _WIN32
-        separator = "\\";
-    #endif
-
-    std::string scramblePath = "tuning"+separator+"scrambles"+separator;
-
-    AnalyzerMultiple<BasicScore> analyzer(scramblePath);
-    Tunner tunner(analyzer);
-
-    tunner.addParameter({0, 1});
-    tunner.addParameter({0, 1});
-    tunner.addParameter({0, 1});
-    tunner.addParameter({0, 1});
-    tunner.addParameter({0, 1});
-    tunner.addParameter({0, 1});
-    tunner.addParameter({0, 1});
-    tunner.addParameter({0, 1});
-    tunner.addParameter({0, 1});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 2});
+    tunner.addParameter({0, 0});
 
     tunner.run();
-
-    tunner.writeResults(output);
+    tunner.writeResults("results.tun");
 
     return 0;
 }

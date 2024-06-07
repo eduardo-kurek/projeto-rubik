@@ -2,23 +2,28 @@
 
 #include <iostream>
 #include <iomanip>
+#include <filesystem>
+#include <fstream>
 #include <string>
 #include <vector>
 #include <algorithm>
 #include <chrono>
-#include "AnalyzerMultiple.h"
 #include "basic-score/BasicScore.h"
+#include "Analyzer.h"
 
-template <typename TAnalyzerMultiple>
+template <typename TAnalyzer, typename TScore, typename TConfig>
+requires std::derived_from<TAnalyzer, Analyzer<TScore, TConfig>>
 class Tunner {
 
-    struct Parameter{
-        int min;
-        int max;
-        int minExclude;
-        int maxExclude;
+protected:
 
-        Parameter(int min, int max, int minExclude = 0, int maxExclude = 0){
+    struct Parameter{
+        float min;
+        float max;
+        float minExclude;
+        float maxExclude;
+
+        Parameter(float min, float max, float minExclude = 0, float maxExclude = 0){
             this->min = min;
             this->max = max;
             this->minExclude = minExclude;
@@ -27,7 +32,7 @@ class Tunner {
     };
 
     struct Result{
-        std::vector<int> parameters;
+        std::vector<float> parameters;
         float value;
 
         bool operator<(const Result& other) const{
@@ -44,13 +49,13 @@ class Tunner {
     };
 
     struct AnalysisSet{
-        std::vector<int> values;
+        std::vector<float> values;
         std::vector<Parameter> params;
     };
 
     Result NULL_RESULT = {{}, 0.0};
 
-    TAnalyzerMultiple analyzer;
+    TAnalyzer* analyzer = nullptr;
     std::vector<Parameter> parameters;
     std::vector<Result> results;
     uint64_t count = 0;
@@ -58,6 +63,8 @@ class Tunner {
     uint16_t printProgressStep = 20; // 1/20 = 5%
     std::chrono::seconds elapsed;
     int s;
+
+    TConfig virtual getConfig(std::vector<float>& values) = 0;
 
     void increaseCount(){
         this->count++;
@@ -126,7 +133,7 @@ class Tunner {
             }
             if(!flag) return;
 
-            float res = this->analyzer.analyse(set.values);
+            float res = this->analyzer->analyze(getConfig(set.values));
             if(res) this->insertResult({set.values, res});
             return;
         }
@@ -145,10 +152,8 @@ class Tunner {
     }
 
 public:
-    Tunner() = default;
-
-    Tunner(TAnalyzerMultiple analyzer, int resultsSize = 5){
-        this->analyzer = analyzer;
+    Tunner(TAnalyzer& analyzer, int resultsSize = 5){
+        this->analyzer = &analyzer;
         this->results.resize(resultsSize);
         Result maxResult = {{}, std::numeric_limits<float>::max()};
         for(auto& r : this->results) r = maxResult;
@@ -167,7 +172,7 @@ public:
 
         AnalysisSet set;
         set.params = this->parameters;
-        set.values = std::vector<int>();
+        set.values = std::vector<float>();
         this->tune(set, 0);
 
         std::chrono::_V2::high_resolution_clock::time_point end;

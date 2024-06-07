@@ -5,17 +5,16 @@
 #include <iomanip>
 #include <iostream>
 
-BasicScore::BasicScore(PontuationTable* pt, const Rubik* target) : Score(target) {
-    this->pontuationTable = pt;
-    this->maxScore = this->calculate(*target);
+BasicScore::BasicScore(BasicConfig config, const Rubik *target) : Score(config, target) {
+    this->maxScore = calculate(*target);
 }
 
 float BasicScore::getScoreByState(Edges::State state){
-    return this->pontuationTable->getEdgePontuations()[state];
+    return this->config.edges[state];
 }
 
 float BasicScore::getScoreByState(Corners::State state){
-    return this->pontuationTable->getCornerPontuations()[state];
+    return this->config.corners[state];
 }
 
 float BasicScore::calculate_face_synergy(const Rubik& source){
@@ -47,7 +46,7 @@ float BasicScore::calculate_face_synergy(const Rubik& source){
     return 0;
 }
 
-float BasicScore::calculate(const Rubik& source){
+float BasicScore::calculate(const Rubik &source){
     float score = 0;
 
     // CALCULANDO VALORES DAS CORNERS

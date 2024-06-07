@@ -1,20 +1,19 @@
 #pragma once
 
 #include "../Score.h"
-#include "../PontuationTable.h"
+#include "BasicConfig.h"
 #include <vector>
 
-class BasicScore : public virtual Score{
+class BasicScore : public virtual Score<BasicConfig>{
 
-    PontuationTable* pontuationTable;
     int minSynergyScore = 15;
 
-    float getScoreByState(Corners::State state) override;
-    float getScoreByState(Edges::State state) override;
+    float getScoreByState(Corners::State state);
+    float getScoreByState(Edges::State state);
     float calculate_face_synergy(const Rubik& source);
 
 public:
-    BasicScore(PontuationTable* pt, const Rubik* target = new Rubik());
+    BasicScore(BasicConfig config = BasicConfig(), const Rubik* target = new Rubik());
     float calculate(const Rubik& source) override;
 
 };

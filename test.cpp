@@ -1,10 +1,9 @@
 #include "rubik/Rubik.h"
 #include "rubik/solvers/Greedy.h"
-#include "rubik/solvers/Genetic.h"
 #include "rubik/solvers/BruteForce.h"
+#include "rubik/solvers/Genetic.h"
 #include "rubik/auxiliares/StickerCoord.h"
 #include "rubik/auxiliares/Corners.h"
-#include "rubik/scores/PontuationTable.h"
 #include "rubik/scores/basic-score/BasicScore.h"
 #include "rubik/auxiliares/Move.h"
 #include "rubik/auxiliares/Restriction.h"
@@ -29,12 +28,12 @@ int main(int argc, char* argv[]){
     #endif
     
     Rubik r;
-    r.scramble(6);
+    r.scramble(3);
 
-    PontuationTable pt({0, 0, 0, 0}, {2, 1, -2, 0}, 0);
-    BasicScore bs(&pt);
+    BasicConfig cfg = BasicConfig();
+    BasicScore bs = BasicScore(cfg);
 
-    Genetic g(bs, r);
+    Genetic g = Genetic(&bs, r);
     g.solve();
     std::cout << "Embaralhamento realizado: " << r.getHistoricString() << std::endl;
     std::cout << "Soluções encontradas:" << std::endl;
@@ -44,6 +43,5 @@ int main(int argc, char* argv[]){
     r.clearRestrictedMoves();
     r.move(g.getFoundedSolves()[0]);
     r.print();
-    
     
 }
