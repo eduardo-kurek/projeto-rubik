@@ -36,7 +36,7 @@ public:
     virtual bool operator<(const Chromosome<TValue>& other) const { return this->fitness < other.fitness; }
     virtual void evaluate() = 0;
     virtual void randomize() = 0;
-    virtual Chromosome<TValue> crossover(Chromosome<TValue>& parent) const = 0;
+    virtual Chromosome<TValue>* crossover(Chromosome<TValue>& parent) const = 0;
 
 };
 
