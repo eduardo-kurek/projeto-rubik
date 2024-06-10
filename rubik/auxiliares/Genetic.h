@@ -19,22 +19,22 @@ public:
 
     Chromosome(){
         this->randomize();
-        this->fitness();
+        this->evaluate();
     };
 
     Chromosome(TValue value){
         this->value = value;
-        this->fitness();
+        this->evaluate();
     };
 
     void mutate(){
         this->_mutate();
-        this->fitness();
+        this->evaluate();
     };
 
     bool operator==(const Chromosome<TValue>& other) const { return this->value == other.value; }
     virtual bool operator<(const Chromosome<TValue>& other) const { return this->fitness < other.fitness; }
-    virtual void fitness() = 0;
+    virtual void evaluate() = 0;
     virtual void randomize() = 0;
     virtual Chromosome<TValue> crossover(Chromosome<TValue>& parent) const = 0;
 
