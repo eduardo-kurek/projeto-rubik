@@ -4,6 +4,10 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+#include <algorithm>
+#include <unordered_map>
+#include <omp.h>
+#include <string>
 #include "../../services/Random.h"
 
 template <class TValue>
@@ -17,15 +21,15 @@ public:
     TValue value;
     double fitness;
 
-    Chromosome(){
-        this->randomize();
-        this->evaluate();
-    };
-
-    Chromosome(TValue value){
+    void initialize(TValue value){
         this->value = value;
         this->evaluate();
-    };
+    }
+
+    void initialize(){
+        this->randomize();
+        this->evaluate();
+    }
 
     void mutate(){
         this->_mutate();
@@ -33,9 +37,10 @@ public:
     };
 
     bool operator==(const Chromosome<TValue>& other) const { return this->value == other.value; }
-    virtual bool operator<(const Chromosome<TValue>& other) const { return this->fitness < other.fitness; }
+    virtual bool operator<(const Chromosome<TValue>& other) const { return this->fitness > other.fitness; }
     virtual void evaluate() = 0;
     virtual void randomize() = 0;
+    virtual std::string toString() const = 0;
     virtual Chromosome<TValue>* crossover(Chromosome<TValue>& parent) const = 0;
 
 };
@@ -68,7 +73,7 @@ protected:
     }
 
     void sort(){
-        std::sort(population.begin(), population.end(), Chromosome::greater);
+        std::sort(population.begin(), population.end());
     }
 
     virtual void clear(){
@@ -80,21 +85,18 @@ protected:
     }
 
     void remove_duplicates(){
-        std::unordered_map<std::string, Chromosome> unique;
+        std::unordered_map<std::string, TChromosome> unique;
         for(auto& c : population)
-            unique.insert(std::make_pair(c.rubik.getHistoricString(), c));
+            unique.insert(std::make_pair(c.toString(), c));
         
         population.clear();
         for(auto& pair : unique)
             population.push_back(pair.second);
 
-        sort_population();
+        sort();
     }
 
-    virtual void pre_initialize() {};
-
     void initialize(){
-        pre_initialize();
         for(int i = 0; i < max_population - population.size(); i++){
             population.push_back(TChromosome());
         }
@@ -117,7 +119,7 @@ protected:
             children.end(), merged.begin());
         
         population = std::move(merged);
-        population.resize(population_size);
+        population.resize(max_population);
     }
 
     virtual TChromosome select() const{
@@ -140,12 +142,12 @@ protected:
             for(uint32_t i = 0; i < population.size(); i++){
                 TChromosome parent1 = select();
                 TChromosome parent2 = select(); // Pode ser o mesmo pai (Arrumar)
-                TChromosome child = crossover(parent1, parent2);
+                TChromosome* child = dynamic_cast<TChromosome*>(parent1.crossover(parent2));
 
                 if(svc::Random::MT() % 1000 < mutation_rate + stagnation * 2)
-                    mutate(child);
+                    child->mutate();
                 
-                private_children.push_back(child);
+                private_children.push_back(*child);
             }
             
             #pragma omp critical
@@ -154,7 +156,7 @@ protected:
             }
         }
 
-        std::sort(children.begin(), children.end(), Chromosome::greater);
+        std::sort(children.begin(), children.end());
         combine_children(children);
         remove_duplicates();
         gen_count++;
@@ -170,7 +172,7 @@ protected:
 public:
     Genetic() = default;
 
-    run(){
+    void run(){
         initialize();
         for(int i = 0; loop_condiction(i); i++) loop();
         finalize();
