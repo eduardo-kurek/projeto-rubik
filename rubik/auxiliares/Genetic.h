@@ -10,11 +10,21 @@
 #include <string>
 #include "../../services/Random.h"
 
+template <typename Derived, typename Base>
+std::vector<Derived*> dynamic_cast_vector(const std::vector<Base*>& base_vector) {
+    std::vector<Derived*> derived_vector;
+    for(Base* base_ptr : base_vector){
+        Derived* derived_ptr = dynamic_cast<Derived*>(base_ptr);
+        derived_vector.push_back(derived_ptr);
+    }
+    return derived_vector;
+}
+
 template <class TValue>
 class Chromosome {
 
 protected:
-    virtual void _mutate() = 0;
+    virtual void _mutate(void*) = 0;
 
 public:
     using _TValue = TValue;
@@ -31,17 +41,17 @@ public:
         this->evaluate();
     }
 
-    void mutate(){
-        this->_mutate();
+    void mutate(void* param = nullptr){
+        this->_mutate(param);
         this->evaluate();
     };
 
     bool operator==(const Chromosome<TValue>& other) const { return this->value == other.value; }
     virtual bool operator<(const Chromosome<TValue>& other) const { return this->fitness > other.fitness; }
     virtual void evaluate() = 0;
-    virtual void randomize() = 0;
+    virtual void randomize(void* param = nullptr) = 0;
     virtual std::string toString() const = 0;
-    virtual Chromosome<TValue>* crossover(Chromosome<TValue>& parent) const = 0;
+    virtual std::vector<Chromosome<TValue>*> crossover(const Chromosome<TValue>& parent) const = 0;
 
 };
 
@@ -56,7 +66,7 @@ protected:
     int max_population = 1000;
     int gen_count = 0;
     int mutation_count = 0;
-    int mutation_rate = 10; // 1%
+    int mutation_rate[2] = {10, 1000}; // [0] / [1] = 1%
     float best_fitness = 0;
     int stagnation = 0;
     
@@ -122,12 +132,36 @@ protected:
         population.resize(max_population);
     }
 
-    virtual TChromosome select() const{
+    virtual const TChromosome* select() const{
         // Seleção por torneio de 2
         std::uniform_int_distribution<int> dist(0, population.size()-1);
         int i1 = dist(svc::Random::MT);
         int i2 = dist(svc::Random::MT);
-        return i1 < i2 ? population[i1] : population[i2];
+        return i1 < i2 ? &population[i1] : &population[i2];
+    }
+
+    std::vector<TChromosome*> cast_vector(const auto& base_vector) {
+        std::vector<TChromosome*> derived_vector;
+        for(auto base_ptr : base_vector){
+            TChromosome* derived_ptr = dynamic_cast<TChromosome*>(base_ptr);
+            derived_vector.push_back(derived_ptr);
+        }
+        return std::move(derived_vector);
+    }
+
+    virtual std::vector<TChromosome*> generate_individuals(){
+        const TChromosome* parent1 = select();
+        const TChromosome* parent2 = select(); // Pode ser o mesmo pai (Arrumar)
+        std::vector<TChromosome*> children = cast_vector(parent1->crossover(*parent2));
+
+        for(auto& child : children){
+            if(svc::Random::Int(1, mutation_rate[1]) < mutation_rate[0] + stagnation * 2){
+                child->mutate();
+                mutation_count++;
+            }
+        }
+
+        return std::move(children);
     }
 
     virtual void next_generation(){
@@ -140,13 +174,8 @@ protected:
 
             #pragma omp for
             for(uint32_t i = 0; i < population.size(); i++){
-                TChromosome parent1 = select();
-                TChromosome parent2 = select(); // Pode ser o mesmo pai (Arrumar)
-                TChromosome* child = dynamic_cast<TChromosome*>(parent1.crossover(parent2));
-
-                if(svc::Random::MT() % 1000 < mutation_rate + stagnation * 2)
-                    child->mutate();
-                
+                auto children = generate_individuals();
+                TChromosome* child = children[0];
                 private_children.push_back(*child);
             }
             
