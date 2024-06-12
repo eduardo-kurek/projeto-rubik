@@ -175,8 +175,7 @@ protected:
             #pragma omp for
             for(uint32_t i = 0; i < population.size(); i++){
                 auto children = generate_individuals();
-                TChromosome* child = children[0];
-                private_children.push_back(*child);
+                private_children.insert(private_children.end(), children.begin(), children.end());
             }
             
             #pragma omp critical
