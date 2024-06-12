@@ -48,7 +48,7 @@ public:
 
     bool operator==(const Chromosome<TValue>& other) const { return this->value == other.value; }
     virtual bool operator<(const Chromosome<TValue>& other) const { return this->fitness > other.fitness; }
-    virtual void evaluate() = 0;
+    virtual void evaluate(void* param = nullptr) = 0;
     virtual void randomize(void* param = nullptr) = 0;
     virtual std::string toString() const = 0;
     virtual std::vector<Chromosome<TValue>*> crossover(const Chromosome<TValue>& parent) const = 0;
