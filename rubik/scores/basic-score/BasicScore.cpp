@@ -51,13 +51,13 @@ float BasicScore::calculate(const Rubik &source){
 
     // CALCULANDO VALORES DAS CORNERS
     for(auto& corner : Corners::CORNERS){
-        Corners::State state = corner->compare(*this->target, source);
+        Corners::State state = corner->compare(this->target, source);
         score += this->getScoreByState(state);
     }
 
     // CALCULANDO VALORES DAS EDGES
     for(auto& edge : Edges::EDGES){
-        Edges::State state = edge->compare(*this->target, source);
+        Edges::State state = edge->compare(this->target, source);
         score += this->getScoreByState(state);
     }
 
