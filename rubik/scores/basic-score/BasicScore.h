@@ -13,7 +13,7 @@ class BasicScore : public virtual Score<BasicConfig>{
     float calculate_face_synergy(const Rubik& source);
 
 public:
-    BasicScore(BasicConfig config = BasicConfig(), const Rubik* target = new Rubik());
+    BasicScore(BasicConfig config = BasicConfig(), Rubik target = Rubik());
     float calculate(const Rubik& source) override;
 
 };

@@ -5,8 +5,8 @@
 #include <iomanip>
 #include <iostream>
 
-BasicScore::BasicScore(BasicConfig config, const Rubik *target) : Score(config, target) {
-    this->maxScore = calculate(*target);
+BasicScore::BasicScore(BasicConfig config, Rubik target) : Score(config, target) {
+    this->maxScore = calculate(target);
 }
 
 float BasicScore::getScoreByState(Edges::State state){

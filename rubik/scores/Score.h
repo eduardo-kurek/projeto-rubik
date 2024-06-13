@@ -16,12 +16,12 @@ protected:
     float maxScore = 0;
 
     /* Alvo da pontuação, em relação a qual objeto a pontuação será aplicada */
-    const Rubik* target;
+    Rubik target;
 
 public:
 
     /* Construtor da classe, seta as propriedades necessárias */
-    Score(TConfig config, const Rubik* target){
+    Score(TConfig config, Rubik target){
         this->config = config;
         this->target = target;
     }
@@ -38,7 +38,7 @@ public:
         return score / this->getMaxScore();
     }
 
-    /* defini uma nova configuração */
+    /* define uma nova configuração */
     void configurate(TConfig config){
         this->config = config;
     }
