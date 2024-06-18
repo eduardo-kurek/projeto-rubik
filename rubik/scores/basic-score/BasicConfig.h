@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Config.h"
+#include <string>
 #include <array>
 
 class BasicConfig : public Config{
