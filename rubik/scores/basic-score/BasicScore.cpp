@@ -5,8 +5,8 @@
 #include <iomanip>
 #include <iostream>
 
-BasicScore::BasicScore(BasicConfig config, Rubik target) : Score(config, target) {
-    this->maxScore = calculate(target);
+BasicScore::BasicScore(BasicConfig config, Rubik target) : Score(config, target){
+    this->maxScore = this->calculate(target);
 }
 
 float BasicScore::getScoreByState(Edges::State state){
@@ -17,7 +17,8 @@ float BasicScore::getScoreByState(Corners::State state){
     return this->config.corners[state];
 }
 
-float BasicScore::calculate_face_synergy(const Rubik& source){
+
+float BasicScore::calculate_face_synergy(const Rubik& source, float score){
     int res[6] = {0};
     const Face* faces = source.getFaces();
 
@@ -30,20 +31,25 @@ float BasicScore::calculate_face_synergy(const Rubik& source){
                 equals[cor->index]++;
             }
         }
-
-        // Adicionando os resultados da face
-        for(uint8_t j = 0; j < 6; j++){
-            int val = equals[j] * equals[j] - this->minSynergyScore;
-            val < 0 ? val = 0 : val = val;
-            res[i] += val;
-        }
         
+        // Adicionando os resultados da face
+        for(uint8_t j = 0; j < 6; j++) res[i] = std::pow(equals[j], this->pow);
+        res[i] -= this->minSynergyScore;
+        if(res[i] < 0) res[i] = 0;
+        res[i] *= res[i];
     }
 
-    int sum = 0;
+    // Calculando a soma dos resultados
+    float sum = 0;
     for(uint8_t i = 0; i < 6; i++) sum += res[i];
 
-    return 0;
+    // Normalizando o resultado em relação ao score
+    float norm = sum / this->maxSynergyScore;
+    sum = norm * score;
+
+    // Multiplicando o resultado pela sinergia
+    sum *= this->config.synergy;
+    return sum;
 }
 
 float BasicScore::calculate(const Rubik &source){
@@ -61,6 +67,6 @@ float BasicScore::calculate(const Rubik &source){
         score += this->getScoreByState(state);
     }
 
-    score += this->calculate_face_synergy(source);
+    score += this->calculate_face_synergy(source, score);
     return score;
 }

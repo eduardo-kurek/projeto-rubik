@@ -35,9 +35,7 @@ protected:
         std::cout << "Estagnação: " << stagnation << std::endl;
         std::cout << "5 melhores indivíduos: " << std::endl;
         for(uint16_t i = 0; i < 5; i++){
-            std::cout << "\t" << i+1 << "° -> (f: " << population[i].fitness << ", s: " << 
-            this->score->calculateNormalized(population[i].rubik) << "); ";
-            population[i].rubik.printHistoric();
+            std::cout << "\t" << i+1 << "° -> (f: " << population[i].fitness << "); ";
         }
         std::cout << std::endl;
     }

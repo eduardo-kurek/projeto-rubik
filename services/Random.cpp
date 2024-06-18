@@ -9,4 +9,9 @@ namespace svc {
         return dist(MT);
     }
 
+    float Random::Float(float min, float max){
+        std::uniform_real_distribution<float> dist(min, max);
+        return dist(MT);
+    }
+
 }

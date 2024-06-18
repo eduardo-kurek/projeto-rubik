@@ -14,7 +14,7 @@ int main(int argc, char* argv[]){
     std::string scramble_path = "tuning/scrambles/";
     auto scrambles = Utils::read_scrambles(scramble_path);
 
-    BasicAnalyzer analyzer(scrambles);
+    BasicAnalyzer analyzer(&scrambles);
     BasicTunner tunner(analyzer);
 
     tunner.addParameter({0, 2});

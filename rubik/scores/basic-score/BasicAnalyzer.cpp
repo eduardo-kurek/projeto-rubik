@@ -7,39 +7,42 @@ float BasicAnalyzer::calculate_scramble(int i){
 
     float expected = this->expectedPontuations[i];
 
-    for(int j = 0; j < this->scrambles[i].size(); j++){
-        std::vector<const Move*> moves = this->scrambles[i][j];
+    for(int j = 0; j < (*this->scrambles)[i].size(); j++){
+        std::vector<const Move*> moves = (*this->scrambles)[i][j];
         Rubik rubik;
         rubik.move(moves);
 
         // CALCULANDO O ERRO MÉDIO QUADRÁTICO (MSE)
-        float diff = abs(score.calculateNormalized(rubik) - expected);
+        float res = score.calculateNormalized(rubik);
+        this->pontuations[i] += res;
+        float diff = abs(res - expected);
         sum += diff * diff;
         count++;
     }
 
+    this->pontuations[i] /= count;
     return sum / count;
 }
 
-void BasicAnalyzer::calculate_pontuations(){
-    this->pontuations = std::vector<float>();
-    this->pontuations.resize(20);
+void BasicAnalyzer::calculate_divergences(){
+    this->divergences = std::vector<float>(20);
 
     #pragma omp parallel for
     for(int i = 0; i < 20; i++)
-        this->pontuations[i] = this->calculate_scramble(i);
+        this->divergences[i] = this->calculate_scramble(i);
 }
 
 float BasicAnalyzer::analyze(BasicConfig config){
+    this->pontuations = std::vector<float>(20);
     this->score = BasicScore(config);
-    this->calculate_pontuations();
+    this->calculate_divergences();
 
     float sum = 0;
 
     // SOMANDO TODOS OS RESULTADOS
     #pragma omp parallel for reduction(+:sum)
-    for(int i = 0; i < this->pontuations.size(); i++)
-        sum += this->pontuations[i];
+    for(int i = 0; i < this->divergences.size(); i++)
+        sum += this->divergences[i];
 
     if(debug) this->print_pontuations();
     return sum;

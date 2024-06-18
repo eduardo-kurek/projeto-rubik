@@ -15,15 +15,15 @@ class Analyzer{
 
 protected:
     TScore score;
-    std::vector<std::vector<std::vector<const Move*>>> scrambles;
+    Scrambles* scrambles;
     std::vector<float> pontuations;
     std::vector<float> expectedPontuations = {95,90,85,80,75,70,65,60,55,50,45,40,35,30,25,20,15,10,5,0};
 
 public:
     bool debug;
 
-    Analyzer(Scrambles scrambles, bool debug = false){
-        if(scrambles.size() != 20)
+    Analyzer(Scrambles* scrambles, bool debug = false){
+        if(scrambles->size() != 20)
             throw std::invalid_argument("A quantidade de conjuntos de embaralhamentos deve ser 20.");
         this->scrambles = scrambles;
         this->debug = debug;

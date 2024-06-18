@@ -40,7 +40,7 @@ int main(int argc, char* argv[]){
     float buff = std::stof(argv[9]);
 
     BasicConfig cfg = BasicConfig(corners, edges, buff);
-    BasicAnalyzer analyzer(scrambles, debug);
+    BasicAnalyzer analyzer(&scrambles, debug);
     float result = analyzer.analyze(cfg);
 
     std::cout << std::fixed << std::setprecision(2) << result << std::endl;
