@@ -105,6 +105,10 @@ void BasicGeneticTunner::set_initial_configs(std::vector<BasicConfig> configs){
     }
 }
 
+void BasicGeneticTunner::clear_initial_configs(){
+    this->initial_configs.clear();
+}
+
 void BasicGeneticTunner::run(){
     this->clear();
     #pragma omp parallel
