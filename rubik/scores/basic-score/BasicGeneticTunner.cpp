@@ -142,6 +142,7 @@ void BasicGeneticTunner::run(){
             }
 
             this->sort(children);
+            if(i % 50 == 0) this->remove_duplicates(population);
             population = combine(population, children);
         }
 
