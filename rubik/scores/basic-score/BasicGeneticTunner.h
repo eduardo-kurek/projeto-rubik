@@ -29,6 +29,7 @@ class BasicGeneticTunner : public GeneticTunner<BasicScore, BasicConfig>{
     void mutate(Chromosome& r);
     void sort(std::vector<Chromosome>& population);
     void fitness(Chromosome& c);
+    void remove_duplicates(std::vector<Chromosome>& population);
     std::vector<Chromosome> initialize(int n);
     std::vector<Chromosome> combine(std::vector<Chromosome>& population1, std::vector<Chromosome>& population2);
 

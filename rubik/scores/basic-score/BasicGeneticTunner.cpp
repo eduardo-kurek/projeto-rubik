@@ -57,6 +57,18 @@ void BasicGeneticTunner::fitness(Chromosome &c){
     c.fitness = analyzer.analyze(c.config);
 }
 
+void BasicGeneticTunner::remove_duplicates(std::vector<Chromosome>& population){
+    std::unordered_map<std::string, Chromosome> unique;
+    for(auto& c : population)
+        unique.insert(std::make_pair(c.config.toString(), c));
+
+    population.clear();
+    for(auto& pair : unique)
+        population.push_back(pair.second);
+
+    this->sort(population);
+}
+
 std::vector<BasicGeneticTunner::Chromosome> BasicGeneticTunner::initialize(int n){
     std::vector<Chromosome> population = std::vector<Chromosome>(initial_configs.begin(), initial_configs.end());
     for(int i = 0; i < n; i++){
@@ -133,6 +145,7 @@ void BasicGeneticTunner::run(){
             population = combine(population, children);
         }
 
+        this->remove_duplicates(population);
         #pragma omp critical
         std::copy(population.begin(), population.begin() + 3, std::back_inserter(results));
     }
