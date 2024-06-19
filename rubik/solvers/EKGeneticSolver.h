@@ -157,7 +157,7 @@ protected:
                     if(svc::Random::Int(1, this->mutation_rate[1]) <= this->mutation_rate[0] + stagnation * 2)
                         mutate(child);
             
-                private_children.insert(private_children.end(), children.begin(), children.end());
+                private_children.insert(private_children.end(), crossover_children.begin(), crossover_children.end());
             }
             
             #pragma omp critical
@@ -184,8 +184,7 @@ public:
         for(uint16_t i = 0; i < 300; i++){
             if(population[0].fitness == 100.0f) break;
             next_generation();
-
-            std::cout << "Best fitness: " << best_fitness << std::endl;
+            
             if(best_fitness == population[0].fitness) stagnation++;
             else stagnation = 0;
             best_fitness = population[0].fitness;

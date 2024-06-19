@@ -55,7 +55,6 @@ int main(int argc, char* argv[]){
   solver.solve();
   solver.printFoundedSolves();
 
-
   return 0;
 
 }
