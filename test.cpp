@@ -32,20 +32,28 @@ int main(int argc, char* argv[]){
     SetConsoleOutputCP(65001);
   #endif
   
-  std::string scramble_path = "tuning/scrambles/";
-  auto scrambles = Utils::read_scrambles(scramble_path);
-  BasicAnalyzer analyzer(&scrambles);
+  // std::string scramble_path = "tuning/scrambles/";
+  // auto scrambles = Utils::read_scrambles(scramble_path);
+  // BasicAnalyzer analyzer(&scrambles);
 
-  BasicGeneticTunner tunner(analyzer, 50, 1000);
+  // BasicGeneticTunner tunner(analyzer, 50, 1000);
   
-  std::vector<BasicConfig> initial_configs;
-  for(int i = 0; i < 100; i++){
-    tunner.set_initial_configs(initial_configs);
-    tunner.run();
-    std::cout << "Iteração " << i << "\n";
-    tunner.print_status();
-    initial_configs = tunner.get_results();
-  }
+  // std::vector<BasicConfig> initial_configs;
+  // for(int i = 0; i < 100; i++){
+  //   tunner.set_initial_configs(initial_configs);
+  //   tunner.run();
+  //   std::cout << "Iteração " << i << "\n";
+  //   tunner.print_status();
+  //   initial_configs = tunner.get_results();
+  // }
+
+  Rubik r;
+  r.move({R, U, L, D});
+
+  BasicConfig config;
+  EKGeneticSolver<BasicScore> solver(r, config);
+  solver.solve();
+  solver.printFoundedSolves();
 
 
   return 0;

@@ -18,6 +18,7 @@ class BasicScore : public Score<BasicConfig>{
     float calculate_face_synergy(const Rubik& source, float score);
 
 public:
+    using _TConfig = BasicConfig;
     BasicScore(BasicConfig config = BasicConfig(), Rubik target = Rubik());
     float calculate(const Rubik& source) override;
 

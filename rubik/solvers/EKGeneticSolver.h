@@ -18,9 +18,9 @@ class EKGeneticSolver : public Solver {
     };
 
 protected:
-    TScore* score;
+    TScore score;
     std::vector<EKGeneticSolver::Chromosome> population;
-    uint32_t population_size = 1500;
+    uint32_t population_size = 1000;
     uint32_t gen_count = 0;
     uint32_t mutation_count = 0;
     uint32_t mutation_rate[2] = {10, 1000}; // [0] / [1] = 1%
@@ -81,7 +81,7 @@ protected:
     }
 
     virtual void fitness(Chromosome& c){
-        c.fitness = score->calculateNormalized(c.rubik);
+        c.fitness = score.calculateNormalized(c.rubik);
     }
 
     virtual Chromosome select(){
@@ -93,7 +93,7 @@ protected:
     }
 
     virtual std::vector<Chromosome> crossover(Chromosome& parent1, Chromosome& parent2){
-Rubik rubik = this->source;
+        Rubik rubik = this->source;
         
         std::vector<std::vector<const Move*>> historics = {
             parent1.rubik.getHistoric(), parent2.rubik.getHistoric()
@@ -118,19 +118,19 @@ Rubik rubik = this->source;
 
         Chromosome child = Chromosome{rubik, 0};
         fitness(child);
-        return child;
         std::vector<Chromosome> children = {child};
         return children;
     }
 
     virtual void mutate(Chromosome& r){
         Rubik mutated = this->source;
-        
-        std::vector<const Move*> moves = r.rubik.getHistoric();
-        int i1 = svc::Random::Int(0, moves.size() - 1);
-        int i2 = svc::Random::Int(0, moves.size() - 1);
-        std::swap(moves[i1], moves[i2]);
-        for(auto& m : moves) mutated.move(1, *m);
+        auto historic = r.rubik.getHistoric();
+        int rand = svc::Random::Int(1, historic.size());
+        int mov = svc::Random::Int(0, 17);
+
+        for(int i = 0; i < rand; i++) mutated.move({historic[i]});
+        mutated.move({Moves[mov]});
+        for(int i = rand; i < historic.size(); i++) mutated.move({historic[i]});
 
         r.rubik = mutated;
         fitness(r);
@@ -146,12 +146,14 @@ Rubik rubik = this->source;
             std::vector<Chromosome> private_children;
 
             #pragma omp for
-            for(uint32_t i = 0; i < population.size() / 2; i++){
+            for(uint32_t i = 0; i < population.size(); i++){
                 Chromosome parent1 = select();
-                Chromosome parent2 = select(); // Pode ser o mesmo pai (Arrumar)
-                std::vector<Chromosome> childdren = crossover(parent1, parent2);
+                Chromosome parent2 = select();
+                while(parent1.rubik.getHistoricString() == parent2.rubik.getHistoricString())
+                    parent2 = select();
+                std::vector<Chromosome> crossover_children = crossover(parent1, parent2);
 
-                for(auto& child : children)
+                for(auto& child : crossover_children)
                     if(svc::Random::Int(1, this->mutation_rate[1]) <= this->mutation_rate[0] + stagnation * 2)
                         mutate(child);
             
@@ -171,18 +173,19 @@ Rubik rubik = this->source;
     };
 
 public:
-    EKGeneticSolver(TScore* score, Rubik source) : Solver(source){
-        this->score = score;
+    EKGeneticSolver(Rubik source, TScore::_TConfig config) : Solver(source){
+        this->score = TScore(config);
     };
 
     void solve() override{
         initialize();
+        best_fitness = population[0].fitness;
         
-        for(uint16_t i = 0; i < 50; i++){
+        for(uint16_t i = 0; i < 300; i++){
             if(population[0].fitness == 100.0f) break;
             next_generation();
 
-            std::cout << "Best fitness: " << population[0].fitness << std::endl;
+            std::cout << "Best fitness: " << best_fitness << std::endl;
             if(best_fitness == population[0].fitness) stagnation++;
             else stagnation = 0;
             best_fitness = population[0].fitness;
