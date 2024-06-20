@@ -47,13 +47,35 @@ int main(int argc, char* argv[]){
   //   initial_configs = tunner.get_results();
   // }
 
-  Rubik r;
-  r.move({R, U, L, D});
+  int count[20] = {0};
+  int qt = 1;
 
-  BasicConfig config;
-  EKGeneticSolver<BasicScore> solver(r, config);
-  solver.solve();
-  solver.printFoundedSolves();
+  #pragma omp parallel for
+  for(int i = 4; i < 20; i++){
+    for(int j = 0; j < qt; j++){
+      Rubik r;
+      r.scramble(i+1);
+
+      BasicConfig config;
+      EKGeneticSolver<BasicScore> solver(r, config);
+      solver.solve();
+      if(solver.solved()) count[i]++;
+      
+
+      if(qt % 1000 == 0){
+        #pragma omp critical
+        {
+          std::cout << "Iteração " << i << " - " << j << "\n";
+        }
+      }
+      
+    }
+  }
+
+  // imprimindo resultados em porcentagem
+  for(int i = 4; i < 20; i++){
+    std::cout << "Soluções para " << i+1 << " movimentos: " << count[i] << " (" << (count[i]*100.0)/qt << "%)\n";
+  }
 
   return 0;
 

@@ -11,8 +11,8 @@ class BasicConfig : public Config{
     float synergy_bounds[2] = {0.0f, 10.0f};
 
 public:
-    Array corners = {1, 0, -2, 0}; // [0]Correta, [1]orientada, [2]permutada (ambos os sentidos), [3]incorreta
-    Array edges = {-80, -68, 34, -8}; // [0]Correta, [1]orientada, [2]permutada, [3]incorreta
+    Array corners = {1, -5, -9, -6}; // [0]Correta, [1]orientada, [2]permutada (ambos os sentidos), [3]incorreta
+    Array edges = {-96, -78, 35, -6}; // [0]Correta, [1]orientada, [2]permutada, [3]incorreta
     float synergy = 0;
 
     BasicConfig() = default;

@@ -1,6 +1,7 @@
 #include "../Rubik.h"
 #include "../scores/Score.h"
 #include "../../services/Random.h"
+#include "BruteForce.h"
 #include "Solver.h"
 #include <algorithm>
 #include <vector>
@@ -20,12 +21,13 @@ class EKGeneticSolver : public Solver {
 protected:
     TScore score;
     std::vector<EKGeneticSolver::Chromosome> population;
-    uint32_t population_size = 1000;
+    uint32_t population_size = 5000;
     uint32_t gen_count = 0;
     uint32_t mutation_count = 0;
     uint32_t mutation_rate[2] = {10, 1000}; // [0] / [1] = 1%
     float best_fitness = 0;
     uint32_t stagnation = 0;
+    bool founded = false;
 
     virtual void print_status(){
         std::cout << "===================================" << std::endl;
@@ -67,6 +69,7 @@ protected:
     }
 
     virtual void initialize(){
+        this->founded = false;
         for(uint32_t i = 0; i < population_size; i++){
             Rubik rubik = this->source;
             std::uniform_int_distribution<int> dist(1, 20);
@@ -154,7 +157,7 @@ protected:
                 std::vector<Chromosome> crossover_children = crossover(parent1, parent2);
 
                 for(auto& child : crossover_children)
-                    if(svc::Random::Int(1, this->mutation_rate[1]) <= this->mutation_rate[0] + stagnation * 2)
+                    if(svc::Random::Int(1, this->mutation_rate[1]) <= this->mutation_rate[0] + stagnation)
                         mutate(child);
             
                 private_children.insert(private_children.end(), crossover_children.begin(), crossover_children.end());
@@ -172,7 +175,26 @@ protected:
         gen_count++;
     };
 
+    bool check_solution(Chromosome& c){
+        Rubik r = this->source;
+        auto historic = c.rubik.getHistoric();
+        for(int i = 0; i < historic.size() - 3; i++) r.move(1, historic[i]);
+        r.clearRestrictedMoves();
+
+        BruteForce bf(4, r);
+        bf.solve();
+        auto solutions = bf.getFoundedSolves();
+        if(solutions.size() == 0) return false;
+
+        std::vector<const Move*> solution = solutions[0];
+        r.move(solution);
+        c.rubik = r;
+        fitness(c);
+        return true;
+    }
+
 public:
+
     EKGeneticSolver(Rubik source, TScore::_TConfig config) : Solver(source){
         this->score = TScore(config);
     };
@@ -180,25 +202,27 @@ public:
     void solve() override{
         initialize();
         best_fitness = population[0].fitness;
-        
-        for(uint16_t i = 0; i < 300; i++){
-            if(population[0].fitness == 100.0f) break;
+        int minGen = 300;
+
+        while(true){
             next_generation();
-            
+
             if(best_fitness == population[0].fitness) stagnation++;
             else stagnation = 0;
             best_fitness = population[0].fitness;
+
+            if(population[0].fitness > 90 && check_solution(population[0])){
+                this->founded = true;
+                break;
+            }
+            if(this->gen_count > minGen && stagnation > 30) break;
         }
 
-        // while(true){
-        //     if(population[0].fitness == 100.0f) break;
-        //     next_generation();
-        // }
-
-        print_status();
+        //print_status();
         for(uint16_t i = 0; i < 5; i++){
             foundedSolves.push_back(population[i].rubik.getHistoric());
         }
     };
+    bool solved(){ return this->founded; }
 
 };
