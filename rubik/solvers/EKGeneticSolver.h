@@ -180,7 +180,7 @@ protected:
         std::vector<const Move*> historic = c.rubik.getHistoric();
         int size = historic.size() - 3;
         size = size < 0 ? 0 : size;
-        for(int i = 0; i < size; i++) r.move({historic[i]});
+        for(int i = 0; i < size; i++) r.move(1, historic[i]);
         r.clearRestrictedMoves();
 
         BruteForce bf(4, r);
