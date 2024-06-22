@@ -48,7 +48,7 @@ int main(int argc, char* argv[]){
   // }
 
   int count[20] = {0};
-  int qt = 1;
+  int qt = 500;
 
   #pragma omp parallel for
   for(int i = 4; i < 20; i++){
@@ -62,11 +62,8 @@ int main(int argc, char* argv[]){
       if(solver.solved()) count[i]++;
       
 
-      if(qt % 1000 == 0){
-        #pragma omp critical
-        {
-          std::cout << "Iteração " << i << " - " << j << "\n";
-        }
+      if(qt % 10 == 0){
+        std::cout << "Iteração " << i << " - " << j << "\n";
       }
       
     }
