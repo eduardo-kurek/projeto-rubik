@@ -34,7 +34,6 @@ all: dir $(OBJ_FILES) $(BS_TUNING_BIN)
 reset:
 	make clean
 	make
-	make bin/test
 
 bin/%: %.cpp $(OBJ_FILES)
 	$(CXX) $(CXXFLAGS) -o $@ $< $(OBJ_FILES)
