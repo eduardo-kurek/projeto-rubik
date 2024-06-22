@@ -191,52 +191,8 @@ void Rubik::move(int numArgs, ...){
 }
 
 void Rubik::move(std::vector<const Move*> moves){
-    for(int i = 0; i < moves.size(); i++){
-        const Move* mov = moves[i];
-
-        // VERIFICA SE O MOVIMENTO PODE SER EXECUTADO
-        if(!this->forceRestrictedMoves){
-
-            auto iterator = std::find(this->restrictedMoves.begin(), this->restrictedMoves.end(), mov);
-            if(iterator != this->restrictedMoves.end()) continue;
-
-        }
-
-        for(uint8_t qt = 0; qt < mov->quantity; qt++){
-
-            const Color* aux[3] = {&NONE, &NONE, &NONE};
-            for(uint8_t j = 0; j < 4; j++){
-                // VARIÁVEIS AUXILIARES
-                const uint8_t indexFace = mov->faces[j];
-                const Layer* layer = mov->layers[j];
-                const Color** colors = this->faces[indexFace].extractLayer(*layer);
-
-                // SETANDO A CAMADA ATUAL
-                if(j > 0) this->faces[indexFace].setLayer(*layer, aux);
-
-                // AJUSTANDO O AUXILIAR
-                for(int k = 0; k < 3; k++)
-                    aux[k] = colors[k];
-
-                delete[] colors;
-            }
-
-            // SETANDO A PRIMEIRA FACE DA LISTA
-            this->faces[mov->faces[0]].setLayer(*mov->layers[0], aux);
-
-            // GIRANDO A FACE FRACA NO SENTIDO RECEBIDO
-            this->faces[mov->weakSide].rotate(mov->turn);
-        }
-
-        // ADICIONANDO O MOVIMENTO REALIZADO NA FILA
-        if(this->historic.size() >= 50) this->historic.pop();
-        this->historic.push(mov);
-
-        // RECALCULANDO OS NOVOS MOVIMENTOS RESTRITOS DO CUBO
-        this->restrict(mov, this->lastMove);
-
-        // ATUALIZANDO O ÚLTIMO MOVIMENTO REALIZADO
-        this->lastMove = mov;
+    for(auto& move : moves){
+        this->move(1, move);
     }
 }
 
