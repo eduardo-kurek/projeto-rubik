@@ -7,7 +7,7 @@ else
 endif
 
 CXX := g++
-CXXFLAGS := -g -std=c++20 -fopenmp
+CXXFLAGS := -O3 -std=c++20 -fopenmp
 
 RUBIK_CPP := $(wildcard rubik/*.cpp)
 AUX_CPP := $(wildcard rubik/auxiliares/*.cpp)
@@ -29,6 +29,12 @@ OBJ_FILES := $(addprefix obj/, $(CPP_FILES:.cpp=.o))
 
 all: dir $(OBJ_FILES) $(BS_TUNING_BIN)
 	./bin/tuning/scrambles/generator 37 100
+	make bin/test
+
+reset:
+	make clean
+	make
+	make bin/test
 
 bin/%: %.cpp $(OBJ_FILES)
 	$(CXX) $(CXXFLAGS) -o $@ $< $(OBJ_FILES)
