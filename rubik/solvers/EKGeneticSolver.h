@@ -177,9 +177,8 @@ protected:
 
     bool check_solution(Chromosome& c){
         Rubik r = this->source;
-        auto historic = c.rubik.getHistoric();
-        std::vector<const Move*> h = {historic.begin(), historic.end() - 3};
-        r.move(h);
+        std::vector<const Move*> historic = c.rubik.getHistoric();
+        for(int i = 0; i < historic.size() - 3; i++) r.move(1, historic[i]);
         r.clearRestrictedMoves();
 
         BruteForce bf(4, r);

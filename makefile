@@ -7,10 +7,11 @@ else
 endif
 
 CXX := g++
-CXXFLAGS := -O3 -std=c++20 -fopenmp
+CXXFLAGS := -g -std=c++20 -fopenmp
 
 RUBIK_CPP := $(wildcard rubik/*.cpp)
 AUX_CPP := $(wildcard rubik/auxiliares/*.cpp)
+# Descomentar a linha abaixo caso estiver no LINUX
 # AUX_CPP := rubik/auxiliares/StickerCoord.cpp $(filter-out rubik/auxiliares/StickerCoord.cpp, $(AUX_CPP))
 SCORES_CPP := $(wildcard rubik/scores/*.cpp)
 BASIC_SCORE_CPP := $(wildcard rubik/scores/basic-score/*.cpp)

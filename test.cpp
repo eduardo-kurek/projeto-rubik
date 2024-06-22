@@ -62,7 +62,7 @@ int main(int argc, char* argv[]){
       if(solver.solved()) count[i]++;
       
 
-      if(qt % 10 == 0){
+      if(j % 10 == 0){
         std::cout << "Iteração " << i << " - " << j << "\n";
       }
       
