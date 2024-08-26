@@ -1,12 +1,3 @@
-testes.c
-rubik/*.o
-bibliotecas/*.o
-.env
 .vscode
 .idea
-cmake-build-debug
-**/*.out
-obj/
-bin/
-tuning/scrambles/*.scr
-build/*
+build

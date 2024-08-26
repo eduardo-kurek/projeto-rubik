@@ -1,0 +1,30 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 5,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "release",
+            "displayName": "Release preset",
+            "description": "Uses Unix Makefiles generator, sets build directory",
+            "generator": "Unix Makefiles",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "debug",
+            "displayName": "Debug preset",
+            "description": "Uses Unix Makefiles generator, sets build directory",
+            "generator": "Unix Makefiles",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        }
+    ]
+}

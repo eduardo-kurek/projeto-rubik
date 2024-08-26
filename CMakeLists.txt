@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.5)
 
 project(Rubik_Project)
 
+# Define as flags de compilação para Release e Debug
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+
 # Adicionando subdiretorio da biblioteca rubik
 add_subdirectory(lib/rubik)
 
