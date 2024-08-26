@@ -4,9 +4,9 @@ bibliotecas/*.o
 .env
 .vscode
 .idea
-CMakeLists.txt
 cmake-build-debug
 **/*.out
 obj/
 bin/
 tuning/scrambles/*.scr
+build/*
