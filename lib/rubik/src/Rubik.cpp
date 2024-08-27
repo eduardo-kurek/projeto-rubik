@@ -8,6 +8,10 @@
 #include <algorithm>
 #include "Random.h"
 
+#ifdef _WIN32
+    #include <windows.h>
+#endif
+
 Rubik::Rubik(){
     for(int i = 0; i < 6; i++)
         this->faces[i] = Face(COLORS[i]);
@@ -220,6 +224,10 @@ void Rubik::scramble(int quantity){
 }
 
 std::ostream& operator<<(std::ostream& os, const Rubik* rubik){
+    #ifdef _WIN32
+        SetConsoleOutputCP(CP_UTF8);
+    #endif
+
     // Imprimindo a primeira camada
     for(uint8_t i = 0; i < 3; i++){
         // Imprimindo a margem + o espaço vazio de uma face
