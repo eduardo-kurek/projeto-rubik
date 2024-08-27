@@ -1,14 +1,15 @@
 # Algoritmos eficientes para resolução de cubo mágico
-Funções disponíveis até o momento podem ser encontradas no arquivo rubik/rubik.h. Incluem: criação, destruição, movimentação, embaralhamento, importação, exportação entre outros
-<br><br>
+Este projeto disponibiliza uma biblioteca para manipulação do cubo mágico, como:
+* `Rubik.h`: funções para manipulação do cubo, como movimentação, embaralhamento, entre outros;
+* `scores/Score.h`: funções e arquivos para implementação de pontuações para o cubo;
+* `scores/Analyzer.h`: Analiza uma determinada configuração de uma pontuação, e diz o quanto ela é precisa;
+* `solvers/Solver.h` funções e arquivos para implementação de solucionadores para o cubo;
 
-### Dependências
-* GCC versão 11 ou superior, para utilização de concepts (-std=c++20)
-* libgomp instalada no G++.
-* Makefile, para construção do projeto.
+# Dependências
+* GCC versão 11 ou superior, para utilização de concepts (-std=c++20);
+* libgomp instalada no G++ (openmp);
+* CMake versão <strong>3.5</strong>;
+* No projeto, o Makefile é utilizado como gerador, mas fique à vontade para usar qualquer uma suportada pelo CMake, basta alterar no arquivo `CMakePresets.json`;
 
-#### Compilação
-* Para compilar todo o código fonte, basta digitar `make all` em um terminal com a raiz do projeto. Todos os executáveis gerados ficaram
-na pasta /bin, e o código-objeto na pasta /obj. Para usar a API do cubo mágico como quiser, o código poderá ser escrito em qualquer lugar e
-os cabeçalhos deveram ser inclusos corretamente. Depois é só digitar `make bin/caminho/do/código`, considerando o caminho relativo da raiz do projeto.
-Se o arquivo .cpp estiver em uma pasta criada manualmente, deverá ser adicionado o diretório com o préfixo *bin/* na regra `make dir`.
+## Compilação
+* 
