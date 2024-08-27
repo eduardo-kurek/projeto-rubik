@@ -6,10 +6,11 @@ project(Rubik_Project)
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
 
-# Adicionando subdiretorio da biblioteca rubik
-add_subdirectory(lib/rubik)
+add_subdirectory(lib/rubik ${CMAKE_SOURCE_DIR}/build/lib/rubik) # Adicionando subdiretorio da biblioteca rubik
+add_subdirectory(examples ${CMAKE_SOURCE_DIR}/build/examples)
 
-# Executavel teste
+
+# Executaveis do projeto
 add_executable(Teste main.cpp)
 
 # Adicionando OpenMP
