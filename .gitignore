@@ -1,6 +1,3 @@
 .vscode
 .idea
-build/debug/*
-build/release/*
-build/lib/*
-build/examples/*
+build/

@@ -3,7 +3,7 @@
 
 int main(){
   Rubik r;
-  r.scramble(20);
+  r.scramble(15);
   r.print();
   return 0;
 }

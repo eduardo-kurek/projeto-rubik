@@ -59,6 +59,7 @@ public:
     /* Define uma nova configuração */
     void configurate(TConfig config){
         this->config = config;
+        this->maxScore = calculate(this->target);
     }
 
 };

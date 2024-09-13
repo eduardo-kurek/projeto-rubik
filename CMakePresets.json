@@ -23,7 +23,7 @@
             "generator": "Unix Makefiles",
             "binaryDir": "${sourceDir}/build/${presetName}",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
+                "CMAKE_BUILD_TYPE": "Debug"
             }
         }
     ],
@@ -35,13 +35,6 @@
         {
             "name": "debug",
             "configurePreset": "debug"
-        },
-        {
-            "name": "examples",
-            "configurePreset": "examples",
-            "targets": [
-                "RubikExample"
-            ]
         }
     ]
 }
