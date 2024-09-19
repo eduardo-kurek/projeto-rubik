@@ -29,6 +29,7 @@ public:
      */
     virtual float calculateNormalized(const Rubik& source){
         float score = this->calculate(source) * 100;
+        if(this->maxScore == 0) return score;
         return score / this->maxScore;
     }
 

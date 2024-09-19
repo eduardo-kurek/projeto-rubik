@@ -9,7 +9,7 @@ int main(){
     cfg1.print();
 
     // Configuração personalizada para teste
-    BasicConfig cfg2({0, 1, 2, 3}, {0, 1, 2, 3}, 0);
+    BasicConfig cfg2({3, 2, 1, 0}, {3, 2, 1, 0}, 0);
     cfg2.print();
 
     /* Score configurado para pontuar em relação ao cubo resolvido (default);
@@ -18,12 +18,14 @@ int main(){
     */
     BasicScore score(cfg1);
 
+    std::cout << "Max Score com cfg1: " << score.getMaxScore() << std::endl;
     std::cout << "Score com cfg1: " << score.calculate(r) << std::endl;
     std::cout << "Score em porcentagem  com cfg1: " << score.calculateNormalized(r) << std::endl;
     std::cout << std::endl;
 
     // Configuração personalizada
     score.configurate(cfg2);
+    std::cout << "Max Score com cfg2: " << score.getMaxScore() << std::endl;
     std::cout << "Score com cfg2: " << score.calculate(r) << std::endl;
     std::cout << "Score com cfg2: " << score.calculate(Rubik()) << std::endl;
     std::cout << "Score em porcentagem com cfg2: " << score.calculateNormalized(r) << std::endl;
