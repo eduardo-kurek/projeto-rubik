@@ -27,7 +27,6 @@ int main(){
     score.configurate(cfg2);
     std::cout << "Max Score com cfg2: " << score.getMaxScore() << std::endl;
     std::cout << "Score com cfg2: " << score.calculate(r) << std::endl;
-    std::cout << "Score com cfg2: " << score.calculate(Rubik()) << std::endl;
     std::cout << "Score em porcentagem com cfg2: " << score.calculateNormalized(r) << std::endl;
 
     return 0;
