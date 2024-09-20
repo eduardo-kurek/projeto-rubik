@@ -35,11 +35,6 @@ void Rubik::clearRestrictedMoves(){
     this->restrictedMoves.clear();
 }
 
-void Rubik::clearHistoric(){
-    std::queue<const Move*> empty;
-    this->historic = empty;
-}
-
 void Rubik::restrict(const Move* move, const Move* lastMove){
     auto restrictedMoves = this->restrictionFunction(move, lastMove);
     this->restrictedMoves = restrictedMoves;
@@ -81,39 +76,22 @@ void Rubik::print(bool clear) const{
 }
 
 void Rubik::printHistoric() const{
-    auto temp = this->historic;
-
-    while(!temp.empty()){
-        std::cout << temp.front()->name << " ";
-        temp.pop();
-    }
-
-    std::cout << std::endl;
+    historic.print();
 }
 
-std::vector<const Move *> Rubik::getHistoric() const{
-    auto temp = this->historic;
-    std::vector<const Move*> moves;
-
-    while(!temp.empty()){
-        moves.push_back(temp.front());
-        temp.pop();
-    }
-
-    return moves;
+std::vector<const Move*> Rubik::getHistoric() const{
+    return historic.toVector();
 }
 
 std::string Rubik::getHistoricString() const{
-    std::string s;
-    auto historic = this->getHistoric();
-    for(auto& move : historic)
-        s += move->name + " ";
-    s += "\b";
-    return s;
+    return historic.toString();
 }
 
-void Rubik::printRestrictedMoves() const
-{
+void Rubik::clearHistoric(){
+    historic.clear();
+}
+
+void Rubik::printRestrictedMoves() const{
     using namespace std;
     for(auto& move : this->restrictedMoves)
         cout << move->name << " ";
@@ -180,9 +158,7 @@ void Rubik::move(int numArgs, ...){
             this->faces[mov->weakSide].rotate(mov->turn);
         }
 
-        // ADICIONANDO O MOVIMENTO REALIZADO NA FILA
-        if(this->historic.size() >= 50) this->historic.pop();
-        this->historic.push(mov);
+        historic.add(mov);
 
         // RECALCULANDO OS NOVOS MOVIMENTOS RESTRITOS DO CUBO
         this->restrict(mov, this->lastMove);

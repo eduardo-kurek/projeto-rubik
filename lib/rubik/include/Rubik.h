@@ -4,6 +4,7 @@
 #include "helpers/constantes.h"
 #include "helpers/Move.h"
 #include "helpers/Restriction.h"
+#include "Historic.h"
 #include <functional>
 #include <cstdarg>
 #include <string>
@@ -16,9 +17,10 @@ class Rubik{
 
     Face faces[6];
     const Move* lastMove = nullptr;
-    std::queue<const Move*> historic;
+    Historic historic;
     std::vector<const Move*> restrictedMoves;
     RestrictionFunction restrictionFunction = Restriction::SUPPLEMENTATION_ORACLE;
+
 
     void restrict(const Move* move, const Move* lastMove);
 
@@ -29,22 +31,24 @@ public:
     Rubik();
     explicit Rubik(const std::string& position);
     
-    const Face* getFaces() const;
-    void setRestrictionFunction(const RestrictionFunction& restrictionFunction);
-    void clearRestrictedMoves();
-    void clearHistoric();
-    void print(bool clear = false) const;
-    void printHistoric() const;
-    std::vector<const Move*> getHistoric() const;
-    std::string getHistoricString() const;
-    void printRestrictedMoves() const;
-    void reset();
-    std::string extract() const;
-    void setPosition(const std::string& position);
     void move(int numArgs, ...);
     void move(std::vector<const Move*> moves);
-    std::vector<const Move*> getValidMoves();
     void scramble(int quantity = 20);
+    void reset();
+    void print(bool clear = false) const;
+    std::string extract() const;
+    void setPosition(const std::string& position);
+    void clearRestrictedMoves();
+    void printRestrictedMoves() const;
+
+    std::vector<const Move*> getHistoric() const;
+    std::string getHistoricString() const;
+    void printHistoric() const;
+    void clearHistoric();
+
+    const Face* getFaces() const;
+    void setRestrictionFunction(const RestrictionFunction& restrictionFunction);
+    std::vector<const Move*> getValidMoves();
 
     friend std::ostream &operator<<(std::ostream &os, const Rubik* rubik);
     bool operator==(const Rubik& other) const;
