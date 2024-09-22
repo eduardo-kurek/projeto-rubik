@@ -5,6 +5,7 @@
 #include "helpers/Move.h"
 #include "helpers/Restriction.h"
 #include "Historic.h"
+#include "RubikPosition.h"
 #include <functional>
 #include <cstdarg>
 #include <string>
@@ -29,15 +30,15 @@ public:
     bool forceRestrictedMoves = false;
 
     Rubik();
-    explicit Rubik(const std::string& position);
+    explicit Rubik(const RubikPosition& position);
     
     void move(int numArgs, ...);
     void move(std::vector<const Move*> moves);
     void scramble(int quantity = 20);
     void reset();
     void print(bool clear = false) const;
-    std::string extract() const;
-    void setPosition(const std::string& position);
+    RubikPosition extractPosition() const;
+    void setPosition(const RubikPosition& position);
     void clearRestrictedMoves();
     void printRestrictedMoves() const;
 

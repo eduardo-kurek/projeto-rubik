@@ -16,8 +16,8 @@ int main(){
     std::cout << "Histórico de movimentos: " << std::endl;
     r.printHistoric();
 
-    std::string pos = r.extract();
-    std::cout << "Posição do cubo: " << pos << std::endl;
+    RubikPosition pos = r.extractPosition();
+    std::cout << "Posição do cubo: " << pos.toString() << std::endl;
 
     Rubik r2(pos);
     std::cout << "Cubo criado a partir da posição: " << std::endl << &r2 << std::endl;

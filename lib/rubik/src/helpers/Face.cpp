@@ -57,6 +57,31 @@ void Face::rotate(Turn turn){
     else this->swapLines(ZERO, TWO);
 }
 
+FacePosition Face::extract() const{
+    FacePosition facePosition{
+        this->stickers[0][0].getColor(),
+        this->stickers[0][1].getColor(),
+        this->stickers[0][2].getColor(),
+        this->stickers[1][0].getColor(),
+        this->stickers[1][2].getColor(),
+        this->stickers[2][0].getColor(),
+        this->stickers[2][1].getColor(),
+        this->stickers[2][2].getColor()
+    };
+    return facePosition;
+}
+
+void Face::setPosition(const FacePosition& facePosition, const Color& centralColor){
+    this->stickers[0][0] = Sticker(facePosition.colors[0]);    
+    this->stickers[0][1] = Sticker(facePosition.colors[1]);
+    this->stickers[0][2] = Sticker(facePosition.colors[2]);
+    this->stickers[1][0] = Sticker(facePosition.colors[3]);
+    this->stickers[1][1] = Sticker(&centralColor);
+    this->stickers[1][2] = Sticker(facePosition.colors[4]);
+    this->stickers[2][0] = Sticker(facePosition.colors[5]);
+    this->stickers[2][1] = Sticker(facePosition.colors[6]);
+}
+
 const Color** Face::extractLayer(const Layer& layer){
     // OBTENDO O SENTIDO
     bool turn = (layer.si > layer.ei) || (layer.sj > layer.ej);

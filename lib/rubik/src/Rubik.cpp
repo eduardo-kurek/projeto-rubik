@@ -17,7 +17,7 @@ Rubik::Rubik(){
         this->faces[i] = Face(COLORS[i]);
 }
 
-Rubik::Rubik(const std::string& position){
+Rubik::Rubik(const RubikPosition& position){
     for(int i = 0; i < 6; i++)
         this->faces[i] = Face(COLORS[i]);
     this->setPosition(position);
@@ -40,28 +40,13 @@ void Rubik::restrict(const Move* move, const Move* lastMove){
     this->restrictedMoves = restrictedMoves;
 }
 
-void Rubik::setPosition(const std::string& position){
-    // Padrão que a string deve ser enviada
-    std::regex pattern("[BYRWOG]{8}-[BYRWOG]{8}-[BYRWOG]{8}-[BYRWOG]{8}-[BYRWOG]{8}-[BYRWOG]{8}");
-
-    // Verifica se o padrão é válido
-    if(!regex_match(position, pattern))
-        throw std::runtime_error("O formato da string para inicializar um Rubik deve ser válida");
-
-    // Código para definir a posição
-    int count = 0;
-    for(uint8_t face = 0; face < 6; face++){
-        for(uint8_t i = 0; i < 3; i++){
-            for(uint8_t j = 0; j < 3; j++){
-                if(i != 1 || j != 1){
-                    this->faces[face].stickers[i][j].setColor(Color::getColorByCode(position[count]));
-                    count++;
-                }
-                else this->faces[face].stickers[i][j].setColor(COLORS[face]);
-            }
-        }
-        count++;
-    }
+void Rubik::setPosition(const RubikPosition& position){
+    this->faces[FRONT].setPosition(position.front, BLUE);
+    this->faces[TOP].setPosition(position.up, YELLOW);
+    this->faces[RIGHT].setPosition(position.right, RED);
+    this->faces[BOTTOM].setPosition(position.bottom, WHITE);
+    this->faces[LEFT].setPosition(position.left, ORANGE);
+    this->faces[BACK].setPosition(position.back, GREEN);
 }
 
 void Rubik::print(bool clear) const{
@@ -99,22 +84,21 @@ void Rubik::printRestrictedMoves() const{
 }
 
 void Rubik::reset(){
-    this->setPosition(POS_RESOLVIDO);
+    this->setPosition(*POS_RESOLVIDO);
     this->clearHistoric();
     this->clearRestrictedMoves();
 }
 
-std::string Rubik::extract() const{
-    std::string str;
-
-    for(uint8_t face = 0; face < 6; face++){
-        for(uint8_t l = 0; l < 3; l++)
-            for(uint8_t c = 0; c < 3; c++)
-                if(l != 1 || c != 1) str += this->faces[face].stickers[l][c].getColor()->cod;
-        if(face < 5) str += '-';
-    }
-    
-    return str;
+RubikPosition Rubik::extractPosition() const{
+    RubikPosition position {
+        this->faces[FRONT].extract(),
+        this->faces[TOP].extract(),
+        this->faces[RIGHT].extract(),
+        this->faces[BOTTOM].extract(),
+        this->faces[LEFT].extract(),
+        this->faces[BACK].extract()
+    };
+    return position;
 }
 
 void Rubik::move(int numArgs, ...){
