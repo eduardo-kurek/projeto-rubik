@@ -101,6 +101,72 @@ RubikPosition Rubik::extractPosition() const{
     return position;
 }
 
+void Rubik::move(std::vector<const Move*> moves){
+    for(auto& move : moves)
+        this->move(move);
+}
+
+void Rubik::move(const Move* mov){
+    if(!canExecute(mov)) return;
+    for(uint8_t qt = 0; qt < mov->quantity; qt++)
+        doSingleMove(mov);
+    
+    historic.add(mov);
+    // RECALCULANDO OS NOVOS MOVIMENTOS RESTRITOS DO CUBO
+    this->restrict(mov, this->lastMove);
+
+    // ATUALIZANDO O ÚLTIMO MOVIMENTO REALIZADO
+    this->lastMove = mov;
+}
+
+bool Rubik::canExecute(const Move* mov) const{
+    if(mov == nullptr) return false;
+    if(canForceMoves()) return true;
+    if(!isMoveRestricted(mov)) return true;
+    return false;
+}
+
+void Rubik::doSingleMove(const Move* mov){
+    swapFaceLayers(mov->faces, mov->layers);
+    rotateWeakSide(mov);
+}
+
+void Rubik::swapFaceLayers(const Faces* faces, const Layer*const layers[4]){
+    auto a = getLayerColors(faces[0], *layers[0]);
+    auto b = getLayerColors(faces[1], *layers[1]);
+    auto c = getLayerColors(faces[2], *layers[2]);
+    auto d = getLayerColors(faces[3], *layers[3]);
+
+    std::array<const Color*, 3> aux = {a[0], a[1], a[2]};
+    setFaceLayer(faces[0], layers[0], d);
+    setFaceLayer(faces[3], layers[3], c);
+    setFaceLayer(faces[2], layers[2], b);
+    setFaceLayer(faces[1], layers[1], aux);
+}
+
+std::array<const Color*, 3> Rubik::getLayerColors(const Faces face,const Layer layer) const{
+    return this->faces[face].getLayerColors(layer);
+}
+
+void Rubik::rotateWeakSide(const Move* mov){
+    this->faces[mov->weakSide].rotate(mov->turn);
+}
+
+void Rubik::setFaceLayer(const Faces face, const Layer *layer, std::array<const Color*, 3> colors){
+    this->faces[face].setLayer(*layer, colors);
+}
+
+bool Rubik::isMoveRestricted(const Move *mov) const{
+    auto iterator = std::find(restrictedMoves.begin(), restrictedMoves.end(), mov);
+    if(iterator != restrictedMoves.end())
+        return true;
+    return false;
+}
+
+bool Rubik::canForceMoves() const{
+    return this->forceRestrictedMoves;
+}
+/*
 void Rubik::move(int numArgs, ...){
     va_list args;
     va_start(args, numArgs);
@@ -123,7 +189,7 @@ void Rubik::move(int numArgs, ...){
                 // VARIÁVEIS AUXILIARES
                 const uint8_t indexFace = mov->faces[j];
                 const Layer* layer = mov->layers[j];
-                const Color** colors = this->faces[indexFace].extractLayer(*layer);
+                const Color** colors = this->faces[indexFace].getLayerColors(*layer);
 
                 // SETANDO A CAMADA ATUAL
                 if(j > 0) this->faces[indexFace].setLayer(*layer, aux);
@@ -153,13 +219,7 @@ void Rubik::move(int numArgs, ...){
 
     va_end(args);
 }
-
-void Rubik::move(std::vector<const Move*> moves){
-    for(auto& move : moves){
-        this->move(1, move);
-    }
-}
-
+*/
 std::vector<const Move *> Rubik::getValidMoves(){
     std::vector<const Move*> validMoves;
 
@@ -179,7 +239,7 @@ void Rubik::scramble(int quantity){
         int rand =  svc::Random::Int(0, moves.size() - 1);
 
         // MOVIMENTA O CUBO MÁGICO
-        this->move(1, moves[rand]);
+        this->move(moves[rand]);
     }
 }
 

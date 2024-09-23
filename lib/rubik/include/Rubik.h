@@ -21,18 +21,24 @@ class Rubik{
     Historic historic;
     std::vector<const Move*> restrictedMoves;
     RestrictionFunction restrictionFunction = Restriction::SUPPLEMENTATION_ORACLE;
-
-
     void restrict(const Move* move, const Move* lastMove);
-
+    bool canExecute(const Move* mov) const;
+    bool isMoveRestricted(const Move* mov) const;
+    bool canForceMoves() const;
+    void doSingleMove(const Move* mov);
+    void swapFaceLayers(const Faces* faces, const Layer*const layers[4]);
+    void setFaceLayer(const Faces face, const Layer* layer, std::array<const Color*, 3> colors);
+    std::array<const Color*, 3> getLayerColors(const Faces face, const Layer layer) const;
+    void rotateWeakSide(const Move* mov);
 
 public:
-    bool forceRestrictedMoves = false;
+    bool forceRestrictedMoves = false; 
 
     Rubik();
     explicit Rubik(const RubikPosition& position);
     
     void move(int numArgs, ...);
+    void move(const Move* mov);
     void move(std::vector<const Move*> moves);
     void scramble(int quantity = 20);
     void reset();

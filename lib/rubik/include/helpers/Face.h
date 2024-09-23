@@ -7,6 +7,7 @@
 #include "RubikPosition.h"
 #include <string>
 #include <stdint.h>
+#include <array>
 
 class Face{
 
@@ -22,8 +23,8 @@ public:
     void rotate(Turn turn);
     FacePosition extract() const;
     void setPosition(const FacePosition& facePosition, const Color& centralColor);
-    const Color** extractLayer(const Layer& layer);
-    void setLayer(const Layer& layer, const Color* colors[3]);
+    std::array<const Color*, 3> getLayerColors(const Layer& layer) const;
+    void setLayer(const Layer& layer, std::array<const Color*, 3> colors);
 
     bool operator==(const Face& face) const;
 

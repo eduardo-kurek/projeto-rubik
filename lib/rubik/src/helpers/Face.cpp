@@ -82,44 +82,21 @@ void Face::setPosition(const FacePosition& facePosition, const Color& centralCol
     this->stickers[2][1] = Sticker(facePosition.colors[6]);
 }
 
-const Color** Face::extractLayer(const Layer& layer){
-    // OBTENDO O SENTIDO
-    bool turn = (layer.si > layer.ei) || (layer.sj > layer.ej);
-
-    uint8_t count = 0;
-    const Color** colors = new const Color*[3];
-    if(!turn){
-        // SENTIDO HORÁRIO
-        for (int x = layer.si; x <= layer.ei; x++)
-            for (int y = layer.sj; y <= layer.ej; y++)
-                colors[count++] = this->stickers[x][y].getColor();
+std::array<const Color*, 3> Face::getLayerColors(const Layer& layer) const{
+    std::array<const Color*, 3> colors;
+    for(uint8_t i = 0; i < 3; i++){
+        Coord x = layer.stickers[i].x;
+        Coord y = layer.stickers[i].y;
+        colors[i] = this->stickers[x][y].getColor();
     }
-    else{
-        // SENTIDO ANTI-HORÁRIO
-        for (int x = layer.si; x >= layer.ei; x--)
-            for (int y = layer.sj; y >= layer.ej; y--)
-                colors[count++] = this->stickers[x][y].getColor();
-    }
-
     return colors;
 }
 
-void Face::setLayer(const Layer& layer, const Color* colors[3]){
-    // OBTENDO O SENTIDO
-    bool turn = (layer.si > layer.ei) || (layer.sj > layer.ej);
-
-    uint8_t count = 0;
-    if(!turn){
-        // SENTIDO HORÁRIO
-        for (int x = layer.si; x <= layer.ei; x++)
-            for (int y = layer.sj; y <= layer.ej; y++)
-                this->stickers[x][y].setColor(colors[count++]);
-    }
-    else{
-        // SENTIDO ANTI-HORÁRIO
-        for (int x = layer.si; x >= layer.ei; x--)
-            for (int y = layer.sj; y >= layer.ej; y--)
-                this->stickers[x][y].setColor(colors[count++]);
+void Face::setLayer(const Layer& layer, std::array<const Color*, 3> colors){
+    for(uint8_t i = 0; i < 3; i++){
+        Coord x = layer.stickers[i].x;
+        Coord y = layer.stickers[i].y;
+        this->stickers[x][y] = Sticker(colors[i]);
     }
 }
 

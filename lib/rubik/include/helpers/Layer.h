@@ -1,21 +1,27 @@
 #pragma once
 
+#include "helpers/StickerCoord.h"
 #include <cstdint>
+#include <array>
+
+struct LayerCoord{
+    Coord x;
+    Coord y;
+};
 
 struct Layer{
-
-    // Começo do I
-    const uint8_t si;
-
-    // Final do I
-    const uint8_t ei;
-
-    // Começo do J
-    const uint8_t sj;
-
-    // Final do J
-    const uint8_t ej;
+    std::array<LayerCoord, 3> stickers;
 };
+
+extern const LayerCoord _00;
+extern const LayerCoord _01;
+extern const LayerCoord _02;
+extern const LayerCoord _10;
+extern const LayerCoord _11;
+extern const LayerCoord _12;
+extern const LayerCoord _20;
+extern const LayerCoord _21;
+extern const LayerCoord _22;
 
 extern const Layer LAYER_U;
 extern const Layer LAYER_UA;

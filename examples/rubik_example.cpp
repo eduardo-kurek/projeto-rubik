@@ -10,7 +10,8 @@ int main(){
     std::cout << "Realizando o movimento R: " << std::endl << &r << std::endl;
     
     std::cout << "Realizando embaralhamento de 10 movimentos..." << std::endl;
-    r.scramble(10);
+    //r.scramble(10);
+    r.move({R, U, L2, RA, B2, F, UA, D, L, U2, FA, D2, LA, B, F2, R2, BA, DA});
     std::cout << "Cubo embaralhado: " << std::endl << &r << std::endl;
 
     std::cout << "Histórico de movimentos: " << std::endl;
