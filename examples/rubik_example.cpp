@@ -6,7 +6,7 @@ int main(){
     Rubik r;
     std::cout << "Cubo começa resolvido: " << std::endl << &r << std::endl;
 
-    r.move({R});
+    r.move(R);
     std::cout << "Realizando o movimento R: " << std::endl << &r << std::endl;
     
     std::cout << "Realizando embaralhamento de 10 movimentos..." << std::endl;

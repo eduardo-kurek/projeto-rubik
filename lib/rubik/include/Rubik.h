@@ -25,11 +25,15 @@ class Rubik{
     bool canExecute(const Move* mov) const;
     bool isMoveRestricted(const Move* mov) const;
     bool canForceMoves() const;
+    void doMove(const Move* mov);
     void doSingleMove(const Move* mov);
-    void swapFaceLayers(const Faces* faces, const Layer*const layers[4]);
+    void doDoubleMove(const Move* mov);
+    void swapRightShiftFaceLayers(const Faces* faces, const Layer*const layers[4]);
+    void swapDoubleShiftFaceLayers(const Faces* faces, const Layer*const layers[4]);
     void setFaceLayer(const Faces face, const Layer* layer, std::array<const Color*, 3> colors);
-    std::array<const Color*, 3> getLayerColors(const Faces face, const Layer layer) const;
+    std::array<std::array<const Color*, 3>, 4> getLayerColorsArray(const Faces* face, const Layer*const layer[4]) const;
     void rotateWeakSide(const Move* mov);
+    void onMoved(const Move* mov);
 
 public:
     bool forceRestrictedMoves = false; 

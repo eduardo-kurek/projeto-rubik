@@ -108,15 +108,8 @@ void Rubik::move(std::vector<const Move*> moves){
 
 void Rubik::move(const Move* mov){
     if(!canExecute(mov)) return;
-    for(uint8_t qt = 0; qt < mov->quantity; qt++)
-        doSingleMove(mov);
-    
-    historic.add(mov);
-    // RECALCULANDO OS NOVOS MOVIMENTOS RESTRITOS DO CUBO
-    this->restrict(mov, this->lastMove);
-
-    // ATUALIZANDO O ÚLTIMO MOVIMENTO REALIZADO
-    this->lastMove = mov;
+    doMove(mov);
+    onMoved(mov);
 }
 
 bool Rubik::canExecute(const Move* mov) const{
@@ -126,30 +119,56 @@ bool Rubik::canExecute(const Move* mov) const{
     return false;
 }
 
+void Rubik::doMove(const Move* mov){
+    if(mov->quantity == 1) doSingleMove(mov);
+    else doDoubleMove(mov);
+}
+
+void Rubik::onMoved(const Move* mov){
+    historic.add(mov);
+    restrict(mov, lastMove);
+    lastMove = mov;
+}
+
 void Rubik::doSingleMove(const Move* mov){
-    swapFaceLayers(mov->faces, mov->layers);
+    swapRightShiftFaceLayers(mov->faces, mov->layers);
     rotateWeakSide(mov);
 }
 
-void Rubik::swapFaceLayers(const Faces* faces, const Layer*const layers[4]){
-    auto a = getLayerColors(faces[0], *layers[0]);
-    auto b = getLayerColors(faces[1], *layers[1]);
-    auto c = getLayerColors(faces[2], *layers[2]);
-    auto d = getLayerColors(faces[3], *layers[3]);
+void Rubik::doDoubleMove(const Move* mov){
+    swapDoubleShiftFaceLayers(mov->faces, mov->layers);
+    rotateWeakSide(mov);
+    rotateWeakSide(mov);
+}
 
-    std::array<const Color*, 3> aux = {a[0], a[1], a[2]};
-    setFaceLayer(faces[0], layers[0], d);
-    setFaceLayer(faces[3], layers[3], c);
-    setFaceLayer(faces[2], layers[2], b);
+void Rubik::swapRightShiftFaceLayers(const Faces* faces, const Layer*const layers[4]){
+    auto layerColors = getLayerColorsArray(faces, layers);
+    std::array<const Color*, 3> aux = layerColors[0];
+    setFaceLayer(faces[0], layers[0], layerColors[3]);
+    setFaceLayer(faces[3], layers[3], layerColors[2]);
+    setFaceLayer(faces[2], layers[2], layerColors[1]);
     setFaceLayer(faces[1], layers[1], aux);
 }
 
-std::array<const Color*, 3> Rubik::getLayerColors(const Faces face,const Layer layer) const{
-    return this->faces[face].getLayerColors(layer);
+void Rubik::swapDoubleShiftFaceLayers(const Faces *faces, const Layer *const layers[4]){
+    auto layerColors = getLayerColorsArray(faces, layers);
+    std::array<const Color*, 3> aux = layerColors[0];
+    setFaceLayer(faces[0], layers[0], layerColors[2]);
+    setFaceLayer(faces[2], layers[2], aux);
+    aux = layerColors[1];
+    setFaceLayer(faces[1], layers[1], layerColors[3]);
+    setFaceLayer(faces[3], layers[3], aux);
 }
 
 void Rubik::rotateWeakSide(const Move* mov){
     this->faces[mov->weakSide].rotate(mov->turn);
+}
+
+std::array<std::array<const Color*, 3>, 4> Rubik::getLayerColorsArray(const Faces* face, const Layer*const layer[4]) const{
+    std::array<std::array<const Color*, 3>, 4> layerColors;
+    for(int i = 0; i < 4; i++)
+        layerColors[i] = this->faces[face[i]].getLayerColors(*layer[i]);
+    return layerColors;
 }
 
 void Rubik::setFaceLayer(const Faces face, const Layer *layer, std::array<const Color*, 3> colors){
