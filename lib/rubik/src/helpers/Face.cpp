@@ -80,6 +80,7 @@ void Face::setPosition(const FacePosition& facePosition, const Color& centralCol
     this->stickers[1][2] = Sticker(facePosition.colors[4]);
     this->stickers[2][0] = Sticker(facePosition.colors[5]);
     this->stickers[2][1] = Sticker(facePosition.colors[6]);
+    this->stickers[2][2] = Sticker(facePosition.colors[7]);
 }
 
 std::array<const Color*, 3> Face::getLayerColors(const Layer& layer) const{
