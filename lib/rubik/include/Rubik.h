@@ -33,7 +33,7 @@ class Rubik{
     void setFaceLayer(const Faces face, const Layer* layer, std::array<const Color*, 3> colors);
     std::array<std::array<const Color*, 3>, 4> getLayerColorsArray(const Faces* face, const Layer*const layer[4]) const;
     void rotateWeakSide(const Move* mov);
-    void onMoved(const Move* mov);
+    void setupAfterMove(const Move* mov);
 
 public:
     bool forceRestrictedMoves = false; 

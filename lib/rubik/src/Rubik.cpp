@@ -109,7 +109,7 @@ void Rubik::move(std::vector<const Move*> moves){
 void Rubik::move(const Move* mov){
     if(!canExecute(mov)) return;
     doMove(mov);
-    onMoved(mov);
+    setupAfterMove(mov);
 }
 
 bool Rubik::canExecute(const Move* mov) const{
@@ -124,7 +124,7 @@ void Rubik::doMove(const Move* mov){
     else doDoubleMove(mov);
 }
 
-void Rubik::onMoved(const Move* mov){
+void Rubik::setupAfterMove(const Move* mov){
     historic.add(mov);
     restrict(mov, lastMove);
     lastMove = mov;
