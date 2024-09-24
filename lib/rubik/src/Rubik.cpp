@@ -185,60 +185,7 @@ bool Rubik::isMoveRestricted(const Move *mov) const{
 bool Rubik::canForceMoves() const{
     return this->forceRestrictedMoves;
 }
-/*
-void Rubik::move(int numArgs, ...){
-    va_list args;
-    va_start(args, numArgs);
 
-    for(int i = 0; i < numArgs; i++){
-        const Move* mov = va_arg(args, const Move*);
-
-        // VERIFICA SE O MOVIMENTO PODE SER EXECUTADO
-        if(!this->forceRestrictedMoves){
-
-            auto iterator = std::find(this->restrictedMoves.begin(), this->restrictedMoves.end(), mov);
-            if(iterator != this->restrictedMoves.end()) continue;
-
-        }
-
-        for(uint8_t qt = 0; qt < mov->quantity; qt++){
-
-            const Color* aux[3] = {&NONE, &NONE, &NONE};
-            for(uint8_t j = 0; j < 4; j++){
-                // VARIÁVEIS AUXILIARES
-                const uint8_t indexFace = mov->faces[j];
-                const Layer* layer = mov->layers[j];
-                const Color** colors = this->faces[indexFace].getLayerColors(*layer);
-
-                // SETANDO A CAMADA ATUAL
-                if(j > 0) this->faces[indexFace].setLayer(*layer, aux);
-
-                // AJUSTANDO O AUXILIAR
-                for(int k = 0; k < 3; k++)
-                    aux[k] = colors[k];
-
-                delete[] colors;
-            }
-
-            // SETANDO A PRIMEIRA FACE DA LISTA
-            this->faces[mov->faces[0]].setLayer(*mov->layers[0], aux);
-
-            // GIRANDO A FACE FRACA NO SENTIDO RECEBIDO
-            this->faces[mov->weakSide].rotate(mov->turn);
-        }
-
-        historic.add(mov);
-
-        // RECALCULANDO OS NOVOS MOVIMENTOS RESTRITOS DO CUBO
-        this->restrict(mov, this->lastMove);
-
-        // ATUALIZANDO O ÚLTIMO MOVIMENTO REALIZADO
-        this->lastMove = mov;
-    }
-
-    va_end(args);
-}
-*/
 std::vector<const Move *> Rubik::getValidMoves(){
     std::vector<const Move*> validMoves;
 

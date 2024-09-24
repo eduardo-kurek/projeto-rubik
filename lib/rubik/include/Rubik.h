@@ -21,6 +21,7 @@ class Rubik{
     Historic historic;
     std::vector<const Move*> restrictedMoves;
     RestrictionFunction restrictionFunction = Restriction::SUPPLEMENTATION_ORACLE;
+    
     void restrict(const Move* move, const Move* lastMove);
     bool canExecute(const Move* mov) const;
     bool isMoveRestricted(const Move* mov) const;
@@ -41,7 +42,6 @@ public:
     Rubik();
     explicit Rubik(const RubikPosition& position);
     
-    void move(int numArgs, ...);
     void move(const Move* mov);
     void move(std::vector<const Move*> moves);
     void scramble(int quantity = 20);

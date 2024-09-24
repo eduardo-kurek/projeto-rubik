@@ -16,7 +16,7 @@ void BruteForce::solve(Rubik rubik, uint32_t depth){
 
         // INICIANDO A INSTÂNCIA E A MOVENDO COM O NOVO MOVIMENTO
         Rubik model = rubik;
-        model.move(1, move);
+        model.move(move);
 
         // RESOLVENDO A NOVA INSTÂNCIA
         this->solve(model, newDepth);
@@ -52,7 +52,7 @@ void BruteForce::solve(){
     #pragma omp parallel for num_threads(18)
     for(uint32_t i = 0; i < moves.size(); i++){
         Rubik model = this->source;
-        model.move(1, moves[i]);
+        model.move(moves[i]);
         this->solve(model, newDepth);
     }
 }

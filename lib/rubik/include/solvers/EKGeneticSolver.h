@@ -116,7 +116,7 @@ protected:
             else if(i >= historics[1].size()) p = 0;
             else ++p %= 2;
 
-            rubik.move(1, historics[p][i]);
+            rubik.move(historics[p][i]);
         }
 
         Chromosome child = Chromosome{rubik, 0};
@@ -131,9 +131,9 @@ protected:
         int rand = svc::Random::Int(1, historic.size());
         int mov = svc::Random::Int(0, 17);
 
-        for(int i = 0; i < rand; i++) mutated.move({historic[i]});
-        mutated.move({Moves[mov]});
-        for(int i = rand; i < historic.size(); i++) mutated.move({historic[i]});
+        for(int i = 0; i < rand; i++) mutated.move(historic[i]);
+        mutated.move(Moves[mov]);
+        for(int i = rand; i < historic.size(); i++) mutated.move(historic[i]);
 
         r.rubik = mutated;
         fitness(r);
@@ -180,7 +180,7 @@ protected:
         std::vector<const Move*> historic = c.rubik.getHistoric();
         int size = historic.size() - 3;
         size = size < 0 ? 0 : size;
-        for(int i = 0; i < size; i++) r.move(1, historic[i]);
+        for(int i = 0; i < size; i++) r.move(historic[i]);
         r.clearRestrictedMoves();
 
         BruteForce bf(4, r);
