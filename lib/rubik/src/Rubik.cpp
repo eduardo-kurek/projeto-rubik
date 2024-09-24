@@ -108,7 +108,10 @@ void Rubik::move(std::vector<const Move*> moves){
 
 void Rubik::move(const Move* mov){
     if(!canExecute(mov)) return;
-    doMove(mov);
+    if(mov->quantity == 1)
+        doSingleMove(mov);
+    else
+        doDoubleMove(mov);
     setupAfterMove(mov);
 }
 
@@ -117,11 +120,6 @@ bool Rubik::canExecute(const Move* mov) const{
     if(canForceMoves()) return true;
     if(!isMoveRestricted(mov)) return true;
     return false;
-}
-
-void Rubik::doMove(const Move* mov){
-    if(mov->quantity == 1) doSingleMove(mov);
-    else doDoubleMove(mov);
 }
 
 void Rubik::setupAfterMove(const Move* mov){
