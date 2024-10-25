@@ -8,7 +8,7 @@ Este projeto disponibiliza uma biblioteca para manipulação do cubo mágico, co
 # Dependências
 * GCC versão 11 ou superior, para utilização de concepts (-std=c++20);
 * libgomp instalada no G++ (openmp);
-* CMake versão <strong>3.5</strong>;
+* CMake versão <strong>3.28</strong>;
 * No projeto, o Makefile é utilizado como gerador, mas fique à vontade para usar qualquer uma suportada pelo CMake, basta alterar no arquivo `CMakePresets.json`;
 
 ## Compilação
