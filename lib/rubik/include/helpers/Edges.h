@@ -43,23 +43,5 @@ namespace Edges{
          */
         Edges::State compare(const Rubik& reference, const Rubik& source) const;
     };
-
-
-    extern const Edge* E1;
-    extern const Edge* E2;
-    extern const Edge* E3;
-    extern const Edge* E4;
-    extern const Edge* E5;
-    extern const Edge* E6;
-    extern const Edge* E7;
-    extern const Edge* E8;
-    extern const Edge* E9;
-    extern const Edge* E10;
-    extern const Edge* E11;
-    extern const Edge* E12;
-    extern const Edge* E13;
-    extern const Edge* E14;
-
-    extern const std::vector<const Edge*> EDGES;
-
+    
 }

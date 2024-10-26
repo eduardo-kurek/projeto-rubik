@@ -1,6 +1,7 @@
 #include "scores/basic-score/BasicScore.h"
 #include "helpers/Corners.h"
 #include "helpers/Edges.h"
+#include "helpers/Pieces.h"
 #include <math.h>
 #include <iomanip>
 #include <iostream>
