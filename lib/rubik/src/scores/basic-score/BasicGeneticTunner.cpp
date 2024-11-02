@@ -18,7 +18,6 @@ std::vector<BasicGeneticTunner::Chromosome> BasicGeneticTunner::crossover(Chromo
     Chromosome c1 = Chromosome(parent1.config);
     Chromosome c2 = Chromosome(parent2.config);
     std::swap(c1.config.edges, c2.config.corners);
-    std::swap(c1.config.synergy, c2.config.synergy);
     this->fitness(c1);
     this->fitness(c2);
 
@@ -42,7 +41,6 @@ void BasicGeneticTunner::mutate(Chromosome &r){
     int j = svc::Random::Int(0, 3);
     r.config.corners[i] = c.config.corners[i];
     r.config.edges[j] = c.config.edges[j];
-    r.config.randomize_synergy();
     fitness(r);
 }
 

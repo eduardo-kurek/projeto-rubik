@@ -12,10 +12,6 @@ class BasicScore : public Score<BasicConfig>{
 
     float getScoreByState(Corners::State state);
     float getScoreByState(Edges::State state);
-    
-    /* Conta quantas cores iguais há em cada face e faz 
-    uma conta quadrática para somar ao score final */
-    float calculate_face_synergy(const Rubik& source, float score);
 
 public:
     using _TConfig = BasicConfig;

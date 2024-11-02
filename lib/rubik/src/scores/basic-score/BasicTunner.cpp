@@ -12,6 +12,6 @@ BasicConfig BasicTunner::getConfig(std::vector<float>& values){
         edges[i] = values[i+4];
     }
 
-    BasicConfig cfg = BasicConfig(corners, edges, values[8]);
+    BasicConfig cfg = BasicConfig(corners, edges);
     return cfg;
 };

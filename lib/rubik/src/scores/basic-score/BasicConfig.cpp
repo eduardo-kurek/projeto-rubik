@@ -17,12 +17,6 @@ BasicConfig::BasicConfig(bool){
         (float)svc::Random::Int(array_bounds[0], array_bounds[1]),
         (float)svc::Random::Int(array_bounds[0], array_bounds[1]),
     };
-
-    this->synergy = svc::Random::Float(synergy_bounds[0], synergy_bounds[1]);
-}
-
-void BasicConfig::randomize_synergy(){
-    this->synergy = svc::Random::Float(synergy_bounds[0], synergy_bounds[1]);
 }
 
 std::string BasicConfig::toString(){
@@ -34,6 +28,5 @@ std::string BasicConfig::toString(){
     for(auto e : this->edges)
         oss << e << ", ";
     oss << "\b\b] ";
-    oss << this->synergy << std::endl;
     return oss.str();
 }

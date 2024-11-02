@@ -9,7 +9,7 @@ int main(){
     cfg1.print();
 
     // Configuração personalizada para teste
-    BasicConfig cfg2({3, 2, 1, 0}, {3, 2, 1, 0}, 0);
+    BasicConfig cfg2({3, 2, 1, 0}, {3, 2, 1, 0});
     cfg2.print();
 
     /* Score configurado para pontuar em relação ao cubo resolvido (default);
