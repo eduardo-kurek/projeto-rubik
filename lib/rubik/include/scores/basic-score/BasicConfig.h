@@ -30,7 +30,6 @@ public:
     BasicConfig() = default;
     BasicConfig(bool);
     BasicConfig(Array corners, Array edges, float synergy) : corners(corners), edges(edges), synergy(synergy){};
-    void print();
     void randomize_synergy();
     std::string toString();
     

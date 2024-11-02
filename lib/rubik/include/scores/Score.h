@@ -1,11 +1,8 @@
 #pragma once
 
-#include <cstdint>
-#include <iostream>
 #include "Rubik.h"
 #include "helpers/Corners.h"
 #include "helpers/Edges.h"
-#include <cstdio>
 
 template <class TConfig>
 class Score{
