@@ -5,62 +5,41 @@
 #include "Rubik.h"
 #include "helpers/Corners.h"
 #include "helpers/Edges.h"
+#include <optional>
+#include <array>
+#include <functional>
 
-class IScore{
+template <class TConfig>
+class Score{
 
+private:
+    float maxScore = 0;
+    
 protected:
-    /* Score máximo possível */
-    float maxScore;
-
-    /* Alvo da pontuação, em relação a qual objeto a pontuação será aplicada */
     Rubik target;
-
-public:
-    IScore(Rubik target) : target(target) {
-        this->maxScore = 44;
+    TConfig config;
+    void updateMaxScore(){
+        this->maxScore = calculate(this->target);
     }
 
-    /* Calcula a pontuação do source em relação ao target da classe */
+public:
+    Score(TConfig config, Rubik target)
+        : config(config), target(target){}
+
     virtual float calculate(const Rubik& source) = 0;
 
-    /**
-     * Calcula a pontuação normalizada, ou seja, uma porcentagem entre 0 a 100
-     * do quanto o cubo está resolvido em relação ao score máximo
-     */
-    virtual float calculateNormalized(const Rubik& source){
+    float calculateNormalized(const Rubik& source){
         float score = this->calculate(source) * 100;
         if(this->maxScore == 0) return score;
         return score / this->maxScore;
     }
 
-    /* Obtém o score máximo possível */
-    float getMaxScore() const{
+    void configurate(TConfig& config){
+        this->config = &config;
+        updateMaxScore();
+    }
+
+    float getMaxScore(){
         return maxScore;
     }
-
-};
-
-template <typename TConfig>
-class Score : public IScore{
-
-protected:
-    /* Configuração utilizada para realizar o cálculo */
-    TConfig config;
-
-public:
-
-    /* Construtor da classe, seta as propriedades necessárias */
-    Score(TConfig config, Rubik target) : IScore(target){
-        this->config = config;
-    }
-
-    /* Calcula a pontuação do source em relação ao target da classe */
-    virtual float calculate(const Rubik& source) = 0;
-
-    /* Define uma nova configuração */
-    void configurate(TConfig config){
-        this->config = config;
-        this->maxScore = calculate(this->target);
-    }
-
 };

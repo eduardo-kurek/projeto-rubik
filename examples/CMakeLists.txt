@@ -9,3 +9,6 @@ target_link_rubik_and_openmp(Rubik)
 
 add_executable(Score score_example.cpp)
 target_link_rubik_and_openmp(Score)
+
+add_executable(Teste teste.cpp)
+target_link_rubik_and_openmp(Teste)
