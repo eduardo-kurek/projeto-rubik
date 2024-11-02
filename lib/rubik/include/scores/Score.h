@@ -5,9 +5,7 @@
 #include "Rubik.h"
 #include "helpers/Corners.h"
 #include "helpers/Edges.h"
-#include <optional>
-#include <array>
-#include <functional>
+#include <cstdio>
 
 template <class TConfig>
 class Score{
@@ -35,7 +33,7 @@ public:
     }
 
     void configurate(TConfig& config){
-        this->config = &config;
+        this->config = config;
         updateMaxScore();
     }
 
